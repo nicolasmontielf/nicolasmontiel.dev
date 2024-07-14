@@ -1,5 +1,4 @@
 import PostItem from '@components/common/posts/Item.tsx'
-import type { PostList } from '@types'
 import { useState, useEffect } from 'preact/hooks'
 
 type Props = {

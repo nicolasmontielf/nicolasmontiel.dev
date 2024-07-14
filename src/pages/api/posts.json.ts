@@ -1,4 +1,3 @@
-import type { APIRoute } from 'astro';
 import { getMostPopularPosts, getAllPosts } from '@/services/devto.service';
 
 export async function GET({ url }: any) {
