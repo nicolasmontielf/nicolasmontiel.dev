@@ -30,16 +30,16 @@ const socialMediaItems = [
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo in soluta ipsa corrupti praesentium dolore quod. Atque veritatis autem, earum iusto nesciunt corporis veniam quisquam, est dignissimos reiciendis, aliquid tenetur.</p>
 
     <div>
-        <ul class="flex gap-3 align-middle">
+        <div class="flex gap-3 items-center">
             {
-                socialMediaItems.map((item, index) => {
+                socialMediaItems.map(item => {
                     return (
-                        <li>
-                            <img src={item.icon.src} class="w-6 h-auto" alt="" />
-                        </li>
+                        <a href={item.url} target="_blank">
+                            <img src={item.icon.src} class="w-5 h-auto" alt={`Icon for ${item.url}`} />
+                        </a>
                     )
                 })
             }
-        </ul>
+        </div>
     </div>
 </div>
