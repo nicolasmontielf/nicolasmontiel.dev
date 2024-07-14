@@ -1,28 +1,45 @@
 ---
+import devIcon from '@assets/icons/devto.svg';
+import linkedinIcon from '@assets/icons/linkedin.svg';
+import githubIcon from '@assets/icons/github.svg';
+import mailIcon from '@assets/icons/mail.svg';
+
 const socialMediaItems = [
     {
-        name: 'Twitter',
-        url: 'https://twitter.com/nico',
-        icon: 'twitter',
+        url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
+        icon: linkedinIcon,
     },
     {
-        name: 'Twitter',
-        url: 'https://twitter.com/nico',
-        icon: 'twitter',
+        url: 'https://github.com/nicolasmontielf',
+        icon: githubIcon,
+    },
+    {
+        url: 'https://dev.to/nicolasmontielf',
+        icon: devIcon,
+    },
+    {
+        url: 'mailto:nicolasmontielf@gmail.com',
+        icon: mailIcon,
     }
 ];
 ---
 
-<div class="md:w-2/3 w-full">
-    <h3>Hi, I'm Nico 👋🏻</h3>
+<div class="md:w-2/3 w-full flex flex-col gap-5">
+    <h3 class="text-4xl text-white">Hi, I'm Nico 👋🏻</h3>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo in soluta ipsa corrupti praesentium dolore quod. Atque veritatis autem, earum iusto nesciunt corporis veniam quisquam, est dignissimos reiciendis, aliquid tenetur.</p>
 
     <div>
-        <ul class="flex gap-1">
-            {socialMediaItems.map((item) => (
-              <li>{item.icon}</li>
-            ))}
+        <ul class="flex gap-3 align-middle">
+            {
+                socialMediaItems.map((item, index) => {
+                    return (
+                        <li>
+                            <img src={item.icon.src} class="w-6 h-auto" alt="" />
+                        </li>
+                    )
+                })
+            }
         </ul>
     </div>
 </div>
