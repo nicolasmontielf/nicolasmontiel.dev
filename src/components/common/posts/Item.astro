@@ -10,7 +10,7 @@ type Props = {
 const { post } = Astro.props; 
 
 function formatDate(date: string) {
-    return date.split('T')[0];
+    return new Date(date).toLocaleDateString();
 }
 
 function formatNumber(value: number) {
@@ -40,16 +40,16 @@ function formatNumber(value: number) {
 
         </div>
         
-        <h4 class="text-white text-xl my-1">
+        <h4 class="text-white text-2xl my-1">
             { post.title }
         </h4>
         
         <div class="flex gap-3">
-            {post.tag_list.map((tag: string) => <span class="text-xs text-rose-700 uppercase">{tag}</span>)}
+            {post.tag_list.map((tag: string) => <span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>)}
         </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-7">
         {post.description}
     </div>
 
