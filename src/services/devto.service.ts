@@ -2,7 +2,7 @@ import type { Post, PostList } from '@types'
 import DEVTO_RESPONSE from '@/data/devto.response.json'
 
 const isDev = import.meta.env.DEV;
-// const isDev = true;
+// const isDev = false;
 
 export function getLocalPosts(): PostList {
     return DEVTO_RESPONSE;
