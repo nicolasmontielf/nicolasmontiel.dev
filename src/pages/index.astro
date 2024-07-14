@@ -1,14 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Presentation from '@components/home/Presentation.astro';
+import LatestPosts from '@components/home/LatestPosts.astro';
 ---
 
 <Layout>
 	<section id="presentation-section">
         <Presentation />
-    </div>
+    </section>
 
-    <section id="latest-posts-section">
-        <h5>Latest posts</h5>
+    <section id="latest-posts-section" class="mt-16">
+        <LatestPosts />
     </section>
 </Layout>
