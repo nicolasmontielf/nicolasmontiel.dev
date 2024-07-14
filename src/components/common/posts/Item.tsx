@@ -18,7 +18,7 @@ function renderStats(icon: string, value: number) {
     return (
         <>
             <img src={icon} alt="" />
-            { formatNumber(value) }
+            <span className="text-sm">{ formatNumber(value) }</span>
         </>
     )
 }
@@ -29,7 +29,7 @@ function renderTags(tags: string[]) {
 
 export default function({ post }: Props) {
     return (
-        <div class="py-7 flex flex-col">
+        <div class="py-5 lg:py-7 flex flex-col">
             <div class="mb-3">
                 <div class="flex justify-between">
 
@@ -37,7 +37,7 @@ export default function({ post }: Props) {
                         { formatDate(post.published_at) }
                     </p>
 
-                    <div class="gap-3 flex">
+                    <div class="gap-3 flex mb-3">
                         <span class="flex gap-1">
                             { renderStats(EyeIcon.src, post.page_views_count) } 
                         </span>
