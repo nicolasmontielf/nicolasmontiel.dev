@@ -2,15 +2,15 @@ import PostItem from '@components/common/posts/Item.tsx'
 import { useState, useEffect } from 'preact/hooks'
 
 type Props = {
-    latest?: boolean
+    popular?: boolean
     page?: number
     perPage?: number
 }
 
-export default function({ latest, page, perPage }: Props) {
+export default function({ popular, page, perPage }: Props) {
     const [posts, setValue] = useState([]);
     const [loading, setLoading] = useState(true);
-    const url = latest ? '/api/posts.json?latest' : `/api/posts.json?page=${page}&perPage=${perPage}`
+    const url = popular ? '/api/posts.json?popular' : `/api/posts.json?page=${page}&perPage=${perPage}`
 
     useEffect(() => {
         setLoading(true)

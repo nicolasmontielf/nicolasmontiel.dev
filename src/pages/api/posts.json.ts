@@ -4,9 +4,9 @@ import { getMostPopularPosts, getAllPosts } from '@/services/devto.service';
 export async function GET({ url }: any) {
     const searchParams = url.searchParams;
 
-    // Latest posts
-    if (searchParams.has('latest')) {
-        console.log('Getting latest posts');
+    // Most popular posts
+    if (searchParams.has('popular')) {
+        console.log('Getting popular posts');
         const posts = await getMostPopularPosts();
         return new Response(JSON.stringify(posts), {
             status: 200,
