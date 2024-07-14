@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostsList from '@components/common/posts/List.tsx'
+---
+
+<Layout>
+    <div class="w-full">
+        <div class="flex justify-between">
+            <h5 class="text-xl text-white font-semibold mb-6">Latest posts</h5>
+        </div>
+        
+        <div class="w-full">
+            <PostsList
+                withPagination
+                client:only="preact"
+            />
+        </div>
+    
+        <div class="w-full mt-5 text-right">
+            
+        </div>
+    </div>
+</Layout>
