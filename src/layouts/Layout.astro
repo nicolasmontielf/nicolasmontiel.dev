@@ -1,6 +1,5 @@
 ---
 import Navbar from '@components/layout/Navbar.astro';
-import Footer from '@components/layout/Footer.astro';
 
 import '@fontsource-variable/space-grotesk';
 ---
@@ -15,7 +14,8 @@ import '@fontsource-variable/space-grotesk';
 		<meta name="generator" content={Astro.generator} />
 		<title>Nicolas Montiel</title>
 	</head>
-	<body class="max-w-screen-lg mx-auto bg-neutral-950 text-zinc-400">
+
+	<body class="max-w-screen-lg mx-auto bg-neutral-950 text-zinc-400 mb-40">
         <div class="mb-5">
             <Navbar />
         </div>
@@ -24,8 +24,5 @@ import '@fontsource-variable/space-grotesk';
             <slot />
         </main>
 
-        <footer>
-            <Footer />
-        </footer>
 	</body>
 </html>
