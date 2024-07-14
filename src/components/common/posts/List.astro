@@ -1,0 +1,22 @@
+---
+import PostItem from '@components/common/posts/Item.astro'
+
+const { posts } = Astro.props;
+
+type Props = {
+    posts: any[]
+}
+---
+
+<div class="w-full">
+    {
+        posts.map(post => {
+            return (
+                <div>
+                    <hr class="border-zinc-300" />
+                    <PostItem post={post} />
+                </div>
+            )
+        })
+    }
+</div>

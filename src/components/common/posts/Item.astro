@@ -1,0 +1,51 @@
+---
+import EyeIcon from '@assets/icons/eye.svg';
+import HeartIcon from '@assets/icons/heart.svg';
+
+type Props = {
+    post: any
+}
+
+const { post } = Astro.props; 
+
+function formatDate(date: string) {
+    return date.split('T')[0];
+}
+---
+
+<div class="py-7 flex flex-col">
+    <div class="mb-3">
+        <div class="flex justify-between">
+            <p class="text-sm">{ formatDate(post.published_at) }</p>
+            <div class="gap-2 flex">
+                <span class="flex gap-1">
+                    <img src={EyeIcon.src} alt="">
+                    {post.page_views_count}
+                </span>
+                <span class="flex gap-1">
+                    <img src={HeartIcon.src} alt="">
+                    {post.public_reactions_count}
+                </span>
+            </div>
+        </div>
+        <h4 class="text-white text-xl my-1">{ post.title }</h4>
+        
+        <div class="flex gap-3">
+            {
+                post.tag_list.map((tag: string) => {
+                    return (
+                        <span class="text-xs text-rose-700 uppercase">{tag}</span>
+                    )
+                })
+            }
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {post.body_markdown?.substring(0, 300)} ...
+    </div>
+
+    <div>
+        <a class="text-rose-700" href={post.canonical_url}>Read more</a>
+    </div>
+</div>
