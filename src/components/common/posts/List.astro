@@ -1,10 +1,11 @@
 ---
 import PostItem from '@components/common/posts/Item.astro'
+import type { PostList } from '@types'
 
 const { posts } = Astro.props;
 
 type Props = {
-    posts: any[]
+    posts: PostList
 }
 ---
 

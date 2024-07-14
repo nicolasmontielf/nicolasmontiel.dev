@@ -1,0 +1,23 @@
+---
+import PostsList from '@components/common/posts/List.astro'
+import type { Post, PostList } from '@types'
+
+const response = await fetch('https://www.dev.to/api/articles/me?page=1&per_page=20', {
+    headers: {
+        'api-key': import.meta.env.DEVTO_APIKEY
+    },
+});
+const data: PostList = await response.json();
+
+const posts = data.sort((a: Post, b: Post) => {
+    return b.page_views_count - a.page_views_count
+}).slice(0, 5);
+
+---
+<div class="w-full">
+    <h5 class="text-xl text-white font-semibold mb-6">Latest posts</h5>
+    
+    <div class="w-full">
+        <PostsList posts={posts} />
+    </div>
+</div>
