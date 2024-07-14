@@ -1,0 +1,28 @@
+---
+const socialMediaItems = [
+    {
+        name: 'Twitter',
+        url: 'https://twitter.com/nico',
+        icon: 'twitter',
+    },
+    {
+        name: 'Twitter',
+        url: 'https://twitter.com/nico',
+        icon: 'twitter',
+    }
+];
+---
+
+<div class="md:w-2/3 w-full">
+    <h3>Hi, I'm Nico 👋🏻</h3>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo in soluta ipsa corrupti praesentium dolore quod. Atque veritatis autem, earum iusto nesciunt corporis veniam quisquam, est dignissimos reiciendis, aliquid tenetur.</p>
+
+    <div>
+        <ul class="flex gap-1">
+            {socialMediaItems.map((item) => (
+              <li>{item.icon}</li>
+            ))}
+        </ul>
+    </div>
+</div>
