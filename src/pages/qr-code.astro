@@ -1,6 +1,6 @@
 ---
 const redirectUrl = import.meta.env.QR_REDIRECT;
 if (redirectUrl) {
-    Astro.redirect(redirectUrl);
+    return Astro.redirect(redirectUrl);
 }
 ---
