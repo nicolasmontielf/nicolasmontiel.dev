@@ -1,8 +1,6 @@
 ---
-import PostsList from '@components/common/posts/List.astro'
-import { getMostPopularPosts } from '@/services/devto.service'
+import PostsList from '@components/common/posts/List.tsx'
 
-const posts = await getMostPopularPosts()
 ---
 <div class="w-full">
     <div class="flex justify-between">
@@ -11,7 +9,10 @@ const posts = await getMostPopularPosts()
     </div>
     
     <div class="w-full">
-        <PostsList posts={posts} />
+        <PostsList
+            latest
+            client:only="preact"
+        />
     </div>
 
     <div class="w-full mt-5 text-right">
