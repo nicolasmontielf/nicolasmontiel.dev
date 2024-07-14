@@ -12,6 +12,10 @@ const { post } = Astro.props;
 function formatDate(date: string) {
     return date.split('T')[0];
 }
+
+function formatNumber(value: number) {
+    return value.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 ---
 
 <div class="py-7 flex flex-col">
@@ -26,11 +30,11 @@ function formatDate(date: string) {
             <div class="gap-3 flex">
                 <span class="flex gap-1">
                     <img src={EyeIcon.src} alt="">
-                    { post.page_views_count }
+                    { formatNumber(post.page_views_count) }
                 </span>
                 <span class="flex gap-1">
                     <img src={HeartIcon.src} alt="">
-                    { post.public_reactions_count }
+                    { formatNumber(post.public_reactions_count) }
                 </span>
             </div>
 
@@ -55,7 +59,7 @@ function formatDate(date: string) {
             href={post.url}
             target="_blank"
         >
-            Read more
+            Read more →
         </a>
     </div>
 </div>
