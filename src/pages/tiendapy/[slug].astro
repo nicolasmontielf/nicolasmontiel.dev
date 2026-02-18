@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTiendapyPostBySlug, renderMarkdown } from '@/lib/tiendapy';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const post = slug ? await getTiendapyPostBySlug(slug) : null;
+
+if (!post) {
+	throw new Response('Not found', { status: 404 });
+}
+
+const html = await renderMarkdown(post.content_markdown);
+---
+
+<Layout
+	title={post.title}
+	description={post.excerpt || `Post de TiendaPy: ${post.title}.`}
+	canonical={`https://www.nicolasmontiel.dev/tiendapy/${post.slug}`}
+>
+	<article class="flex flex-col gap-5">
+		<header class="flex flex-col gap-3">
+			<p class="text-sm text-rose-700 uppercase">TiendaPy</p>
+			<h1 class="text-4xl text-white">{post.title}</h1>
+			<div class="flex flex-wrap gap-4 text-sm">
+				<span>{new Date(post.published_at).toLocaleDateString()}</span>
+				<span>{post.reading_time_minutes} min read</span>
+			</div>
+			{post.tags.length > 0 && (
+				<div class="flex gap-3">
+					{post.tags.map(tag => (
+						<span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>
+					))}
+				</div>
+			)}
+		</header>
+
+		{post.excerpt && <p class="text-lg">{post.excerpt}</p>}
+
+		<section class="tiendapy-content text-zinc-300 leading-7">
+			<div set:html={html} />
+		</section>
+	</article>
+
+	<style>
+		.tiendapy-content :global(h2) {
+			margin-top: 2rem;
+			margin-bottom: 0.75rem;
+			font-size: 1.5rem;
+			font-weight: 600;
+			color: #ffffff;
+		}
+
+		.tiendapy-content :global(h3) {
+			margin-top: 1.5rem;
+			margin-bottom: 0.5rem;
+			font-size: 1.25rem;
+			font-weight: 600;
+			color: #ffffff;
+		}
+
+		.tiendapy-content :global(p) {
+			margin-bottom: 1rem;
+		}
+
+		.tiendapy-content :global(ul),
+		.tiendapy-content :global(ol) {
+			margin: 1rem 0 1.5rem;
+			padding-left: 1.5rem;
+		}
+
+		.tiendapy-content :global(li) {
+			margin-bottom: 0.5rem;
+		}
+
+		.tiendapy-content :global(a) {
+			color: #be123c;
+		}
+
+		.tiendapy-content :global(pre) {
+			background: #0f172a;
+			padding: 1rem;
+			border-radius: 0.75rem;
+			overflow-x: auto;
+		}
+
+		.tiendapy-content :global(code) {
+			color: #fca5a5;
+		}
+	</style>
+</Layout>

@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTiendapyPosts } from '@/lib/tiendapy';
+
+const posts = await getTiendapyPosts({ limit: 10 });
+---
+
+<Layout
+	title="TiendaPy"
+	description="Notas y novedades sobre TiendaPy, con aprendizajes y decisiones técnicas del proyecto."
+	canonical="https://www.nicolasmontiel.dev/tiendapy"
+>
+	<section class="flex flex-col gap-5">
+		<h3 class="text-4xl text-white">TiendaPy</h3>
+		<p>
+			Este espacio reúne los aprendizajes, decisiones técnicas y avances del proyecto TiendaPy.
+			La idea es dejar documentado lo que funciona, lo que no y por qué tomamos cada camino.
+		</p>
+		<p>
+			Si estás siguiendo el proyecto, acá vas a encontrar notas de arquitectura, releases, mejoras de producto
+			y todo lo que ayuda a entender la evolución del producto.
+		</p>
+	</section>
+
+	<section class="mt-16">
+		<div class="flex justify-between items-center mb-6">
+			<h5 class="text-xl text-white font-semibold">Últimos posts</h5>
+		</div>
+
+		{posts.length === 0 ? (
+			<p>No hay posts publicados todavía.</p>
+		) : (
+			<div class="w-full">
+				{posts.map(post => (
+					<div class="py-5 lg:py-7 flex flex-col">
+						<div class="mb-3">
+							<div class="flex justify-between">
+								<p class="text-sm">{new Date(post.published_at).toLocaleDateString()}</p>
+								<span class="text-sm text-rose-700">{post.reading_time_minutes} min read</span>
+							</div>
+
+							<h4 class="text-white text-2xl my-1">{post.title}</h4>
+
+							{post.tags.length > 0 && (
+								<div class="flex gap-3">
+									{post.tags.map(tag => (
+										<span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>
+									))}
+								</div>
+							)}
+						</div>
+
+						{post.excerpt && <div class="mb-7">{post.excerpt}</div>}
+
+						<div>
+							<a class="text-rose-700" href={`/tiendapy/${post.slug}`}>
+								Leer más →
+							</a>
+						</div>
+						<hr class="border-zinc-300 mt-7" />
+					</div>
+				))}
+			</div>
+		)}
+	</section>
+</Layout>
