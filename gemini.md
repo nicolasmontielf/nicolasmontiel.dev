@@ -28,6 +28,7 @@ El proyecto utiliza `@libsql/client` para interactuar con Turso. Las variables d
 Para ejecutar el proyecto localmente:
 
 ```bash
+nvm use 20
 npm install
 npm run dev
 ```

@@ -15,7 +15,7 @@
         "@astrojs/tailwind": "^6.0.2",
         "@astrojs/vercel": "^9.0.4",
         "@fontsource-variable/space-grotesk": "^5.0.18",
-        "@libsql/client": "^0.7.0",
+        "@libsql/client": "^0.17.0",
         "astro": "^5.17.2",
         "marked": "^12.0.2",
         "preact": "^10.22.1",
