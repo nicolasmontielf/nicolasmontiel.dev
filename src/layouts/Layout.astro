@@ -2,33 +2,41 @@
 import Navbar from '@components/layout/Navbar.astro';
 import '@fontsource-variable/space-grotesk';
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Hi!, My name is Nico and I'm software engineer.",
+	canonical,
+	ogImage = 'https://www.nicolasmontiel.dev/img/profile.png',
+} = Astro.props;
+
+const pageTitle = title ? `${title} | Nicolás Montiel` : 'Home | Nicolás Montiel';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Hi!, My name is Nico and I'm software engineer." />
+		<meta name="description" content={description} />
         <meta name="author" content="Nicolás Montiel" />
         <meta name="viewport" content="width=device-width" />
 
         <!-- Facebook meta tags -->
-        <meta property="og:title" content="Nicolás Montiel &mdash; Software Engineer"/>
-		<meta property="og:image" content="https://www.nicolasmontiel.dev/img/profile.png"/>
-		<meta property="og:url" content="https://www.nicolasmontiel.dev"/>
+        <meta property="og:title" content={pageTitle} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonical || 'https://www.nicolasmontiel.dev'} />
 		<meta property="og:site_name" content="Nicolás Montiel &mdash; Software Engineer"/>
-		<meta property="og:description" content="Hi!, My name is Nico and I'm Software Engineer."/>
+		<meta property="og:description" content={description} />
 
         <!-- Twitter meta tags -->
-		<meta name="twitter:title" content="Nicolás Montiel &mdash; Software Engineer" />
-		<meta name="twitter:image" content="https://www.nicolasmontiel.dev/img/profile.png" />
-		<meta name="twitter:url" content="https://www.nicolasmontiel.dev" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:url" content={canonical || 'https://www.nicolasmontiel.dev'} />
 
-		
+		{canonical && <link rel="canonical" href={canonical} />}
+		<slot name="head" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title || 'Home'} | Nicolás Montiel</title>
+		<title>{pageTitle}</title>
 	</head>
 
 	<body class="max-w-screen-lg lg:px-0 px-3 mx-auto bg-neutral-950 text-zinc-400 mb-40">
