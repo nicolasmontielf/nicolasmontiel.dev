@@ -10,26 +10,24 @@ const posts = await getTiendapyPosts({ limit: 10 });
 	description="Notas y novedades sobre TiendaPy, con aprendizajes y decisiones técnicas del proyecto."
 	canonical="https://www.nicolasmontiel.dev/tiendapy"
 >
-	<section class="flex flex-col gap-5">
-		<h3 class="text-3xl text-white text-center">
-            <b>TiendaPy</b>: Crónicas de un SaaS en Paraguay (Build in Public)
-        </h3>
+	<section class="flex flex-col gap-8 py-10">
+		<h1 class="text-5xl text-slate-900 font-extrabold tracking-tight">
+            TiendaPy<span class="text-indigo-600">:</span> <br />Crónicas de un SaaS en Paraguay
+        </h1>
 
-        <div class="space-y-4">
-            <p>
-                ¡Buenas! Si llegaste hasta acá, es porque te interesa ver cómo se construye un producto desde las trincheras (?).
+            <p class="text-lg text-slate-600">
+                ¡Buenas! Si llegaste hasta acá, es porque te interesa ver cómo se construye un producto desde las trincheras.
             </p>
 
-            <p>
-                <b>¿Qué es TiendaPy?</b> <br />
-                Es mi apuesta para digitalizar el comercio local. No es otro clon de Shopify; es una plataforma SaaS diseñada exclusivamente para el mercado paraguayo. El foco es que cualquier emprendedor o empresa de acá pueda gestionar su e-commerce de forma eficiente, sin tener que estresarse por cosas que no necesita.
-            </p>
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl">
+                <p class="text-slate-900 font-semibold mb-2 text-xl">¿Qué es TiendaPy?</p>
+                <p class="text-slate-700 leading-relaxed">
+                    Es mi apuesta para digitalizar el comercio local. No es otro clon de Shopify; es una plataforma SaaS diseñada exclusivamente para el mercado paraguayo. El foco es que cualquier emprendedor o empresa pueda gestionar su e-commerce de forma eficiente.
+                </p>
+            </div>
 
-            <p>
-                <b>¿Por qué escribo esto?</b> <br />
+            <p class="text-slate-600 leading-relaxed italic">
                 Soy ingeniero de software con casi 8 años de experiencia, pero esta es mi primera vez emprendiendo. Sé tirar líneas de código, pero estoy aprendiendo a vender, a mercadear y a entender qué quiere el usuario paraguayo.
-
-                Acá vas a encontrar el relato diario de los desafíos, las dudas existenciales y las funciones que agregué (y por qué).
             </p>
 
             <p>
@@ -50,43 +48,45 @@ const posts = await getTiendapyPosts({ limit: 10 });
         </div>
 	</section>
 
-	<section class="mt-16">
-		<div class="flex justify-between items-center mb-6">
-			<h5 class="text-xl text-white font-semibold">Últimos posts</h5>
+	<section class="mt-20">
+		<div class="flex justify-between items-center mb-10">
+			<h2 class="text-3xl text-slate-900 font-bold">Bitácora de desarrollo</h2>
 		</div>
 
 		{posts.length === 0 ? (
-			<p>No hay posts publicados todavía.</p>
+			<p class="text-slate-500">No hay posts publicados todavía.</p>
 		) : (
-			<div class="w-full">
+			<div class="grid gap-12">
 				{posts.map(post => (
-					<div class="py-5 lg:py-7 flex flex-col">
-						<div class="mb-3">
-							<div class="flex justify-between">
-								<p class="text-sm">{new Date(post.published_at).toLocaleDateString()}</p>
-								<span class="text-sm text-rose-700">{post.reading_time_minutes} min read</span>
-							</div>
-
-							<h4 class="text-white text-2xl my-1">{post.title}</h4>
-
-							{post.tags.length > 0 && (
-								<div class="flex gap-3">
-									{post.tags.map(tag => (
-										<span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>
-									))}
-								</div>
-							)}
+					<article class="group relative flex flex-col gap-4">
+						<div class="flex items-center gap-4 text-sm font-medium">
+							<time class="text-slate-500">{new Date(post.published_at).toLocaleDateString()}</time>
+							<span class="w-1 h-1 rounded-full bg-slate-300"></span>
+							<span class="text-indigo-600">{post.reading_time_minutes} min read</span>
 						</div>
 
-						{post.excerpt && <div class="mb-7">{post.excerpt}</div>}
+						<h3 class="text-2xl text-slate-900 font-bold group-hover:text-indigo-600 transition-colors">
+                            <a href={`/tiendapy/${post.slug}`}>
+                                {post.title}
+                            </a>
+                        </h3>
 
-						<div>
-							<a class="text-rose-700" href={`/tiendapy/${post.slug}`}>
-								Leer más →
+						{post.tags.length > 0 && (
+							<div class="flex gap-2">
+								{post.tags.map(tag => (
+									<span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600 font-bold uppercase tracking-wider">{tag}</span>
+								))}
+							</div>
+						)}
+
+						{post.excerpt && <p class="text-slate-600 leading-relaxed text-sm lg:text-base line-clamp-3">{post.excerpt}</p>}
+
+						<div class="pt-2">
+							<a class="text-indigo-600 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all" href={`/tiendapy/${post.slug}`}>
+								Seguir leyendo <span>→</span>
 							</a>
 						</div>
-						<hr class="border-zinc-300 mt-7" />
-					</div>
+					</article>
 				))}
 			</div>
 		)}

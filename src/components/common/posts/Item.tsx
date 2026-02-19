@@ -24,52 +24,50 @@ function renderStats(icon: string, value: number) {
 }
 
 function renderTags(tags: string[]) {
-    return tags.map((tag: string) => <span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>)
+    return tags.map((tag: string) => <span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600 font-bold uppercase tracking-wider">{tag}</span>)
 }
 
 export default function({ post }: Props) {
     return (
-        <div class="py-5 lg:py-7 flex flex-col">
-            <div class="mb-3">
-                <div class="flex justify-between">
-
-                    <p class="text-sm">
+        <article class="py-8 group border-b border-slate-100 last:border-0">
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <time class="text-sm font-medium text-slate-500">
                         { formatDate(post.published_at) }
-                    </p>
+                    </time>
 
-                    <div class="gap-3 flex mb-3">
-                        <span class="flex gap-1">
+                    <div class="flex items-center gap-4 text-slate-400">
+                        <span class="flex items-center gap-1.5 grayscale opacity-60">
                             { renderStats(EyeIcon.src, post.page_views_count) } 
                         </span>
-                        <span class="flex gap-1">
+                        <span class="flex items-center gap-1.5 grayscale opacity-60">
                             { renderStats(HeartIcon.src, post.public_reactions_count) } 
                         </span>
                     </div>
-
                 </div>
                 
-                <h4 class="text-white text-2xl my-1">
-                    { post.title }
+                <h4 class="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 leading-tight">
+                    <a href={post.url} target="_blank">{ post.title }</a>
                 </h4>
                 
-                <div class="flex gap-3">
+                <div class="flex flex-wrap gap-2">
                     { renderTags(post.tag_list) }
                 </div>
             </div>
 
-            <div class="mb-7">
+            <p class="text-slate-600 mb-6 leading-relaxed">
                 {post.description}
-            </div>
+            </p>
 
             <div>
                 <a
-                    class="text-rose-700"
+                    class="text-indigo-600 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
                     href={post.url}
                     target="_blank"
                 >
-                    Read more →
+                    Read more <span>→</span>
                 </a>
             </div>
-        </div>
+        </article>
     )
 }

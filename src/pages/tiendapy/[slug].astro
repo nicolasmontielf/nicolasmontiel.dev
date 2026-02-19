@@ -19,74 +19,101 @@ const html = await renderMarkdown(post.content_markdown);
 	description={post.excerpt || `Post de TiendaPy: ${post.title}.`}
 	canonical={`https://www.nicolasmontiel.dev/tiendapy/${post.slug}`}
 >
-	<article class="flex flex-col gap-5">
-		<header class="flex flex-col gap-3">
-			<p class="text-sm text-rose-700 uppercase">TiendaPy</p>
-			<h1 class="text-4xl text-white">{post.title}</h1>
-			<div class="flex flex-wrap gap-4 text-sm">
-				<span>{new Date(post.published_at).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-				<span>{post.reading_time_minutes} min read</span>
+	<article class="flex flex-col gap-10 py-10">
+		<header class="flex flex-col gap-6 border-b border-slate-200 pb-10">
+			<nav class="flex items-center gap-2 text-sm">
+                <a href="/tiendapy" class="text-indigo-600 font-medium hover:underline">TiendaPy</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-500">Post</span>
+            </nav>
+			<h1 class="text-6xl text-slate-900 font-extrabold tracking-tight leading-[1.1]">{post.title}</h1>
+			<div class="flex items-center gap-6 text-sm font-medium">
+				<time class="text-slate-500">{new Date(post.published_at).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+				<span class="w-1.5 h-1.5 rounded-full bg-slate-200"></span>
+                <span class="text-indigo-600 font-semibold">{post.reading_time_minutes} min read</span>
 			</div>
 			{post.tags.length > 0 && (
-				<div class="flex gap-3">
+				<div class="flex gap-2">
 					{post.tags.map(tag => (
-						<span class="text-xs text-rose-700 opacity-95 uppercase">{tag}</span>
+						<span class="px-2.5 py-1 rounded-md text-[10px] bg-slate-100 text-slate-600 font-bold uppercase tracking-widest">{tag}</span>
 					))}
 				</div>
 			)}
 		</header>
 
-		{post.excerpt && <p class="text-lg">{post.excerpt}</p>}
+		{post.excerpt && <p class="text-2xl text-slate-500 font-medium leading-relaxed italic border-l-4 border-indigo-100 pl-6">{post.excerpt}</p>}
 
-		<section class="tiendapy-content text-zinc-300 leading-7">
+		<section class="tiendapy-content text-slate-700 leading-relaxed text-lg max-w-none">
 			<div set:html={html} />
 		</section>
 	</article>
 
 	<style>
 		.tiendapy-content :global(h2) {
-			margin-top: 2rem;
-			margin-bottom: 0.75rem;
-			font-size: 1.5rem;
-			font-weight: 600;
-			color: #ffffff;
+			margin-top: 3rem;
+			margin-bottom: 1.5rem;
+			font-size: 2.25rem;
+			font-weight: 800;
+			color: #0f172a;
+            letter-spacing: -0.025em;
 		}
 
 		.tiendapy-content :global(h3) {
-			margin-top: 1.5rem;
-			margin-bottom: 0.5rem;
-			font-size: 1.25rem;
-			font-weight: 600;
-			color: #ffffff;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: #1e293b;
 		}
 
 		.tiendapy-content :global(p) {
-			margin-bottom: 1rem;
+			margin-bottom: 1.5rem;
 		}
 
 		.tiendapy-content :global(ul),
 		.tiendapy-content :global(ol) {
-			margin: 1rem 0 1.5rem;
-			padding-left: 1.5rem;
+			margin: 1.5rem 0 2rem;
+			padding-left: 1.75rem;
 		}
 
 		.tiendapy-content :global(li) {
-			margin-bottom: 0.5rem;
+			margin-bottom: 0.75rem;
 		}
 
 		.tiendapy-content :global(a) {
-			color: #be123c;
+			color: #4f46e5;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            font-weight: 500;
 		}
 
 		.tiendapy-content :global(pre) {
-			background: #0f172a;
-			padding: 1rem;
-			border-radius: 0.75rem;
+			background: #f8fafc;
+            border: 1px solid #e2e8f0;
+			padding: 1.5rem;
+			border-radius: 1rem;
 			overflow-x: auto;
+            margin: 2rem 0;
 		}
 
 		.tiendapy-content :global(code) {
-			color: #fca5a5;
+			color: #4338ca;
+            font-size: 0.9em;
+            background: #eef2ff;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
 		}
+
+        .tiendapy-content :global(pre code) {
+            background: transparent;
+            padding: 0;
+            color: #1e293b;
+        }
+
+        .tiendapy-content :global(strong) {
+            color: #0f172a;
+            font-weight: 700;
+        }
 	</style>
 </Layout>
