@@ -24,7 +24,7 @@ const html = await renderMarkdown(post.content_markdown);
 			<p class="text-sm text-rose-700 uppercase">TiendaPy</p>
 			<h1 class="text-4xl text-white">{post.title}</h1>
 			<div class="flex flex-wrap gap-4 text-sm">
-				<span>{new Date(post.published_at).toLocaleDateString()}</span>
+				<span>{new Date(post.published_at).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
 				<span>{post.reading_time_minutes} min read</span>
 			</div>
 			{post.tags.length > 0 && (
