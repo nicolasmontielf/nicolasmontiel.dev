@@ -28,9 +28,9 @@ const socialMediaItems = [
     <h3 class="text-5xl text-slate-900 font-bold tracking-tight">Hi, I'm Nico 👋🏻</h3>
 
     <p class="text-lg leading-relaxed text-slate-600">
-        Software Engineer with over 6 years of experience building web applications. I specialize in building robust solutions with <span class="text-slate-900 font-medium">Laravel</span> and <span class="text-slate-900 font-medium">TypeScript</span>.
+        Software Engineer with over 7 years of experience building web applications. I specialize in building robust solutions with <span class="text-slate-900 font-medium">Laravel, Vue, Node</span> and <span class="text-slate-900 font-medium">TypeScript</span>.
         <br /><br />
-        Beyond the terminal, I'm passionate about video games, cinema, and deep conversations about technology's impact on our world. Currently, I'm exploring new opportunities and working on <a href="/tiendapy" class="text-indigo-600 font-medium border-b border-indigo-200 hover:border-indigo-600 transition-all">TiendaPy</a>, my project to empower local commerce.
+        Beyond the terminal, I'm passionate about video games, cinema, and spending time with my wife and family. Currently, I'm exploring new opportunities and working on <a href="/tiendapy" class="text-indigo-600 font-medium border-b border-indigo-200 hover:border-indigo-600 transition-all">TiendaPy</a>, my project to empower local commerce.
     </p>
 
     <div>
@@ -38,8 +38,20 @@ const socialMediaItems = [
             {
                 socialMediaItems.map(item => {
                     return (
-                        <a href={item.url} target="_blank">
-                            <img src={item.icon.src} class="w-5 h-auto" alt={`Icon for ${item.url}`} />
+                        <a href={item.url} target="_blank" class="group">
+                            <div 
+                                class="w-5 h-5 bg-slate-400 group-hover:bg-indigo-600 transition-colors cursor-pointer"
+                                style={`
+                                    mask-image: url(${item.icon.src}); 
+                                    -webkit-mask-image: url(${item.icon.src});
+                                    mask-size: contain; 
+                                    -webkit-mask-size: contain;
+                                    mask-repeat: no-repeat;
+                                    -webkit-mask-repeat: no-repeat;
+                                    mask-position: center;
+                                    -webkit-mask-position: center;
+                                `}
+                            />
                         </a>
                     )
                 })
