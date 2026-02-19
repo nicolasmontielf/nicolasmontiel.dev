@@ -60,7 +60,9 @@ const posts = await getTiendapyPosts({ limit: 10 });
 				{posts.map(post => (
 					<article class="group relative flex flex-col gap-4">
 						<div class="flex items-center gap-4 text-sm font-medium">
-							<time class="text-slate-500">{new Date(post.published_at).toLocaleDateString()}</time>
+							<time class="text-slate-500">
+                                {new Date(post.published_at).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' })}
+                            </time>
 							<span class="w-1 h-1 rounded-full bg-slate-300"></span>
 							<span class="text-indigo-600">{post.reading_time_minutes} min read</span>
 						</div>
