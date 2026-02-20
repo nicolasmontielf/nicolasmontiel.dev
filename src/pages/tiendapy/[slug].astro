@@ -26,7 +26,7 @@ const html = await renderMarkdown(post.content_markdown);
                 <span class="text-slate-300">/</span>
                 <span class="text-slate-500">Post</span>
             </nav>
-			<h1 class="text-6xl text-slate-900 font-extrabold tracking-tight leading-[1.1]">{post.title}</h1>
+			<h1 class="text-3xl md:text-4xl text-slate-900 font-extrabold tracking-tight leading-[1.1]">{post.title}</h1>
 			<div class="flex items-center gap-6 text-sm font-medium">
 				<time class="text-slate-500">{new Date(post.published_at).toLocaleDateString('es-PY', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
 				<span class="w-1.5 h-1.5 rounded-full bg-slate-200"></span>
@@ -41,9 +41,9 @@ const html = await renderMarkdown(post.content_markdown);
 			)}
 		</header>
 
-		{post.excerpt && <p class="text-2xl text-slate-500 font-medium leading-relaxed italic border-l-4 border-indigo-100 pl-6">{post.excerpt}</p>}
+		{post.excerpt && <p class="text-lg md:text-2xl text-slate-500 font-medium leading-relaxed italic border-l-4 border-indigo-100 pl-6">{post.excerpt}</p>}
 
-		<section class="tiendapy-content text-slate-700 leading-relaxed text-lg max-w-none">
+		<section class="tiendapy-content text-slate-700 leading-relaxed text-base max-w-none">
 			<div set:html={html} />
 		</section>
 	</article>
