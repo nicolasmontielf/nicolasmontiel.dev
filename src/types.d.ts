@@ -12,16 +12,3 @@ export interface Post {
 }
 
 export type PostList = Post[]
-
-export interface TiendapyPost {
-	id: number
-	slug: string
-	title: string
-	excerpt: string
-	content_markdown: string
-	published_at: string
-	tags: string[]
-	reading_time_minutes: number
-}
-
-export type TiendapyPostList = TiendapyPost[]
