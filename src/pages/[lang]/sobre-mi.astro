@@ -11,12 +11,16 @@ if (!lang || !isLocale(lang)) {
 	throw new Response('Not found', { status: 404 });
 }
 
+if (lang === 'en') {
+	return Astro.redirect('/en/about-me');
+}
+
 const messages = getMessages(lang);
 ---
 
-<Layout locale={lang}>
+<Layout locale={lang} title="Sobre mí">
 	<section id="presentation-section">
-        <Presentation locale={lang} variant="pro" greeting={messages.home.greeting} />
+        <Presentation locale={lang} variant="freelancer" greeting={messages.home.greeting} />
     </section>
 
     <section id="certifications-home-section">

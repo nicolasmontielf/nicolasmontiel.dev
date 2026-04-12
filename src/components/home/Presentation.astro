@@ -3,16 +3,22 @@ import devIcon from '@assets/icons/devto.svg';
 import linkedinIcon from '@assets/icons/linkedin.svg';
 import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
-import PresentationBodyEs from '@components/home/PresentationBody.es.astro';
-import PresentationBodyEn from '@components/home/PresentationBody.en.astro';
 import type { Locale } from '@/i18n/locales';
+import PresentationBodyProEn from '@components/home/PresentationBodyPro.en.astro';
+import PresentationBodyFreelancerEn from '@components/home/PresentationBodyFreelancer.en.astro';
+import PresentationBodyProEs from '@components/home/PresentationBodyPro.es.astro';
+import PresentationBodyFreelancerEs from '@components/home/PresentationBodyFreelancer.es.astro';
 
 type Props = {
 	locale: Locale;
+	variant: 'pro' | 'freelancer';
 	greeting: string;
 };
 
-const { locale, greeting } = Astro.props as Props;
+const { locale, variant, greeting } = Astro.props as Props;
+
+const isSpanish = locale === 'es';
+const isFreelancer = variant === 'freelancer';
 
 const socialMediaItems = [
     {
@@ -39,7 +45,9 @@ const socialMediaItems = [
 		<h3 class="text-6xl text-slate-900 font-bold tracking-tight">{greeting}</h3>
 
 		<div class="text-lg leading-relaxed text-slate-700">
-			{locale === 'es' ? <PresentationBodyEs /> : <PresentationBodyEn />}
+			{isSpanish
+				? (isFreelancer ? <PresentationBodyFreelancerEs /> : <PresentationBodyProEs />)
+				: (isFreelancer ? <PresentationBodyFreelancerEn /> : <PresentationBodyProEn />)}
 		</div>
 
 		<div class="flex gap-4 items-center">
