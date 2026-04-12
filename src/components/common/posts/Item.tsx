@@ -1,47 +1,58 @@
 import EyeIcon from '@assets/icons/eye.svg';
 import HeartIcon from '@assets/icons/heart.svg';
 import type { Post } from '@types'
+import type { Locale } from '@/i18n/locales';
 
 type Props = {
     post: Post
+    locale: Locale
+    readMoreLabel: string
 }
 
-function formatDate(date: string) {
-    return new Date(date).toLocaleDateString();
+function toLocaleTag(locale: Locale) {
+    return locale === 'es' ? 'es-PY' : 'en-US';
 }
 
-function formatNumber(value: number) {
-    return value.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+function formatDate(date: string, locale: Locale) {
+    return new Date(date).toLocaleDateString(toLocaleTag(locale), {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
 }
 
-function renderStats(icon: string, value: number) {
+function formatNumber(value: number, locale: Locale) {
+    return new Intl.NumberFormat(toLocaleTag(locale)).format(value);
+}
+
+function renderStats(icon: string, value: number, locale: Locale) {
     return (
         <>
             <img src={icon} alt="" />
-            <span className="text-sm">{ formatNumber(value) }</span>
+            <span className="text-sm">{ formatNumber(value, locale) }</span>
         </>
     )
 }
 
 function renderTags(tags: string[]) {
-    return tags.map((tag: string) => <span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600 font-bold uppercase tracking-wider">{tag}</span>)
+    return tags.map((tag: string) => <span key={tag} class="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600 font-bold uppercase tracking-wider">{tag}</span>)
 }
 
-export default function({ post }: Props) {
+export default function({ post, locale, readMoreLabel }: Props) {
     return (
         <article class="py-8 group border-b border-slate-100 last:border-0">
             <div class="mb-4">
                 <div class="flex justify-between items-center mb-2">
                     <time class="text-sm font-medium text-slate-500">
-                        { formatDate(post.published_at) }
+                        { formatDate(post.published_at, locale) }
                     </time>
 
                     <div class="flex items-center gap-4 text-slate-400">
                         <span class="flex items-center gap-1.5 grayscale opacity-60">
-                            { renderStats(EyeIcon.src, post.page_views_count) } 
+                            { renderStats(EyeIcon.src, post.page_views_count, locale) } 
                         </span>
                         <span class="flex items-center gap-1.5 grayscale opacity-60">
-                            { renderStats(HeartIcon.src, post.public_reactions_count) } 
+                            { renderStats(HeartIcon.src, post.public_reactions_count, locale) } 
                         </span>
                     </div>
                 </div>
@@ -65,7 +76,7 @@ export default function({ post }: Props) {
                     href={post.url}
                     target="_blank"
                 >
-                    Read more <span>→</span>
+                    {readMoreLabel} <span>→</span>
                 </a>
             </div>
         </article>

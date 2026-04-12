@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import PostsList from '@components/common/posts/List.tsx';
+import { getMessages } from '@/i18n/messages';
+import { isLocale } from '@/i18n/locales';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+	throw new Response('Not found', { status: 404 });
+}
+
+const messages = getMessages(lang);
+---
+
+<Layout locale={lang} title={messages.postsPage.pageTitle}>
+    <div class="w-full">
+        <div class="flex flex-col gap-2 mb-10">
+            <h1 class="text-4xl text-slate-900 font-extrabold tracking-tight">{messages.postsPage.heading}</h1>
+            <p class="text-slate-500">{messages.postsPage.description}</p>
+        </div>
+        
+        <div class="w-full">
+            <PostsList
+                withPagination
+                locale={lang}
+                labels={messages.postsList}
+                client:only="preact"
+            />
+        </div>
+    </div>
+</Layout>

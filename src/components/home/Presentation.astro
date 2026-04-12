@@ -4,6 +4,13 @@ import linkedinIcon from '@assets/icons/linkedin.svg';
 import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
 
+type Props = {
+	greeting: string;
+	description: string;
+};
+
+const { greeting, description } = Astro.props as Props;
+
 const socialMediaItems = [
     {
         url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
@@ -25,12 +32,10 @@ const socialMediaItems = [
 ---
 
 <div class="md:w-2/3 w-full flex flex-col gap-6">
-    <h3 class="text-5xl text-slate-900 font-bold tracking-tight">Hi, I'm Nico 👋🏻</h3>
+    <h3 class="text-5xl text-slate-900 font-bold tracking-tight">{greeting}</h3>
 
     <p class="text-lg leading-relaxed text-slate-600">
-        Software Engineer with over 7 years of experience building web applications. I specialize in building robust solutions with <span class="text-slate-900 font-medium">Laravel, Vue, Node</span> and <span class="text-slate-900 font-medium">TypeScript</span>.
-        <br /><br />
-        Beyond the terminal, I'm passionate about video games, cinema, and spending time with my wife and family. Currently, I'm exploring new opportunities and working on <a href="/tiendapy" class="text-indigo-600 font-medium border-b border-indigo-200 hover:border-indigo-600 transition-all">TiendaPy</a>, my project to empower local commerce.
+        {description}
     </p>
 
     <div>

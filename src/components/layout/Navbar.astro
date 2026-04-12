@@ -1,14 +1,55 @@
 ---
+import type { Locale } from '@/i18n/locales';
 
+type Props = {
+	locale: Locale;
+	currentPath: string;
+	labels: {
+		home: string;
+		posts: string;
+	};
+};
+
+const { locale, currentPath, labels } = Astro.props as Props;
+
+function toLocalizedPath(pathname: string, targetLocale: Locale) {
+	const cleanPath = pathname || '/';
+	const segments = cleanPath.split('/').filter(Boolean);
+	if (segments.length > 0 && (segments[0] === 'en' || segments[0] === 'es')) {
+		segments[0] = targetLocale;
+		return `/${segments.join('/')}`;
+	}
+
+	return cleanPath === '/' ? `/${targetLocale}` : `/${targetLocale}${cleanPath}`;
+}
+
+const homePath = `/${locale}`;
+const postsPath = `/${locale}/posts`;
+const switchToEsPath = toLocalizedPath(currentPath, 'es');
+const switchToEnPath = toLocalizedPath(currentPath, 'en');
 ---
 <div class="flex justify-between py-8 font-medium text-slate-900 border-b border-slate-200">
     <div>
-        <a class="text-indigo-600 text-2xl font-bold tracking-tight" href="/">Nicolás Montiel</a>
+        <a class="text-indigo-600 text-2xl font-bold tracking-tight" href={homePath}>Nicolás Montiel</a>
     </div>
 
     <div class="flex gap-4 items-center text-sm">
-        <a class="hover:text-indigo-600 transition-colors" href="/">Home</a>
+        <a class="hover:text-indigo-600 transition-colors" href={homePath}>{labels.home}</a>
         <span class="text-slate-300"> / </span>
-        <a class="hover:text-indigo-600 transition-colors" href="/posts">Posts</a>
+        <a class="hover:text-indigo-600 transition-colors" href={postsPath}>{labels.posts}</a>
+        <span class="text-slate-300"> / </span>
+        <a
+            class={locale === 'es' ? 'text-indigo-600' : 'hover:text-indigo-600 transition-colors'}
+            href={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
+        >
+            ES
+        </a>
+        <span class="text-slate-300"> / </span>
+        <a
+            class={locale === 'en' ? 'text-indigo-600' : 'hover:text-indigo-600 transition-colors'}
+            href={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
+        >
+            EN
+        </a>
     </div>
 </div>

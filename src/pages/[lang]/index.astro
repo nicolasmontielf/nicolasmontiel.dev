@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Presentation from '@components/home/Presentation.astro';
+import LatestPosts from '@components/home/LatestPosts.astro';
+import { getMessages } from '@/i18n/messages';
+import { isLocale } from '@/i18n/locales';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+	throw new Response('Not found', { status: 404 });
+}
+
+const messages = getMessages(lang);
+---
+
+<Layout locale={lang}>
+	<section id="presentation-section">
+        <Presentation greeting={messages.home.greeting} description={messages.home.description} />
+    </section>
+
+    <section id="latest-posts-section" class="mt-16">
+        <LatestPosts
+            locale={lang}
+            title={messages.home.popularPostsTitle}
+            viewAllLabel={messages.home.viewAll}
+            listLabels={messages.postsList}
+        />
+    </section>
+</Layout>

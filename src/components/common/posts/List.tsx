@@ -1,13 +1,22 @@
 import PostItem from '@components/common/posts/Item.tsx'
 import { useState, useEffect } from 'preact/hooks'
+import type { Locale } from '@/i18n/locales'
+import type { Post } from '@types'
 
 type Props = {
     popular?: boolean
     withPagination?: boolean
+    locale: Locale
+    labels: {
+        loading: string
+        previous: string
+        next: string
+        readMore: string
+    }
 }
 
-export default function({ popular, withPagination }: Props) {
-    const [posts, setValue] = useState([]);
+export default function({ popular, withPagination, locale, labels }: Props) {
+    const [posts, setValue] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
 
@@ -19,7 +28,7 @@ export default function({ popular, withPagination }: Props) {
         setLoading(true)
         fetch(url)
             .then(response => response.json())
-            .then(data => setValue(data))
+            .then(data => setValue(data as Post[]))
             .finally(() => setLoading(false))
     }, [page])
 
@@ -31,13 +40,13 @@ export default function({ popular, withPagination }: Props) {
                     className="disabled:opacity-30 flex items-center gap-2 hover:gap-3 transition-all" 
                     onClick={() => setPage((current) => current - 1)}
                 >
-                    ← Previous
+                    ← {labels.previous}
                 </button>
                 <button 
                     className="flex items-center gap-2 hover:gap-3 transition-all" 
                     onClick={() => setPage((current) => current + 1)}
                 >
-                    Next →
+                    {labels.next} →
                 </button>
             </div>
         )
@@ -46,14 +55,14 @@ export default function({ popular, withPagination }: Props) {
     function renderPostItems() {
         return posts.map(post => {
             return (
-                <PostItem post={post} />
+                <PostItem key={post.id} post={post} locale={locale} readMoreLabel={labels.readMore} />
             )
         })
     }
 
     return (
         loading
-            ? <div>Loading...</div>
+            ? <div>{labels.loading}</div>
             : (
                 <div>
                     {renderPostItems()}
