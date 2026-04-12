@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { resolveRequestLocale } from '@/i18n/detect-locale';
-import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import { isLocale } from '@/i18n/locales';
 
 const BYPASS_PREFIXES = ['/api', '/_astro', '/icons', '/qr-code'];
 
@@ -31,14 +31,15 @@ export const onRequest = defineMiddleware((context, next) => {
 		return next();
 	}
 
+	const locale = resolveRequestLocale(context);
+
 	if (firstSegment && firstSegment.length === 2) {
-		const nextPath = `/${DEFAULT_LOCALE}/${segments.slice(1).join('/')}`.replace(/\/$/, '');
-		const destination = nextPath.length > 0 ? nextPath : `/${DEFAULT_LOCALE}`;
+		const nextPath = `/${locale}/${segments.slice(1).join('/')}`.replace(/\/$/, '');
+		const destination = nextPath.length > 0 ? nextPath : `/${locale}`;
 		url.pathname = destination;
 		return context.redirect(url.toString());
 	}
 
-	const locale = resolveRequestLocale(context);
 	url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`;
 	return context.redirect(url.toString());
 });
