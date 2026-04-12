@@ -3,12 +3,12 @@ import Layout from '@/layouts/Layout.astro';
 import Presentation from '@components/home/Presentation.astro';
 import Certifications from '@components/home/Certifications.astro';
 import { getMessages } from '@/i18n/messages';
-import { isLocale } from '@/i18n/locales';
+import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
 
 const { lang } = Astro.params;
 
 if (!lang || !isLocale(lang)) {
-	throw new Response('Not found', { status: 404 });
+	return Astro.redirect(`/${DEFAULT_LOCALE}`);
 }
 
 const messages = getMessages(lang);
