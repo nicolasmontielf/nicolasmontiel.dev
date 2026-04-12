@@ -16,7 +16,7 @@ const messages = getMessages(lang);
 
 <Layout locale={lang}>
 	<section id="presentation-section">
-        <Presentation greeting={messages.home.greeting} description={messages.home.description} />
+        <Presentation locale={lang} greeting={messages.home.greeting} />
     </section>
 
     <section id="latest-posts-section" class="mt-16">

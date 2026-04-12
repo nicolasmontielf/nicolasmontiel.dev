@@ -3,13 +3,16 @@ import devIcon from '@assets/icons/devto.svg';
 import linkedinIcon from '@assets/icons/linkedin.svg';
 import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
+import PresentationBodyEs from '@components/home/PresentationBody.es.astro';
+import PresentationBodyEn from '@components/home/PresentationBody.en.astro';
+import type { Locale } from '@/i18n/locales';
 
 type Props = {
+	locale: Locale;
 	greeting: string;
-	description: string;
 };
 
-const { greeting, description } = Astro.props as Props;
+const { locale, greeting } = Astro.props as Props;
 
 const socialMediaItems = [
     {
@@ -34,9 +37,9 @@ const socialMediaItems = [
 <div class="md:w-2/3 w-full flex flex-col gap-6">
     <h3 class="text-5xl text-slate-900 font-bold tracking-tight">{greeting}</h3>
 
-    <p class="text-lg leading-relaxed text-slate-600">
-        {description}
-    </p>
+    <div class="text-lg leading-relaxed text-slate-600">
+        {locale === 'es' ? <PresentationBodyEs /> : <PresentationBodyEn />}
+    </div>
 
     <div>
         <div class="flex gap-4 items-center">

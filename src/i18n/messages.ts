@@ -11,7 +11,6 @@ export type Messages = {
 	};
 	home: {
 		greeting: string;
-		description: string;
 		popularPostsTitle: string;
 		viewAll: string;
 	};
@@ -40,8 +39,6 @@ const messagesByLocale: Record<Locale, Messages> = {
 		},
 		home: {
 			greeting: "Hi, I'm Nico 👋🏻",
-			description:
-				"Software Engineer with over 7 years of experience building web applications. I specialize in building robust solutions with Laravel, Vue, Node and TypeScript. Beyond the terminal, I'm passionate about video games, cinema, and spending time with my wife and family. Currently, I'm exploring new opportunities and writing about software development.",
 			popularPostsTitle: 'Most popular posts',
 			viewAll: 'View all',
 		},
@@ -68,8 +65,6 @@ const messagesByLocale: Record<Locale, Messages> = {
 		},
 		home: {
 			greeting: 'Hola, soy Nico 👋🏻',
-			description:
-				'Ingeniero de software con más de 7 años de experiencia construyendo aplicaciones web. Me especializo en crear soluciones robustas con Laravel, Vue, Node y TypeScript. Más allá del terminal, me apasionan los videojuegos, el cine y pasar tiempo con mi esposa y familia. Actualmente estoy explorando nuevas oportunidades y escribiendo sobre desarrollo de software.',
 			popularPostsTitle: 'Posts más populares',
 			viewAll: 'Ver todos',
 		},
