@@ -30,6 +30,7 @@ function toLocalizedPath(pathname: string, targetLocale: Locale) {
 const homePath = `/${locale}`;
 const postsPath = `/${locale}/posts`;
 const certificationsPath = `${homePath}#certifications`;
+const ecommercePath = `/${locale}/ecommerce`;
 const switchToEsPath = toLocalizedPath(currentPath, 'es');
 const switchToEnPath = toLocalizedPath(currentPath, 'en');
 ---
@@ -42,7 +43,7 @@ const switchToEnPath = toLocalizedPath(currentPath, 'en');
 			<span class="text-slate-300"> / </span>
 			<a class="hover:text-indigo-600 transition-colors" href={certificationsPath}>{labels.certifications}</a>
 			<span class="text-slate-300"> / </span>
-			<a class="hover:text-indigo-600 transition-colors" href="#">{labels.wantEcommerce}</a>
+			<a class="hover:text-indigo-600 transition-colors" href={ecommercePath}>{labels.wantEcommerce}</a>
 			<span class="text-slate-300"> / </span>
 			<a class="hover:text-indigo-600 transition-colors" href="#">{labels.wantWeb}</a>
 			<span class="text-slate-300"> / </span>
@@ -88,7 +89,7 @@ const switchToEnPath = toLocalizedPath(currentPath, 'en');
 		<div class="flex flex-col gap-4 text-sm">
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={postsPath}>{labels.posts}</a>
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={certificationsPath}>{labels.certifications}</a>
-			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href="#">{labels.wantEcommerce}</a>
+			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={ecommercePath}>{labels.wantEcommerce}</a>
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href="#">{labels.wantWeb}</a>
 			<div>
 				<label class="block text-xs text-slate-500 mb-1" for="mobile-language-select">{labels.language}</label>

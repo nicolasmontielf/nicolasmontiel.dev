@@ -1,0 +1,120 @@
+---
+import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+
+type Props = {
+	content: EcommerceLandingContent;
+};
+
+const { content } = Astro.props as Props;
+---
+
+<div class="max-w-screen-lg relative overflow-hidden">
+	<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(251,146,60,0.18),_transparent_45%),radial-gradient(circle_at_bottom_left,_rgba(14,165,233,0.14),_transparent_42%)]"></div>
+
+	<div class="relative">
+		<header class="sticky top-0 z-20 border-y border-slate-200/80 bg-slate-50/90 backdrop-blur">
+			<nav class="flex items-center gap-3 overflow-x-auto px-4 py-4 text-sm font-semibold text-slate-700 md:justify-center md:px-8">
+				{
+					content.nav.items.map((item) => (
+						<a
+							href={`#${item.id}`}
+							class="shrink-0 rounded-full border border-slate-300 px-4 py-2 transition hover:border-cyan-500 hover:text-cyan-700"
+						>
+							{item.label}
+						</a>
+					))
+				}
+			</nav>
+		</header>
+
+			<section id="hero" class="px-0 pb-12 pt-10 md:pb-16 md:pt-16">
+			<p class="inline-flex rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-700">
+				{content.hero.badge}
+			</p>
+
+			<h1 class="mt-5 max-w-3xl text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+				{content.hero.title}
+			</h1>
+
+			<p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
+				{content.hero.description}
+			</p>
+
+			<div class="mt-7 flex flex-wrap items-center gap-3">
+				<a
+					href={content.links.whatsapp}
+					target="_blank"
+					rel="noreferrer"
+					class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+				>
+					{content.hero.primaryCtaLabel}
+				</a>
+				<a
+					href={content.links.about}
+					class="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-cyan-600 hover:text-cyan-700"
+				>
+					{content.hero.secondaryCtaLabel}
+				</a>
+			</div>
+
+			<p class="mt-5 text-sm font-medium text-slate-600">{content.hero.trustNote}</p>
+		</section>
+
+			<section id="problem" class="border-t border-slate-200 px-0 py-12 md:py-14">
+			<h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.problem.title}</h2>
+			<p class="mt-4 max-w-3xl text-slate-700">{content.problem.description}</p>
+			<ul class="mt-6 grid gap-3 md:grid-cols-2">
+				{
+					content.problem.pains.map((pain) => (
+						<li class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-slate-700">{pain}</li>
+					))
+				}
+			</ul>
+		</section>
+
+			<section id="services" class="border-t border-slate-200 px-0 py-12 md:py-14">
+			<h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.services.title}</h2>
+			<p class="mt-4 max-w-3xl text-slate-700">{content.services.description}</p>
+			<div class="mt-6 grid gap-4 md:grid-cols-2">
+				{
+					content.services.items.map((service) => (
+						<article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+							<h3 class="text-lg font-semibold text-slate-900">{service.title}</h3>
+							<p class="mt-2 text-slate-700">{service.description}</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+			<section id="process" class="border-t border-slate-200 px-0 py-12 md:py-14">
+			<h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.process.title}</h2>
+			<p class="mt-4 max-w-3xl text-slate-700">{content.process.description}</p>
+			<ol class="mt-6 grid gap-4 md:grid-cols-3">
+				{
+					content.process.steps.map((step) => (
+						<li class="rounded-2xl border border-cyan-200 bg-cyan-50/60 p-5">
+							<h3 class="text-base font-semibold text-cyan-900">{step.title}</h3>
+							<p class="mt-2 text-slate-700">{step.description}</p>
+						</li>
+					))
+				}
+			</ol>
+		</section>
+
+			<section id="cta" class="border-t border-slate-200 px-0 py-12 md:py-16">
+				<div class="bg-gradient-to-r from-cyan-700 to-slate-900 p-7 text-white md:p-10">
+				<h2 class="max-w-3xl text-2xl font-bold tracking-tight md:text-4xl">{content.cta.title}</h2>
+				<p class="mt-4 max-w-2xl text-sm text-cyan-100 md:text-base">{content.cta.description}</p>
+				<a
+					href={content.links.whatsapp}
+					target="_blank"
+					rel="noreferrer"
+					class="mt-6 inline-flex rounded-xl bg-white px-5 py-3 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-50"
+				>
+					{content.cta.primaryButtonLabel}
+				</a>
+			</div>
+		</section>
+	</div>
+</div>
