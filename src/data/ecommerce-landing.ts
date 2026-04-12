@@ -1,6 +1,6 @@
 import type { Locale } from '@/i18n/locales';
 
-export type EcommerceSectionId = 'hero' | 'problem' | 'services' | 'process' | 'cta';
+export type EcommerceSectionId = 'hero' | 'why' | 'services' | 'process' | 'cta';
 
 export type EcommerceLandingContent = {
 	meta: {
@@ -18,10 +18,10 @@ export type EcommerceLandingContent = {
 		secondaryCtaLabel: string;
 		trustNote: string;
 	};
-	problem: {
+	whyEcommerce: {
 		title: string;
 		description: string;
-		pains: string[];
+		scenarios: Array<{ title: string; description: string }>;
 	};
 	services: {
 		title: string;
@@ -42,6 +42,21 @@ export type EcommerceLandingContent = {
 		whatsapp: string;
 		about: string;
 	};
+	visuals?: {
+		emojis?: {
+			heroBadge?: string;
+			whyTitle?: string;
+			ctaTitle?: string;
+		};
+		heroMockup?: {
+			title: string;
+			tags: string[];
+			steps: Array<{ label: string; value: string }>;
+			supportTitle: string;
+			supportDescription: string;
+		};
+		whyHighlights?: Array<{ label: string; accent: string }>;
+	};
 };
 
 const DEFAULT_WHATSAPP_LINK = 'https://wa.me/5950000000000';
@@ -50,165 +65,229 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 	es: {
 		meta: {
 			title: 'Ecommerce',
-			description: 'Diseño y desarrollo de ecommerce para lanzar o escalar tu tienda online.',
+			description: 'Diseño y desarrollo de ecommerce para lanzar o escalar tu negocio online con soporte continuo.',
 		},
 		nav: {
 			items: [
-				{ id: 'problem', label: 'Problema' },
+				{ id: 'why', label: 'Oportunidad' },
 				{ id: 'services', label: 'Servicios' },
 				{ id: 'process', label: 'Proceso' },
 				{ id: 'cta', label: 'Contacto' },
 			],
 		},
 		hero: {
-			badge: 'Servicios especializados en ecommerce',
-			title: 'Construyo ecommerces que venden.',
+			badge: 'Partner tecnológico para ecommerce',
+			title: 'Construyo ecommerces que venden y evolucionan con tu negocio.',
 			description:
-				'Trabajo con marcas que necesitan lanzar, rediseñar u optimizar su tienda online con foco en conversión y experiencia de compra.',
+				'Trabajo con empresas grandes y chicas para lanzar su canal online, validar oportunidades y escalar con una base técnica sólida.',
 			primaryCtaLabel: 'Hablemos por WhatsApp',
-			secondaryCtaLabel: '¿Quién es esta persona?',
-			trustNote: 'Ingeniero de software con enfoque en producto y ejecución end-to-end.',
+			secondaryCtaLabel: 'Conocé mi experiencia',
+			trustNote: 'Más que entregar una tienda, te acompaño en decisiones, mejoras y soporte continuo.',
 		},
-		problem: {
-			title: 'Tu tienda puede estar frenando ventas sin que lo notes.',
-			description: 'Estos son patrones comunes que suelen aparecer antes de pedir ayuda técnica:',
-			pains: [
-				'Tenés tráfico, pero pocas compras finalizadas.',
-				'El checkout es largo o confuso y se abandona.',
-				'La tienda no transmite confianza desde el primer scroll.',
-				'Te cuesta escalar porque cada cambio técnico tarda demasiado.',
+		whyEcommerce: {
+			title: 'El ecommerce ya no es opcional: es una ventaja competitiva.',
+			description:
+				'No importa si estás empezando o si ya vendés: definimos juntos qué necesitás hoy y cómo crecer sin improvisar mañana.',
+			scenarios: [
+				{
+					title: 'Si todavía no vendés online',
+					description: 'Diseñamos una primera versión enfocada en validar rápido y vender desde el inicio.',
+				},
+				{
+					title: 'Si ya tenés una operación en marcha',
+					description: 'Priorizamos mejoras de conversión, experiencia de compra y eficiencia operativa.',
+				},
+				{
+					title: 'Si querés un partner técnico',
+					description: 'Te acompaño con soporte, roadmap y transferencia de conocimiento para tu equipo.',
+				},
 			],
 		},
 		services: {
-			title: 'Servicios para lanzar o mejorar tu ecommerce.',
-			description: 'Podemos trabajar desde cero o sobre una tienda ya en producción.',
+			title: 'Servicios para lanzar, mejorar y sostener tu ecommerce.',
+			description: 'Construimos una solución que responda a tus necesidades de negocio y de equipo.',
 			items: [
 				{
 					title: 'Desarrollo de ecommerce',
-					description: 'Implementación completa de tienda online con estructura pensada para vender.',
+					description: 'Implementación completa orientada a conversión, rendimiento y crecimiento.',
 				},
 				{
-					title: 'Rediseño orientado a conversión',
-					description: 'Mejoras de UX/UI para reducir fricción y aumentar acciones clave.',
+					title: 'Rediseño y optimización',
+					description: 'Ajustes de UX/UI y performance para vender mejor sin rehacer todo desde cero.',
 				},
 				{
-					title: 'Optimización técnica',
-					description: 'Rendimiento, SEO técnico y ajustes de arquitectura para crecimiento sostenible.',
+					title: 'Integraciones y automatización',
+					description: 'Conexión con pagos, logística, CRM y flujos operativos clave.',
 				},
 				{
-					title: 'Migraciones de plataforma',
-					description: 'Plan y ejecución de migraciones cuidando continuidad operativa y datos críticos.',
+					title: 'Soporte y evolución continua',
+					description: 'Acompañamiento técnico para mejoras, incidentes y decisiones de producto.',
 				},
 			],
 		},
 		process: {
 			title: 'Cómo trabajamos',
-			description: 'Un proceso simple, claro y medible desde el primer contacto.',
+			description: 'Proceso simple, iterativo y transparente para que siempre tengas claridad.',
 			steps: [
 				{
-					title: '1. Diagnóstico',
-					description: 'Reviso estado actual, objetivos y bloqueos para definir prioridad real.',
+					title: '1. Descubrimiento',
+					description: 'Entendemos negocio, objetivos y restricciones para definir prioridades reales.',
 				},
 				{
-					title: '2. Plan de ejecución',
-					description: 'Propongo un plan técnico y de producto con entregables concretos.',
+					title: '2. Plan conjunto',
+					description: 'Armamos roadmap técnico y funcional con entregables y tiempos claros.',
 				},
 				{
-					title: '3. Desarrollo y lanzamiento',
-					description: 'Implementamos, validamos y lanzamos con foco en resultados de negocio.',
+					title: '3. Construcción + soporte',
+					description: 'Implementamos, lanzamos y seguimos mejorando contigo como partner.',
 				},
 			],
 		},
 		cta: {
-			title: 'Si querés vender más, empecemos por una conversación concreta.',
-			description: 'Contame en qué estado está tu ecommerce y te digo cómo lo abordaría.',
+			title: 'Si querés construir un ecommerce serio, trabajemos juntos.',
+			description: 'Contame tu contexto y te propongo el mejor primer paso para tu negocio.',
 			primaryButtonLabel: 'Escribime por WhatsApp',
 		},
 		links: {
 			whatsapp: DEFAULT_WHATSAPP_LINK,
 			about: '/es/sobre-mi',
 		},
+		visuals: {
+			emojis: {
+				heroBadge: '🤝',
+				whyTitle: '📈',
+				ctaTitle: '🚀',
+			},
+			heroMockup: {
+				title: 'Tu canal ecommerce, con estrategia y ejecución',
+				tags: ['Lanzamiento', 'Optimización', 'Soporte continuo'],
+				steps: [
+					{ label: 'Objetivo principal', value: 'Vender online con una operación estable' },
+					{ label: 'Enfoque inicial', value: 'MVP de alto impacto + roadmap claro' },
+					{ label: 'Evolución', value: 'Mejoras mensuales basadas en datos' },
+				],
+				supportTitle: 'Acompañamiento real',
+				supportDescription: 'Seguimiento técnico y funcional después del lanzamiento.',
+			},
+			whyHighlights: [
+				{ label: 'Validar y lanzar', accent: 'Inicio rápido' },
+				{ label: 'Optimizar y escalar', accent: 'Crecimiento sostenido' },
+				{ label: 'Soporte y aprendizaje', accent: 'Partner de largo plazo' },
+			],
+		},
 	},
 	en: {
 		meta: {
 			title: 'Ecommerce',
-			description: 'Ecommerce design and development services to launch or scale your online store.',
+			description: 'Ecommerce design and development to launch or scale your online business with ongoing support.',
 		},
 		nav: {
 			items: [
-				{ id: 'problem', label: 'Problem' },
+				{ id: 'why', label: 'Opportunity' },
 				{ id: 'services', label: 'Services' },
 				{ id: 'process', label: 'Process' },
 				{ id: 'cta', label: 'Contact' },
 			],
 		},
 		hero: {
-			badge: 'Specialized ecommerce services',
-			title: 'I build ecommerce stores that sell.',
+			badge: 'Your ecommerce technology partner',
+			title: 'I build ecommerce experiences that sell and scale with your business.',
 			description:
-				'I work with brands that need to launch, redesign, or optimize their online store with a strong focus on conversion and purchase experience.',
+				'I work with both small and large companies to launch online sales channels, validate opportunities, and grow on solid technical foundations.',
 			primaryCtaLabel: 'Let\'s chat on WhatsApp',
-			secondaryCtaLabel: 'Who is behind this?',
-			trustNote: 'Software engineer focused on product outcomes and end-to-end execution.',
+			secondaryCtaLabel: 'Get to know my background',
+			trustNote: 'I do not just ship a store. I stay involved with support, guidance, and continuous improvement.',
 		},
-		problem: {
-			title: 'Your store may be losing sales without obvious signals.',
-			description: 'These are common patterns I usually see before clients reach out:',
-			pains: [
-				'You have traffic, but very few completed orders.',
-				'Checkout flow is too long or confusing, so users drop off.',
-				'The store does not create trust quickly enough.',
-				'Scaling is difficult because technical changes move too slowly.',
+		whyEcommerce: {
+			title: 'Ecommerce is no longer optional. It is a growth advantage.',
+			description:
+				'Whether you are starting from zero or already selling, we define what you need now and build with long-term clarity.',
+			scenarios: [
+				{
+					title: 'If you are not selling online yet',
+					description: 'We design a first version focused on validating fast and generating real sales early.',
+				},
+				{
+					title: 'If you already have an online operation',
+					description: 'We prioritize conversion, customer experience, and operational efficiency improvements.',
+				},
+				{
+					title: 'If you need a long-term technical partner',
+					description: 'I support your team with roadmap decisions, technical execution, and knowledge transfer.',
+				},
 			],
 		},
 		services: {
-			title: 'Services to launch or improve your ecommerce.',
-			description: 'We can work from scratch or improve an existing live store.',
+			title: 'Services to launch, improve, and sustain your ecommerce.',
+			description: 'We build solutions aligned with your business goals and team reality.',
 			items: [
 				{
 					title: 'Ecommerce development',
-					description: 'Full implementation of a store architecture built for conversion.',
+					description: 'End-to-end implementation focused on conversion, performance, and scalability.',
 				},
 				{
-					title: 'Conversion-focused redesign',
-					description: 'UX/UI improvements to reduce friction and increase key actions.',
+					title: 'Redesign and optimization',
+					description: 'UX/UI and performance improvements to increase results without rebuilding everything.',
 				},
 				{
-					title: 'Technical optimization',
-					description: 'Performance, technical SEO, and architecture updates for sustainable growth.',
+					title: 'Integrations and automation',
+					description: 'Payments, logistics, CRM, and critical operational flows connected correctly.',
 				},
 				{
-					title: 'Platform migrations',
-					description: 'Migration planning and execution with care for continuity and critical data.',
+					title: 'Ongoing support and evolution',
+					description: 'Continuous technical support for improvements, incidents, and product decisions.',
 				},
 			],
 		},
 		process: {
 			title: 'How we work',
-			description: 'A simple, clear and measurable process from day one.',
+			description: 'A simple and transparent process so you always know what comes next.',
 			steps: [
 				{
-					title: '1. Diagnosis',
-					description: 'I review your current state, goals, and bottlenecks to define real priorities.',
+					title: '1. Discovery',
+					description: 'We map business goals, constraints, and priorities before writing code.',
 				},
 				{
-					title: '2. Execution plan',
-					description: 'I propose a technical and product plan with concrete deliverables.',
+					title: '2. Shared plan',
+					description: 'We define a roadmap with concrete deliverables, timelines, and responsibilities.',
 				},
 				{
-					title: '3. Build and launch',
-					description: 'We implement, validate, and launch with business outcomes in mind.',
+					title: '3. Build + support',
+					description: 'We launch and continue improving with a partner mindset, not a one-off delivery.',
 				},
 			],
 		},
 		cta: {
-			title: 'If you want to increase sales, let\'s start with a focused conversation.',
-			description: 'Tell me where your ecommerce is today and I\'ll outline the best next steps.',
+			title: 'If you want to build a serious ecommerce channel, let\'s work together.',
+			description: 'Share your context and I will propose the best first step for your company.',
 			primaryButtonLabel: 'Message me on WhatsApp',
 		},
 		links: {
 			whatsapp: DEFAULT_WHATSAPP_LINK,
 			about: '/en/about-me',
+		},
+		visuals: {
+			emojis: {
+				heroBadge: '🤝',
+				whyTitle: '📈',
+				ctaTitle: '🚀',
+			},
+			heroMockup: {
+				title: 'Your ecommerce channel, built with strategy and continuity',
+				tags: ['Launch', 'Optimization', 'Ongoing support'],
+				steps: [
+					{ label: 'Primary goal', value: 'Sell online with a reliable operation' },
+					{ label: 'Initial approach', value: 'High-impact MVP + clear roadmap' },
+					{ label: 'Evolution', value: 'Monthly improvements based on data' },
+				],
+				supportTitle: 'Hands-on partnership',
+				supportDescription: 'Technical and product support beyond the launch.',
+			},
+			whyHighlights: [
+				{ label: 'Validate and launch', accent: 'Fast start' },
+				{ label: 'Optimize and scale', accent: 'Sustainable growth' },
+				{ label: 'Support and enablement', accent: 'Long-term partner' },
+			],
 		},
 	},
 };
