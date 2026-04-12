@@ -4,6 +4,9 @@ export type Messages = {
 	navbar: {
 		home: string;
 		posts: string;
+		wantEcommerce: string;
+		wantWeb: string;
+		language: string;
 	};
 	layout: {
 		homeTitle: string;
@@ -13,6 +16,8 @@ export type Messages = {
 		greeting: string;
 		popularPostsTitle: string;
 		viewAll: string;
+		certificationsTitle: string;
+		viewCredential: string;
 	};
 	postsPage: {
 		pageTitle: string;
@@ -32,6 +37,9 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Home',
 			posts: 'Posts',
+			wantEcommerce: 'I want ecommerce',
+			wantWeb: 'I want a website',
+			language: 'Language',
 		},
 		layout: {
 			homeTitle: 'Home',
@@ -41,6 +49,8 @@ const messagesByLocale: Record<Locale, Messages> = {
 			greeting: "Hi, I'm Nico 👋🏻",
 			popularPostsTitle: 'Most popular posts',
 			viewAll: 'View all',
+			certificationsTitle: 'Certifications',
+			viewCredential: 'View Credential',
 		},
 		postsPage: {
 			pageTitle: 'My Posts',
@@ -58,6 +68,9 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Inicio',
 			posts: 'Posts',
+			wantEcommerce: 'Quiero un ecommerce',
+			wantWeb: 'Quiero una web',
+			language: 'Idioma',
 		},
 		layout: {
 			homeTitle: 'Inicio',
@@ -67,6 +80,8 @@ const messagesByLocale: Record<Locale, Messages> = {
 			greeting: 'Hola, soy Nico 👋🏻',
 			popularPostsTitle: 'Posts más populares',
 			viewAll: 'Ver todos',
+			certificationsTitle: 'Certificaciones',
+			viewCredential: 'Ver credencial',
 		},
 		postsPage: {
 			pageTitle: 'Mis publicaciones',

@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Presentation from '@components/home/Presentation.astro';
-import LatestPosts from '@components/home/LatestPosts.astro';
+import Certifications from '@components/home/Certifications.astro';
 import { getMessages } from '@/i18n/messages';
 import { isLocale } from '@/i18n/locales';
 
@@ -19,12 +19,10 @@ const messages = getMessages(lang);
         <Presentation locale={lang} greeting={messages.home.greeting} />
     </section>
 
-    <section id="latest-posts-section" class="mt-16">
-        <LatestPosts
-            locale={lang}
-            title={messages.home.popularPostsTitle}
-            viewAllLabel={messages.home.viewAll}
-            listLabels={messages.postsList}
+    <section id="certifications-home-section">
+        <Certifications
+            title={messages.home.certificationsTitle}
+            credentialLabel={messages.home.viewCredential}
         />
     </section>
 </Layout>

@@ -34,22 +34,22 @@ const socialMediaItems = [
 ];
 ---
 
-<div class="md:w-2/3 w-full flex flex-col gap-6">
-    <h3 class="text-5xl text-slate-900 font-bold tracking-tight">{greeting}</h3>
+<section class="grid items-center gap-12 md:grid-cols-2">
+	<div class="w-full flex flex-col gap-6">
+		<h3 class="text-6xl text-slate-900 font-bold tracking-tight">{greeting}</h3>
 
-    <div class="text-lg leading-relaxed text-slate-600">
-        {locale === 'es' ? <PresentationBodyEs /> : <PresentationBodyEn />}
-    </div>
+		<div class="text-lg leading-relaxed text-slate-700">
+			{locale === 'es' ? <PresentationBodyEs /> : <PresentationBodyEn />}
+		</div>
 
-    <div>
-        <div class="flex gap-4 items-center">
-            {
-                socialMediaItems.map(item => {
-                    return (
-                        <a href={item.url} target="_blank" class="group">
-                            <div 
-                                class="w-5 h-5 bg-slate-400 group-hover:bg-indigo-600 transition-colors cursor-pointer"
-                                style={`
+		<div class="flex gap-4 items-center">
+			{
+				socialMediaItems.map((item) => {
+					return (
+						<a href={item.url} target="_blank" class="group" rel="noreferrer">
+							<div
+								class="w-5 h-5 bg-slate-400 group-hover:bg-indigo-600 transition-colors cursor-pointer"
+								style={`
                                     mask-image: url(${item.icon.src}); 
                                     -webkit-mask-image: url(${item.icon.src});
                                     mask-size: contain; 
@@ -59,11 +59,24 @@ const socialMediaItems = [
                                     mask-position: center;
                                     -webkit-mask-position: center;
                                 `}
-                            />
-                        </a>
-                    )
-                })
-            }
-        </div>
-    </div>
-</div>
+							/>
+						</a>
+					);
+				})
+			}
+		</div>
+	</div>
+
+	<div class="w-full md:justify-self-end">
+		<div class="relative mx-auto w-full max-w-md aspect-square">
+			<div class="absolute inset-8 rounded-[2rem] bg-gradient-to-br from-indigo-500/30 via-blue-300/40 to-violet-500/30 blur-2xl"></div>
+			<div class="absolute inset-10 rounded-3xl border border-indigo-200/60 bg-white/55 backdrop-blur"></div>
+			<div class="absolute left-8 top-14 h-24 w-24 rounded-2xl bg-indigo-500/45 shadow-xl"></div>
+			<div class="absolute right-12 top-10 h-28 w-28 rounded-2xl bg-blue-400/35 shadow-xl"></div>
+			<div class="absolute left-[42%] top-[38%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white/80 shadow-2xl"></div>
+			<div class="absolute right-16 bottom-16 h-20 w-20 rounded-2xl bg-violet-500/35 shadow-xl"></div>
+			<div class="absolute left-14 bottom-10 h-8 w-8 rounded-full bg-sky-200/90"></div>
+			<div class="absolute right-10 top-[42%] h-12 w-12 rounded-full bg-indigo-300/75"></div>
+		</div>
+	</div>
+</section>
