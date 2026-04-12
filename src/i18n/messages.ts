@@ -38,7 +38,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Home',
 			posts: 'Posts',
-			certifications: 'Certifications',
+			certifications: 'Certifications and courses',
 			wantEcommerce: 'I want ecommerce',
 			wantWeb: 'I want a website',
 			language: 'Language',
@@ -51,7 +51,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 			greeting: "Hi, I'm Nico 👋🏻",
 			popularPostsTitle: 'Most popular posts',
 			viewAll: 'View all',
-			certificationsTitle: 'Certifications',
+			certificationsTitle: 'Certifications and courses',
 			viewCredential: 'View Credential',
 		},
 		postsPage: {
@@ -70,7 +70,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Inicio',
 			posts: 'Posts',
-			certifications: 'Certificaciones',
+			certifications: 'Certificaciones y cursos',
 			wantEcommerce: 'Quiero un ecommerce',
 			wantWeb: 'Quiero una web',
 			language: 'Idioma',
@@ -83,7 +83,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 			greeting: 'Hola, soy Nico 👋🏻',
 			popularPostsTitle: 'Posts más populares',
 			viewAll: 'Ver todos',
-			certificationsTitle: 'Certificaciones',
+			certificationsTitle: 'Certificaciones y cursos',
 			viewCredential: 'Ver credencial',
 		},
 		postsPage: {
