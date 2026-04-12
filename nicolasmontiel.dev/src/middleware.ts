@@ -18,7 +18,7 @@ function shouldBypass(pathname: string) {
 
 export const onRequest = defineMiddleware((context, next) => {
 	const url = new URL(context.request.url);
-	const { pathname } = url;
+	const { pathname, search } = url;
 
 	if (shouldBypass(pathname)) {
 		return next();
@@ -36,10 +36,9 @@ export const onRequest = defineMiddleware((context, next) => {
 	if (firstSegment && firstSegment.length === 2) {
 		const nextPath = `/${locale}/${segments.slice(1).join('/')}`.replace(/\/$/, '');
 		const destination = nextPath.length > 0 ? nextPath : `/${locale}`;
-		url.pathname = destination;
-		return context.redirect(url.toString());
+		return context.redirect(`${destination}${search}`);
 	}
 
-	url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`;
-	return context.redirect(url.toString());
+	const destination = `/${locale}${pathname === '/' ? '' : pathname}`;
+	return context.redirect(`${destination}${search}`);
 });
