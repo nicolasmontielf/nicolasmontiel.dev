@@ -4,6 +4,7 @@ export type Messages = {
 	navbar: {
 		home: string;
 		posts: string;
+		certifications: string;
 		wantEcommerce: string;
 		wantWeb: string;
 		language: string;
@@ -37,6 +38,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Home',
 			posts: 'Posts',
+			certifications: 'Certifications',
 			wantEcommerce: 'I want ecommerce',
 			wantWeb: 'I want a website',
 			language: 'Language',
@@ -68,6 +70,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 		navbar: {
 			home: 'Inicio',
 			posts: 'Posts',
+			certifications: 'Certificaciones',
 			wantEcommerce: 'Quiero un ecommerce',
 			wantWeb: 'Quiero una web',
 			language: 'Idioma',

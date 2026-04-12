@@ -7,6 +7,7 @@ type Props = {
 	labels: {
 		home: string;
 		posts: string;
+		certifications: string;
 		wantEcommerce: string;
 		wantWeb: string;
 		language: string;
@@ -28,6 +29,7 @@ function toLocalizedPath(pathname: string, targetLocale: Locale) {
 
 const homePath = `/${locale}`;
 const postsPath = `/${locale}/posts`;
+const certificationsPath = `${homePath}#certifications-home-section`;
 const switchToEsPath = toLocalizedPath(currentPath, 'es');
 const switchToEnPath = toLocalizedPath(currentPath, 'en');
 ---
@@ -37,6 +39,8 @@ const switchToEnPath = toLocalizedPath(currentPath, 'en');
 
 		<nav class="hidden md:flex gap-4 items-center text-sm">
 			<a class="hover:text-indigo-600 transition-colors" href={postsPath}>{labels.posts}</a>
+			<span class="text-slate-300"> / </span>
+			<a class="hover:text-indigo-600 transition-colors" href={certificationsPath}>{labels.certifications}</a>
 			<span class="text-slate-300"> / </span>
 			<a class="hover:text-indigo-600 transition-colors" href="#">{labels.wantEcommerce}</a>
 			<span class="text-slate-300"> / </span>
@@ -83,6 +87,7 @@ const switchToEnPath = toLocalizedPath(currentPath, 'en');
 	>
 		<div class="flex flex-col gap-4 text-sm">
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={postsPath}>{labels.posts}</a>
+			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={certificationsPath}>{labels.certifications}</a>
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href="#">{labels.wantEcommerce}</a>
 			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href="#">{labels.wantWeb}</a>
 			<div>
