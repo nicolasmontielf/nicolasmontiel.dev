@@ -9,78 +9,58 @@ type Props = {
 
 const { locale, content } = Astro.props as Props;
 const sectionContainerClass = 'mx-auto w-full max-w-screen-lg px-3 lg:px-0';
-
-const defaultWhyHighlights = content.whyEcommerce.scenarios.map((scenario) => ({
-	label: scenario.title,
-	accent: 'Estrategia ecommerce',
-}));
-
-const heroMockup =
-	content.visuals?.heroMockup ?? {
-		title: 'Ecommerce con foco en negocio y continuidad',
-		tags: ['Lanzamiento', 'Optimización', 'Soporte'],
-		steps: [
-			{ label: 'Objetivo', value: 'Vender online con estabilidad' },
-			{ label: 'Ejecución', value: 'Roadmap + entregables claros' },
-			{ label: 'Soporte', value: 'Mejora continua con datos' },
-		],
-		supportTitle: 'Acompañamiento continuo',
-		supportDescription: 'Seguimiento técnico y funcional después del go-live.',
-	};
-
-const whyHighlights = content.visuals?.whyHighlights ?? defaultWhyHighlights;
-const heroBadgeEmoji = content.visuals?.emojis?.heroBadge;
-const whyTitleEmoji = content.visuals?.emojis?.whyTitle;
-const ctaTitleEmoji = content.visuals?.emojis?.ctaTitle;
-const labels = locale === 'es'
-	? {
-			visualBrief: 'Resumen visual',
-			stepPrefix: 'Paso',
-			service: 'Servicio',
-		}
-	: {
-			visualBrief: 'Visual brief',
-			stepPrefix: 'Step',
-			service: 'Service',
-		};
+const sectionLabelClass = 'text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600';
+const heroImageAlt =
+	locale === 'es'
+		? 'Captura real en desktop del storefront de tu motor ecommerce: home completa con header, banner principal, acceso a categorías o secciones destacadas y grilla de productos reales. La imagen debería mostrar que el producto ya existe y que se ve como una tienda seria, sin mockups inventados ni dashboards falsos.'
+		: 'Real desktop screenshot of your ecommerce engine storefront: full homepage with header, main banner, entry points to categories or featured sections, and a real product grid. The image should make it obvious that the product already exists and looks like a serious store, without fake mockups or fake dashboards.';
+const productImageAlt =
+	locale === 'es'
+		? 'Collage horizontal con tres capturas reales del producto: catálogo o listado, ficha de producto y checkout o paso clave de compra. Tiene que mostrar que tu motor cubre el recorrido completo de venta y que la interfaz pertenece al mismo producto, con datos no sensibles.'
+		: 'Horizontal collage with three real product screenshots: catalog or listing page, product detail page, and checkout or a key purchase step. It should show that your engine covers the full sales flow and that every screen belongs to the same product, using non-sensitive data.';
 ---
 
-<div class="relative overflow-hidden">
-	<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.14),_transparent_48%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.08),_transparent_40%)]"></div>
+<div class="relative overflow-hidden bg-slate-50">
+	<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.12),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(15,23,42,0.08),_transparent_36%)]"></div>
+	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/80 to-transparent"></div>
 
-	<div class="relative">
-		<header class="sticky top-0 z-20 border-y border-slate-200/90 bg-slate-50/90 backdrop-blur">
-			<nav class={`flex items-center gap-3 overflow-x-auto py-4 text-sm font-semibold text-slate-700 ${sectionContainerClass}`}>
+	<header class="sticky top-0 z-20 border-b border-slate-200/90 bg-slate-50/85 backdrop-blur">
+		<div class={`flex items-center justify-between gap-6 py-4 ${sectionContainerClass}`}>
+			<a href={`/${locale}`} class="flex items-center gap-3 text-slate-900">
+				<span class="text-base font-bold tracking-tight">Nicolás Montiel</span>
+				<span class="hidden h-4 w-px bg-slate-300 md:block"></span>
+				<span class="hidden text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 md:block">{content.nav.label}</span>
+			</a>
+
+			<nav class="hidden items-center gap-5 text-sm font-medium text-slate-600 md:flex">
 				{
 					content.nav.items.map((item) => (
-						<a
-							href={`#${item.id}`}
-							class="shrink-0 rounded-full border border-slate-300 px-4 py-2 transition hover:border-indigo-400 hover:text-indigo-700"
-						>
+						<a href={`#${item.id}`} class="transition-colors hover:text-indigo-700">
 							{item.label}
 						</a>
 					))
 				}
 			</nav>
-		</header>
+		</div>
+	</header>
 
-		<section id="hero" class="pb-12 pt-10 md:pb-16 md:pt-16">
-			<div class={`${sectionContainerClass} grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center`}>
+	<div class="relative">
+		<section id="hero" class="pb-14 pt-12 md:pb-20 md:pt-16">
+			<div class={`${sectionContainerClass} grid gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)]`}>
 				<div>
-					<p class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold tracking-wide text-indigo-700">
-						{heroBadgeEmoji && <span aria-hidden="true">{heroBadgeEmoji}</span>}
-						<span>{content.hero.badge}</span>
+					<p class="inline-flex items-center rounded-full border border-indigo-200 bg-white px-3 py-1 text-xs font-semibold tracking-[0.18em] text-indigo-700 shadow-sm">
+						{content.hero.badge}
 					</p>
 
-					<h1 class="mt-5 max-w-4xl text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+					<h1 class="mt-6 max-w-4xl text-balance text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">
 						{content.hero.title}
 					</h1>
 
-					<p class="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700">
+					<p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-700 md:text-xl">
 						{content.hero.description}
 					</p>
 
-					<div class="mt-7 flex flex-wrap items-center gap-3">
+					<div class="mt-8 flex flex-wrap items-center gap-3">
 						<a
 							href={content.links.whatsapp}
 							target="_blank"
@@ -91,67 +71,102 @@ const labels = locale === 'es'
 						</a>
 						<a
 							href={content.links.about}
-							class="rounded-xl border border-indigo-200 bg-white px-5 py-3 text-sm font-semibold text-indigo-700 transition hover:border-indigo-400 hover:text-indigo-800"
+							class="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-indigo-300 hover:text-indigo-700"
 						>
 							{content.hero.secondaryCtaLabel}
 						</a>
 					</div>
 
-					<p class="mt-5 text-sm font-medium text-slate-600">{content.hero.trustNote}</p>
+                    <hr class="mt-6 border-slate-200" />
 				</div>
 
-				<aside class="border border-slate-200 bg-white p-5 shadow-[0_16px_32px_-24px_rgba(15,23,42,0.7)] md:p-6">
-					<p class="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-500">{labels.visualBrief}</p>
-					<h3 class="mt-3 text-xl font-semibold text-slate-900">{heroMockup.title}</h3>
+				<div class="lg:pt-4">
+					<figure class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_20px_44px_-30px_rgba(15,23,42,0.55)]">
+						<img
+							src="/ecommerce-hero-placeholder.svg"
+							alt={heroImageAlt}
+							width="1600"
+							height="1200"
+							class="block aspect-[4/3] w-full object-cover"
+						/>
+						<figcaption class="border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs leading-relaxed text-slate-500">
+							{locale === 'es'
+								? 'Placeholder para screenshot principal del producto. Reemplazalo por una captura real en desktop.'
+								: 'Placeholder for the main product screenshot. Replace it with a real desktop capture.'}
+						</figcaption>
+					</figure>
+				</div>
+			</div>
 
-					<div class="mt-4 flex flex-wrap gap-2">
-						{
-							heroMockup.tags.map((tag) => (
-								<span class="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">{tag}</span>
-							))
-						}
-					</div>
+			<div class={`${sectionContainerClass} mt-6 grid gap-4 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]`}>
+				<article class="border border-slate-200 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.45)]">
+						<p class={sectionLabelClass}>{content.hero.fitEyebrow}</p>
+						<h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">{content.hero.fitTitle}</h2>
 
-					<div class="mt-5 space-y-3">
+						<ul class="mt-5 space-y-3">
+							{
+								content.hero.fitItems.map((item) => (
+									<li class="flex gap-3 text-sm leading-relaxed text-slate-700">
+										<span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-indigo-500"></span>
+										<span>{item}</span>
+									</li>
+								))
+							}
+						</ul>
+				</article>
+
+				<article class="overflow-hidden rounded-[1.5rem] bg-slate-900 p-6 text-slate-50 shadow-[0_22px_48px_-30px_rgba(15,23,42,0.9)]">
+					<p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-200">{content.hero.commitmentsEyebrow}</p>
+					<h2 class="mt-3 text-2xl font-semibold tracking-tight">{content.hero.commitmentsTitle}</h2>
+
+					<div class="mt-6 grid gap-4">
 						{
-							heroMockup.steps.map((step, index) => (
-								<div class="border border-slate-200 bg-slate-50 p-3">
-									<p class="text-xs font-semibold text-indigo-600">{labels.stepPrefix} {index + 1} · {step.label}</p>
-									<p class="mt-1 text-sm text-slate-700">{step.value}</p>
+							content.hero.commitments.map((item) => (
+								<div class="border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
+									<p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-200">{item.label}</p>
+									<p class="mt-2 text-sm leading-relaxed text-slate-200">{item.value}</p>
 								</div>
 							))
 						}
 					</div>
-
-					<div class="mt-5 border-l-2 border-indigo-400 bg-indigo-50/60 p-4">
-						<p class="text-sm font-semibold text-slate-900">{heroMockup.supportTitle}</p>
-						<p class="mt-1 text-sm text-slate-700">{heroMockup.supportDescription}</p>
-					</div>
-				</aside>
-			</div>
+				</article>
+				</div>
 		</section>
 
-		<section id="why" class="border-t border-slate-200 py-12 md:py-14">
-			<div class={sectionContainerClass}>
-				<h2 class="max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-					{whyTitleEmoji && <span aria-hidden="true" class="mr-2">{whyTitleEmoji}</span>}
-					{content.whyEcommerce.title}
-				</h2>
-				<p class="mt-4 max-w-3xl text-slate-700">{content.whyEcommerce.description}</p>
+		<section id="situations" class="border-t border-slate-200 py-14 md:py-16">
+			<div class={`${sectionContainerClass} grid gap-10 lg:grid-cols-[0.78fr_1.22fr]`}>
+				<div class="lg:sticky lg:top-24 lg:self-start">
+					<p class={sectionLabelClass}>{content.situations.eyebrow}</p>
+					<h2 class="mt-3 max-w-xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+						{content.situations.title}
+					</h2>
+					<p class="mt-4 max-w-lg leading-relaxed text-slate-700">{content.situations.description}</p>
 
-				<div class="mt-7 grid gap-4 md:grid-cols-3">
+					<div class="mt-8 border-l-2 border-indigo-300 pl-5">
+						<p class="text-sm font-semibold text-slate-900">{content.situations.leadTitle}</p>
+						<p class="mt-2 text-sm leading-relaxed text-slate-600">{content.situations.leadDescription}</p>
+					</div>
+				</div>
+
+				<div class="grid gap-4 md:grid-cols-2">
 					{
-						content.whyEcommerce.scenarios.map((scenario, index) => (
-							<article class="border border-slate-200 bg-white p-5 shadow-[0_12px_24px_-20px_rgba(15,23,42,0.6)]">
-								<div class="flex items-center justify-between gap-3">
-									<span class="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-500">
-										{whyHighlights[index]?.label ?? 'Ecommerce'}
-									</span>
-									<span class="text-[11px] font-medium text-slate-500">{whyHighlights[index]?.accent ?? ''}</span>
+						content.situations.scenarios.map((scenario, index) => (
+							<article
+								class:list={[
+									'border border-slate-200 bg-white p-6 shadow-[0_16px_36px_-30px_rgba(15,23,42,0.45)]',
+									index === 0 && 'md:col-span-2 md:grid md:grid-cols-[0.42fr_0.58fr] md:items-start md:gap-6',
+								]}
+							>
+								<div>
+									<p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">{scenario.kicker}</p>
+									<h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
+										{scenario.title}
+									</h3>
 								</div>
-								<div class="my-4 h-[2px] w-12 bg-indigo-400"></div>
-								<h3 class="text-lg font-semibold text-slate-900">{scenario.title}</h3>
-								<p class="mt-2 text-slate-700">{scenario.description}</p>
+
+								<p class:list={['mt-4 leading-relaxed text-slate-700', index === 0 && 'md:mt-0']}>
+									{scenario.description}
+								</p>
 							</article>
 						))
 					}
@@ -159,18 +174,56 @@ const labels = locale === 'es'
 			</div>
 		</section>
 
-		<section id="services" class="border-t border-slate-200 py-12 md:py-14">
-			<div class={sectionContainerClass}>
-				<h2 class="max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.services.title}</h2>
-				<p class="mt-4 max-w-3xl text-slate-700">{content.services.description}</p>
+		<section id="work" class="border-t border-slate-200 py-14 md:py-16">
+			<div class={`${sectionContainerClass} grid gap-10 lg:grid-cols-[0.86fr_1.14fr]`}>
+				<div>
+					<p class={sectionLabelClass}>{content.work.eyebrow}</p>
+					<h2 class="mt-3 max-w-xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.work.title}</h2>
+					<p class="mt-4 max-w-lg leading-relaxed text-slate-700">{content.work.description}</p>
 
-				<div class="mt-7 grid gap-4 md:grid-cols-2">
+					<div class="mt-8 border border-slate-200 bg-white p-5 shadow-[0_18px_36px_-30px_rgba(15,23,42,0.4)]">
+						<p class="text-sm font-semibold text-slate-900">{content.work.noteTitle}</p>
+						<p class="mt-2 text-sm leading-relaxed text-slate-600">{content.work.noteDescription}</p>
+					</div>
+
+					<figure class="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_20px_42px_-32px_rgba(15,23,42,0.5)]">
+						<img
+							src="/ecommerce-product-collage-placeholder.svg"
+							alt={productImageAlt}
+							width="1600"
+							height="1000"
+							loading="lazy"
+							class="block aspect-[3/2] w-full object-cover"
+						/>
+						<figcaption class="border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs leading-relaxed text-slate-500">
+							{locale === 'es'
+								? 'Placeholder para collage de pantallas reales: catálogo, producto y checkout.'
+								: 'Placeholder for a collage of real screens: catalog, product, and checkout.'}
+						</figcaption>
+					</figure>
+				</div>
+
+				<div class="border-y border-slate-200 py-5">
 					{
-						content.services.items.map((service) => (
-							<article class="border border-slate-200 bg-white p-6 transition hover:border-indigo-300 hover:shadow-[0_14px_28px_-22px_rgba(79,70,229,0.85)]">
-								<p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-500">{labels.service}</p>
-								<h3 class="mt-3 text-xl font-semibold text-slate-900">{service.title}</h3>
-								<p class="mt-3 text-slate-700">{service.description}</p>
+						content.work.items.map((item) => (
+							<article class="grid gap-5 py-6 first:pt-0 last:pb-0 md:grid-cols-[0.34fr_0.66fr] md:items-start">
+								<div>
+									<p class="text-lg font-semibold tracking-tight text-slate-900">{item.title}</p>
+								</div>
+
+								<div>
+									<p class="leading-relaxed text-slate-700">{item.description}</p>
+
+									<div class="mt-4 flex flex-wrap gap-2">
+										{
+											item.examples.map((example) => (
+												<span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">
+													{example}
+												</span>
+											))
+										}
+									</div>
+								</div>
 							</article>
 						))
 					}
@@ -178,17 +231,37 @@ const labels = locale === 'es'
 			</div>
 		</section>
 
-		<section id="process" class="border-t border-slate-200 py-12 md:py-14">
-			<div class={sectionContainerClass}>
-				<h2 class="max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.process.title}</h2>
-				<p class="mt-4 max-w-3xl text-slate-700">{content.process.description}</p>
+		<section id="process" class="border-t border-slate-200 py-14 md:py-16">
+			<div class={`${sectionContainerClass} grid gap-10 lg:grid-cols-[0.9fr_1.1fr]`}>
+				<div>
+					<p class={sectionLabelClass}>{content.process.eyebrow}</p>
+					<h2 class="mt-3 max-w-xl text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{content.process.title}</h2>
+					<p class="mt-4 max-w-lg leading-relaxed text-slate-700">{content.process.description}</p>
 
-				<ol class="mt-7 grid gap-4 md:grid-cols-3">
+					<div class="mt-8 space-y-5">
+						{
+							content.process.principles.map((principle) => (
+								<div class="border-l-2 border-indigo-300 pl-5">
+									<p class="text-sm font-semibold text-slate-900">{principle.title}</p>
+									<p class="mt-2 text-sm leading-relaxed text-slate-600">{principle.description}</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+
+				<ol class="space-y-4">
 					{
-						content.process.steps.map((step) => (
-							<li class="border border-slate-200 bg-gradient-to-b from-indigo-50/60 to-white p-5">
-								<h3 class="text-base font-semibold text-indigo-700">{step.title}</h3>
-								<p class="mt-2 text-slate-700">{step.description}</p>
+						content.process.steps.map((step, index) => (
+							<li class="grid gap-4 border border-slate-200 bg-white p-5 shadow-[0_16px_36px_-30px_rgba(15,23,42,0.35)] md:grid-cols-[56px_1fr] md:items-start">
+								<div class="flex h-14 w-14 items-center justify-center rounded-full border border-indigo-200 bg-indigo-50 text-sm font-semibold text-indigo-700">
+									{index + 1}
+								</div>
+
+								<div>
+									<h3 class="text-lg font-semibold tracking-tight text-slate-900">{step.title}</h3>
+									<p class="mt-2 leading-relaxed text-slate-700">{step.description}</p>
+								</div>
 							</li>
 						))
 					}
@@ -196,22 +269,36 @@ const labels = locale === 'es'
 			</div>
 		</section>
 
-		<section id="cta" class="border-t border-slate-200 py-12 md:py-16">
+		<section id="cta" class="border-t border-slate-200 py-14 md:py-18">
 			<div class={sectionContainerClass}>
-				<div class="bg-gradient-to-r from-indigo-700 via-indigo-700 to-slate-900 p-7 text-white md:p-10">
-					<h2 class="max-w-3xl text-2xl font-bold tracking-tight md:text-4xl">
-						{ctaTitleEmoji && <span aria-hidden="true" class="mr-2">{ctaTitleEmoji}</span>}
-						{content.cta.title}
-					</h2>
-					<p class="mt-4 max-w-2xl text-sm text-indigo-100 md:text-base">{content.cta.description}</p>
-					<a
-						href={content.links.whatsapp}
-						target="_blank"
-						rel="noreferrer"
-						class="mt-6 inline-flex rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-50"
-					>
-						{content.cta.primaryButtonLabel}
-					</a>
+				<div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_60px_-34px_rgba(15,23,42,0.55)]">
+					<div class="grid lg:grid-cols-[1.08fr_0.92fr]">
+						<div class="bg-[linear-gradient(180deg,#ffffff_0%,#eef2ff_100%)] p-7 md:p-10">
+							<p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700">{content.cta.eyebrow}</p>
+							<h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{content.cta.title}</h2>
+							<p class="mt-4 leading-relaxed text-slate-700 md:text-lg">{content.cta.description}</p>
+						</div>
+
+						<div class="flex flex-col gap-4 bg-slate-950 p-7 text-white md:p-10">
+							<p class="text-sm leading-relaxed text-slate-200">{content.cta.supportNote}</p>
+							<div class="flex flex-wrap gap-3">
+								<a
+									href={content.links.whatsapp}
+									target="_blank"
+									rel="noreferrer"
+									class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+								>
+									{content.cta.primaryButtonLabel}
+								</a>
+								<a
+									href={content.links.about}
+									class="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5"
+								>
+									{content.cta.secondaryButtonLabel}
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
