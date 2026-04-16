@@ -15,8 +15,5 @@ const locale = resolveRequestLocale({
 	cookies: Astro.cookies,
 });
 
-const destinationPath = `/${locale}${pathname === '/' ? '' : pathname}`;
-const destination = `${destinationPath}${Astro.url.search}`;
-
-return Astro.redirect(destination);
+return Astro.redirect(`/${locale}${pathname === '/' ? '' : pathname}${Astro.url.search}`);
 ---

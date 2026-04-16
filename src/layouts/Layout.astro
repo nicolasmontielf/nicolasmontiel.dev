@@ -3,6 +3,22 @@ import Navbar from '@components/layout/Navbar.astro';
 import '@fontsource-variable/space-grotesk';
 import { getMessages } from '@/i18n/messages';
 import type { Locale } from '@/i18n/locales';
+import {
+	DEFAULT_OG_IMAGE,
+	DEFAULT_ROBOTS,
+	DEFAULT_THEME_COLOR,
+	PERSON_ID,
+	SAME_AS_LINKS,
+	SITE_NAME,
+	SITE_TITLE_SUFFIX,
+	SITE_URL,
+	WEBSITE_ID,
+	getAlternateLanguageLinks,
+	getLanguageTag,
+	getOpenGraphLocale,
+	getXDefaultHref,
+	toAbsoluteUrl,
+} from '@/seo/site';
 
 type Props = {
 	locale: Locale;
@@ -10,6 +26,8 @@ type Props = {
 	description?: string;
 	canonical?: string;
 	ogImage?: string;
+	robots?: string;
+	structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 	showDefaultNavbar?: boolean;
 	containerMode?: 'constrained' | 'fluid';
 };
@@ -19,14 +37,75 @@ const {
 	title,
 	description,
 	canonical,
-	ogImage = 'https://www.nicolasmontiel.dev/img/profile.png',
+	ogImage = DEFAULT_OG_IMAGE,
+	robots = DEFAULT_ROBOTS,
+	structuredData,
 	showDefaultNavbar = true,
 	containerMode = 'constrained',
 } = Astro.props as Props;
 
 const messages = getMessages(locale);
 const pageDescription = description || messages.layout.defaultDescription;
-const pageTitle = title ? `${title} | Nicolás Montiel` : `${messages.layout.homeTitle} | Nicolás Montiel`;
+const pageTitle = title ? `${title} | ${SITE_TITLE_SUFFIX}` : `${messages.layout.defaultTitle} | ${SITE_TITLE_SUFFIX}`;
+const resolvedCanonical = canonical || toAbsoluteUrl(Astro.url.pathname);
+const openGraphLocale = getOpenGraphLocale(locale);
+const alternateLanguageLinks = getAlternateLanguageLinks(Astro.url.pathname);
+const alternateOpenGraphLocales = alternateLanguageLinks
+	.filter((link) => link.locale !== locale)
+	.map((link) => getOpenGraphLocale(link.locale));
+const webpageSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	'@id': `${resolvedCanonical}#webpage`,
+	url: resolvedCanonical,
+	name: pageTitle,
+	description: pageDescription,
+	inLanguage: getLanguageTag(locale),
+	isPartOf: {
+		'@id': WEBSITE_ID,
+	},
+	about: {
+		'@id': PERSON_ID,
+	},
+};
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	'@id': WEBSITE_ID,
+	url: SITE_URL,
+	name: SITE_NAME,
+	inLanguage: ['en-US', 'es-PY'],
+	publisher: {
+		'@id': PERSON_ID,
+	},
+};
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	'@id': PERSON_ID,
+	name: SITE_NAME,
+	url: SITE_URL,
+	jobTitle: locale === 'es' ? 'Ingeniero de software full-stack' : 'Full-stack software engineer',
+	description: messages.layout.defaultDescription,
+	email: 'mailto:nicolasmontielf@gmail.com',
+	sameAs: SAME_AS_LINKS,
+	knowsAbout: [
+		'PHP',
+		'Laravel',
+		'Node.js',
+		'React',
+		'Vue.js',
+		'TypeScript',
+		'SQL',
+		'NoSQL',
+		'Ecommerce',
+		'AI-assisted software engineering',
+	],
+};
+const additionalStructuredData = structuredData
+	? (Array.isArray(structuredData) ? structuredData : [structuredData])
+	: [];
+const structuredDataEntries = [personSchema, websiteSchema, webpageSchema, ...additionalStructuredData];
 const bodyClass =
 	containerMode === 'fluid'
 		? 'bg-slate-50 text-slate-600 mb-40 selection:bg-indigo-100 selection:text-indigo-900'
@@ -35,11 +114,11 @@ const bodyClass =
 
 <!doctype html>
 <html lang={locale} class="scroll-smooth">
-	<head>
+		<head>
 		{!import.meta.env.DEV && (
 			<>
 				<!-- Google tag (gtag.js) -->
-				<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS54TMLFTL"></script>
+					<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FS54TMLFTL"></script>
 				<script is:inline>
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
@@ -51,25 +130,43 @@ const bodyClass =
 		)}
 		<meta charset="UTF-8" />
 		<meta name="description" content={pageDescription} />
-        <meta name="author" content="Nicolás Montiel" />
-        <meta name="viewport" content="width=device-width" />
+		<meta name="author" content={SITE_NAME} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content={robots} />
+		<meta name="theme-color" content={DEFAULT_THEME_COLOR} />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
-        <!-- Facebook meta tags -->
+		<!-- Open Graph meta tags -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content={openGraphLocale} />
+		{alternateOpenGraphLocales.map((value) => <meta property="og:locale:alternate" content={value} />)}
 		<meta property="og:title" content={pageTitle} />
-		<meta property="og:image" content={ogImage} />
-		<meta property="og:url" content={canonical || 'https://www.nicolasmontiel.dev'} />
-		<meta property="og:site_name" content="Nicolás Montiel &mdash; Software Engineer"/>
 		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content={pageTitle} />
+		<meta property="og:url" content={resolvedCanonical} />
+		<meta property="og:site_name" content={SITE_NAME} />
 
-        <!-- Twitter meta tags -->
+		<!-- Twitter meta tags -->
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImage} />
-		<meta name="twitter:url" content={canonical || 'https://www.nicolasmontiel.dev'} />
+		<meta name="twitter:image:alt" content={pageTitle} />
+		<meta name="twitter:url" content={resolvedCanonical} />
+		<meta name="twitter:site" content="@nicolasmontielf" />
 
-		{canonical && <link rel="canonical" href={canonical} />}
+		<link rel="canonical" href={resolvedCanonical} />
+		{alternateLanguageLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
+		<link rel="alternate" hreflang="x-default" href={getXDefaultHref(Astro.url.pathname)} />
 		<slot name="head" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		{
+			structuredDataEntries.map((entry) => (
+				<script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+			))
+		}
 		<title>{pageTitle}</title>
 	</head>
 

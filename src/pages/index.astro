@@ -1,10 +1,7 @@
 ---
 import { resolveRequestLocale } from '@/i18n/detect-locale';
-
-const locale = resolveRequestLocale({
+return Astro.redirect(`/${resolveRequestLocale({
 	request: Astro.request,
 	cookies: Astro.cookies,
-});
-
-return Astro.redirect(`/${locale}`);
+})}`);
 ---

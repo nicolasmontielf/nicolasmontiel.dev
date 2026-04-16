@@ -1,8 +1,6 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import PostsList from '@components/common/posts/List.tsx';
-import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import { DEVTO_PROFILE_URL } from '@/seo/site';
 
 const { lang } = Astro.params;
 
@@ -10,23 +8,5 @@ if (!lang || !isLocale(lang)) {
 	return Astro.redirect(`/${DEFAULT_LOCALE}`);
 }
 
-const messages = getMessages(lang);
+return Astro.redirect(DEVTO_PROFILE_URL, 301);
 ---
-
-<Layout locale={lang} title={messages.postsPage.pageTitle}>
-    <div class="w-full">
-        <div class="flex flex-col gap-2 mb-10">
-            <h1 class="text-4xl text-slate-900 font-extrabold tracking-tight">{messages.postsPage.heading}</h1>
-            <p class="text-slate-500">{messages.postsPage.description}</p>
-        </div>
-        
-        <div class="w-full">
-            <PostsList
-                withPagination
-                locale={lang}
-                labels={messages.postsList}
-                client:only="preact"
-            />
-        </div>
-    </div>
-</Layout>

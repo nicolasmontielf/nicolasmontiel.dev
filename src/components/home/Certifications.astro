@@ -7,12 +7,6 @@ type Props = {
 };
 
 const { title, credentialLabel } = Astro.props as Props;
-
-const issuerStyles = {
-	aws: { label: 'aws', badge: 'text-amber-500 bg-amber-50 border-amber-200' },
-	gcp: { label: 'gcp', badge: 'text-blue-600 bg-blue-50 border-blue-200' },
-	vue: { label: 'vue', badge: 'text-emerald-600 bg-emerald-50 border-emerald-200' },
-} as const;
 ---
 
 <section id="certifications-section" class="mt-16">

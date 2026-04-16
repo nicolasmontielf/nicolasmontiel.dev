@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /qr-code
+
+Sitemap: https://www.nicolasmontiel.dev/sitemap.xml

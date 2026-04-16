@@ -18,7 +18,7 @@ if (lang === 'es') {
 const messages = getMessages(lang);
 ---
 
-<Layout locale={lang} title="About me">
+<Layout locale={lang} title={messages.aboutPage.title} description={messages.aboutPage.description}>
 	<section id="presentation-section">
         <Presentation locale={lang} variant="freelancer" greeting={messages.home.greeting} />
     </section>

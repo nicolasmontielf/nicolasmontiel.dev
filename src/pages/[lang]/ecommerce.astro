@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Landing from '@components/ecommerce/Landing.astro';
 import { getEcommerceLandingContent } from '@/data/ecommerce-landing';
 import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import { PERSON_ID } from '@/seo/site';
 
 const { lang } = Astro.params;
 
@@ -12,6 +13,26 @@ if (!lang || !isLocale(lang)) {
 
 const content = getEcommerceLandingContent(lang);
 const canonical = `https://www.nicolasmontiel.dev/${lang}/ecommerce`;
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	'@id': `${canonical}#service`,
+	name:
+		lang === 'es'
+			? 'Servicios freelance de desarrollo ecommerce de Nicolás Montiel'
+			: 'Nicolás Montiel freelance ecommerce development services',
+	url: canonical,
+	description: content.meta.description,
+	serviceType:
+		lang === 'es'
+			? ['Desarrollo ecommerce', 'Optimización ecommerce', 'Integraciones y soporte']
+			: ['Ecommerce development', 'Ecommerce optimization', 'Integrations and support'],
+	areaServed: ['Paraguay', 'Latin America', 'United States', 'Europe'],
+	availableLanguage: lang === 'es' ? ['es'] : ['en'],
+	provider: {
+		'@id': PERSON_ID,
+	},
+};
 ---
 
 <Layout
@@ -19,8 +40,9 @@ const canonical = `https://www.nicolasmontiel.dev/${lang}/ecommerce`;
 	title={content.meta.title}
 	description={content.meta.description}
 	canonical={canonical}
+	structuredData={structuredData}
 	showDefaultNavbar={false}
 	containerMode="fluid"
 >
-	<Landing content={content} />
+	<Landing locale={lang} content={content} />
 </Layout>

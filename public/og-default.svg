@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="48" y="48" width="1104" height="534" rx="28" fill="url(#paint0_linear)" stroke="#CBD5E1" stroke-width="2"/>
+  <circle cx="144" cy="130" r="16" fill="#4F46E5"/>
+  <circle cx="190" cy="130" r="16" fill="#0F172A" fill-opacity="0.15"/>
+  <circle cx="236" cy="130" r="16" fill="#0F172A" fill-opacity="0.08"/>
+  <text x="96" y="214" fill="#0F172A" font-family="'Space Grotesk', Arial, sans-serif" font-size="64" font-weight="700">
+    Nicolás Montiel
+  </text>
+  <text x="96" y="286" fill="#334155" font-family="'Space Grotesk', Arial, sans-serif" font-size="34" font-weight="500">
+    Full-Stack Software Engineer
+  </text>
+  <text x="96" y="332" fill="#475569" font-family="'Space Grotesk', Arial, sans-serif" font-size="34" font-weight="500">
+    Web Products, Ecommerce, Integrations, AI Workflows
+  </text>
+  <rect x="96" y="396" width="280" height="56" rx="28" fill="#EEF2FF"/>
+  <text x="128" y="432" fill="#4338CA" font-family="'Space Grotesk', Arial, sans-serif" font-size="24" font-weight="700">
+    nicolasmontiel.dev
+  </text>
+  <rect x="790" y="138" width="262" height="118" rx="20" fill="#FFFFFF" stroke="#C7D2FE"/>
+  <text x="824" y="186" fill="#4338CA" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="700">
+    Product mindset
+  </text>
+  <text x="824" y="222" fill="#334155" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="500">
+    Senior execution with
+  </text>
+  <text x="824" y="250" fill="#334155" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="500">
+    strong technical judgment
+  </text>
+  <rect x="726" y="292" width="326" height="118" rx="20" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <text x="760" y="340" fill="#1D4ED8" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="700">
+    Ecommerce + AI workflows
+  </text>
+  <text x="760" y="376" fill="#334155" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="500">
+    Reliable delivery for teams
+  </text>
+  <text x="760" y="404" fill="#334155" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" font-weight="500">
+    that need clarity and speed
+  </text>
+  <rect x="654" y="446" width="398" height="84" rx="20" fill="#0F172A"/>
+  <text x="688" y="496" fill="#F8FAFC" font-family="'Space Grotesk', Arial, sans-serif" font-size="24" font-weight="700">
+    Senior engineer for business-critical work
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="48" y1="48" x2="1152" y2="582" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+</svg>

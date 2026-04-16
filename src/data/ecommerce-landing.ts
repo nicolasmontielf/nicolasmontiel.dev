@@ -64,8 +64,9 @@ const DEFAULT_WHATSAPP_LINK = 'https://wa.me/5950000000000';
 const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 	es: {
 		meta: {
-			title: 'Ecommerce',
-			description: 'Diseño y desarrollo de ecommerce para lanzar o escalar tu negocio online con soporte continuo.',
+			title: 'Desarrollo Ecommerce Freelance para Marcas y Negocios',
+			description:
+				'Desarrollo ecommerce freelance para marcas y negocios que necesitan lanzar, optimizar o escalar su canal online con una base técnica sólida.',
 		},
 		nav: {
 			items: [
@@ -77,12 +78,12 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		},
 		hero: {
 			badge: 'Partner tecnológico para ecommerce',
-			title: 'Construyo ecommerces que venden y evolucionan con tu negocio.',
+			title: 'Desarrollo ecommerce que vende hoy y escala con tu negocio.',
 			description:
-				'Trabajo con empresas grandes y chicas para lanzar su canal online, validar oportunidades y escalar con una base técnica sólida.',
+				'Trabajo con equipos que necesitan lanzar, optimizar o destrabar su ecommerce con foco en conversión, estabilidad operativa y crecimiento real.',
 			primaryCtaLabel: 'Hablemos por WhatsApp',
 			secondaryCtaLabel: 'Conocé mi experiencia',
-			trustNote: 'Más que entregar una tienda, te acompaño en decisiones, mejoras y soporte continuo.',
+			trustNote: 'No se trata solo de publicar una tienda: te acompaño en decisiones, mejoras y soporte continuo.',
 		},
 		whyEcommerce: {
 			title: 'El ecommerce ya no es opcional: es una ventaja competitiva.',
@@ -105,7 +106,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		},
 		services: {
 			title: 'Servicios para lanzar, mejorar y sostener tu ecommerce.',
-			description: 'Construimos una solución que responda a tus necesidades de negocio y de equipo.',
+			description: 'La solución se define en función de negocio, operación y capacidad real del equipo.',
 			items: [
 				{
 					title: 'Desarrollo de ecommerce',
@@ -178,8 +179,9 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 	},
 	en: {
 		meta: {
-			title: 'Ecommerce',
-			description: 'Ecommerce design and development to launch or scale your online business with ongoing support.',
+			title: 'Freelance Ecommerce Development for Brands and Growing Teams',
+			description:
+				'Freelance ecommerce development for brands and teams that need to launch, optimize, or scale their online channel on solid technical foundations.',
 		},
 		nav: {
 			items: [
@@ -191,12 +193,12 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		},
 		hero: {
 			badge: 'Your ecommerce technology partner',
-			title: 'I build ecommerce experiences that sell and scale with your business.',
+			title: 'Ecommerce development that drives sales and supports long-term growth.',
 			description:
-				'I work with both small and large companies to launch online sales channels, validate opportunities, and grow on solid technical foundations.',
+				'I work with teams that need to launch, optimize, or unblock their ecommerce channel with a strong focus on conversion, operational stability, and sustainable growth.',
 			primaryCtaLabel: 'Let\'s chat on WhatsApp',
 			secondaryCtaLabel: 'Get to know my background',
-			trustNote: 'I do not just ship a store. I stay involved with support, guidance, and continuous improvement.',
+			trustNote: 'This is not only about shipping a store. I stay involved in decisions, improvements, and ongoing support.',
 		},
 		whyEcommerce: {
 			title: 'Ecommerce is no longer optional. It is a growth advantage.',
@@ -219,7 +221,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		},
 		services: {
 			title: 'Services to launch, improve, and sustain your ecommerce.',
-			description: 'We build solutions aligned with your business goals and team reality.',
+			description: 'The right solution depends on your business model, operation, and team capacity.',
 			items: [
 				{
 					title: 'Ecommerce development',
