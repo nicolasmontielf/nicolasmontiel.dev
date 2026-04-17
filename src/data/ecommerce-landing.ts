@@ -62,7 +62,7 @@ export type EcommerceLandingContent = {
 	};
 };
 
-const DEFAULT_WHATSAPP_LINK = 'https://wa.me/5950000000000';
+const DEFAULT_WHATSAPP_LINK = 'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20saber%20más%20sobre%20tu%20motor%20ecommerce.';
 
 const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 	es: {

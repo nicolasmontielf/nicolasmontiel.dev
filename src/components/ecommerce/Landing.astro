@@ -10,14 +10,6 @@ type Props = {
 const { locale, content } = Astro.props as Props;
 const sectionContainerClass = 'mx-auto w-full max-w-screen-lg px-3 lg:px-0';
 const sectionLabelClass = 'text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600';
-const heroImageAlt =
-	locale === 'es'
-		? 'Captura real en desktop del storefront de tu motor ecommerce: home completa con header, banner principal, acceso a categorías o secciones destacadas y grilla de productos reales. La imagen debería mostrar que el producto ya existe y que se ve como una tienda seria, sin mockups inventados ni dashboards falsos.'
-		: 'Real desktop screenshot of your ecommerce engine storefront: full homepage with header, main banner, entry points to categories or featured sections, and a real product grid. The image should make it obvious that the product already exists and looks like a serious store, without fake mockups or fake dashboards.';
-const productImageAlt =
-	locale === 'es'
-		? 'Collage horizontal con tres capturas reales del producto: catálogo o listado, ficha de producto y checkout o paso clave de compra. Tiene que mostrar que tu motor cubre el recorrido completo de venta y que la interfaz pertenece al mismo producto, con datos no sensibles.'
-		: 'Horizontal collage with three real product screenshots: catalog or listing page, product detail page, and checkout or a key purchase step. It should show that your engine covers the full sales flow and that every screen belongs to the same product, using non-sensitive data.';
 ---
 
 <div class="relative overflow-hidden bg-slate-50">
