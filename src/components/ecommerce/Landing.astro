@@ -80,21 +80,12 @@ const productImageAlt =
                     <hr class="mt-6 border-slate-200" />
 				</div>
 
-				<div class="lg:pt-4">
-					<figure class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_20px_44px_-30px_rgba(15,23,42,0.55)]">
-						<img
-							src="/ecommerce-hero-placeholder.svg"
-							alt={heroImageAlt}
-							width="1600"
-							height="1200"
-							class="block aspect-[4/3] w-full object-cover"
-						/>
-						<figcaption class="border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs leading-relaxed text-slate-500">
-							{locale === 'es'
-								? 'Placeholder para screenshot principal del producto. Reemplazalo por una captura real en desktop.'
-								: 'Placeholder for the main product screenshot. Replace it with a real desktop capture.'}
-						</figcaption>
-					</figure>
+				<div class="p-2 lg:p-12">
+					<img
+                        src="/storefront-preview.png"
+                        class="w-auto max-h-[800px] mx-auto md:max-h-auto"
+                        alt="Image showing an ecommerce storefront"
+                    />
 				</div>
 			</div>
 
@@ -186,21 +177,13 @@ const productImageAlt =
 						<p class="mt-2 text-sm leading-relaxed text-slate-600">{content.work.noteDescription}</p>
 					</div>
 
-					<figure class="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_20px_42px_-32px_rgba(15,23,42,0.5)]">
-						<img
-							src="/ecommerce-product-collage-placeholder.svg"
-							alt={productImageAlt}
-							width="1600"
-							height="1000"
-							loading="lazy"
-							class="block aspect-[3/2] w-full object-cover"
-						/>
-						<figcaption class="border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs leading-relaxed text-slate-500">
-							{locale === 'es'
-								? 'Placeholder para collage de pantallas reales: catálogo, producto y checkout.'
-								: 'Placeholder for a collage of real screens: catalog, product, and checkout.'}
-						</figcaption>
-					</figure>
+					<div>
+                        <img
+                            src="/image.png"
+                            class="w-auto max-h-[500px] mx-auto mt-8 md:max-h-auto shadow-md border"
+                            alt="Image showing a collage of three product screenshots: catalog or listing page, product detail page, and checkout or a key purchase step."
+                        />
+                    </div>
 				</div>
 
 				<div class="border-y border-slate-200 py-5">
