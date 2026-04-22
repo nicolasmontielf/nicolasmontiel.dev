@@ -19,6 +19,12 @@ export const certifications: Certification[] = [
 		href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
 	},
     {
+        id: 'tdd-javascript',
+        title: 'Test-Driven Development for JavaScript Specialization',
+        icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQG9W4lfcWc9dQ/company-logo_100_100/B4EZYPofEYHkAQ-/0/1744018993869/pearson_logo?e=1778716800&v=beta&t=PgM3snVX8HFZU70WN8BtvGPM2zlzAec5KRHd1UPsW60',
+        href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
+    },
+    {
 		id: 'scrum-fundamentals-certified',
 		title: 'Scrum Fundamentals Certified',
 		icon: 'https://media.licdn.com/dms/image/v2/C4E0BAQG9_uP8f-kpiw/company-logo_100_100/company-logo_100_100/0/1631356592679?e=1777507200&v=beta&t=PvZ07foamaHFmYCBzYVw2IcaByaDCZCsS41IYZv-xQQ',
