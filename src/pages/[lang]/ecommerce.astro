@@ -19,14 +19,28 @@ const structuredData = {
 	'@id': `${canonical}#service`,
 	name:
 		lang === 'es'
-			? 'Servicios freelance de desarrollo ecommerce de Nicolás Montiel'
-			: 'Nicolás Montiel freelance ecommerce development services',
+			? 'Servicios freelance de ecommerce a medida de Nicolás Montiel'
+			: 'Nicolás Montiel freelance custom ecommerce services',
 	url: canonical,
 	description: content.meta.description,
 	serviceType:
 		lang === 'es'
-			? ['Desarrollo ecommerce', 'Optimización ecommerce', 'Integraciones y soporte']
-			: ['Ecommerce development', 'Ecommerce optimization', 'Integrations and support'],
+			? [
+					'Ecommerce a medida',
+					'Diseño de storefront ecommerce',
+					'Implementación ecommerce',
+					'Google Analytics y Search Console',
+					'SEO técnico básico',
+					'Soporte e integraciones',
+				]
+			: [
+					'Custom ecommerce',
+					'Ecommerce storefront design',
+					'Ecommerce implementation',
+					'Google Analytics and Search Console',
+					'Basic technical SEO',
+					'Support and integrations',
+				],
 	areaServed: ['Paraguay', 'Latin America', 'United States', 'Europe'],
 	availableLanguage: lang === 'es' ? ['es'] : ['en'],
 	provider: {
