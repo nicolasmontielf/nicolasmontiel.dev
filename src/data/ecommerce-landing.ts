@@ -52,6 +52,10 @@ export type EcommerceLandingContent = {
 		eyebrow: string;
 		title: string;
 		description: string;
+		speakerName: string;
+		speakerRole: string;
+		speakerMessage: string;
+		speakerAlt: string;
 		supportNote: string;
 		primaryButtonLabel: string;
 		secondaryButtonLabel: string;
@@ -87,7 +91,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 			badge: 'Ecommerce a medida',
 			title: 'Un ecommerce a medida, sobre una base sólida, para negocios que quieren vender online en serio.',
 			description:
-				'Trabajo sobre un core que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
+				'Trabajo sobre un core que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
 			primaryCtaLabel: 'Hablemos por WhatsApp',
 			secondaryCtaLabel: 'Conocé mi perfil',
 			trustNote:
@@ -236,8 +240,13 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 			title: 'Si querés un ecommerce bien resuelto y pensado para tu negocio, conversemos.',
 			description:
 				'Contame qué necesitás vender, cómo operás hoy y qué esperás del canal. Si veo que encaja con tu caso, te voy a proponer la mejor forma de construir la tienda y ordenarla desde el arranque.',
+			speakerName: 'Nicolás Montiel',
+			speakerRole: 'Ingeniero de Software especializado en ecommerce a medida',
+			speakerMessage:
+				'Si ya tenés claro que querés vender online, escribime y contame un poco tu caso. Primero quiero entender tu negocio, tu operación y qué esperás del canal. Desde ahí te digo si encaja conmigo y cómo conviene encararlo.',
+			speakerAlt: 'Avatar placeholder de Nicolás Montiel',
 			supportNote:
-				'Si hace falta, también puedo darte una mano con servidor, dominio, Analytics, Search Console y algunos puntos generales de SEO para que la salida online quede más completa.',
+				'Si además necesitás ayuda con servidor, dominio, Analytics, Search Console o algunos puntos generales de SEO, también lo podemos ordenar desde el arranque.',
 			primaryButtonLabel: 'Escribime por WhatsApp',
 			secondaryButtonLabel: 'Ver mi experiencia',
 		},
@@ -414,8 +423,13 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 			title: 'If you want an ecommerce store that is properly built around your business, let’s talk.',
 			description:
 				'Tell me what you need to sell, how you operate today, and what you expect from the channel. If I see a good fit, I will suggest the best way to build the store and structure the launch.',
+			speakerName: 'Nicolás Montiel',
+			speakerRole: 'Software Engineer specialized in custom ecommerce builds',
+			speakerMessage:
+				'If you already know you want to sell online, send me a message and tell me a bit about your case. I first want to understand your business, your operations, and what you expect from the channel. From there, I can tell you whether it fits and how it makes sense to approach it.',
+			speakerAlt: 'Placeholder avatar for Nicolás Montiel',
 			supportNote:
-				'If needed, I can also help with hosting, domain setup, Analytics, Search Console, and general SEO support so the online launch is more complete.',
+				'If needed, I can also help with hosting, domain setup, Analytics, Search Console, and a few general SEO basics so the launch is more complete.',
 			primaryButtonLabel: 'Message me on WhatsApp',
 			secondaryButtonLabel: 'See my experience',
 		},
