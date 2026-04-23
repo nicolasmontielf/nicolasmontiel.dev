@@ -1,0 +1,129 @@
+---
+type IconName = 'core' | 'storefront' | 'business' | 'launch' | 'setup';
+
+type Props = {
+	name: IconName;
+	inverted?: boolean;
+};
+
+const { name, inverted = false } = Astro.props as Props;
+const strokeClass = inverted ? 'stroke-white' : 'stroke-slate-900';
+const toneClasses = inverted
+	? {
+			wrapper: 'border-white/15 bg-white/10',
+			icon: 'stroke-white',
+		}
+	: {
+			core: {
+				wrapper: 'border-indigo-200 bg-indigo-50',
+				icon: 'stroke-indigo-600',
+			},
+			storefront: {
+				wrapper: 'border-sky-200 bg-sky-50',
+				icon: 'stroke-sky-600',
+			},
+			business: {
+				wrapper: 'border-emerald-200 bg-emerald-50',
+				icon: 'stroke-emerald-600',
+			},
+			launch: {
+				wrapper: 'border-amber-200 bg-amber-50',
+				icon: 'stroke-amber-600',
+			},
+			setup: {
+				wrapper: 'border-violet-200 bg-violet-50',
+				icon: 'stroke-violet-600',
+			},
+		}[name];
+---
+
+<div
+	class:list={[
+		'flex h-11 w-11 items-center justify-center rounded-xl border',
+		toneClasses.wrapper,
+	]}
+>
+	{
+		name === 'core' && (
+			<svg
+				viewBox="0 0 24 24"
+				fill="none"
+				class={`h-5 w-5 ${inverted ? strokeClass : toneClasses.icon}`}
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M12 3l7 4v10l-7 4l-7-4V7l7-4z" />
+				<path d="M12 8l3 2v4l-3 2l-3-2v-4l3-2z" />
+			</svg>
+		)
+	}
+	{
+		name === 'storefront' && (
+			<svg
+				viewBox="0 0 24 24"
+				fill="none"
+				class={`h-5 w-5 ${inverted ? strokeClass : toneClasses.icon}`}
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M4 10h16" />
+				<path d="M6 10l1-4h10l1 4" />
+				<path d="M5 10v8h14v-8" />
+				<path d="M9 18v-4h6v4" />
+			</svg>
+		)
+	}
+	{
+		name === 'business' && (
+			<svg
+				viewBox="0 0 24 24"
+				fill="none"
+				class={`h-5 w-5 ${inverted ? strokeClass : toneClasses.icon}`}
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M5 18V8l7-4l7 4v10" />
+				<path d="M9 18v-4h6v4" />
+				<path d="M9 10h.01" />
+				<path d="M15 10h.01" />
+			</svg>
+		)
+	}
+	{
+		name === 'launch' && (
+			<svg
+				viewBox="0 0 24 24"
+				fill="none"
+				class={`h-5 w-5 ${inverted ? strokeClass : toneClasses.icon}`}
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M12 3c3.5 2 5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 1.5-7 5-9z" />
+				<path d="M12 13l-2 4" />
+				<path d="M12 13l2 4" />
+			</svg>
+		)
+	}
+	{
+		name === 'setup' && (
+			<svg
+				viewBox="0 0 24 24"
+				fill="none"
+				class={`h-5 w-5 ${inverted ? strokeClass : toneClasses.icon}`}
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M12 3v4" />
+				<path d="M12 17v4" />
+				<path d="M3 12h4" />
+				<path d="M17 12h4" />
+				<circle cx="12" cy="12" r="4" />
+			</svg>
+		)
+	}
+</div>
