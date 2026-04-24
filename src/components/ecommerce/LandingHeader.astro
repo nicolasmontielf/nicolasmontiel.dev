@@ -1,0 +1,42 @@
+---
+import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+import type { Locale } from '@/i18n/locales';
+import { sectionContainerClass } from '@components/ecommerce/styles';
+
+type Props = {
+	locale: Locale;
+	nav: EcommerceLandingContent['nav'];
+	whatsappLink: string;
+	ctaLabel: string;
+};
+
+const { locale, nav, whatsappLink, ctaLabel } = Astro.props as Props;
+---
+
+<header class="border-b border-slate-200 bg-white/95 backdrop-blur">
+	<div class={`flex items-center justify-between gap-6 py-5 ${sectionContainerClass}`}>
+		<a href={`/${locale}`} class="flex items-center gap-3 text-slate-900">
+			<span class="text-[11px] font-semibold uppercase tracking-[0.26em] text-indigo-600">Nicolas Montiel</span>
+			<span class="hidden text-[11px] uppercase tracking-[0.22em] text-slate-400 md:block">{nav.label}</span>
+		</a>
+
+		<nav class="hidden items-center gap-6 text-sm text-slate-500 md:flex">
+			{
+				nav.items.map((item) => (
+					<a href={`#${item.id}`} class="transition-colors hover:text-slate-900">
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<a
+			href={whatsappLink}
+			target="_blank"
+			rel="noreferrer"
+			class="rounded-md bg-indigo-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700"
+		>
+			{ctaLabel}
+		</a>
+	</div>
+</header>

@@ -1,0 +1,49 @@
+---
+import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+import type { Locale } from '@/i18n/locales';
+import { sectionContainerClass } from '@components/ecommerce/styles';
+
+type Props = {
+	locale: Locale;
+	profile: EcommerceLandingContent['profile'];
+	aboutLink: string;
+};
+
+const { locale, profile, aboutLink } = Astro.props as Props;
+const avatarSrc = '/nicolas-montiel-avatar.png';
+const avatarAlt = locale === 'es' ? 'Avatar de Nicolás Montiel' : 'Avatar of Nicolas Montiel';
+---
+
+<section id="profile" class="bg-white py-16 md:py-20">
+	<div class={`${sectionContainerClass} grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start`}>
+		<div class="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.22)]">
+			<div class="flex items-center gap-4">
+				<img src={avatarSrc} alt={avatarAlt} class="h-14 w-14 rounded-full border border-slate-200 object-cover" loading="lazy" />
+				<div>
+					<p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600">{profile.eyebrow}</p>
+					<p class="mt-1 text-sm font-medium text-slate-500">Nicolás Montiel</p>
+				</div>
+			</div>
+
+			<h2 class="mt-6 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{profile.title}</h2>
+			<p class="mt-4 leading-relaxed text-slate-600">{profile.description}</p>
+			<a
+				href={aboutLink}
+				class="mt-8 inline-flex rounded-md border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-100"
+			>
+				{profile.buttonLabel}
+			</a>
+		</div>
+
+		<div class="grid gap-5">
+			{
+				profile.items.map((item) => (
+					<article class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.16)]">
+						<h3 class="text-lg font-semibold tracking-tight text-slate-900">{item.title}</h3>
+						<p class="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
