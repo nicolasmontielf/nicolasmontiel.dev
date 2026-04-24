@@ -148,7 +148,7 @@ const contactStatusId = `contact-status-${locale}`;
 			}
 
 			try {
-				const response = await fetch('/api/contact', {
+				const response = await fetch('/api/contact/send', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ const contactStatusId = `contact-status-${locale}`;
 					return;
 				}
 
-				setStatus((payload && payload.message) || 'Message sent.', 'success');
+				setStatus('Mensaje enviado, me pondré en contacto contigo en menos de 24 horas.', 'success');
 				form.reset();
 			} catch (_error) {
 				setStatus(form.dataset.errorMessage || 'Unexpected error.', 'error');
