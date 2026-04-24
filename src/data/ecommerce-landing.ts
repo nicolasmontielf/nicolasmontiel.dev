@@ -99,9 +99,9 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 			badge: 'Ecommerce a medida',
 			title: 'Un ecommerce a medida para negocios que quieren vender online en serio.',
 			description:
-				'Trabajo sobre un core que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
+				'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
 			trustNote:
-				'No trabajo con la lógica de “te entrego una plantilla y arreglate”. Me involucro para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
+				'No trabajo con la idea de “te entrego una web y arreglate”. Me quiero involucrar para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
 			primaryCtaLabel: 'Hablemos por WhatsApp',
 			secondaryCtaLabel: 'Conocé mi perfil',
 			floatingCardLabel: 'Base técnica',
@@ -111,13 +111,13 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 			eyebrow: 'Qué incluye',
 			title: 'No vendo una plantilla, desarrollo un ecommerce a medida para tu negocio.',
 			subtitle:
-				'Partimos de un core sólido y, desde ahí, definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. La idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte también en las partes técnicas que tenga sentido cubrir.',
+				'Partimos de una base sólida y, desde ahí, definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. La idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte también en las partes técnicas que tenga sentido cubrir.',
 			noteTitle: 'La ventaja está en arrancar desde una base que ya existe.',
 			noteDescription:
 				'Como la base ya fue probada de verdad durante años, no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
 			cards: [
 				{
-					title: 'Storefront diseñado a medida',
+					title: 'Tienda diseñada a medida',
 					description:
 						'Trabajo para que la tienda se vea y se sienta alineada con tu marca, tu producto y la experiencia que querés darle al cliente.',
 					icon: 'storefront',
@@ -129,7 +129,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 					icon: 'business',
 				},
 				{
-					title: 'Salida online y acompañamiento técnico',
+					title: 'Acompañamiento técnico',
 					description:
 						'Desde el inicio puedo ayudarte con servidor, dominio y puesta online para que no tengas que resolver esa parte a las corridas. Después, si querés soporte o mejoras, también lo vemos.',
 					icon: 'launch',
