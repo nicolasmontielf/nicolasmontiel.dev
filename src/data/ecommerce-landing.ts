@@ -24,13 +24,12 @@ export type EcommerceLandingContent = {
 	work: {
 		eyebrow: string;
 		title: string;
-		description: string;
+		subtitle: string;
 		noteTitle: string;
 		noteDescription: string;
-		items: Array<{
+		cards: Array<{
 			title: string;
 			description: string;
-			examples: string[];
 			icon: 'core' | 'storefront' | 'business' | 'launch' | 'setup';
 		}>;
 	};
@@ -110,46 +109,35 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		},
 		work: {
 			eyebrow: 'Qué incluye',
-			title: 'No vendo una plantilla ni horas sueltas. Desarrollo un ecommerce a medida bien resuelto para tu negocio.',
-			description:
-				'Partimos de un core sólido y, desde ahí, definimos cómo tiene que verse la tienda, cómo tiene que operar y en qué parte te conviene que te acompañe también después de salir.',
+			title: 'No vendo una plantilla, desarrollo un ecommerce a medida para tu negocio.',
+			subtitle:
+				'Partimos de un core sólido y, desde ahí, definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. La idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte también en las partes técnicas que tenga sentido cubrir.',
 			noteTitle: 'La ventaja está en arrancar desde una base que ya existe.',
 			noteDescription:
 				'Como la base ya fue probada de verdad durante años, no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
-			items: [
-				{
-					title: 'Implementación sobre un core sólido',
-					description:
-						'La tienda se construye sobre una base segura y ya muy probada. Eso hace que el proyecto arranque con más orden, menos riesgo y mejores fundamentos técnicos.',
-					examples: ['Catálogo', 'Checkout', 'Operación base', 'Base segura'],
-					icon: 'core',
-				},
+			cards: [
 				{
 					title: 'Storefront diseñado a medida',
 					description:
 						'Trabajo para que la tienda se vea y se sienta alineada con tu marca, tu producto y la experiencia que querés darle al cliente.',
-					examples: ['Diseño visual', 'Identidad de marca', 'Jerarquía de contenido', 'Experiencia de compra'],
 					icon: 'storefront',
 				},
 				{
 					title: 'Adaptación a tu negocio',
 					description:
 						'No adapto tu negocio a una plantilla. Adapto la implementación a tu operación, tu propuesta comercial y las prioridades reales de tu canal.',
-					examples: ['Marca', 'Flujos de compra', 'Configuración comercial', 'Prioridades reales'],
 					icon: 'business',
 				},
 				{
 					title: 'Salida online y acompañamiento técnico',
 					description:
 						'Desde el inicio puedo ayudarte con servidor, dominio y puesta online para que no tengas que resolver esa parte a las corridas. Después, si querés soporte o mejoras, también lo vemos.',
-					examples: ['Servidor', 'Dominio', 'Deploy', 'Soporte opcional'],
 					icon: 'launch',
 				},
 				{
 					title: 'Configuración complementaria',
 					description:
 						'Si suma valor para tu caso, también puedo ayudarte con la configuración de Google Analytics, Google Search Console y algunos puntos generales de SEO para que la tienda salga más ordenada.',
-					examples: ['Google Analytics', 'Search Console', 'SEO general', 'Medición base'],
 					icon: 'setup',
 				},
 			],
@@ -267,45 +255,34 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
 		work: {
 			eyebrow: 'What is included',
 			title: 'I am not selling a template or isolated dev hours. I build a custom ecommerce that is properly resolved around your business.',
-			description:
-				'We start from a solid core and, from there, define how the store should look, how it should operate, and where it makes sense for me to stay involved after launch.',
+			subtitle:
+				'We start from a solid core and, from there, define how the store should look, how it should operate, and what needs to be solved so you can launch properly. The goal is to build something aligned with your brand, the way you sell, and your actual operations, while I also support the technical pieces that make sense to cover.',
 			noteTitle: 'The advantage is starting from something that already exists.',
 			noteDescription:
 				'Because the base has already been tested in real conditions for years, we do not waste energy rebuilding the obvious parts. The real effort goes into adapting the store to your brand, your operation, and the way you sell.',
-			items: [
-				{
-					title: 'Implementation on top of a solid core',
-					description:
-						'The store is built on top of a secure and well-tested base. That gives the project more order, less risk, and stronger technical fundamentals from the start.',
-					examples: ['Catalog', 'Checkout', 'Core operation', 'Secure base'],
-					icon: 'core',
-				},
+			cards: [
 				{
 					title: 'Custom storefront design',
 					description:
 						'I work to make sure the store looks and feels aligned with your brand, your product, and the experience you want to give customers.',
-					examples: ['Visual design', 'Brand fit', 'Content hierarchy', 'Buying experience'],
 					icon: 'storefront',
 				},
 				{
 					title: 'Adaptation to your business',
 					description:
 						'I am not forcing your business into a template. I adapt the implementation to your operations, your commercial model, and the real priorities of the channel.',
-					examples: ['Brand fit', 'Buying flows', 'Commercial setup', 'Real priorities'],
 					icon: 'business',
 				},
 				{
 					title: 'Launch and technical support',
 					description:
 						'From the start, I can help with hosting, domain setup, and going live so you do not have to scramble through that part alone. After launch, if you want support or improvements, we can keep going.',
-					examples: ['Hosting', 'Domain', 'Deploy', 'Optional support'],
 					icon: 'launch',
 				},
 				{
 					title: 'Complementary setup',
 					description:
 						'If it adds value to your case, I can also help with Google Analytics, Google Search Console, and general SEO support so the store launches in a more organized way.',
-					examples: ['Google Analytics', 'Search Console', 'General SEO', 'Core measurement'],
 					icon: 'setup',
 				},
 			],
