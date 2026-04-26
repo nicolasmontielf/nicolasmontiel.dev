@@ -32,6 +32,8 @@ export const PUBLIC_LOCALIZED_PATHS = [
 	'/es/sobre-mi',
 	'/en/ecommerce',
 	'/es/ecommerce',
+	'/en/web',
+	'/es/web',
 ];
 
 export function toAbsoluteUrl(pathname: string) {

@@ -5,10 +5,17 @@ type ContactPayload = {
 	name?: unknown;
 	email?: unknown;
 	whatsapp?: unknown;
+	projectType?: unknown;
+	message?: unknown;
+	source?: unknown;
 };
 
 const CONTACT_TO_EMAIL = 'nicolasmontielf@gmail.com';
 const CONTACT_FROM_EMAIL = 'ecommerce@nicolasmontiel.dev';
+const SOURCE_LABELS: Record<string, string> = {
+	ecommerce: 'ecommerce',
+	web: 'web',
+};
 
 function normalizeString(value: unknown) {
 	return typeof value === 'string' ? value.trim() : '';
@@ -51,6 +58,9 @@ export const POST: APIRoute = async ({ request }) => {
 	const name = normalizeString(payload.name);
 	const email = normalizeString(payload.email);
 	const whatsapp = normalizeString(payload.whatsapp);
+	const projectType = normalizeString(payload.projectType);
+	const message = normalizeString(payload.message);
+	const source = SOURCE_LABELS[normalizeString(payload.source)] || 'ecommerce';
 
 	if (!name) {
 		return json(
@@ -91,11 +101,13 @@ export const POST: APIRoute = async ({ request }) => {
 	const sentAt = new Date().toISOString();
 
 	const text = [
-		'Nuevo contacto ecommerce',
+		`Nuevo contacto ${source}`,
 		'',
 		`Nombre: ${name}`,
 		`Email: ${email || 'No especificado'}`,
 		`WhatsApp: ${whatsapp || 'No especificado'}`,
+		`Tipo de proyecto: ${projectType || 'No especificado'}`,
+		`Mensaje: ${message || 'No especificado'}`,
 		`Fecha: ${sentAt}`,
 		`IP: ${clientIp}`,
 		`User-Agent: ${userAgent}`,
@@ -106,7 +118,7 @@ export const POST: APIRoute = async ({ request }) => {
 		await resend.emails.send({
 			from: CONTACT_FROM_EMAIL,
 			to: CONTACT_TO_EMAIL,
-			subject: `Nuevo contacto ecommerce - ${name}`,
+			subject: `Nuevo contacto ${source} - ${name}`,
 			text,
 		});
 

@@ -30,6 +30,7 @@ type Props = {
 	structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 	showDefaultNavbar?: boolean;
 	containerMode?: 'constrained' | 'fluid';
+	includeAlternateLinks?: boolean;
 };
 
 const {
@@ -42,6 +43,7 @@ const {
 	structuredData,
 	showDefaultNavbar = true,
 	containerMode = 'constrained',
+	includeAlternateLinks = true,
 } = Astro.props as Props;
 
 const messages = getMessages(locale);
@@ -49,7 +51,7 @@ const pageDescription = description || messages.layout.defaultDescription;
 const pageTitle = title ? `${title} | ${SITE_TITLE_SUFFIX}` : `${messages.layout.defaultTitle} | ${SITE_TITLE_SUFFIX}`;
 const resolvedCanonical = canonical || toAbsoluteUrl(Astro.url.pathname);
 const openGraphLocale = getOpenGraphLocale(locale);
-const alternateLanguageLinks = getAlternateLanguageLinks(Astro.url.pathname);
+const alternateLanguageLinks = includeAlternateLinks ? getAlternateLanguageLinks(Astro.url.pathname) : [];
 const alternateOpenGraphLocales = alternateLanguageLinks
 	.filter((link) => link.locale !== locale)
 	.map((link) => getOpenGraphLocale(link.locale));
