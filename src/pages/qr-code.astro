@@ -1,6 +1,189 @@
 ---
-const redirectUrl = import.meta.env.QR_REDIRECT;
-if (redirectUrl) {
-    return Astro.redirect(redirectUrl);
-}
+import Layout from '@/layouts/Layout.astro';
+import { resolveRequestLocale } from '@/i18n/detect-locale';
+import type { Locale } from '@/i18n/locales';
+import { SITE_URL } from '@/seo/site';
+
+const locale = resolveRequestLocale({
+	request: Astro.request,
+	cookies: Astro.cookies,
+});
+
+type LinkItem = {
+	label: string;
+	description: string;
+	href: string;
+};
+
+const whatsappLinks: Record<Locale, string> = {
+	es: 'https://wa.me/595973779205?text=Hola%20Nico!%2C%20vengo%20desde%20tu%20tarjeta%20personal%20y%20quiero%20hacerte%20una%20consulta.',
+	en: 'https://wa.me/595973779205?text=Hi%20Nico!%20I%20came%20from%20your%20personal%20card%20and%20would%20like%20to%20ask%20you%20something.',
+};
+
+const contentByLocale: Record<Locale, {
+	metaTitle: string;
+	metaDescription: string;
+	badge: string;
+	title: string;
+	description: string;
+	languageLabel: string;
+	whatsappLabel: string;
+	whatsappNote: string;
+	links: LinkItem[];
+}> = {
+	es: {
+		metaTitle: 'Links rápidos',
+		metaDescription:
+			'Links rápidos de Nicolás Montiel para conocer su perfil freelance, pedir un ecommerce, pedir una web o contactar por WhatsApp.',
+		badge: 'Nicolas Montiel',
+		title: 'Hablemos de tu negocio y de lo que querés construir.',
+		description:
+			'Trabajo como partner técnico para ayudar a ordenar ideas, tomar buenas decisiones y construir productos web que tengan sentido para el negocio.',
+		languageLabel: 'Idioma',
+		whatsappLabel: 'Contactar por WhatsApp',
+		whatsappNote: 'Respuesta directa para consultas desde la tarjeta personal.',
+		links: [
+			{
+				label: 'Sobre mí',
+				description: 'Cómo trabajo como freelance y aliado tecnológico.',
+				href: '/es/sobre-mi',
+			},
+			{
+				label: 'Quiero un ecommerce',
+				description: 'Una tienda a medida, pensada alrededor de tu operación.',
+				href: '/es/ecommerce',
+			},
+			{
+				label: 'Quiero una web',
+				description: 'Una web, landing o webapp bien resuelta para tu objetivo.',
+				href: '/es/web',
+			},
+		],
+	},
+	en: {
+		metaTitle: 'Quick links',
+		metaDescription:
+			'Quick links for Nicolás Montiel to view his freelance profile, request ecommerce work, request a website, or contact him on WhatsApp.',
+		badge: 'Nicolas Montiel',
+		title: 'Let’s talk about your business and what you want to build.',
+		description:
+			'I work as a technical partner to help clarify ideas, make good decisions, and build web products that make sense for the business.',
+		languageLabel: 'Language',
+		whatsappLabel: 'Contact on WhatsApp',
+		whatsappNote: 'Direct reply for questions from the personal card.',
+		links: [
+			{
+				label: 'About me',
+				description: 'How I work as a freelancer and technical partner.',
+				href: '/en/about-me',
+			},
+			{
+				label: 'I want ecommerce',
+				description: 'A custom store designed around your operation.',
+				href: '/en/ecommerce',
+			},
+			{
+				label: 'I want a website',
+				description: 'A website, landing page, or webapp shaped around your goal.',
+				href: '/en/web',
+			},
+		],
+	},
+};
+
+const content = contentByLocale[locale];
+const canonical = `${SITE_URL}/qr-code`;
+const switchToEs = `/api/set-language?lang=es&redirect=${encodeURIComponent('/qr-code')}`;
+const switchToEn = `/api/set-language?lang=en&redirect=${encodeURIComponent('/qr-code')}`;
 ---
+
+<Layout
+	locale={locale}
+	title={content.metaTitle}
+	description={content.metaDescription}
+	canonical={canonical}
+	showDefaultNavbar={false}
+	containerMode="fluid"
+	includeAlternateLinks={false}
+>
+	<section class="min-h-screen bg-[linear-gradient(135deg,#f8fafc_0%,#eef2ff_42%,#ffffff_100%)] px-4 py-6 text-slate-700 sm:px-6">
+		<div class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-md flex-col justify-center">
+			<div class="mb-5 flex items-center justify-between gap-4">
+				<a href={`/${locale}`} class="flex items-center gap-3 text-slate-950" aria-label="Nicolas Montiel">
+					<img
+						src="/nicolas-montiel-avatar.png"
+						alt=""
+						class="h-12 w-12 rounded-full border border-white bg-white object-cover shadow-sm"
+						loading="eager"
+					/>
+					<span>
+						<span class="block text-sm font-bold tracking-tight">Nicolas Montiel</span>
+						<span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] text-indigo-600">
+							Technical partner
+						</span>
+					</span>
+				</a>
+
+				<label class="sr-only" for="qr-language-select">{content.languageLabel}</label>
+				<select
+					id="qr-language-select"
+					data-language-select
+					class="rounded-md border border-slate-200 bg-white px-2 py-2 text-xs font-semibold text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+					aria-label={content.languageLabel}
+				>
+					<option value={switchToEs} selected={locale === 'es'}>ES</option>
+					<option value={switchToEn} selected={locale === 'en'}>EN</option>
+				</select>
+			</div>
+
+			<div class="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.55)] sm:p-6">
+				<p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600">{content.badge}</p>
+				<h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{content.title}</h1>
+				<p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">{content.description}</p>
+
+				<div class="mt-7 space-y-3">
+					{
+						content.links.map((item) => (
+							<a
+								href={item.href}
+								class="group flex items-center justify-between gap-4 rounded-md border border-slate-200 bg-slate-50 px-4 py-4 transition hover:border-indigo-200 hover:bg-white hover:shadow-sm"
+							>
+								<span>
+									<span class="block text-base font-semibold text-slate-950">{item.label}</span>
+									<span class="mt-1 block text-sm leading-relaxed text-slate-500">{item.description}</span>
+								</span>
+								<span class="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-white text-lg font-semibold text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
+									&rarr;
+								</span>
+							</a>
+						))
+					}
+				</div>
+
+				<div class="mt-5 border-t border-slate-200 pt-5">
+					<a
+						href={whatsappLinks[locale]}
+						target="_blank"
+						rel="noreferrer"
+						class="flex items-center justify-center rounded-md bg-indigo-600 px-5 py-4 text-sm font-semibold text-white transition hover:bg-indigo-700"
+					>
+						{content.whatsappLabel}
+					</a>
+					<p class="mt-3 text-center text-xs leading-relaxed text-slate-500">{content.whatsappNote}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script is:inline>
+	const languageSelect = document.querySelector('[data-language-select]');
+
+	if (languageSelect) {
+		languageSelect.addEventListener('change', (event) => {
+			const target = event.target;
+			if (!(target instanceof HTMLSelectElement)) return;
+			if (target.value) window.location.href = target.value;
+		});
+	}
+</script>
