@@ -1,12 +1,13 @@
 ---
 import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
 import type { Locale } from '@/i18n/locales';
+import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
 import ContactSection from '@components/ecommerce/ContactSection.astro';
 import HeroSection from '@components/ecommerce/HeroSection.astro';
-import LandingHeader from '@components/ecommerce/LandingHeader.astro';
 import ProcessSection from '@components/ecommerce/ProcessSection.astro';
 import ProfileSection from '@components/ecommerce/ProfileSection.astro';
 import WorkSection from '@components/ecommerce/WorkSection.astro';
+import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
 	locale: Locale;
@@ -17,11 +18,12 @@ const { locale, content } = Astro.props as Props;
 ---
 
 <div class="bg-white text-slate-700">
-	<LandingHeader
+	<LandingNavbar
 		locale={locale}
 		nav={content.nav}
 		whatsappLink={content.links.whatsapp}
 		ctaLabel={content.hero.primaryCtaLabel}
+		containerClass={sectionContainerClass}
 	/>
 
 	<main>

@@ -1,0 +1,54 @@
+---
+import type { Locale } from '@/i18n/locales';
+
+type LandingNavItem = {
+	id: string;
+	label: string;
+};
+
+type LandingNav = {
+	label: string;
+	items: LandingNavItem[];
+};
+
+type Props = {
+	locale: Locale;
+	nav: LandingNav;
+	whatsappLink: string;
+	ctaLabel: string;
+	containerClass: string;
+};
+
+const { locale, nav, whatsappLink, ctaLabel, containerClass } = Astro.props as Props;
+---
+
+<header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
+	<div class={`flex items-center justify-between gap-5 py-4 ${containerClass}`}>
+		<a href={`/${locale}`} class="group flex items-center gap-3 text-slate-950">
+			<span class="grid h-9 w-9 place-items-center rounded-full border border-slate-200 bg-white text-sm font-bold text-indigo-600 shadow-sm">NM</span>
+			<span class="leading-none">
+				<span class="block text-sm font-bold tracking-tight">Nicolas Montiel</span>
+				<span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">{nav.label}</span>
+			</span>
+		</a>
+
+		<nav class="hidden items-center gap-5 text-sm text-slate-500 lg:flex">
+			{
+				nav.items.map((item) => (
+					<a href={`#${item.id}`} class="transition-colors hover:text-slate-950">
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<a
+			href={whatsappLink}
+			target="_blank"
+			rel="noreferrer"
+			class="rounded-full bg-indigo-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700"
+		>
+			{ctaLabel}
+		</a>
+	</div>
+</header>

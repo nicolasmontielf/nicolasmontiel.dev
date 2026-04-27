@@ -5,9 +5,10 @@ import BuildSection from '@components/web/BuildSection.astro';
 import ContactSection from '@components/web/ContactSection.astro';
 import CriteriaSection from '@components/web/CriteriaSection.astro';
 import HeroSection from '@components/web/HeroSection.astro';
-import LandingHeader from '@components/web/LandingHeader.astro';
+import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
 import ProjectTypesSection from '@components/web/ProjectTypesSection.astro';
 import ScopeSection from '@components/web/ScopeSection.astro';
+import { webContainerClass } from '@components/web/styles';
 
 type Props = {
 	locale: Locale;
@@ -18,7 +19,13 @@ const { locale, content } = Astro.props as Props;
 ---
 
 <div class="bg-white text-slate-700">
-	<LandingHeader locale={locale} nav={content.nav} whatsappLink={content.links.whatsapp} ctaLabel={content.hero.primaryCtaLabel} />
+	<LandingNavbar
+		locale={locale}
+		nav={content.nav}
+		whatsappLink={content.links.whatsapp}
+		ctaLabel={content.hero.primaryCtaLabel}
+		containerClass={webContainerClass}
+	/>
 
 	<main>
 		<HeroSection hero={content.hero} links={content.links} />
