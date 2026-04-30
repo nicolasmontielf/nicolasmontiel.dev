@@ -1,0 +1,113 @@
+---
+import EcommerceLanding from '@components/ecommerce/Landing.astro';
+import WebLanding from '@components/web/Landing.astro';
+import { getEcommerceLandingContent, type EcommerceLandingContent } from '@/data/ecommerce-landing';
+import { getWebLandingContent, type WebLandingContent } from '@/data/web-landing';
+import { isLocale } from '@/i18n/locales';
+import Layout from '@/layouts/Layout.astro';
+import {
+	COMMERCIAL_SERVICE_SLUGS,
+	PERSON_ID,
+	SITE_URL,
+	type CommercialService,
+} from '@/seo/site';
+
+const { lang, service: serviceSlug } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+	return Astro.redirect('/en');
+}
+
+const service = Object.entries(COMMERCIAL_SERVICE_SLUGS).find(
+	([, slugs]) => slugs[lang] === serviceSlug,
+)?.[0] as CommercialService | undefined;
+
+if (!service) {
+	return new Response('Not found', { status: 404 });
+}
+
+const servicePages = {
+	ecommerce: {
+		content: getEcommerceLandingContent(lang),
+		name:
+			lang === 'es'
+				? 'Servicios freelance de ecommerce a medida de Nicolás Montiel'
+				: 'Nicolás Montiel freelance custom ecommerce services',
+		serviceType:
+			lang === 'es'
+				? [
+						'Ecommerce a medida',
+						'Diseño de storefront ecommerce',
+						'Implementación ecommerce',
+						'Google Analytics y Search Console',
+						'SEO técnico básico',
+						'Soporte e integraciones',
+					]
+				: [
+						'Custom ecommerce',
+						'Ecommerce storefront design',
+						'Ecommerce implementation',
+						'Google Analytics and Search Console',
+						'Basic technical SEO',
+						'Support and integrations',
+					],
+	},
+	web: {
+		content: getWebLandingContent(lang),
+		name:
+			lang === 'es'
+				? 'Servicios freelance de desarrollo web a medida de Nicolas Montiel'
+				: 'Nicolas Montiel freelance custom website and webapp services',
+		serviceType:
+			lang === 'es'
+				? [
+						'Landing pages a medida',
+						'Webs institucionales',
+						'Galerias y portfolios web',
+						'Sitios administrables y CMS',
+						'Webapps con panel administrativo',
+						'Desarrollo full-stack e integraciones',
+					]
+				: [
+						'Custom landing pages',
+						'Institutional websites',
+						'Web galleries and portfolios',
+						'Content-managed websites and CMS',
+						'Webapps with admin panels',
+						'Full-stack development and integrations',
+					],
+	},
+};
+
+const page = servicePages[service];
+const canonical = `${SITE_URL}/${lang}/${COMMERCIAL_SERVICE_SLUGS[service][lang]}`;
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	'@id': `${canonical}#service`,
+	name: page.name,
+	url: canonical,
+	description: page.content.meta.description,
+	serviceType: page.serviceType,
+	provider: {
+		'@id': PERSON_ID,
+	},
+};
+---
+
+<Layout
+	title={page.content.meta.title}
+	description={page.content.meta.description}
+	canonical={canonical}
+	structuredData={structuredData}
+	showDefaultNavbar={false}
+	containerMode="fluid"
+>
+	{
+		service === 'ecommerce' ? (
+			<EcommerceLanding content={page.content as EcommerceLandingContent} />
+		) : (
+			<WebLanding content={page.content as WebLandingContent} />
+		)
+	}
+</Layout>

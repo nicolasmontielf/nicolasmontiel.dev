@@ -274,7 +274,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 				'I build landing pages, institutional websites, galleries, content-managed sites, CMS setups, and custom webapps based on the real scope of each project.',
 		},
 		nav: {
-			label: 'I want a website',
+			label: 'I need a website',
 			items: [
 				{ id: 'projects', label: 'Projects' },
 				{ id: 'scope', label: 'Scope' },

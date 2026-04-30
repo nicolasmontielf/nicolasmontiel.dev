@@ -34,8 +34,8 @@ const messagesByLocale: Record<Locale, Messages> = {
 			home: 'Home',
 			posts: 'Posts',
 			certifications: 'Certifications and courses',
-			wantEcommerce: 'I want ecommerce',
-			wantWeb: 'I want a website',
+			wantEcommerce: 'I need an online store',
+			wantWeb: 'I need a website',
 			language: 'Language',
 		},
 		layout: {

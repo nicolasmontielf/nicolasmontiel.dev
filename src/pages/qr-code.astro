@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
-import { SITE_URL } from '@/seo/site';
+import { getCommercialServicePath, SITE_URL } from '@/seo/site';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 
@@ -47,12 +47,12 @@ const contentByLocale: Record<Locale, {
 			{
 				label: 'Quiero un ecommerce',
 				description: 'Una tienda a medida, pensada alrededor de tu operación.',
-				href: '/es/ecommerce',
+				href: getCommercialServicePath('ecommerce', 'es'),
 			},
 			{
 				label: 'Quiero una web',
 				description: 'Una web, landing o webapp bien resuelta para tu objetivo.',
-				href: '/es/web',
+				href: getCommercialServicePath('web', 'es'),
 			},
 		],
 	},
@@ -74,14 +74,14 @@ const contentByLocale: Record<Locale, {
 				href: '/en/about-me',
 			},
 			{
-				label: 'I want ecommerce',
+				label: 'I need an online store',
 				description: 'A custom store designed around your operation.',
-				href: '/en/ecommerce',
+				href: getCommercialServicePath('ecommerce', 'en'),
 			},
 			{
-				label: 'I want a website',
+				label: 'I need a website',
 				description: 'A website, landing page, or webapp shaped around your goal.',
-				href: '/en/web',
+				href: getCommercialServicePath('web', 'en'),
 			},
 		],
 	},

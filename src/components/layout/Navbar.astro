@@ -1,29 +1,19 @@
 ---
 import { getMessages } from '@/i18n/messages';
-import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getCommercialServicePath, getLocalizedPath } from '@/seo/site';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const currentPath = Astro.url.pathname;
 const labels = getMessages(locale).navbar;
 
-function toLocalizedPath(pathname: string, targetLocale: Locale) {
-	const cleanPath = pathname || '/';
-	const segments = cleanPath.split('/').filter(Boolean);
-	if (segments.length > 0 && (segments[0] === 'en' || segments[0] === 'es')) {
-		segments[0] = targetLocale;
-		return `/${segments.join('/')}`;
-	}
-
-	return cleanPath === '/' ? `/${targetLocale}` : `/${targetLocale}${cleanPath}`;
-}
-
 const homePath = `/${locale}`;
 const postsPath = `/${locale}/posts`;
 const certificationsPath = `${homePath}#certifications`;
-const ecommercePath = `/${locale}/ecommerce`;
-const webPath = `/${locale}/web`;
-const switchToEsPath = toLocalizedPath(currentPath, 'es');
-const switchToEnPath = toLocalizedPath(currentPath, 'en');
+const ecommercePath = getCommercialServicePath('ecommerce', locale);
+const webPath = getCommercialServicePath('web', locale);
+const switchToEsPath = getLocalizedPath(currentPath, 'es');
+const switchToEnPath = getLocalizedPath(currentPath, 'en');
 ---
 <header data-navbar-root class="py-8 font-medium text-slate-900 border-b border-slate-200">
 	<div class="flex items-center justify-between gap-4">

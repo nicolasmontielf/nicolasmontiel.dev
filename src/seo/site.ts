@@ -25,15 +25,28 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
 	es: 'es-PY',
 };
 
+export type CommercialService = 'ecommerce' | 'web';
+
+export const COMMERCIAL_SERVICE_SLUGS: Record<CommercialService, Record<Locale, string>> = {
+	ecommerce: {
+		en: 'i-need-an-online-store',
+		es: 'quiero-un-ecommerce',
+	},
+	web: {
+		en: 'i-need-a-website',
+		es: 'quiero-una-web',
+	},
+};
+
 export const PUBLIC_LOCALIZED_PATHS = [
 	'/en',
 	'/es',
 	'/en/about-me',
 	'/es/sobre-mi',
-	'/en/ecommerce',
-	'/es/ecommerce',
-	'/en/web',
-	'/es/web',
+	`/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,
+	`/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
+	`/en/${COMMERCIAL_SERVICE_SLUGS.web.en}`,
+	`/es/${COMMERCIAL_SERVICE_SLUGS.web.es}`,
 ];
 
 export function toAbsoluteUrl(pathname: string) {
@@ -46,6 +59,18 @@ export function getLanguageTag(locale: Locale) {
 
 export function getOpenGraphLocale(locale: Locale) {
 	return OPEN_GRAPH_LOCALES[locale];
+}
+
+export function getCommercialServicePath(service: CommercialService, locale: Locale) {
+	return `/${locale}/${COMMERCIAL_SERVICE_SLUGS[service][locale]}`;
+}
+
+function getLocalizedCommercialServicePath(segment: string, targetLocale: Locale) {
+	const service = Object.entries(COMMERCIAL_SERVICE_SLUGS).find(([, slugs]) =>
+		Object.values(slugs).includes(segment),
+	)?.[0] as CommercialService | undefined;
+
+	return service ? getCommercialServicePath(service, targetLocale) : null;
 }
 
 export function getLocalizedPath(pathname: string, targetLocale: Locale) {
@@ -63,6 +88,11 @@ export function getLocalizedPath(pathname: string, targetLocale: Locale) {
 		}
 		if (rest[0] === 'sobre-mi' && targetLocale === 'en') {
 			return '/en/about-me';
+		}
+
+		const localizedServicePath = rest[0] ? getLocalizedCommercialServicePath(rest[0], targetLocale) : null;
+		if (localizedServicePath) {
+			return localizedServicePath;
 		}
 
 		segments[0] = targetLocale;
