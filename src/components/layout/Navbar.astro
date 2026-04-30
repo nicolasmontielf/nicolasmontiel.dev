@@ -1,20 +1,10 @@
 ---
-import type { Locale } from '@/i18n/locales';
+import { getMessages } from '@/i18n/messages';
+import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 
-type Props = {
-	locale: Locale;
-	currentPath: string;
-	labels: {
-		home: string;
-		posts: string;
-		certifications: string;
-		wantEcommerce: string;
-		wantWeb: string;
-		language: string;
-	};
-};
-
-const { locale, currentPath, labels } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const currentPath = Astro.url.pathname;
+const labels = getMessages(locale).navbar;
 
 function toLocalizedPath(pathname: string, targetLocale: Locale) {
 	const cleanPath = pathname || '/';

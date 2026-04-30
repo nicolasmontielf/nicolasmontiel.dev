@@ -1,14 +1,14 @@
 ---
 import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { sectionContainerClass, sectionLabelClass } from '@components/ecommerce/styles';
 
 type Props = {
-	locale: Locale;
 	process: EcommerceLandingContent['process'];
 };
 
-const { locale, process } = Astro.props as Props;
+const { process } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const stepLabel = locale === 'es' ? 'Paso' : 'Step';
 ---
 

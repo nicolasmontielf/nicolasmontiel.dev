@@ -1,15 +1,15 @@
 ---
 import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
-	locale: Locale;
 	profile: EcommerceLandingContent['profile'];
 	aboutLink: string;
 };
 
-const { locale, profile, aboutLink } = Astro.props as Props;
+const { profile, aboutLink } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const avatarSrc = '/nicolas-montiel-avatar.png';
 const avatarAlt = locale === 'es' ? 'Avatar de Nicolás Montiel' : 'Avatar of Nicolas Montiel';
 ---

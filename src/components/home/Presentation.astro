@@ -3,19 +3,19 @@ import devIcon from '@assets/icons/devto.svg';
 import linkedinIcon from '@assets/icons/linkedin.svg';
 import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 import PresentationBodyProEn from '@components/home/PresentationBodyPro.en.astro';
 import PresentationBodyFreelancerEn from '@components/home/PresentationBodyFreelancer.en.astro';
 import PresentationBodyProEs from '@components/home/PresentationBodyPro.es.astro';
 import PresentationBodyFreelancerEs from '@components/home/PresentationBodyFreelancer.es.astro';
 
 type Props = {
-	locale: Locale;
 	variant: 'pro' | 'freelancer';
 	greeting: string;
 };
 
-const { locale, variant, greeting } = Astro.props as Props;
+const { variant, greeting } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 
 const isSpanish = locale === 'es';
 const isFreelancer = variant === 'freelancer';

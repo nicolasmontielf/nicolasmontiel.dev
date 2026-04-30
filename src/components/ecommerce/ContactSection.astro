@@ -1,15 +1,15 @@
 ---
 import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
-	locale: Locale;
 	contact: EcommerceLandingContent['contact'];
 	whatsappLink: string;
 };
 
-const { locale, contact, whatsappLink } = Astro.props as Props;
+const { contact, whatsappLink } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const contactFormId = `contact-form-${locale}`;
 const contactStatusId = `contact-status-${locale}`;
 ---

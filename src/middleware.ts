@@ -19,19 +19,24 @@ function shouldBypass(pathname: string) {
 export const onRequest = defineMiddleware((context, next) => {
 	const url = new URL(context.request.url);
 	const { pathname, search } = url;
+	const segments = pathname.split('/').filter(Boolean);
+	const firstSegment = segments[0];
+
+	if (firstSegment && isLocale(firstSegment)) {
+		context.locals.locale = firstSegment;
+	} else {
+		context.locals.locale = resolveRequestLocale(context);
+	}
 
 	if (shouldBypass(pathname)) {
 		return next();
 	}
 
-	const segments = pathname.split('/').filter(Boolean);
-	const firstSegment = segments[0];
-
 	if (firstSegment && isLocale(firstSegment)) {
 		return next();
 	}
 
-	const locale = resolveRequestLocale(context);
+	const locale = context.locals.locale;
 
 	if (firstSegment && firstSegment.length === 2) {
 		const nextPath = `/${locale}/${segments.slice(1).join('/')}`.replace(/\/$/, '');

@@ -1,13 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { resolveRequestLocale } from '@/i18n/detect-locale';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 import { SITE_URL } from '@/seo/site';
 
-const locale = resolveRequestLocale({
-	request: Astro.request,
-	cookies: Astro.cookies,
-});
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 
 type LinkItem = {
 	label: string;
@@ -98,7 +94,6 @@ const switchToEn = `/api/set-language?lang=en&redirect=${encodeURIComponent('/qr
 ---
 
 <Layout
-	locale={locale}
 	title={content.metaTitle}
 	description={content.metaDescription}
 	canonical={canonical}

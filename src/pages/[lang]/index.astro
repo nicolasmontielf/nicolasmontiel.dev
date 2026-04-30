@@ -14,9 +14,9 @@ if (!lang || !isLocale(lang)) {
 const messages = getMessages(lang);
 ---
 
-<Layout locale={lang} title={messages.homePage.title} description={messages.homePage.description}>
+<Layout title={messages.homePage.title} description={messages.homePage.description}>
 	<section id="presentation-section">
-        <Presentation locale={lang} variant="pro" greeting={messages.home.greeting} />
+        <Presentation variant="pro" greeting={messages.home.greeting} />
     </section>
 
     <section id="certifications">

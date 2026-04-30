@@ -3,7 +3,7 @@ import Navbar from '@components/layout/Navbar.astro';
 // @ts-ignore
 import '@fontsource-variable/space-grotesk';
 import { getMessages } from '@/i18n/messages';
-import type { Locale } from '@/i18n/locales';
+import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 import {
 	DEFAULT_OG_IMAGE,
 	DEFAULT_ROBOTS,
@@ -22,7 +22,7 @@ import {
 } from '@/seo/site';
 
 type Props = {
-	locale: Locale;
+	locale?: Locale;
 	title?: string;
 	description?: string;
 	canonical?: string;
@@ -35,7 +35,7 @@ type Props = {
 };
 
 const {
-	locale,
+	locale: localeProp,
 	title,
 	description,
 	canonical,
@@ -46,6 +46,8 @@ const {
 	containerMode = 'constrained',
 	includeAlternateLinks = true,
 } = Astro.props as Props;
+
+const locale = Astro.locals.locale ?? localeProp ?? DEFAULT_LOCALE;
 
 const messages = getMessages(locale);
 const pageDescription = description || messages.layout.defaultDescription;
@@ -209,7 +211,7 @@ const bodyClass =
 		{
 			showDefaultNavbar && (
 				<div class="lg:mb-5">
-					<Navbar locale={locale} currentPath={Astro.url.pathname} labels={messages.navbar} />
+					<Navbar />
 				</div>
 			)
 		}
