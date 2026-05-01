@@ -10,9 +10,9 @@ const { build } = Astro.props as WebBuildSectionProps;
 >
     <div class={webContainerClass}>
         <div
-            class="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end"
+            class="flex flex-col items-start gap-6 lg:gap-10"
         >
-            <div>
+            <div class="w-full lg:w-8/12">
                 <p class={webLabelClass}>{build.eyebrow}</p>
                 <h2
                     class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl"

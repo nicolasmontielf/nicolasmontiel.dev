@@ -10,168 +10,168 @@ const DEFAULT_WHATSAPP_LINK_EN =
 const webLandingByLocale: Record<Locale, WebLandingContent> = {
     es: {
         meta: {
-            title: 'Desarrollo de Webs, Landing Pages y Webapps a Medida',
+            title: 'Webs a Medida para Negocios y Proyectos Digitales',
             description:
-                'Desarrollo landing pages, webs institucionales, galerias, sitios administrables, CMS y webapps a medida segun el alcance real de cada proyecto.',
+                'Desarrollo webs, landing pages, sitios administrables y webapps a medida para negocios que quieren verse mejor, vender mejor o trabajar mejor.',
         },
         nav: {
             label: 'Quiero una web',
             items: [
                 { id: 'projects', label: 'Proyectos' },
-                { id: 'build', label: 'Construccion' },
-                { id: 'profile', label: 'Perfil' },
+                { id: 'build', label: 'Qué puedo hacer' },
+                { id: 'profile', label: 'Quién soy?' },
                 { id: 'criteria', label: 'Criterio' },
                 { id: 'contact', label: 'Contacto' },
             ],
         },
         hero: {
             badge: 'Webs y webapps a medida',
-            title: 'Construyamos la web que tu proyecto necesita, sin inflar el alcance de entrada.',
+            title: 'Una web bien pensada para lo que tu negocio necesita hoy.',
             description:
-                'Puede ser una landing simple, una pagina institucional, una galeria de trabajos, un sitio que puedas administrar o una webapp con panel. Primero ordenamos que necesitás lograr y despues construimos algo proporcional a ese objetivo.',
+                'Desarrollo landing pages, webs institucionales, portfolios, sitios administrables y webapps con panel. No se trata solo de tener “una página”: la idea es que tu web ayude a vender, explicar mejor lo que hacés y darle confianza a quien te encuentra.',
             primaryCtaLabel: 'Contame tu idea',
             secondaryCtaLabel: 'Ver tipos de proyecto',
-            note: 'No todo necesita un CMS, un backend o un panel. Y cuando si hace falta, conviene definirlo bien desde el principio para no terminar con una web dificil de mantener.',
+            note: 'No todo necesita un sistema enorme. Pero sí necesita estar bien pensado desde el principio para que puedas lograr lo que querés sin complicaciones técnicas innecesarias.',
         },
         projects: {
             eyebrow: 'Tipos de proyecto',
-            title: 'No todos los proyectos necesitan la misma solucion.',
+            title: 'La web correcta depende de lo que querés lograr.',
             description:
-                'La idea es partir de categorias orientativas para entender tu caso, no meterte en un paquete cerrado que despues queda chico o demasiado grande.',
+                'No vendo paquetes cerrados. Primero quiero entender tu caso y después te propongo una solución que tenga sentido para tu negocio, tu etapa y tu presupuesto.',
             items: [
                 {
                     title: 'Landing page',
                     description:
-                        'Una pagina clara para presentar una oferta, captar consultas o validar una idea sin construir mas de lo necesario.',
+                        'Ideal para presentar una oferta concreta, captar consultas o lanzar una idea rápido con una página clara y enfocada.',
                     accent: '01',
                 },
                 {
                     title: 'Web institucional',
                     description:
-                        'Una presencia mas completa para explicar servicios, mostrar confianza y ordenar la informacion principal del negocio.',
+                        'Para mostrar quién sos, qué ofrecés y por qué confiar en tu negocio, con una presencia más completa y profesional.',
                     accent: '02',
                 },
                 {
                     title: 'Galeria o portfolio',
                     description:
-                        'Un espacio visual para mostrar trabajos, casos, propiedades, productos o proyectos con una experiencia cuidada.',
+                        'Para mostrar trabajos, casos, propiedades, productos o proyectos con una experiencia visual más cuidada.',
                     accent: '03',
                 },
                 {
                     title: 'Sitio administrable',
                     description:
-                        'Una web donde puedas gestionar contenido sin depender de un cambio tecnico por cada actualizacion.',
+                        'Para que puedas actualizar contenido, secciones o información importante sin depender de mí para cada cambio chico.',
                     accent: '04',
                 },
                 {
-                    title: 'Webapp con panel',
+                    title: 'Aplicación web',
                     description:
-                        'Una herramienta con usuarios, flujos internos, panel administrativo, datos o funcionalidades especificas.',
+                        'Cuando la web ya no es solo presentación, sino una herramienta con usuarios, datos, panel o procesos internos.',
                     accent: '05',
                 },
                 {
                     title: 'Ecommerce',
                     description:
-                        'Una tienda online a medida para vender en serio con una base tecnica solida, pensada para tu operacion real.',
+                        'Una tienda online a medida para vender en serio, con una base técnica sólida y pensada para tu operación real.',
                     accent: '06',
                     href: `/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
-                    linkLabel: 'Ver landing ecommerce',
+                    linkLabel: 'Más información',
                 },
             ],
         },
         build: {
             eyebrow: 'Que puedo construir',
-            title: 'Desde la interfaz hasta la parte tecnica que sostiene la web.',
+            title: 'Puedo resolver desde la idea visual hasta la parte técnica.',
             description:
-                'Puedo resolver el proyecto completo o una parte especifica, segun lo que necesites y el estado actual de tu idea.',
+                'Me encargo de todo el ciclo de desarrollo, desde la idea, la concepción y el diseño hasta la implementación y el lanzamiento. Ayudarte a implementar estrategias de contenido, de marketing, integraciones, etc.',
             capabilities: [
                 {
                     title: 'Diseño e interfaz',
                     description:
-                        'Estructura, experiencia visual, responsive design y componentes pensados para comunicar bien.',
+                        'Armo una estructura clara, una interfaz cuidada y una experiencia que funcione bien en desktop y mobile.',
                 },
                 {
                     title: 'Frontend y performance',
                     description:
-                        'Implementacion rapida, mantenible y cuidada para desktop y mobile.',
+                        'Construyo la parte visible de la web con foco en velocidad, estabilidad y una base fácil de mantener.',
                 },
                 {
                     title: 'Backend, CMS o panel',
                     description:
-                        'Cuando hace falta gestionar contenido, usuarios, datos o procesos internos.',
+                        'Si necesitás administrar contenido, usuarios o datos, puedo sumar backend, CMS o panel según el caso.',
                 },
                 {
                     title: 'Formularios e integraciones',
                     description:
-                        'Contacto, automatizaciones, servicios externos, analytics y configuraciones de lanzamiento.',
+                        'Puedo conectar formularios, WhatsApp, emails, analytics, servicios externos y automatizaciones simples.',
                 },
                 {
                     title: 'Dominio y deploy',
                     description:
-                        'Ayuda para publicar la web, configurar dominio y dejar una base inicial ordenada.',
+                        'Te ayudo a dejar la web online, configurar dominio, hosting y los puntos técnicos básicos para salir bien.',
                 },
                 {
                     title: 'SEO tecnico basico',
                     description:
-                        'Metadatos, estructura, indexacion y fundamentos para que la web salga mejor preparada.',
+                        'Dejo metadatos, estructura e indexación básica para que la web no salga improvisada desde lo técnico.',
                 },
             ],
         },
         profile: {
             eyebrow: 'Por qué trabajar conmigo',
-            title: 'Además de construir la web, puedo funcionar como partner técnico para ordenarla bien desde el principio.',
+            title: 'No solo desarrollo la web: te ayudo a tomar mejores decisiones técnicas.',
             description:
-                'Tengo experiencia construyendo productos web para equipos de distintos mercados y me interesa trabajar con criterio, no solo ejecutar tareas aisladas. Si querés ver mejor cómo trabajo y cuál es mi perfil, podés entrar a mi página principal.',
+                'Trabajo con una mirada práctica: entender el negocio, cuidar la experiencia, evitar complicaciones innecesarias y construir algo que realmente puedas usar. Si querés ver mejor cómo trabajo y cuál es mi perfil:',
             items: [
                 {
                     title: 'Más de 8 años construyendo productos',
                     description:
-                        'Vengo ayudando a equipos de Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada a negocio.',
+                        'Trabajé con equipos de Latinoamérica, Estados Unidos y Europa construyendo productos digitales reales, no solo páginas bonitas.',
                 },
                 {
                     title: 'Partner técnico de verdad',
                     description:
-                        'Me gusta entender el negocio, cuestionar supuestos flojos cuando hace falta y tomar decisiones que permitan avanzar sin dejar desorden técnico a futuro.',
+                        'Me involucro para entender qué necesitás, detectar riesgos y ayudarte a elegir el camino más conveniente.',
                 },
                 {
                     title: 'Ejecución senior y comunicación clara',
                     description:
-                        'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para el negocio.',
+                        'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para tu negocio.',
                 },
             ],
             buttonLabel: 'Ver mi perfil completo',
         },
         criteria: {
-            eyebrow: 'Criterio de trabajo',
-            title: 'Construir bien tambien significa no sobredimensionar.',
+            eyebrow: 'Para empezar bien',
+            title: 'Cosas claves antes de construir la web.',
             description:
-                'Me interesa que la web tenga sentido para el momento real del proyecto. Si algo no aporta, prefiero decirlo. Si algo va a ahorrar problemas despues, tambien.',
+                'Definimos los objetivos, el contenido, el nivel de autonomía que necesitás y el camino para crear algo que realmente te sirva. Mientras más claro esté el objetivo, más fácil es evitar vueltas, costos innecesarios y decisiones apuradas.',
             items: [
                 {
-                    title: 'Alcance claro antes de construir',
+                    title: 'Qué tiene que lograr la web',
                     description:
-                        'Ordenamos prioridades, contenido, funcionalidades y camino de salida antes de entrar en ejecucion.',
+                        'Puede ser captar consultas, presentar servicios, mostrar trabajos, vender, validar una idea o mejorar una operación interna.',
                 },
                 {
-                    title: 'Base mantenible',
+                    title: 'Qué contenido ya tenés',
                     description:
-                        'Evito soluciones fragiles que quedan lindas el primer dia y complican cada cambio posterior.',
+                        'Textos, fotos, marca, referencias, secciones necesarias y cualquier material que ayude a entender cómo querés presentarte.',
                 },
                 {
-                    title: 'Mirada tecnica y de producto',
+                    title: 'Qué nivel de autonomía necesitás',
                     description:
-                        'No ejecuto a ciegas: cuestiono supuestos cuando hace falta y propongo alternativas practicas.',
+                        'Definimos si la web puede ser estática, si necesitás editar contenido seguido o si conviene sumar CMS, panel o integraciones.',
                 },
             ],
         },
         contact: {
             eyebrow: 'Contacto',
-            title: 'Si queres hacer una web y todavia no tenes cerrado el alcance, podemos ordenarlo.',
+            title: 'Si querés una web bien resuelta para tu negocio, hablemos.',
             description:
-                'Contame que queres lograr, que contenido o funcionalidad imaginas y en que etapa estas. Con eso puedo decirte que enfoque tiene mas sentido.',
+                'Contame qué vendés, qué necesitás comunicar, qué tenés hoy y qué esperás que la web haga por tu negocio. Con eso te puedo proponer una forma concreta de avanzar.',
             formTitle: 'Dejame algunos datos',
             formDescription:
-                'Nombre y un medio de contacto son suficientes. Si podes, sumá el tipo de proyecto.',
+                'Completá tu nombre y dejame email o WhatsApp. Te voy a responder en menos de 24 horas.',
             nameLabel: 'Nombre',
             namePlaceholder: 'Tu nombre',
             emailLabel: 'Email',
@@ -180,33 +180,33 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             whatsappPlaceholder: 'Tu numero de WhatsApp',
             projectTypeLabel: 'Tipo de proyecto',
             projectTypeOptions: [
-                { value: '', label: 'Todavia no estoy seguro' },
+                { value: '', label: 'Todavía no estoy seguro' },
                 { value: 'landing', label: 'Landing page' },
                 { value: 'institutional', label: 'Web institucional' },
-                { value: 'gallery', label: 'Galeria o portfolio' },
+                { value: 'gallery', label: 'Galería o portfolio' },
                 { value: 'cms', label: 'Sitio administrable / CMS' },
                 { value: 'webapp', label: 'Webapp con panel' },
             ],
             messageLabel: 'Idea o contexto',
             messagePlaceholder:
-                'Contame brevemente que necesitas lograr con la web.',
+                'Contame brevemente qué necesitás lograr con la web.',
             helperText:
                 'Nombre es obligatorio. Email o WhatsApp: al menos uno de los dos.',
             submitLabel: 'Enviar consulta',
             submittingLabel: 'Enviando...',
             whatsappCtaLabel: 'Escribime por WhatsApp',
             whatsappNote:
-                'Si preferis ir directo, escribime por WhatsApp y contame que tipo de web estas pensando.',
+                'Si preferís ir directo, escribime por WhatsApp y contame qué tipo de web estás pensando.',
             nameRequiredMessage:
                 'Necesito al menos tu nombre para poder responderte.',
             contactRequiredMessage:
                 'Dejame email o WhatsApp, al menos uno de los dos.',
             notConfiguredMessage:
-                'El formulario todavia no esta conectado. Por ahora escribime por WhatsApp.',
+                'El formulario todavía no está conectado. Por ahora escribime por WhatsApp.',
             errorMessage:
-                'Hubo un problema al intentar enviar el formulario. Proba de nuevo o escribime por WhatsApp.',
+                'Hubo un problema al intentar enviar el formulario. Probá de nuevo o escribime por WhatsApp.',
             successMessage:
-                'Mensaje enviado. Me pondre en contacto contigo en menos de 24 horas.',
+                'Mensaje enviado. Me pondré en contacto contigo en menos de 24 horas.',
         },
         links: {
             whatsapp: DEFAULT_WHATSAPP_LINK_ES,

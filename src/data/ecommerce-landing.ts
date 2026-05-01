@@ -17,7 +17,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             label: 'Ecommerce',
             items: [
                 { id: 'work', label: 'Servicio' },
-                { id: 'profile', label: 'Perfil' },
+                { id: 'profile', label: 'Quién soy?' },
                 { id: 'process', label: 'Proceso' },
                 { id: 'contact', label: 'Contacto' },
             ],
@@ -28,7 +28,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             description:
                 'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
             trustNote:
-                'No trabajo con la idea de “te entrego una web y arreglate”. Me quiero involucrar para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
+                'No trabajo con la idea de “te entrego una web y arreglate”. Me involucro para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
             primaryCtaLabel: 'Hablemos por WhatsApp',
             secondaryCtaLabel: 'Conocé mi perfil',
             floatingCardLabel: 'Base técnica',
@@ -38,11 +38,11 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             eyebrow: 'Qué incluye',
             title: 'No vendo una plantilla, desarrollo un ecommerce a medida para tu negocio.',
             subtitle:
-                'Partimos de una base sólida y, desde ahí, definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. La idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte también en las partes técnicas que tenga sentido cubrir.',
+                'Partimos de una base sólida; definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. Mi idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte en cada parte del proceso',
             noteTitle:
-                'La ventaja está en arrancar desde una base que ya existe.',
+                'La ventaja está en arrancar desde una base sólida.',
             noteDescription:
-                'Como la base ya fue probada de verdad durante años, no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
+                'Una base que ya fue probada de verdad durante años; no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
             cards: [
                 {
                     title: 'Tienda diseñada a medida',
@@ -53,52 +53,52 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 {
                     title: 'Adaptación a tu negocio',
                     description:
-                        'No adapto tu negocio a una plantilla. Adapto la implementación a tu operación, tu propuesta comercial y las prioridades reales de tu canal.',
+                        'No adapto tu negocio a una plantilla. Adapto la tienda a tu operación, tu propuesta comercial y las prioridades reales de tu canal.',
                     icon: 'business',
                 },
                 {
                     title: 'Acompañamiento técnico',
                     description:
-                        'Desde el inicio puedo ayudarte con servidor, dominio y puesta online para que no tengas que resolver esa parte a las corridas. Después, si querés soporte o mejoras, también lo vemos.',
+                        'Desde el inicio puedo ayudarte con servidor, dominio y puesta online. Después, si querés soporte o mejoras continuas, puedo acompañarte o asesorarte según lo necesites.',
                     icon: 'launch',
                 },
                 {
                     title: 'Configuración complementaria',
                     description:
-                        'Si suma valor para tu caso, también puedo ayudarte con la configuración de Google Analytics, Google Search Console y algunos puntos generales de SEO para que la tienda salga más ordenada.',
+                        'Si suma valor para tu caso, también puedo ayudarte con la configuración de Google Analytics, Google Search Console, Meta Pixel, SEO, etc.',
                     icon: 'setup',
                 },
             ],
         },
         profile: {
             eyebrow: 'Por qué trabajar conmigo',
-            title: 'Además de construir la tienda, puedo funcionar como partner técnico para ordenarla bien desde el principio.',
+            title: 'Además de construir tu tienda, puedo ser tu partner técnico para ordenar tu operación desde el principio',
             description:
-                'Tengo experiencia construyendo productos web para equipos de distintos mercados y me interesa trabajar con criterio, no solo ejecutar tareas aisladas. Si querés ver mejor cómo trabajo y cuál es mi perfil, podés entrar a mi página principal.',
+                'Tengo experiencia construyendo productos web para equipos de distintos mercados y me interesa trabajar con criterio, no solo ejecutar tareas aisladas. Si querés ver mejor cómo trabajo y cuál es mi perfil:',
             items: [
                 {
                     title: 'Más de 8 años construyendo productos',
                     description:
-                        'Vengo ayudando a equipos de Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada a negocio.',
+                        'Trabajé con equipos de Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada al negocio.',
                 },
                 {
                     title: 'Partner técnico de verdad',
                     description:
-                        'Me gusta entender el negocio, cuestionar supuestos flojos cuando hace falta y tomar decisiones que permitan avanzar sin dejar desorden técnico a futuro.',
+                        'Me gusta entender el negocio, ayudarte a mejorar flujos de trabajo y tomar decisiones que te ayuden a hacer crecer tu negocio.',
                 },
                 {
                     title: 'Ejecución senior y comunicación clara',
                     description:
-                        'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para el negocio.',
+                        'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para tu negocio.',
                 },
             ],
             buttonLabel: 'Ver mi perfil completo',
         },
         process: {
-            eyebrow: 'Cómo lo trabajo',
+            eyebrow: 'Cómo trabajo',
             title: 'La base técnica ya está resuelta. El trabajo importante es adaptarla bien a tu negocio.',
             description:
-                'Primero entiendo cómo vendés y qué necesitás. Después definimos la implementación, construyo la tienda a medida y te ayudo a salir online con más orden. Si después hace falta, seguimos.',
+                'Primero entiendo cómo vendés y qué realmente necesitás. Después definimos la implementación, construyo la tienda a medida y te ayudo a salir online listo para que puedas operar de manera eficiente.',
             steps: [
                 {
                     title: 'Entender el negocio',
@@ -113,7 +113,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 {
                     title: 'Construir la tienda',
                     description:
-                        'Avanzo con la implementación y el storefront para que la tienda responda a tu marca, a tu operación y a la experiencia que querés dar.',
+                        'Avanzo con la implementación y me aseguro de que la tienda responda a tu marca, a tu operación y a la experiencia que querés dar.',
                 },
                 {
                     title: 'Salir online con más orden',
@@ -124,12 +124,12 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
         },
         contact: {
             eyebrow: 'Contacto',
-            title: 'Si querés un ecommerce bien resuelto y pensado para tu negocio, conversemos.',
+            title: 'Si querés un ecommerce bien resuelto y pensado para tu negocio, hablemos.',
             description:
-                'Contame qué necesitás vender, cómo operás hoy y qué esperás del canal. Si veo que encaja con tu caso, te voy a proponer la mejor forma de construir la tienda y ordenarla desde el arranque.',
+                'Contame qué necesitás vender, cómo operás hoy, qué esperás de tu tienda Y qué experiencia querés darle a tus clientes. Te voy a proponer la mejor forma de construir la tienda y ordenarla desde el arranque.',
             formTitle: 'Dejame tu contacto',
             formDescription:
-                'Completá tu nombre y dejá email o WhatsApp. Con eso ya puedo responderte y entender mejor tu caso.',
+                'Completá tu nombre y podés dejarme tu email o WhatsApp. Te estare dando retorno en menos de 24 horas.',
             nameLabel: 'Nombre',
             namePlaceholder: 'Tu nombre',
             emailLabel: 'Email',
@@ -167,7 +167,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             label: 'Ecommerce',
             items: [
                 { id: 'work', label: 'Service' },
-                { id: 'profile', label: 'Profile' },
+                { id: 'profile', label: 'Who am I?' },
                 { id: 'process', label: 'Process' },
                 { id: 'contact', label: 'Contact' },
             ],
@@ -178,7 +178,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             description:
                 'I work on top of a core that has already been tested for years, is secure, and gives me a strong base to build something that truly fits your business. The goal is not to drop you into a patched-up WordPress setup or start everything from zero, but to launch on something well thought out and technically reliable.',
             trustNote:
-                'I do not work with a “here is your template, good luck” mindset. I stay involved so the store is well put together, launches properly, and you can still count on me later if that helps.',
+                'I do not work with a “here is your website, now you are on your own” mindset. I get involved so the store is well structured, launched with clear criteria, and so you can still count on me later if needed.',
             primaryCtaLabel: 'Let’s chat on WhatsApp',
             secondaryCtaLabel: 'See my background',
             floatingCardLabel: 'Technical base',
@@ -188,11 +188,11 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             eyebrow: 'What is included',
             title: 'I am not selling a template or isolated dev hours. I build a custom ecommerce that is properly resolved around your business.',
             subtitle:
-                'We start from a solid core and, from there, define how the store should look, how it should operate, and what needs to be solved so you can launch properly. The goal is to build something aligned with your brand, the way you sell, and your actual operations, while I also support the technical pieces that make sense to cover.',
+                'We start from a solid core; we define how the store should look, how it should operate, and what needs to be solved so you can launch properly. My goal is to build something aligned with your brand, the way you sell, and your real operations, and to support you in every part of the process.',
             noteTitle:
-                'The advantage is starting from something that already exists.',
+                'The advantage is starting from a solid foundation.',
             noteDescription:
-                'Because the base has already been tested in real conditions for years, we do not waste energy rebuilding the obvious parts. The real effort goes into adapting the store to your brand, your operation, and the way you sell.',
+                'A foundation that has already been truly tested for years means we do not waste energy solving the basics. The investment goes into adapting the store to your brand, your operations, and your way of selling.',
             cards: [
                 {
                     title: 'Custom storefront design',
@@ -209,32 +209,32 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 {
                     title: 'Launch and technical support',
                     description:
-                        'From the start, I can help with hosting, domain setup, and going live so you do not have to scramble through that part alone. After launch, if you want support or improvements, we can keep going.',
+                        'From day one I can help with hosting, domain, and going live. After launch, if you want ongoing support or improvements, I can continue supporting or advising you based on what you need.',
                     icon: 'launch',
                 },
                 {
                     title: 'Complementary setup',
                     description:
-                        'If it adds value to your case, I can also help with Google Analytics, Google Search Console, and general SEO support so the store launches in a more organized way.',
+                        'If it adds value for your case, I can also help with Google Analytics, Google Search Console, Meta Pixel, SEO, etc.',
                     icon: 'setup',
                 },
             ],
         },
         profile: {
             eyebrow: 'Why work with me',
-            title: 'Beyond building the store, I can act as a technical partner to structure it properly from the start.',
+            title: 'Beyond building your store, I can be your technical partner to organize your operation from day one.',
             description:
-                'I have experience building web products for teams across different markets, and I care about working with judgment, not just shipping isolated tasks. If you want a better sense of how I work and my background, you can visit my main profile page.',
+                'I have experience building web products for teams across different markets, and I care about working with judgment, not just executing isolated tasks. If you want a better sense of how I work and my profile:',
             items: [
                 {
                     title: '8+ years building products',
                     description:
-                        'I have helped teams across Latin America, the United States, and Europe build digital products with a practical, business-oriented mindset.',
+                        'I have worked with teams across Latin America, the United States, and Europe to build digital products with a practical, business-oriented mindset.',
                 },
                 {
                     title: 'A real technical partner',
                     description:
-                        'I like understanding the business, challenging weak assumptions when needed, and making decisions that move things forward without creating long-term technical mess.',
+                        'I like understanding the business, helping improve workflows, and making decisions that help you grow your business.',
                 },
                 {
                     title: 'Senior execution and clear communication',
@@ -274,12 +274,12 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
         },
         contact: {
             eyebrow: 'Contact',
-            title: 'If you want an ecommerce store that is properly built around your business, let’s talk.',
+            title: 'If you want an ecommerce store that is well built and designed for your business, let’s talk.',
             description:
-                'Tell me what you need to sell, how you operate today, and what you expect from the channel. If I see a good fit, I will suggest the best way to build the store and structure the launch.',
+                'Tell me what you need to sell, how you operate today, what you expect from your store, and what experience you want to deliver to your customers. I will suggest the best way to build and organize your store from the start.',
             formTitle: 'Leave your contact details',
             formDescription:
-                'Share your name and leave either an email or a WhatsApp number. That is enough for me to reply and understand the case better.',
+                'Fill in your name and leave your email or WhatsApp. I will get back to you in less than 24 hours.',
             nameLabel: 'Name',
             namePlaceholder: 'Your name',
             emailLabel: 'Email',
