@@ -1,3 +1,10 @@
+import RedisLogo from '@/assets/logos/redis_logo.jpeg';
+import AwsLogo from '@/assets/logos/aws_logo.jpeg';
+import PearsonLogo from '@/assets/logos/pearson_logo.jpeg';
+import ScrumStudy from '@/assets/logos/scrumstudy_logo.jpeg';
+import FreeCodeCampLogo from '@/assets/logos/freecodecamp_logo.jpeg';
+import LinuxFoundationLogo from '@/assets/logos/thelinuxfoundation_logo.jpeg';
+
 export type Certification = {
 	id: string;
 	title: string;
@@ -9,37 +16,37 @@ export const certifications: Certification[] = [
 	{
 		id: 'redis-ru102js-redis-for-javascript-developers',
 		title: 'Redis | RU102JS: Redis for JavaScript Developers',
-		icon: 'https://media.licdn.com/dms/image/v2/D560BAQEAemwUFIpC7Q/company-logo_100_100/company-logo_100_100/0/1712604405723/redisinc_logo?e=1777507200&v=beta&t=HxakKQXO43f_z74VBig7I3-kp1mlg3CaUKuRb2amMHI',
-		href: 'https://cdn.flockjay.com/rzgjcid11ubwms-certificates-jjzus2xg4rjdrt.pdf?Expires=1776088675&Signature=jOoaDnirQuQ1471TECwe8ZGUo3J4c19Zq10zQAVnNL2sTBHsQ8uF~AAEIsaL2a52x9N0Z4lgQWe6pJzastWY1upsayvMuK8yN3DzjpgZdH31Nn74xz3wgSiZjpsOBDC7o9bn3nP7z6hhT6-99akUNmVFq3WqrDvMVzbgcoekr5xdwVuAXII7H3gEPDtFSnWfC0Yo1SXTVIpFhoI9H5CTqhqu3WZp46nE8fKAIhTVq9Eh2GJ416C6N0TWgjI8dEHL3h6EpyYCGSZIuQ-YBZgOnZyZ3hec3JaoDg2wyX0NP9YvR24O-rK13YPkUP0Elb4l5dSxUujIsBZ~1a5L7h7unQ__&Key-Pair-Id=K2Q8P6RBFZ27L1',
+		icon: RedisLogo.src,
+		href: 'https://university.redis.io/certificate/ipocifjugerm3o',
 	},
     {
 		id: 'aws-cloud-practitioner-essentials',
 		title: 'AWS Cloud Practitioner Essentials',
-		icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1777507200&v=beta&t=sINUc52II3ahQBUG78sEa4L8PCMpPRpEsTMPp6KYuxI',
+		icon: AwsLogo.src,
 		href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
 	},
     {
         id: 'tdd-javascript',
         title: 'Test-Driven Development for JavaScript Specialization',
-        icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQG9W4lfcWc9dQ/company-logo_100_100/B4EZYPofEYHkAQ-/0/1744018993869/pearson_logo?e=1778716800&v=beta&t=PgM3snVX8HFZU70WN8BtvGPM2zlzAec5KRHd1UPsW60',
+        icon: PearsonLogo.src,
         href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
     },
     {
 		id: 'scrum-fundamentals-certified',
 		title: 'Scrum Fundamentals Certified',
-		icon: 'https://media.licdn.com/dms/image/v2/C4E0BAQG9_uP8f-kpiw/company-logo_100_100/company-logo_100_100/0/1631356592679?e=1777507200&v=beta&t=PvZ07foamaHFmYCBzYVw2IcaByaDCZCsS41IYZv-xQQ',
+		icon: ScrumStudy.src,
 		href: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=829046',
 	},
     {
 		id: 'apis-and-microservices',
 		title: 'API\'s and Microservices',
-		icon: 'https://media.licdn.com/dms/image/v2/C4E0BAQGLKj3JHcof0w/company-logo_100_100/company-logo_100_100/0/1630639684997/free_code_camp_logo?e=1777507200&v=beta&t=sqd8bnDPpEgUCZC1PKV2PJB70LFxD9bqkWAFlIAXWtE',
+		icon: FreeCodeCampLogo.src,
 		href: 'https://www.freecodecamp.org/certification/nicolasmontielf/back-end-development-and-apis',
 	},
 	{
 		id: 'introduction-to-jenkins',
 		title: 'Introduction to Jenkins',
-		icon: 'https://media.licdn.com/dms/image/v2/C560BAQEXYSSWEvEL9g/company-logo_100_100/company-logo_100_100/0/1657565842240/the_linux_foundation_logo?e=1777507200&v=beta&t=v9QXGYKyxXtlBDDHRZWpqCeRhhE7jBNalnb02RUm51Y',
+		icon: LinuxFoundationLogo.src,
 		href: 'https://courses.edx.org/certificates/7331bea249c44b3e8123b92e15550bc0',
 	},
 ];
