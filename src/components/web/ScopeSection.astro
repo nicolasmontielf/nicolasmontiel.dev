@@ -1,9 +1,16 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
 import { webContainerClass, webLabelClass } from '@components/web/styles';
 
 type Props = {
-	scope: WebLandingContent['scope'];
+	scope: {
+		eyebrow: string;
+		title: string;
+		description: string;
+		leftTitle: string;
+		leftItems: string[];
+		rightTitle: string;
+		rightItems: string[];
+	};
 };
 
 const { scope } = Astro.props as Props;

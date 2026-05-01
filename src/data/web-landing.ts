@@ -1,6 +1,7 @@
 import type { Locale } from '@/i18n/locales';
+import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
 
-export type WebSectionId = 'hero' | 'projects' | 'scope' | 'build' | 'criteria' | 'contact';
+export type WebSectionId = 'hero' | 'projects' | 'build' | 'profile' | 'criteria' | 'contact';
 
 export type WebLandingContent = {
 	meta: {
@@ -18,29 +19,25 @@ export type WebLandingContent = {
 		primaryCtaLabel: string;
 		secondaryCtaLabel: string;
 		note: string;
-		visualTitle: string;
-		visualItems: Array<{ label: string; value: string }>;
 	};
 	projects: {
 		eyebrow: string;
 		title: string;
 		description: string;
-		items: Array<{ title: string; description: string; accent: string }>;
-	};
-	scope: {
-		eyebrow: string;
-		title: string;
-		description: string;
-		leftTitle: string;
-		leftItems: string[];
-		rightTitle: string;
-		rightItems: string[];
+		items: Array<{ title: string; description: string; accent: string; href?: string; linkLabel?: string }>;
 	};
 	build: {
 		eyebrow: string;
 		title: string;
 		description: string;
 		capabilities: Array<{ title: string; description: string }>;
+	};
+	profile: {
+		eyebrow: string;
+		title: string;
+		description: string;
+		items: Array<{ title: string; description: string }>;
+		buttonLabel: string;
 	};
 	criteria: {
 		eyebrow: string;
@@ -93,32 +90,26 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 			description:
 				'Desarrollo landing pages, webs institucionales, galerias, sitios administrables, CMS y webapps a medida segun el alcance real de cada proyecto.',
 		},
-		nav: {
-			label: 'Quiero una web',
-			items: [
-				{ id: 'projects', label: 'Proyectos' },
-				{ id: 'scope', label: 'Alcance' },
-				{ id: 'build', label: 'Construccion' },
-				{ id: 'criteria', label: 'Criterio' },
-				{ id: 'contact', label: 'Contacto' },
-			],
-		},
+			nav: {
+				label: 'Quiero una web',
+				items: [
+					{ id: 'projects', label: 'Proyectos' },
+					{ id: 'build', label: 'Construccion' },
+					{ id: 'profile', label: 'Perfil' },
+					{ id: 'criteria', label: 'Criterio' },
+					{ id: 'contact', label: 'Contacto' },
+				],
+			},
 		hero: {
 			badge: 'Webs y webapps a medida',
 			title: 'Construyamos la web que tu proyecto necesita, sin inflar el alcance de entrada.',
 			description:
 				'Puede ser una landing simple, una pagina institucional, una galeria de trabajos, un sitio que puedas administrar o una webapp con panel. Primero ordenamos que necesitás lograr y despues construimos algo proporcional a ese objetivo.',
-			primaryCtaLabel: 'Contame tu idea',
-			secondaryCtaLabel: 'Ver tipos de proyecto',
-			note:
-				'No todo necesita un CMS, un backend o un panel. Y cuando si hace falta, conviene definirlo bien desde el principio para no terminar con una web dificil de mantener.',
-			visualTitle: 'Alcance posible',
-			visualItems: [
-				{ label: 'Presencia', value: 'Landing / institucional' },
-				{ label: 'Contenido', value: 'Galerias / CMS' },
-				{ label: 'Producto', value: 'Webapp / panel' },
-			],
-		},
+				primaryCtaLabel: 'Contame tu idea',
+				secondaryCtaLabel: 'Ver tipos de proyecto',
+				note:
+					'No todo necesita un CMS, un backend o un panel. Y cuando si hace falta, conviene definirlo bien desde el principio para no terminar con una web dificil de mantener.',
+			},
 		projects: {
 			eyebrow: 'Tipos de proyecto',
 			title: 'No todos los proyectos necesitan la misma solucion.',
@@ -149,32 +140,22 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 						'Una web donde puedas gestionar contenido sin depender de un cambio tecnico por cada actualizacion.',
 					accent: '04',
 				},
-				{
-					title: 'Webapp con panel',
-					description:
-						'Una herramienta con usuarios, flujos internos, panel administrativo, datos o funcionalidades especificas.',
-					accent: '05',
-				},
-			],
-		},
-		scope: {
-			eyebrow: 'Definir alcance',
-			title: 'Primero decidimos que hace falta construir y que conviene dejar afuera.',
-			description:
-				'Una buena web no es la que tiene mas funciones. Es la que resuelve el objetivo con una base tecnica razonable, un camino claro de lanzamiento y espacio para crecer si el proyecto lo pide.',
-			leftTitle: 'Cuando conviene mantenerlo simple',
-			leftItems: [
-				'Necesitas explicar una oferta o servicio con claridad.',
-				'El contenido cambia poco y no requiere gestion frecuente.',
-				'La prioridad es salir online rapido con buena presentacion.',
-			],
-			rightTitle: 'Cuando conviene sumar estructura',
-			rightItems: [
-				'Vas a actualizar contenido seguido o delegar esa carga.',
-				'Necesitas panel, formularios avanzados, datos o integraciones.',
-				'La web es parte de un flujo operativo o de producto.',
-			],
-		},
+					{
+						title: 'Webapp con panel',
+						description:
+							'Una herramienta con usuarios, flujos internos, panel administrativo, datos o funcionalidades especificas.',
+						accent: '05',
+					},
+					{
+						title: 'Ecommerce',
+						description:
+							'Una tienda online a medida para vender en serio con una base tecnica solida, pensada para tu operacion real.',
+						accent: '06',
+						href: `/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
+						linkLabel: 'Ver landing ecommerce',
+					},
+				],
+			},
 		build: {
 			eyebrow: 'Que puedo construir',
 			title: 'Desde la interfaz hasta la parte tecnica que sostiene la web.',
@@ -201,12 +182,36 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 					title: 'Dominio y deploy',
 					description: 'Ayuda para publicar la web, configurar dominio y dejar una base inicial ordenada.',
 				},
-				{
-					title: 'SEO tecnico basico',
-					description: 'Metadatos, estructura, indexacion y fundamentos para que la web salga mejor preparada.',
-				},
-			],
-		},
+					{
+						title: 'SEO tecnico basico',
+						description: 'Metadatos, estructura, indexacion y fundamentos para que la web salga mejor preparada.',
+					},
+				],
+			},
+			profile: {
+				eyebrow: 'Por qué trabajar conmigo',
+				title: 'Además de construir la web, puedo funcionar como partner técnico para ordenarla bien desde el principio.',
+				description:
+					'Tengo experiencia construyendo productos web para equipos de distintos mercados y me interesa trabajar con criterio, no solo ejecutar tareas aisladas. Si querés ver mejor cómo trabajo y cuál es mi perfil, podés entrar a mi página principal.',
+				items: [
+					{
+						title: 'Más de 8 años construyendo productos',
+						description:
+							'Vengo ayudando a equipos de Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada a negocio.',
+					},
+					{
+						title: 'Partner técnico de verdad',
+						description:
+							'Me gusta entender el negocio, cuestionar supuestos flojos cuando hace falta y tomar decisiones que permitan avanzar sin dejar desorden técnico a futuro.',
+					},
+					{
+						title: 'Ejecución senior y comunicación clara',
+						description:
+							'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para el negocio.',
+					},
+				],
+				buttonLabel: 'Ver mi perfil completo',
+			},
 		criteria: {
 			eyebrow: 'Criterio de trabajo',
 			title: 'Construir bien tambien significa no sobredimensionar.',
@@ -273,32 +278,26 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 			description:
 				'I build landing pages, institutional websites, galleries, content-managed sites, CMS setups, and custom webapps based on the real scope of each project.',
 		},
-		nav: {
-			label: 'I need a website',
-			items: [
-				{ id: 'projects', label: 'Projects' },
-				{ id: 'scope', label: 'Scope' },
-				{ id: 'build', label: 'Build' },
-				{ id: 'criteria', label: 'Criteria' },
-				{ id: 'contact', label: 'Contact' },
-			],
-		},
+			nav: {
+				label: 'I need a website',
+				items: [
+					{ id: 'projects', label: 'Projects' },
+					{ id: 'build', label: 'Build' },
+					{ id: 'profile', label: 'Profile' },
+					{ id: 'criteria', label: 'Criteria' },
+					{ id: 'contact', label: 'Contact' },
+				],
+			},
 		hero: {
 			badge: 'Custom websites and webapps',
 			title: 'Let’s build the website your project actually needs, without inflating the scope upfront.',
 			description:
 				'It can be a simple landing page, an institutional website, a work gallery, a site you can manage, or a webapp with an admin panel. First we clarify what you need to achieve, then we build something proportional to that goal.',
-			primaryCtaLabel: 'Tell me your idea',
-			secondaryCtaLabel: 'See project types',
-			note:
-				'Not every project needs a CMS, backend, or admin panel. And when it does, it is better to define it properly from the start so the site does not become hard to maintain.',
-			visualTitle: 'Possible scope',
-			visualItems: [
-				{ label: 'Presence', value: 'Landing / institutional' },
-				{ label: 'Content', value: 'Galleries / CMS' },
-				{ label: 'Product', value: 'Webapp / admin' },
-			],
-		},
+				primaryCtaLabel: 'Tell me your idea',
+				secondaryCtaLabel: 'See project types',
+				note:
+					'Not every project needs a CMS, backend, or admin panel. And when it does, it is better to define it properly from the start so the site does not become hard to maintain.',
+			},
 		projects: {
 			eyebrow: 'Project types',
 			title: 'Not every project needs the same solution.',
@@ -325,31 +324,21 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 					description: 'A website where you can manage content without needing a technical change for every update.',
 					accent: '04',
 				},
-				{
-					title: 'Webapp with admin',
-					description: 'A tool with users, internal flows, an admin panel, data, or specific functionality.',
-					accent: '05',
-				},
-			],
-		},
-		scope: {
-			eyebrow: 'Define scope',
-			title: 'First we decide what needs to be built and what should stay out.',
-			description:
-				'A good website is not the one with the most features. It is the one that solves the goal with a reasonable technical base, a clear launch path, and room to grow when the project asks for it.',
-			leftTitle: 'When it should stay simple',
-			leftItems: [
-				'You need to explain an offer or service clearly.',
-				'Content changes rarely and does not require frequent management.',
-				'The priority is to go online quickly with a strong presentation.',
-			],
-			rightTitle: 'When structure makes sense',
-			rightItems: [
-				'You will update content often or delegate that work.',
-				'You need an admin panel, advanced forms, data, or integrations.',
-				'The website is part of an operational or product workflow.',
-			],
-		},
+					{
+						title: 'Webapp with admin',
+						description: 'A tool with users, internal flows, an admin panel, data, or specific functionality.',
+						accent: '05',
+					},
+					{
+						title: 'Ecommerce',
+						description:
+							'A custom online store to sell seriously on top of a solid technical base adapted to your real operations.',
+						accent: '06',
+						href: `/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,
+						linkLabel: 'See ecommerce landing',
+					},
+				],
+			},
 		build: {
 			eyebrow: 'What I can build',
 			title: 'From the interface to the technical layer that supports it.',
@@ -376,12 +365,36 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
 					title: 'Domain and deploy',
 					description: 'Help publishing the website, configuring the domain, and leaving a clean initial setup.',
 				},
-				{
-					title: 'Basic technical SEO',
-					description: 'Metadata, structure, indexing, and fundamentals so the website launches better prepared.',
-				},
-			],
-		},
+					{
+						title: 'Basic technical SEO',
+						description: 'Metadata, structure, indexing, and fundamentals so the website launches better prepared.',
+					},
+				],
+			},
+			profile: {
+				eyebrow: 'Why work with me',
+				title: 'Beyond building the website, I can act as a technical partner to structure it properly from the start.',
+				description:
+					'I have experience building web products for teams across different markets, and I care about working with judgment, not just shipping isolated tasks. If you want a better sense of how I work and my background, you can visit my main profile page.',
+				items: [
+					{
+						title: '8+ years building products',
+						description:
+							'I have helped teams across Latin America, the United States, and Europe build digital products with a practical, business-oriented mindset.',
+					},
+					{
+						title: 'A real technical partner',
+						description:
+							'I like understanding the business, challenging weak assumptions when needed, and making decisions that move things forward without creating long-term technical mess.',
+					},
+					{
+						title: 'Senior execution and clear communication',
+						description:
+							'If you work with me, you can expect technical judgment, clear communication, and a strong focus on building something reliable, maintainable, and useful for the business.',
+					},
+				],
+				buttonLabel: 'See my full background',
+			},
 		criteria: {
 			eyebrow: 'Working criteria',
 			title: 'Building well also means not over-engineering.',

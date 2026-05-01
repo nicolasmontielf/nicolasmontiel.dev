@@ -1,0 +1,26 @@
+---
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
+import { webContainerClass } from '@components/web/styles';
+
+type Props = {
+	whatsappLink: string;
+};
+
+const { whatsappLink } = Astro.props as Props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const aboutPath = locale === 'es' ? '/es/sobre-mi' : '/en/about-me';
+const ecommercePath = `/${locale}/${COMMERCIAL_SERVICE_SLUGS.ecommerce[locale]}`;
+---
+
+<footer class="border-t border-slate-200 bg-white py-8">
+	<div class={`${webContainerClass} flex flex-col gap-4 text-sm text-slate-600 md:flex-row md:items-center md:justify-between`}>
+		<nav class="flex flex-wrap items-center gap-x-5 gap-y-2">
+			<a href={aboutPath} class="transition-colors hover:text-slate-900">{locale === 'es' ? 'Sobre mí' : 'About me'}</a>
+			<a href={ecommercePath} class="transition-colors hover:text-slate-900">Ecommerce</a>
+			<a href={whatsappLink} target="_blank" rel="noreferrer" class="transition-colors hover:text-slate-900">WhatsApp</a>
+			<a href="mailto:nicolasmontielf@gmail.com" class="transition-colors hover:text-slate-900">Email</a>
+		</nav>
+		<p class="text-right text-slate-500">Nicolás Montiel</p>
+	</div>
+</footer>
