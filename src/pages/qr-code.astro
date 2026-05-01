@@ -2,34 +2,16 @@
 import Layout from '@/layouts/Layout.astro';
 import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 import { getCommercialServicePath, SITE_URL } from '@/seo/site';
+import type { QrContentByLocale } from '@/types/qr';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-
-type LinkItem = {
-    label: string;
-    description: string;
-    href: string;
-};
 
 const whatsappLinks: Record<Locale, string> = {
     es: 'https://wa.me/595973779205?text=Hola%20Nico!%2C%20vengo%20desde%20tu%20tarjeta%20personal%20y%20quiero%20hacerte%20una%20consulta.',
     en: 'https://wa.me/595973779205?text=Hi%20Nico!%20I%20came%20from%20your%20personal%20card%20and%20would%20like%20to%20ask%20you%20something.',
 };
 
-const contentByLocale: Record<
-    Locale,
-    {
-        metaTitle: string;
-        metaDescription: string;
-        badge: string;
-        title: string;
-        description: string;
-        languageLabel: string;
-        whatsappLabel: string;
-        whatsappNote: string;
-        links: LinkItem[];
-    }
-> = {
+const contentByLocale: QrContentByLocale = {
     es: {
         metaTitle: 'Links rápidos',
         metaDescription:

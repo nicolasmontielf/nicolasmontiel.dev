@@ -1,25 +1,13 @@
 ---
 import { DEFAULT_LOCALE } from '@/i18n/locales';
-
-type Props = {
-    profile: {
-        eyebrow: string;
-        title: string;
-        description: string;
-        items: Array<{ title: string; description: string }>;
-        buttonLabel: string;
-    };
-    aboutLink: string;
-    containerClass: string;
-    sectionId?: string;
-};
+import type { SharedProfileSectionProps } from '@/types/landing/props';
 
 const {
     profile,
     aboutLink,
     containerClass,
     sectionId = 'profile',
-} = Astro.props as Props;
+} = Astro.props as SharedProfileSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const avatarSrc = '/nicolas-montiel-avatar.png';
 const avatarAlt =

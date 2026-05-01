@@ -4,13 +4,7 @@ import PearsonLogo from '@/assets/logos/pearson_logo.jpeg';
 import ScrumStudy from '@/assets/logos/scrumstudy_logo.jpeg';
 import FreeCodeCampLogo from '@/assets/logos/freecodecamp_logo.jpeg';
 import LinuxFoundationLogo from '@/assets/logos/thelinuxfoundation_logo.jpeg';
-
-export type Certification = {
-    id: string;
-    title: string;
-    icon: string;
-    href: string;
-};
+import type { Certification } from '@/types/home';
 
 export const certifications: Certification[] = [
     {

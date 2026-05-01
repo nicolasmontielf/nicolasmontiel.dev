@@ -1,5 +1,4 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
 import BuildSection from '@components/web/BuildSection.astro';
 import ContactSection from '@components/web/ContactSection.astro';
 import CriteriaSection from '@components/web/CriteriaSection.astro';
@@ -8,13 +7,9 @@ import HeroSection from '@components/web/HeroSection.astro';
 import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
 import ProfileSection from '@components/web/ProfileSection.astro';
 import ProjectTypesSection from '@components/web/ProjectTypesSection.astro';
+import type { WebLandingProps } from '@/types/landing/props';
 import { webContainerClass } from '@components/web/styles';
-
-type Props = {
-    content: WebLandingContent;
-};
-
-const { content } = Astro.props as Props;
+const { content } = Astro.props as WebLandingProps;
 ---
 
 <div class="bg-white text-slate-700">

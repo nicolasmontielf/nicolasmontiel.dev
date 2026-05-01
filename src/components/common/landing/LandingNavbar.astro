@@ -1,24 +1,9 @@
 ---
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import type { LandingNavbarProps } from '@/types/landing/props';
 
-type LandingNavItem = {
-    id: string;
-    label: string;
-};
-
-type LandingNav = {
-    label: string;
-    items: LandingNavItem[];
-};
-
-type Props = {
-    nav: LandingNav;
-    whatsappLink: string;
-    ctaLabel: string;
-    containerClass: string;
-};
-
-const { nav, whatsappLink, ctaLabel, containerClass } = Astro.props as Props;
+const { nav, whatsappLink, ctaLabel, containerClass } =
+    Astro.props as LandingNavbarProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 ---
 

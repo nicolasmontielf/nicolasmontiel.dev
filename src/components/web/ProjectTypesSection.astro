@@ -1,12 +1,7 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
+import type { WebProjectTypesSectionProps } from '@/types/landing/props';
 import { webContainerClass, webLabelClass } from '@components/web/styles';
-
-type Props = {
-    projects: WebLandingContent['projects'];
-};
-
-const { projects } = Astro.props as Props;
+const { projects } = Astro.props as WebProjectTypesSectionProps;
 ---
 
 <section

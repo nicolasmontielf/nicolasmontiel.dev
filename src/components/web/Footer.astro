@@ -1,13 +1,9 @@
 ---
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
+import type { WebFooterProps } from '@/types/landing/props';
 import { webContainerClass } from '@components/web/styles';
-
-type Props = {
-    whatsappLink: string;
-};
-
-const { whatsappLink } = Astro.props as Props;
+const { whatsappLink } = Astro.props as WebFooterProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const aboutPath = locale === 'es' ? '/es/sobre-mi' : '/en/about-me';
 const ecommercePath = `/${locale}/${COMMERCIAL_SERVICE_SLUGS.ecommerce[locale]}`;

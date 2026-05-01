@@ -1,16 +1,11 @@
 ---
-import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+import type { EcommerceHeroSectionProps } from '@/types/landing/props';
 import {
     sectionContainerClass,
     sectionLabelClass,
 } from '@components/ecommerce/styles';
 
-type Props = {
-    hero: EcommerceLandingContent['hero'];
-    links: EcommerceLandingContent['links'];
-};
-
-const { hero, links } = Astro.props as Props;
+const { hero, links } = Astro.props as EcommerceHeroSectionProps;
 const heroImageSrc = '/storefront-preview.png';
 ---
 

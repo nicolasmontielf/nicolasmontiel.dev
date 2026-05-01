@@ -1,19 +1,8 @@
 ---
 import { webContainerClass, webLabelClass } from '@components/web/styles';
+import type { WebScopeSectionProps } from '@/types/landing/props';
 
-type Props = {
-    scope: {
-        eyebrow: string;
-        title: string;
-        description: string;
-        leftTitle: string;
-        leftItems: string[];
-        rightTitle: string;
-        rightItems: string[];
-    };
-};
-
-const { scope } = Astro.props as Props;
+const { scope } = Astro.props as WebScopeSectionProps;
 ---
 
 <section

@@ -1,6 +1,9 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import type {
+    HeroImageAltByLocale,
+    WebHeroSectionProps,
+} from '@/types/landing/props';
 import {
     webContainerClass,
     webLabelClass,
@@ -8,17 +11,13 @@ import {
     webSecondaryButtonClass,
 } from '@components/web/styles';
 
-type Props = {
-    hero: WebLandingContent['hero'];
-    links: WebLandingContent['links'];
-};
-
-const { hero, links } = Astro.props as Props;
+const { hero, links } = Astro.props as WebHeroSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const heroImageAlt =
-    locale === 'es'
-        ? 'Preview de dashboard web como referencia visual'
-        : 'Website dashboard preview as visual placeholder';
+const heroImageAltByLocale: HeroImageAltByLocale = {
+    es: 'Preview de dashboard web como referencia visual',
+    en: 'Website dashboard preview as visual placeholder',
+};
+const heroImageAlt = heroImageAltByLocale[locale];
 ---
 
 <section

@@ -8,13 +8,9 @@ import PresentationBodyProEn from '@components/home/PresentationBodyPro.en.astro
 import PresentationBodyFreelancerEn from '@components/home/PresentationBodyFreelancer.en.astro';
 import PresentationBodyProEs from '@components/home/PresentationBodyPro.es.astro';
 import PresentationBodyFreelancerEs from '@components/home/PresentationBodyFreelancer.es.astro';
+import type { PresentationProps } from '@/types/home';
 
-type Props = {
-    variant: 'pro' | 'freelancer';
-    greeting: string;
-};
-
-const { variant, greeting } = Astro.props as Props;
+const { variant, greeting } = Astro.props as PresentationProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 
 const isSpanish = locale === 'es';

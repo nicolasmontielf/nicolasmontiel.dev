@@ -1,12 +1,7 @@
 ---
-type IconName = 'core' | 'storefront' | 'business' | 'launch' | 'setup';
+import type { EcommerceServiceIconProps } from '@/types/landing/props';
 
-type Props = {
-    name: IconName;
-    inverted?: boolean;
-};
-
-const { name, inverted = false } = Astro.props as Props;
+const { name, inverted = false } = Astro.props as EcommerceServiceIconProps;
 const strokeClass = inverted ? 'stroke-white' : 'stroke-slate-900';
 const toneClasses = inverted
     ? {

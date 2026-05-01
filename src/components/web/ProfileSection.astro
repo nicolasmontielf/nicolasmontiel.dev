@@ -1,14 +1,8 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
 import SharedProfileSection from '@components/common/landing/ProfileSection.astro';
+import type { WebProfileSectionProps } from '@/types/landing/props';
 import { webContainerClass } from '@components/web/styles';
-
-type Props = {
-    profile: WebLandingContent['profile'];
-    aboutLink: string;
-};
-
-const { profile, aboutLink } = Astro.props as Props;
+const { profile, aboutLink } = Astro.props as WebProfileSectionProps;
 ---
 
 <SharedProfileSection

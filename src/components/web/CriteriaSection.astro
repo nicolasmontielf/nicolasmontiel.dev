@@ -1,12 +1,7 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
+import type { WebCriteriaSectionProps } from '@/types/landing/props';
 import { webContainerClass } from '@components/web/styles';
-
-type Props = {
-    criteria: WebLandingContent['criteria'];
-};
-
-const { criteria } = Astro.props as Props;
+const { criteria } = Astro.props as WebCriteriaSectionProps;
 ---
 
 <section

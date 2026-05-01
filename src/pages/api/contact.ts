@@ -1,13 +1,5 @@
 import type { APIRoute } from 'astro';
-
-type ContactPayload = {
-    name?: unknown;
-    email?: unknown;
-    whatsapp?: unknown;
-    projectType?: unknown;
-    message?: unknown;
-    source?: unknown;
-};
+import type { ContactPayload } from '@/types/api/contact';
 
 function normalizeString(value: unknown) {
     return typeof value === 'string' ? value.trim() : '';

@@ -1,5 +1,5 @@
 ---
-import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+import type { EcommerceLandingProps } from '@/types/landing/props';
 import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
 import ContactSection from '@components/ecommerce/ContactSection.astro';
 import HeroSection from '@components/ecommerce/HeroSection.astro';
@@ -8,11 +8,7 @@ import ProfileSection from '@components/ecommerce/ProfileSection.astro';
 import WorkSection from '@components/ecommerce/WorkSection.astro';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
-type Props = {
-    content: EcommerceLandingContent;
-};
-
-const { content } = Astro.props as Props;
+const { content } = Astro.props as EcommerceLandingProps;
 ---
 
 <div class="bg-white text-slate-700">

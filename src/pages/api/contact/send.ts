@@ -1,14 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
-
-type ContactPayload = {
-    name?: unknown;
-    email?: unknown;
-    whatsapp?: unknown;
-    projectType?: unknown;
-    message?: unknown;
-    source?: unknown;
-};
+import type { ContactPayload } from '@/types/api/contact';
 
 const CONTACT_TO_EMAIL = 'nicolasmontielf@gmail.com';
 const CONTACT_FROM_EMAIL = 'ecommerce@nicolasmontiel.dev';

@@ -1,16 +1,12 @@
 ---
-import type { EcommerceLandingContent } from '@/data/ecommerce-landing';
+import type { EcommerceWorkSectionProps } from '@/types/landing/props';
 import ServiceIcon from '@components/ecommerce/ServiceIcon.astro';
 import {
     sectionContainerClass,
     sectionLabelClass,
 } from '@components/ecommerce/styles';
 
-type Props = {
-    work: EcommerceLandingContent['work'];
-};
-
-const { work } = Astro.props as Props;
+const { work } = Astro.props as EcommerceWorkSectionProps;
 ---
 
 <section

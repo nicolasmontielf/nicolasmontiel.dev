@@ -1,21 +1,19 @@
 ---
 import EcommerceLanding from '@components/ecommerce/Landing.astro';
 import WebLanding from '@components/web/Landing.astro';
-import {
-    getEcommerceLandingContent,
-    type EcommerceLandingContent,
-} from '@/data/ecommerce-landing';
-import {
-    getWebLandingContent,
-    type WebLandingContent,
-} from '@/data/web-landing';
+import { getEcommerceLandingContent } from '@/data/ecommerce-landing';
+import { getWebLandingContent } from '@/data/web-landing';
 import { isLocale } from '@/i18n/locales';
 import Layout from '@/layouts/Layout.astro';
+import type {
+    EcommerceLandingContent,
+    WebLandingContent,
+} from '@/types/landing/content';
+import type { CommercialService } from '@/types/seo';
 import {
     COMMERCIAL_SERVICE_SLUGS,
     PERSON_ID,
     SITE_URL,
-    type CommercialService,
 } from '@/seo/site';
 
 const { lang, service: serviceSlug } = Astro.params;

@@ -1,4 +1,5 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
+import type { CommercialService } from '@/types/seo';
 
 export const SITE_URL = 'https://www.nicolasmontiel.dev';
 export const SITE_NAME = 'Nicolás Montiel';
@@ -25,8 +26,6 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
     en: 'en-US',
     es: 'es-PY',
 };
-
-export type CommercialService = 'ecommerce' | 'web';
 
 export const COMMERCIAL_SERVICE_SLUGS: Record<
     CommercialService,

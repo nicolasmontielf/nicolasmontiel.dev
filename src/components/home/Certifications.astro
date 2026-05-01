@@ -1,12 +1,8 @@
 ---
 import { certifications } from '@/data/certifications';
+import type { CertificationsProps } from '@/types/home';
 
-type Props = {
-    title: string;
-    credentialLabel: string;
-};
-
-const { title, credentialLabel } = Astro.props as Props;
+const { title, credentialLabel } = Astro.props as CertificationsProps;
 ---
 
 <section

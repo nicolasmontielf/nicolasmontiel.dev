@@ -1,14 +1,8 @@
 ---
-import type { WebLandingContent } from '@/data/web-landing';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import type { WebContactSectionProps } from '@/types/landing/props';
 import { webContainerClass } from '@components/web/styles';
-
-type Props = {
-    contact: WebLandingContent['contact'];
-    whatsappLink: string;
-};
-
-const { contact, whatsappLink } = Astro.props as Props;
+const { contact, whatsappLink } = Astro.props as WebContactSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const contactFormId = `web-contact-form-${locale}`;
 const contactStatusId = `web-contact-status-${locale}`;
