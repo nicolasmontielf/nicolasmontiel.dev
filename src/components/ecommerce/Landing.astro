@@ -6,6 +6,7 @@ import HeroSection from '@components/ecommerce/HeroSection.astro';
 import ProcessSection from '@components/ecommerce/ProcessSection.astro';
 import ProfileSection from '@components/ecommerce/ProfileSection.astro';
 import WorkSection from '@components/ecommerce/WorkSection.astro';
+import Footer from '@components/web/Footer.astro';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 const { content } = Astro.props as EcommerceLandingProps;
@@ -35,4 +36,5 @@ const { content } = Astro.props as EcommerceLandingProps;
             whatsappLink={content.links.whatsapp}
         />
     </main>
+    <Footer whatsappLink={content.links.whatsapp} />
 </div>
