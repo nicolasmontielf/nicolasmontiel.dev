@@ -11,27 +11,36 @@ import ProjectTypesSection from '@components/web/ProjectTypesSection.astro';
 import { webContainerClass } from '@components/web/styles';
 
 type Props = {
-	content: WebLandingContent;
+    content: WebLandingContent;
 };
 
 const { content } = Astro.props as Props;
 ---
 
 <div class="bg-white text-slate-700">
-	<LandingNavbar
-		nav={content.nav}
-		whatsappLink={content.links.whatsapp}
-		ctaLabel={content.hero.primaryCtaLabel}
-		containerClass={webContainerClass}
-	/>
+    <LandingNavbar
+        nav={content.nav}
+        whatsappLink={content.links.whatsapp}
+        ctaLabel={content.hero.primaryCtaLabel}
+        containerClass={webContainerClass}
+    />
 
-		<main>
-			<HeroSection hero={content.hero} links={content.links} />
-			<ProjectTypesSection projects={content.projects} />
-			<BuildSection build={content.build} />
-			<ProfileSection profile={content.profile} aboutLink={content.links.about} />
-			<CriteriaSection criteria={content.criteria} />
-			<ContactSection contact={content.contact} whatsappLink={content.links.whatsapp} />
-		</main>
-		<Footer whatsappLink={content.links.whatsapp} />
-	</div>
+    <main>
+        <HeroSection
+            hero={content.hero}
+            links={content.links}
+        />
+        <ProjectTypesSection projects={content.projects} />
+        <BuildSection build={content.build} />
+        <ProfileSection
+            profile={content.profile}
+            aboutLink={content.links.about}
+        />
+        <CriteriaSection criteria={content.criteria} />
+        <ContactSection
+            contact={content.contact}
+            whatsappLink={content.links.whatsapp}
+        />
+    </main>
+    <Footer whatsappLink={content.links.whatsapp} />
+</div>

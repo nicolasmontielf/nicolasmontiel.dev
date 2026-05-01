@@ -15,130 +15,227 @@ const webPath = getCommercialServicePath('web', locale);
 const switchToEsPath = getLocalizedPath(currentPath, 'es');
 const switchToEnPath = getLocalizedPath(currentPath, 'en');
 ---
-<header data-navbar-root class="py-8 font-medium text-slate-900 border-b border-slate-200">
-	<div class="flex items-center justify-between gap-4">
-		<a class="text-indigo-600 text-2xl font-bold tracking-tight" href={homePath}>Nicolás Montiel</a>
 
-		<nav class="hidden md:flex gap-4 items-center text-sm">
-			<a class="hover:text-indigo-600 transition-colors" target="_blank" href='https://dev.to/nicolasmontielf'>{labels.posts}</a>
-			<span class="text-slate-300"> / </span>
-			<a class="hover:text-indigo-600 transition-colors" href={certificationsPath}>{labels.certifications}</a>
-			<span class="text-slate-300"> / </span>
-			<a class="hover:text-indigo-600 transition-colors" href={ecommercePath}>{labels.wantEcommerce}</a>
-			<span class="text-slate-300"> / </span>
-			<a class="hover:text-indigo-600 transition-colors" href={webPath}>{labels.wantWeb}</a>
-			<span class="text-slate-300"> / </span>
-			<label class="sr-only" for="desktop-language-select">{labels.language}</label>
-			<select
-				id="desktop-language-select"
-				data-language-select
-				class="bg-transparent text-slate-900 border border-slate-200 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-			>
-				<option
-					value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
-					selected={locale === 'es'}
-				>
-					ES
-				</option>
-				<option
-					value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
-					selected={locale === 'en'}
-				>
-					EN
-				</option>
-			</select>
-		</nav>
+<header
+    data-navbar-root
+    class="py-8 font-medium text-slate-900 border-b border-slate-200"
+>
+    <div class="flex items-center justify-between gap-4">
+        <a
+            class="text-indigo-600 text-2xl font-bold tracking-tight"
+            href={homePath}
+            >Nicolás Montiel</a
+        >
 
-		<button
-			class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-slate-200 text-slate-700 hover:text-indigo-600"
-			type="button"
-			data-menu-toggle
-			aria-label="Toggle navigation menu"
-			aria-expanded="false"
-		>
-			<span class="sr-only">Open menu</span>
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
-			</svg>
-		</button>
-	</div>
+        <nav class="hidden md:flex gap-4 items-center text-sm">
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                target="_blank"
+                href="https://dev.to/nicolasmontielf"
+                >{labels.posts}</a
+            >
+            <span class="text-slate-300"> / </span>
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                href={certificationsPath}
+                >{labels.certifications}</a
+            >
+            <span class="text-slate-300"> / </span>
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                href={ecommercePath}
+                >{labels.wantEcommerce}</a
+            >
+            <span class="text-slate-300"> / </span>
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                href={webPath}
+                >{labels.wantWeb}</a
+            >
+            <span class="text-slate-300"> / </span>
+            <label
+                class="sr-only"
+                for="desktop-language-select"
+                >{labels.language}</label
+            >
+            <select
+                id="desktop-language-select"
+                data-language-select
+                class="bg-transparent text-slate-900 border border-slate-200 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+            >
+                <option
+                    value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
+                    selected={locale === 'es'}
+                >
+                    ES
+                </option>
+                <option
+                    value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
+                    selected={locale === 'en'}
+                >
+                    EN
+                </option>
+            </select>
+        </nav>
 
-	<nav
-		class="md:hidden overflow-hidden max-h-0 opacity-0 -translate-y-2 pointer-events-none transition-all duration-300 ease-out rounded-lg border border-transparent bg-white/90 backdrop-blur px-0 py-0"
-		data-mobile-menu
-	>
-		<div class="flex flex-col gap-4 text-sm">
-			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={postsPath}>{labels.posts}</a>
-			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={certificationsPath}>{labels.certifications}</a>
-			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={ecommercePath}>{labels.wantEcommerce}</a>
-			<a class="hover:text-indigo-600 transition-colors" data-mobile-link href={webPath}>{labels.wantWeb}</a>
-			<div>
-				<label class="block text-xs text-slate-500 mb-1" for="mobile-language-select">{labels.language}</label>
-				<select
-					id="mobile-language-select"
-					data-language-select
-					class="w-full bg-transparent text-slate-900 border border-slate-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-				>
-					<option
-						value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
-						selected={locale === 'es'}
-					>
-						ES
-					</option>
-					<option
-						value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
-						selected={locale === 'en'}
-					>
-						EN
-					</option>
-				</select>
-			</div>
-		</div>
-	</nav>
+        <button
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-slate-200 text-slate-700 hover:text-indigo-600"
+            type="button"
+            data-menu-toggle
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+        >
+            <span class="sr-only">Open menu</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 7h16M4 12h16M4 17h16"
+                ></path>
+            </svg>
+        </button>
+    </div>
+
+    <nav
+        class="md:hidden overflow-hidden max-h-0 opacity-0 -translate-y-2 pointer-events-none transition-all duration-300 ease-out rounded-lg border border-transparent bg-white/90 backdrop-blur px-0 py-0"
+        data-mobile-menu
+    >
+        <div class="flex flex-col gap-4 text-sm">
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                data-mobile-link
+                href={postsPath}
+                >{labels.posts}</a
+            >
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                data-mobile-link
+                href={certificationsPath}
+                >{labels.certifications}</a
+            >
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                data-mobile-link
+                href={ecommercePath}
+                >{labels.wantEcommerce}</a
+            >
+            <a
+                class="hover:text-indigo-600 transition-colors"
+                data-mobile-link
+                href={webPath}
+                >{labels.wantWeb}</a
+            >
+            <div>
+                <label
+                    class="block text-xs text-slate-500 mb-1"
+                    for="mobile-language-select"
+                    >{labels.language}</label
+                >
+                <select
+                    id="mobile-language-select"
+                    data-language-select
+                    class="w-full bg-transparent text-slate-900 border border-slate-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                >
+                    <option
+                        value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
+                        selected={locale === 'es'}
+                    >
+                        ES
+                    </option>
+                    <option
+                        value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
+                        selected={locale === 'en'}
+                    >
+                        EN
+                    </option>
+                </select>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <script is:inline>
-	const navbar = document.querySelector('[data-navbar-root]');
+    const navbar = document.querySelector('[data-navbar-root]');
 
-	if (navbar) {
-		const toggleButton = navbar.querySelector('[data-menu-toggle]');
-		const mobileMenu = navbar.querySelector('[data-mobile-menu]');
-		const mobileLinks = navbar.querySelectorAll('[data-mobile-link]');
-		const languageSelects = navbar.querySelectorAll('[data-language-select]');
+    if (navbar) {
+        const toggleButton = navbar.querySelector('[data-menu-toggle]');
+        const mobileMenu = navbar.querySelector('[data-mobile-menu]');
+        const mobileLinks = navbar.querySelectorAll('[data-mobile-link]');
+        const languageSelects = navbar.querySelectorAll(
+            '[data-language-select]',
+        );
 
-		const closeMenu = () => {
-			if (!mobileMenu) return;
-			mobileMenu.classList.add('max-h-0', 'opacity-0', '-translate-y-2', 'pointer-events-none', 'border-transparent', 'px-0', 'py-0');
-			mobileMenu.classList.remove('max-h-96', 'opacity-100', 'translate-y-0', 'mt-4', 'border-slate-200', 'p-4');
-			if (toggleButton) toggleButton.setAttribute('aria-expanded', 'false');
-		};
+        const closeMenu = () => {
+            if (!mobileMenu) return;
+            mobileMenu.classList.add(
+                'max-h-0',
+                'opacity-0',
+                '-translate-y-2',
+                'pointer-events-none',
+                'border-transparent',
+                'px-0',
+                'py-0',
+            );
+            mobileMenu.classList.remove(
+                'max-h-96',
+                'opacity-100',
+                'translate-y-0',
+                'mt-4',
+                'border-slate-200',
+                'p-4',
+            );
+            if (toggleButton)
+                toggleButton.setAttribute('aria-expanded', 'false');
+        };
 
-		if (toggleButton && mobileMenu) {
-			toggleButton.addEventListener('click', () => {
-				const isClosed = mobileMenu.classList.contains('max-h-0');
+        if (toggleButton && mobileMenu) {
+            toggleButton.addEventListener('click', () => {
+                const isClosed = mobileMenu.classList.contains('max-h-0');
 
-				if (isClosed) {
-					mobileMenu.classList.remove('max-h-0', 'opacity-0', '-translate-y-2', 'pointer-events-none', 'border-transparent', 'px-0', 'py-0');
-					mobileMenu.classList.add('max-h-96', 'opacity-100', 'translate-y-0', 'mt-4', 'border-slate-200', 'p-4');
-					toggleButton.setAttribute('aria-expanded', 'true');
-					return;
-				}
+                if (isClosed) {
+                    mobileMenu.classList.remove(
+                        'max-h-0',
+                        'opacity-0',
+                        '-translate-y-2',
+                        'pointer-events-none',
+                        'border-transparent',
+                        'px-0',
+                        'py-0',
+                    );
+                    mobileMenu.classList.add(
+                        'max-h-96',
+                        'opacity-100',
+                        'translate-y-0',
+                        'mt-4',
+                        'border-slate-200',
+                        'p-4',
+                    );
+                    toggleButton.setAttribute('aria-expanded', 'true');
+                    return;
+                }
 
-				closeMenu();
-			});
-		}
+                closeMenu();
+            });
+        }
 
-		mobileLinks.forEach((link) => {
-			link.addEventListener('click', closeMenu);
-		});
+        mobileLinks.forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
 
-		languageSelects.forEach((select) => {
-			select.addEventListener('change', (event) => {
-				const target = event.target;
-				if (!(target instanceof HTMLSelectElement)) return;
-				if (mobileMenu) closeMenu();
-				if (target.value) window.location.href = target.value;
-			});
-		});
-	}
+        languageSelects.forEach((select) => {
+            select.addEventListener('change', (event) => {
+                const target = event.target;
+                if (!(target instanceof HTMLSelectElement)) return;
+                if (mobileMenu) closeMenu();
+                if (target.value) window.location.href = target.value;
+            });
+        });
+    }
 </script>

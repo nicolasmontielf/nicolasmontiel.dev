@@ -9,25 +9,34 @@ import WorkSection from '@components/ecommerce/WorkSection.astro';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
-	content: EcommerceLandingContent;
+    content: EcommerceLandingContent;
 };
 
 const { content } = Astro.props as Props;
 ---
 
 <div class="bg-white text-slate-700">
-	<LandingNavbar
-		nav={content.nav}
-		whatsappLink={content.links.whatsapp}
-		ctaLabel={content.hero.primaryCtaLabel}
-		containerClass={sectionContainerClass}
-	/>
+    <LandingNavbar
+        nav={content.nav}
+        whatsappLink={content.links.whatsapp}
+        ctaLabel={content.hero.primaryCtaLabel}
+        containerClass={sectionContainerClass}
+    />
 
-	<main>
-		<HeroSection hero={content.hero} links={content.links} />
-		<WorkSection work={content.work} />
-		<ProfileSection profile={content.profile} aboutLink={content.links.about} />
-		<ProcessSection process={content.process} />
-		<ContactSection contact={content.contact} whatsappLink={content.links.whatsapp} />
-	</main>
+    <main>
+        <HeroSection
+            hero={content.hero}
+            links={content.links}
+        />
+        <WorkSection work={content.work} />
+        <ProfileSection
+            profile={content.profile}
+            aboutLink={content.links.about}
+        />
+        <ProcessSection process={content.process} />
+        <ContactSection
+            contact={content.contact}
+            whatsappLink={content.links.whatsapp}
+        />
+    </main>
 </div>

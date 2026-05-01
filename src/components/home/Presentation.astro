@@ -10,8 +10,8 @@ import PresentationBodyProEs from '@components/home/PresentationBodyPro.es.astro
 import PresentationBodyFreelancerEs from '@components/home/PresentationBodyFreelancer.es.astro';
 
 type Props = {
-	variant: 'pro' | 'freelancer';
-	greeting: string;
+    variant: 'pro' | 'freelancer';
+    greeting: string;
 };
 
 const { variant, greeting } = Astro.props as Props;
@@ -40,28 +40,48 @@ const socialMediaItems = [
         url: 'mailto:nicolasmontielf@gmail.com',
         icon: mailIcon,
         label: locale === 'es' ? 'Enviar email' : 'Send email',
-    }
+    },
 ];
 ---
 
 <section class="flex items-center gap-12 w-full md:w-10/12 text-justify">
-	<div class="w-full flex flex-col gap-6">
-		<h1 class="text-5xl md:text-6xl text-slate-900 font-bold tracking-tight">{greeting}</h1>
+    <div class="w-full flex flex-col gap-6">
+        <h1
+            class="text-5xl md:text-6xl text-slate-900 font-bold tracking-tight"
+        >
+            {greeting}
+        </h1>
 
-		<div class="text-lg leading-relaxed text-slate-700">
-			{isSpanish
-				? (isFreelancer ? <PresentationBodyFreelancerEs /> : <PresentationBodyProEs />)
-				: (isFreelancer ? <PresentationBodyFreelancerEn /> : <PresentationBodyProEn />)}
-		</div>
+        <div class="text-lg leading-relaxed text-slate-700">
+            {
+                isSpanish ? (
+                    isFreelancer ? (
+                        <PresentationBodyFreelancerEs />
+                    ) : (
+                        <PresentationBodyProEs />
+                    )
+                ) : isFreelancer ? (
+                    <PresentationBodyFreelancerEn />
+                ) : (
+                    <PresentationBodyProEn />
+                )
+            }
+        </div>
 
-		<div class="flex gap-4 items-center">
-			{
-					socialMediaItems.map((item) => {
-						return (
-							<a href={item.url} target="_blank" class="group" rel="noreferrer" aria-label={item.label}>
-								<div
-									class="w-5 h-5 bg-indigo-600 group-hover:bg-indigo-700 transition-colors cursor-pointer"
-								style={`
+        <div class="flex gap-4 items-center">
+            {
+                socialMediaItems.map((item) => {
+                    return (
+                        <a
+                            href={item.url}
+                            target="_blank"
+                            class="group"
+                            rel="noreferrer"
+                            aria-label={item.label}
+                        >
+                            <div
+                                class="w-5 h-5 bg-indigo-600 group-hover:bg-indigo-700 transition-colors cursor-pointer"
+                                style={`
                                     mask-image: url(${item.icon.src}); 
                                     -webkit-mask-image: url(${item.icon.src});
                                     mask-size: contain; 
@@ -71,15 +91,15 @@ const socialMediaItems = [
                                     mask-position: center;
                                     -webkit-mask-position: center;
                                 `}
-								/>
-							</a>
-						);
-					})
-				}
-			</div>
-	</div>
+                            />
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </div>
 
-	<!-- <div class="w-full md:justify-self-end">
+    <!-- <div class="w-full md:justify-self-end">
 		<div class="relative mx-auto w-full max-w-md aspect-square">
 			<div class="absolute inset-8 rounded-[2rem] bg-gradient-to-br from-indigo-500/30 via-blue-300/40 to-violet-500/30 blur-2xl"></div>
 			<div class="absolute inset-10 rounded-3xl border border-indigo-200/60 bg-white/55 backdrop-blur"></div>

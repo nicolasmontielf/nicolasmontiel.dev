@@ -5,7 +5,7 @@ import { DEVTO_PROFILE_URL } from '@/seo/site';
 const { lang } = Astro.params;
 
 if (!lang || !isLocale(lang)) {
-	return Astro.redirect(`/${DEFAULT_LOCALE}`);
+    return Astro.redirect(`/${DEFAULT_LOCALE}`);
 }
 
 return Astro.redirect(DEVTO_PROFILE_URL, 301);

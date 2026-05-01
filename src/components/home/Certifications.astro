@@ -2,40 +2,45 @@
 import { certifications } from '@/data/certifications';
 
 type Props = {
-	title: string;
-	credentialLabel: string;
+    title: string;
+    credentialLabel: string;
 };
 
 const { title, credentialLabel } = Astro.props as Props;
 ---
 
-<section id="certifications-section" class="mt-16">
-	<h2 class="text-4xl font-bold tracking-tight text-slate-900">{title}</h2>
+<section
+    id="certifications-section"
+    class="mt-16"
+>
+    <h2 class="text-4xl font-bold tracking-tight text-slate-900">{title}</h2>
 
-	<div class="mt-8 grid gap-5 md:grid-cols-3">
-		{
-			certifications.map((item) => (
-				<article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col h-full">
-					<div class="flex items-center gap-x-5">
-						<img 
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {
+            certifications.map((item) => (
+                <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col h-full">
+                    <div class="flex items-center gap-x-5">
+                        <img
                             src={item.icon}
                             class="h-16 object-contain"
                             alt={item.title}
                         />
 
-						<h3 class="text-xl font-semibold leading-tight text-slate-900">{item.title}</h3>
-					</div>
+                        <h3 class="text-xl font-semibold leading-tight text-slate-900">
+                            {item.title}
+                        </h3>
+                    </div>
 
-					<a
-						class="mt-auto pt-8 inline-flex text-base font-semibold text-indigo-700 hover:text-indigo-800 transition-colors"
-						href={item.href}
+                    <a
+                        class="mt-auto pt-8 inline-flex text-base font-semibold text-indigo-700 hover:text-indigo-800 transition-colors"
+                        href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-					>
-						{credentialLabel}
-					</a>
-				</article>
-			))
-		}
-	</div>
+                    >
+                        {credentialLabel}
+                    </a>
+                </article>
+            ))
+        }
+    </div>
 </section>

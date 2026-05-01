@@ -4,8 +4,8 @@ import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
-	contact: EcommerceLandingContent['contact'];
-	whatsappLink: string;
+    contact: EcommerceLandingContent['contact'];
+    whatsappLink: string;
 };
 
 const { contact, whatsappLink } = Astro.props as Props;
@@ -14,170 +14,258 @@ const contactFormId = `contact-form-${locale}`;
 const contactStatusId = `contact-status-${locale}`;
 ---
 
-<section id="contact" class="bg-white py-16 md:py-20">
-	<div class={`${sectionContainerClass} grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start`}>
-		<div>
-			<p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600">{contact.eyebrow}</p>
-			<h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{contact.title}</h2>
-			<p class="mt-4 max-w-xl text-base leading-relaxed text-slate-600">{contact.description}</p>
+<section
+    id="contact"
+    class="bg-white py-16 md:py-20"
+>
+    <div
+        class={`${sectionContainerClass} grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start`}
+    >
+        <div>
+            <p
+                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
+            >
+                {contact.eyebrow}
+            </p>
+            <h2
+                class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl"
+            >
+                {contact.title}
+            </h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
+                {contact.description}
+            </p>
 
-			<div class="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)]">
-				<p class="text-sm leading-relaxed text-slate-600">{contact.whatsappNote}</p>
-				<a
-					href={whatsappLink}
-					target="_blank"
-					rel="noreferrer"
-					class="mt-5 inline-flex rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
-				>
-					{contact.whatsappCtaLabel}
-				</a>
-			</div>
-		</div>
+            <div
+                class="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)]"
+            >
+                <p class="text-sm leading-relaxed text-slate-600">
+                    {contact.whatsappNote}
+                </p>
+                <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="mt-5 inline-flex rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                >
+                    {contact.whatsappCtaLabel}
+                </a>
+            </div>
+        </div>
 
-		<div class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)] md:p-8">
-			<p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">{contact.formTitle}</p>
-			<p class="mt-3 text-sm leading-relaxed text-slate-600">{contact.formDescription}</p>
+        <div
+            class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)] md:p-8"
+        >
+            <p
+                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500"
+            >
+                {contact.formTitle}
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                {contact.formDescription}
+            </p>
 
-			<form
-				id={contactFormId}
-				class="mt-6 space-y-4"
-				data-contact-form
-				data-name-required-message={contact.nameRequiredMessage}
-				data-contact-required-message={contact.contactRequiredMessage}
-				data-not-configured-message={contact.notConfiguredMessage}
-				data-error-message={contact.errorMessage}
-				data-submitting-label={contact.submittingLabel}
-				data-submit-label={contact.submitLabel}
-			>
-				<div>
-					<label for={`${contactFormId}-name`} class="block text-sm font-medium text-slate-700">{contact.nameLabel}</label>
-					<input
-						id={`${contactFormId}-name`}
-						name="name"
-						type="text"
-						class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
-						placeholder={contact.namePlaceholder}
-						required
-					/>
-				</div>
+            <form
+                id={contactFormId}
+                class="mt-6 space-y-4"
+                data-contact-form
+                data-name-required-message={contact.nameRequiredMessage}
+                data-contact-required-message={contact.contactRequiredMessage}
+                data-not-configured-message={contact.notConfiguredMessage}
+                data-error-message={contact.errorMessage}
+                data-submitting-label={contact.submittingLabel}
+                data-submit-label={contact.submitLabel}
+            >
+                <div>
+                    <label
+                        for={`${contactFormId}-name`}
+                        class="block text-sm font-medium text-slate-700"
+                        >{contact.nameLabel}</label
+                    >
+                    <input
+                        id={`${contactFormId}-name`}
+                        name="name"
+                        type="text"
+                        class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
+                        placeholder={contact.namePlaceholder}
+                        required
+                    />
+                </div>
 
-				<div>
-					<label for={`${contactFormId}-email`} class="block text-sm font-medium text-slate-700">{contact.emailLabel}</label>
-					<input
-						id={`${contactFormId}-email`}
-						name="email"
-						type="email"
-						class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
-						placeholder={contact.emailPlaceholder}
-					/>
-				</div>
+                <div>
+                    <label
+                        for={`${contactFormId}-email`}
+                        class="block text-sm font-medium text-slate-700"
+                        >{contact.emailLabel}</label
+                    >
+                    <input
+                        id={`${contactFormId}-email`}
+                        name="email"
+                        type="email"
+                        class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
+                        placeholder={contact.emailPlaceholder}
+                    />
+                </div>
 
-				<div>
-					<label for={`${contactFormId}-whatsapp`} class="block text-sm font-medium text-slate-700">{contact.whatsappLabel}</label>
-					<input
-						id={`${contactFormId}-whatsapp`}
-						name="whatsapp"
-						type="tel"
-						class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
-						placeholder={contact.whatsappPlaceholder}
-					/>
-				</div>
+                <div>
+                    <label
+                        for={`${contactFormId}-whatsapp`}
+                        class="block text-sm font-medium text-slate-700"
+                        >{contact.whatsappLabel}</label
+                    >
+                    <input
+                        id={`${contactFormId}-whatsapp`}
+                        name="whatsapp"
+                        type="tel"
+                        class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"
+                        placeholder={contact.whatsappPlaceholder}
+                    />
+                </div>
 
-				<p class="text-xs leading-relaxed text-slate-500">{contact.helperText}</p>
+                <p class="text-xs leading-relaxed text-slate-500">
+                    {contact.helperText}
+                </p>
 
-				<p id={contactStatusId} class="hidden rounded-lg border px-4 py-3 text-sm" aria-live="polite"></p>
+                <p
+                    id={contactStatusId}
+                    class="hidden rounded-lg border px-4 py-3 text-sm"
+                    aria-live="polite"
+                >
+                </p>
 
-				<button
-					type="submit"
-					class="w-full rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-indigo-500/70"
-				>
-					{contact.submitLabel}
-				</button>
-			</form>
-		</div>
-	</div>
+                <button
+                    type="submit"
+                    class="w-full rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-indigo-500/70"
+                >
+                    {contact.submitLabel}
+                </button>
+            </form>
+        </div>
+    </div>
 </section>
 
 <script is:inline>
-	const forms = document.querySelectorAll('[data-contact-form]');
+    const forms = document.querySelectorAll('[data-contact-form]');
 
-	for (const form of forms) {
-		const status = form.querySelector('[aria-live]') || document.getElementById(form.id.replace('contact-form', 'contact-status'));
-		const submitButton = form.querySelector('button[type="submit"]');
-		const defaultSubmitLabel = form.dataset.submitLabel || (submitButton ? submitButton.textContent : 'Submit');
+    for (const form of forms) {
+        const status =
+            form.querySelector('[aria-live]') ||
+            document.getElementById(
+                form.id.replace('contact-form', 'contact-status'),
+            );
+        const submitButton = form.querySelector('button[type="submit"]');
+        const defaultSubmitLabel =
+            form.dataset.submitLabel ||
+            (submitButton ? submitButton.textContent : 'Submit');
 
-		const setStatus = (message, tone) => {
-			if (!status) return;
-			status.textContent = message;
-			status.className = 'rounded-lg border px-4 py-3 text-sm';
-			if (tone === 'error') {
-				status.classList.add('border-red-200', 'bg-red-50', 'text-red-700');
-			} else if (tone === 'warning') {
-				status.classList.add('border-amber-200', 'bg-amber-50', 'text-amber-700');
-			} else {
-				status.classList.add('border-emerald-200', 'bg-emerald-50', 'text-emerald-700');
-			}
-		};
+        const setStatus = (message, tone) => {
+            if (!status) return;
+            status.textContent = message;
+            status.className = 'rounded-lg border px-4 py-3 text-sm';
+            if (tone === 'error') {
+                status.classList.add(
+                    'border-red-200',
+                    'bg-red-50',
+                    'text-red-700',
+                );
+            } else if (tone === 'warning') {
+                status.classList.add(
+                    'border-amber-200',
+                    'bg-amber-50',
+                    'text-amber-700',
+                );
+            } else {
+                status.classList.add(
+                    'border-emerald-200',
+                    'bg-emerald-50',
+                    'text-emerald-700',
+                );
+            }
+        };
 
-		form.addEventListener('submit', async (event) => {
-			event.preventDefault();
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-			const formData = new FormData(form);
-			const name = String(formData.get('name') || '').trim();
-			const email = String(formData.get('email') || '').trim();
-			const whatsapp = String(formData.get('whatsapp') || '').trim();
+            const formData = new FormData(form);
+            const name = String(formData.get('name') || '').trim();
+            const email = String(formData.get('email') || '').trim();
+            const whatsapp = String(formData.get('whatsapp') || '').trim();
 
-			if (status) {
-				status.textContent = '';
-				status.className = 'hidden rounded-lg border px-4 py-3 text-sm';
-			}
+            if (status) {
+                status.textContent = '';
+                status.className = 'hidden rounded-lg border px-4 py-3 text-sm';
+            }
 
-			if (!name) {
-				setStatus(form.dataset.nameRequiredMessage || 'Name is required.', 'error');
-				return;
-			}
+            if (!name) {
+                setStatus(
+                    form.dataset.nameRequiredMessage || 'Name is required.',
+                    'error',
+                );
+                return;
+            }
 
-			if (!email && !whatsapp) {
-				setStatus(form.dataset.contactRequiredMessage || 'Email or WhatsApp is required.', 'error');
-				return;
-			}
+            if (!email && !whatsapp) {
+                setStatus(
+                    form.dataset.contactRequiredMessage ||
+                        'Email or WhatsApp is required.',
+                    'error',
+                );
+                return;
+            }
 
-			if (submitButton) {
-				submitButton.disabled = true;
-				submitButton.textContent = form.dataset.submittingLabel || 'Sending...';
-			}
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent =
+                    form.dataset.submittingLabel || 'Sending...';
+            }
 
-			try {
-				const response = await fetch('/api/contact/send', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						Accept: 'application/json',
-					},
-					body: JSON.stringify({ name, email, whatsapp }),
-				});
+            try {
+                const response = await fetch('/api/contact/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, whatsapp }),
+                });
 
-				const payload = await response.json().catch(() => null);
+                const payload = await response.json().catch(() => null);
 
-				if (!response.ok) {
-					if (payload && payload.code === 'NOT_CONFIGURED') {
-						setStatus(payload.message || form.dataset.notConfiguredMessage || 'Not configured yet.', 'warning');
-					} else {
-						setStatus((payload && payload.message) || form.dataset.errorMessage || 'Unexpected error.', 'error');
-					}
-					return;
-				}
+                if (!response.ok) {
+                    if (payload && payload.code === 'NOT_CONFIGURED') {
+                        setStatus(
+                            payload.message ||
+                                form.dataset.notConfiguredMessage ||
+                                'Not configured yet.',
+                            'warning',
+                        );
+                    } else {
+                        setStatus(
+                            (payload && payload.message) ||
+                                form.dataset.errorMessage ||
+                                'Unexpected error.',
+                            'error',
+                        );
+                    }
+                    return;
+                }
 
-				setStatus('Mensaje enviado, me pondré en contacto contigo en menos de 24 horas.', 'success');
-				form.reset();
-			} catch (_error) {
-				setStatus(form.dataset.errorMessage || 'Unexpected error.', 'error');
-			} finally {
-				if (submitButton) {
-					submitButton.disabled = false;
-					submitButton.textContent = defaultSubmitLabel;
-				}
-			}
-		});
-	}
+                setStatus(
+                    'Mensaje enviado, me pondré en contacto contigo en menos de 24 horas.',
+                    'success',
+                );
+                form.reset();
+            } catch (_error) {
+                setStatus(
+                    form.dataset.errorMessage || 'Unexpected error.',
+                    'error',
+                );
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = defaultSubmitLabel;
+                }
+            }
+        });
+    }
 </script>

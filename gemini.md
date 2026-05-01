@@ -20,6 +20,7 @@ Este es el portafolio personal y blog de Nicolás Montiel, construido con tecnol
 ## Configuración de Turso
 
 El proyecto utiliza `@libsql/client` para interactuar con Turso. Las variables de entorno necesarias son:
+
 - `TURSO_DATABASE_URL`: URL de la base de datos (libsql://...).
 - `TURSO_AUTH_TOKEN`: Token de autenticación generado desde el dashboard de Turso.
 

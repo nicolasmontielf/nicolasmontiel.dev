@@ -3,3 +3,4 @@ dist
 .vercel
 .astro
 coverage
+src/layouts/Layout.astro

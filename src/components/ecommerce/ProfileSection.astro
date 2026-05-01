@@ -4,11 +4,16 @@ import SharedProfileSection from '@components/common/landing/ProfileSection.astr
 import { sectionContainerClass } from '@components/ecommerce/styles';
 
 type Props = {
-	profile: EcommerceLandingContent['profile'];
-	aboutLink: string;
+    profile: EcommerceLandingContent['profile'];
+    aboutLink: string;
 };
 
 const { profile, aboutLink } = Astro.props as Props;
 ---
 
-<SharedProfileSection profile={profile} aboutLink={aboutLink} containerClass={sectionContainerClass} sectionId="profile" />
+<SharedProfileSection
+    profile={profile}
+    aboutLink={aboutLink}
+    containerClass={sectionContainerClass}
+    sectionId="profile"
+/>
