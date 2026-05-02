@@ -1,6 +1,7 @@
 ---
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import type { SharedProfileSectionProps } from '@/types/landing/props';
+import avatarImage from '@assets/nicolas-montiel-avatar.png';
 
 const {
     profile,
@@ -9,7 +10,7 @@ const {
     sectionId = 'profile',
 } = Astro.props as SharedProfileSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const avatarSrc = '/nicolas-montiel-avatar.png';
+const avatarSrc = avatarImage.src;
 const avatarAlt =
     locale === 'es' ? 'Avatar de Nicolás Montiel' : 'Avatar of Nicolas Montiel';
 ---

@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 import { getCommercialServicePath, SITE_URL } from '@/seo/site';
 import type { QrContentByLocale } from '@/types/qr';
+import avatarImage from '@assets/nicolas-montiel-avatar.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 
@@ -105,7 +106,7 @@ const switchToEn = `/api/set-language?lang=en&redirect=${encodeURIComponent('/qr
                     aria-label="Nicolas Montiel"
                 >
                     <img
-                        src="/nicolas-montiel-avatar.png"
+                        src={avatarImage.src}
                         alt=""
                         class="h-12 w-12 rounded-full border border-white bg-white object-cover shadow-sm"
                         loading="eager"
