@@ -100,10 +100,6 @@ export type WebContactSectionProps = {
     whatsappLink: string;
 };
 
-export type WebFooterProps = {
-    whatsappLink: string;
-};
-
 export type WebScopeSectionContent = {
     eyebrow: string;
     title: string;

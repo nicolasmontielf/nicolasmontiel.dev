@@ -1,0 +1,113 @@
+---
+import logo from '@/assets/logo.png';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getCommercialServicePath } from '@/seo/site';
+
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const aboutPath = locale === 'es' ? '/es/sobre-mi' : '/en/about-me';
+const ecommercePath = getCommercialServicePath('ecommerce', locale);
+const webPath = getCommercialServicePath('web', locale);
+const whatsappLink =
+    locale === 'es'
+        ? 'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20hacerte%20una%20consulta.'
+        : 'https://wa.me/595973779205?text=Hi%20Nico!%20I%20would%20like%20to%20ask%20you%20something.';
+const content = {
+    es: {
+        contactTitle: 'Contacto',
+        linksTitle: 'Enlaces útiles',
+        about: 'Sobre mí',
+        ecommerce: 'Ecommerce',
+        web: 'Web',
+        email: 'Email',
+        whatsapp: 'WhatsApp',
+        linkedin: 'LinkedIn',
+        logoAlt: 'Logo de Nicolás Montiel',
+    },
+    en: {
+        contactTitle: 'Contact',
+        linksTitle: 'Useful links',
+        about: 'About me',
+        ecommerce: 'Ecommerce',
+        web: 'Website',
+        email: 'Email',
+        whatsapp: 'WhatsApp',
+        linkedin: 'LinkedIn',
+        logoAlt: 'Nicolás Montiel logo',
+    },
+}[locale];
+---
+
+<footer class="border-t border-slate-200 bg-white py-10">
+    <div
+        class="mx-auto grid w-full max-w-[1120px] gap-8 px-4 text-sm text-slate-600 sm:px-6 md:grid-cols-3 md:items-start lg:px-8"
+    >
+        <div>
+            <img
+                src={logo.src}
+                alt={content.logoAlt}
+                class="h-14 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
+
+        <nav>
+            <p
+                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
+            >
+                {content.contactTitle}
+            </p>
+            <div class="mt-4 flex flex-col items-start gap-3">
+                <a
+                    href="mailto:nicolasmontielf@gmail.com"
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.email}
+                </a>
+                <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.whatsapp}
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/nicolasmontielf/?locale=en_US"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.linkedin}
+                </a>
+            </div>
+        </nav>
+
+        <nav>
+            <p
+                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
+            >
+                {content.linksTitle}
+            </p>
+            <div class="mt-4 flex flex-col items-start gap-3">
+                <a
+                    href={aboutPath}
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.about}
+                </a>
+                <a
+                    href={ecommercePath}
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.ecommerce}
+                </a>
+                <a
+                    href={webPath}
+                    class="transition-colors hover:text-slate-950"
+                >
+                    {content.web}
+                </a>
+            </div>
+        </nav>
+    </div>
+</footer>
