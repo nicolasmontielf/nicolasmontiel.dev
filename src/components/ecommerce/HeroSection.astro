@@ -4,9 +4,9 @@ import {
     sectionContainerClass,
     sectionLabelClass,
 } from '@components/ecommerce/styles';
+import heroImage from '@assets/storefront-preview.png';
 
 const { hero, links } = Astro.props as EcommerceHeroSectionProps;
-const heroImageSrc = '/storefront-preview.png';
 ---
 
 <section
@@ -53,7 +53,7 @@ const heroImageSrc = '/storefront-preview.png';
 
         <div class="relative">
             <img
-                src={heroImageSrc}
+                src={heroImage.src}
                 alt="Preview visual de una storefront ecommerce"
                 class="max-h-[45rem]"
             />
