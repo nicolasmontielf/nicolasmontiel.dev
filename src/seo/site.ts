@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
 import type { CommercialService } from '@/types/seo';
 
-export const SITE_URL = 'https://www.nicolasmontiel.dev';
+export const SITE_URL = 'https://nicolasmontiel.dev';
 export const SITE_NAME = 'Nicolás Montiel';
 export const SITE_TITLE_SUFFIX = 'Nicolás Montiel';
 export const DEFAULT_THEME_COLOR = '#f8fafc';
