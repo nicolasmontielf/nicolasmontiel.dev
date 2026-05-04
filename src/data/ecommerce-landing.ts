@@ -24,9 +24,9 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
         },
         hero: {
             badge: 'Ecommerce a medida',
-            title: 'Un ecommerce a medida para negocios que quieren vender online en serio.',
+            title: 'Un ecommerce para negocios que quieren vender online en serio.',
             description:
-                'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches ni arrancar todo desde cero, sino salir con una tienda bien pensada y una base técnica confiable.',
+                'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches; sino salir con una tienda con una base técnica confiable.',
             trustNote:
                 'No trabajo con la idea de “te entrego una web y arreglate”. Me involucro para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
             primaryCtaLabel: 'Hablemos por WhatsApp',
