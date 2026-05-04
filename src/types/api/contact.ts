@@ -5,4 +5,5 @@ export type ContactPayload = {
     projectType?: unknown;
     message?: unknown;
     source?: unknown;
+    turnstileToken?: unknown;
 };

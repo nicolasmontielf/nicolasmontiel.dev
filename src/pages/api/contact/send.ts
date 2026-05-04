@@ -1,12 +1,19 @@
 import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 import type { ContactPayload } from '@/types/api/contact';
+import { Resend } from 'resend';
 
 const CONTACT_TO_EMAIL = 'nicolasmontielf@gmail.com';
 const CONTACT_FROM_EMAIL = 'ecommerce@nicolasmontiel.dev';
+const TURNSTILE_SITEVERIFY_URL =
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const SOURCE_LABELS: Record<string, string> = {
     ecommerce: 'ecommerce',
     web: 'web',
+};
+
+type TurnstileSiteVerifyResponse = {
+    success?: boolean;
+    'error-codes'?: string[];
 };
 
 function normalizeString(value: unknown) {
@@ -31,6 +38,69 @@ function getClientIp(request: Request) {
     return request.headers.get('x-real-ip') || 'unknown';
 }
 
+async function verifyTurnstileToken(request: Request, token: string) {
+    const secretKey = import.meta.env.TURNSTILE_SECRET_KEY;
+    if (!secretKey) {
+        return {
+            ok: false,
+            code: 'TURNSTILE_NOT_CONFIGURED',
+            status: 500,
+            message:
+                'Contact verification is not configured yet. Please use WhatsApp for now.',
+        };
+    }
+
+    if (!token) {
+        return {
+            ok: false,
+            code: 'TURNSTILE_FAILED',
+            status: 400,
+            message: 'Verification failed. Please try again.',
+        };
+    }
+
+    const body = new URLSearchParams({
+        secret: secretKey,
+        response: token,
+    });
+    const clientIp = getClientIp(request);
+    if (clientIp !== 'unknown') {
+        body.set('remoteip', clientIp);
+    }
+
+    try {
+        const response = await fetch(TURNSTILE_SITEVERIFY_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body,
+        });
+        const result = (await response.json()) as TurnstileSiteVerifyResponse;
+
+        if (!response.ok || !result.success) {
+            return {
+                ok: false,
+                code: 'TURNSTILE_FAILED',
+                status: 400,
+                message: 'Verification failed. Please try again.',
+            };
+        }
+
+        return {
+            ok: true,
+        };
+    } catch (error) {
+        console.error('Failed to verify Turnstile token', error);
+        return {
+            ok: false,
+            code: 'TURNSTILE_FAILED',
+            status: 400,
+            message: 'Verification failed. Please try again.',
+        };
+    }
+}
+
 export const POST: APIRoute = async ({ request }) => {
     let payload: ContactPayload;
 
@@ -52,6 +122,7 @@ export const POST: APIRoute = async ({ request }) => {
     const whatsapp = normalizeString(payload.whatsapp);
     const projectType = normalizeString(payload.projectType);
     const message = normalizeString(payload.message);
+    const turnstileToken = normalizeString(payload.turnstileToken);
     const source =
         SOURCE_LABELS[normalizeString(payload.source)] || 'ecommerce';
 
@@ -75,6 +146,24 @@ export const POST: APIRoute = async ({ request }) => {
             },
             400,
         );
+    }
+
+    if (!import.meta.env.DEV) {
+        const turnstileResult = await verifyTurnstileToken(
+            request,
+            turnstileToken,
+        );
+
+        if (!turnstileResult.ok) {
+            return json(
+                {
+                    ok: false,
+                    code: turnstileResult.code,
+                    message: turnstileResult.message,
+                },
+                turnstileResult.status ?? 400,
+            );
+        }
     }
 
     const resendApiKey = import.meta.env.RESEND_API_KEY;

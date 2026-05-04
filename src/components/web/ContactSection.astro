@@ -6,6 +6,12 @@ const { contact, whatsappLink } = Astro.props as WebContactSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const contactFormId = `web-contact-form-${locale}`;
 const contactStatusId = `web-contact-status-${locale}`;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
+const turnstileRequiredMessage =
+    locale === 'es'
+        ? 'Completá la verificación para enviar el formulario.'
+        : 'Please complete the verification before sending the form.';
 ---
 
 <section
@@ -70,6 +76,8 @@ const contactStatusId = `web-contact-status-${locale}`;
                 data-success-message={contact.successMessage}
                 data-submitting-label={contact.submittingLabel}
                 data-submit-label={contact.submitLabel}
+                data-turnstile-enabled={String(isTurnstileEnabled)}
+                data-turnstile-required-message={turnstileRequiredMessage}
             >
                 <div>
                     <label
@@ -121,6 +129,15 @@ const contactStatusId = `web-contact-status-${locale}`;
                     {contact.helperText}
                 </p>
 
+                {
+                    isTurnstileEnabled && (
+                        <div
+                            class="cf-turnstile"
+                            data-sitekey={turnstileSiteKey}
+                        />
+                    )
+                }
+
                 <p
                     id={contactStatusId}
                     class="hidden rounded-lg border px-4 py-3 text-sm"
@@ -139,8 +156,26 @@ const contactStatusId = `web-contact-status-${locale}`;
     </div>
 </section>
 
+{
+    isTurnstileEnabled && (
+        <script
+            is:inline
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            async
+            defer
+        />
+    )
+}
+
 <script is:inline>
     const webForms = document.querySelectorAll('[data-web-contact-form]');
+
+    const resetTurnstile = (form) => {
+        const widget = form.querySelector('.cf-turnstile');
+        if (widget && window.turnstile) {
+            window.turnstile.reset(widget);
+        }
+    };
 
     for (const form of webForms) {
         const status =
@@ -185,6 +220,9 @@ const contactStatusId = `web-contact-status-${locale}`;
             const name = String(formData.get('name') || '').trim();
             const email = String(formData.get('email') || '').trim();
             const whatsapp = String(formData.get('whatsapp') || '').trim();
+            const turnstileToken = String(
+                formData.get('cf-turnstile-response') || '',
+            ).trim();
 
             if (status) {
                 status.textContent = '';
@@ -208,6 +246,15 @@ const contactStatusId = `web-contact-status-${locale}`;
                 return;
             }
 
+            if (form.dataset.turnstileEnabled === 'true' && !turnstileToken) {
+                setStatus(
+                    form.dataset.turnstileRequiredMessage ||
+                        'Please complete the verification before sending the form.',
+                    'error',
+                );
+                return;
+            }
+
             if (submitButton) {
                 submitButton.disabled = true;
                 submitButton.textContent =
@@ -225,6 +272,7 @@ const contactStatusId = `web-contact-status-${locale}`;
                         name,
                         email,
                         whatsapp,
+                        turnstileToken,
                         source: 'web',
                     }),
                 });
@@ -247,6 +295,7 @@ const contactStatusId = `web-contact-status-${locale}`;
                             'error',
                         );
                     }
+                    resetTurnstile(form);
                     return;
                 }
 
@@ -255,11 +304,13 @@ const contactStatusId = `web-contact-status-${locale}`;
                     'success',
                 );
                 form.reset();
+                resetTurnstile(form);
             } catch (_error) {
                 setStatus(
                     form.dataset.errorMessage || 'Unexpected error.',
                     'error',
                 );
+                resetTurnstile(form);
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;

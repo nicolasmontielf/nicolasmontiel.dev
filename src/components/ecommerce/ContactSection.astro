@@ -6,6 +6,12 @@ const { contact, whatsappLink } = Astro.props as EcommerceContactSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const contactFormId = `contact-form-${locale}`;
 const contactStatusId = `contact-status-${locale}`;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
+const turnstileRequiredMessage =
+    locale === 'es'
+        ? 'Completá la verificación para enviar el formulario.'
+        : 'Please complete the verification before sending the form.';
 ---
 
 <section
@@ -69,6 +75,8 @@ const contactStatusId = `contact-status-${locale}`;
                 data-error-message={contact.errorMessage}
                 data-submitting-label={contact.submittingLabel}
                 data-submit-label={contact.submitLabel}
+                data-turnstile-enabled={String(isTurnstileEnabled)}
+                data-turnstile-required-message={turnstileRequiredMessage}
             >
                 <div>
                     <label
@@ -120,6 +128,15 @@ const contactStatusId = `contact-status-${locale}`;
                     {contact.helperText}
                 </p>
 
+                {
+                    isTurnstileEnabled && (
+                        <div
+                            class="cf-turnstile"
+                            data-sitekey={turnstileSiteKey}
+                        />
+                    )
+                }
+
                 <p
                     id={contactStatusId}
                     class="hidden rounded-lg border px-4 py-3 text-sm"
@@ -138,8 +155,26 @@ const contactStatusId = `contact-status-${locale}`;
     </div>
 </section>
 
+{
+    isTurnstileEnabled && (
+        <script
+            is:inline
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            async
+            defer
+        />
+    )
+}
+
 <script is:inline>
     const forms = document.querySelectorAll('[data-contact-form]');
+
+    const resetTurnstile = (form) => {
+        const widget = form.querySelector('.cf-turnstile');
+        if (widget && window.turnstile) {
+            window.turnstile.reset(widget);
+        }
+    };
 
     for (const form of forms) {
         const status =
@@ -184,6 +219,9 @@ const contactStatusId = `contact-status-${locale}`;
             const name = String(formData.get('name') || '').trim();
             const email = String(formData.get('email') || '').trim();
             const whatsapp = String(formData.get('whatsapp') || '').trim();
+            const turnstileToken = String(
+                formData.get('cf-turnstile-response') || '',
+            ).trim();
 
             if (status) {
                 status.textContent = '';
@@ -207,6 +245,15 @@ const contactStatusId = `contact-status-${locale}`;
                 return;
             }
 
+            if (form.dataset.turnstileEnabled === 'true' && !turnstileToken) {
+                setStatus(
+                    form.dataset.turnstileRequiredMessage ||
+                        'Please complete the verification before sending the form.',
+                    'error',
+                );
+                return;
+            }
+
             if (submitButton) {
                 submitButton.disabled = true;
                 submitButton.textContent =
@@ -220,7 +267,12 @@ const contactStatusId = `contact-status-${locale}`;
                         'Content-Type': 'application/json',
                         Accept: 'application/json',
                     },
-                    body: JSON.stringify({ name, email, whatsapp }),
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        whatsapp,
+                        turnstileToken,
+                    }),
                 });
 
                 const payload = await response.json().catch(() => null);
@@ -241,6 +293,7 @@ const contactStatusId = `contact-status-${locale}`;
                             'error',
                         );
                     }
+                    resetTurnstile(form);
                     return;
                 }
 
@@ -249,11 +302,13 @@ const contactStatusId = `contact-status-${locale}`;
                     'success',
                 );
                 form.reset();
+                resetTurnstile(form);
             } catch (_error) {
                 setStatus(
                     form.dataset.errorMessage || 'Unexpected error.',
                     'error',
                 );
+                resetTurnstile(form);
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;
