@@ -28,7 +28,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             badge: 'Webs y webapps a medida',
             title: 'Una web bien pensada para lo que tu negocio necesita hoy.',
             description:
-                'Desarrollo landing pages, webs institucionales, portfolios, sitios administrables y webapps con panel. No se trata solo de tener “una página”: la idea es que tu web ayude a vender, explicar mejor lo que hacés y darle confianza a quien te encuentra.',
+                'Desarrollo landing pages, webs institucionales, portfolios, sitios administrables y webapps con panel en Paraguay. No se trata solo de tener “una página”: la idea es que tu web ayude a vender, explicar mejor lo que hacés y darle confianza a quien te encuentra.',
             primaryCtaLabel: 'Contame tu idea',
             secondaryCtaLabel: 'Ver tipos de proyecto',
             note: 'No todo necesita un sistema enorme. Pero sí necesita estar bien pensado desde el principio para que puedas lograr lo que querés sin complicaciones técnicas innecesarias.',
@@ -126,7 +126,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 {
                     title: 'Más de 8 años construyendo productos',
                     description:
-                        'Trabajé con equipos de Latinoamérica, Estados Unidos y Europa construyendo productos digitales reales, no solo páginas bonitas.',
+                        'Trabajé con equipos de Paraguay, Latinoamérica, Estados Unidos y Europa construyendo productos digitales reales, no solo páginas bonitas.',
                 },
                 {
                     title: 'Partner técnico de verdad',

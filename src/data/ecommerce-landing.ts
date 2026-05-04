@@ -24,9 +24,9 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
         },
         hero: {
             badge: 'Ecommerce a medida',
-            title: 'Un ecommerce para negocios que quieren vender online en serio.',
+            title: 'Un ecommerce para negocios que quieren vender online en Paraguay.',
             description:
-                'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. La idea no es meterte en un WordPress lleno de parches; sino salir con una tienda con una base técnica confiable.',
+                'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. Empezá a vender online en Paraguay sin preocuparte por la base técnica.',
             trustNote:
                 'No trabajo con la idea de “te entrego una web y arreglate”. Me involucro para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
             primaryCtaLabel: 'Hablemos por WhatsApp',
@@ -79,7 +79,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 {
                     title: 'Más de 8 años construyendo productos',
                     description:
-                        'Trabajé con equipos de Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada al negocio.',
+                        'Trabajé con equipos de Paraguay, Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada al negocio.',
                 },
                 {
                     title: 'Partner técnico de verdad',
