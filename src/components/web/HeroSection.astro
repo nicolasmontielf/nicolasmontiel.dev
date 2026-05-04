@@ -10,7 +10,8 @@ import {
     webPrimaryButtonClass,
     webSecondaryButtonClass,
 } from '@components/web/styles';
-import HeroImage from '@/assets/hero.gif';
+import HeroVideo from '@/assets/hero.webm';
+import HeroVideoPreview from '@/assets/hero-preview.webp';
 
 const { hero, links } = Astro.props as WebHeroSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
@@ -67,12 +68,16 @@ const heroImageAlt = heroImageAltByLocale[locale];
             <div
                 class="rounded-[1.75rem] border border-slate-200 p-4 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.42)]"
             >
-                <img
-                    src={HeroImage.src}
-                    alt={heroImageAlt}
+                <video
                     class="w-full rounded-[1.2rem] object-cover"
-                    loading="lazy"
-                />
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    poster={HeroVideoPreview.src}
+                >
+                    <source src={HeroVideo} type="video/webm">
+                </video>
             </div>
         </div>
     </div>
