@@ -1,7 +1,7 @@
 ---
 import type { EcommerceLandingProps } from '@/types/landing/props';
 import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
-import ContactSection from '@components/ecommerce/ContactSection.astro';
+import ContactSection from '@components/common/landing/ContactSection.astro';
 import HeroSection from '@components/ecommerce/HeroSection.astro';
 import ProcessSection from '@components/ecommerce/ProcessSection.astro';
 import ProfileSection from '@components/ecommerce/ProfileSection.astro';
@@ -34,6 +34,8 @@ const { content } = Astro.props as EcommerceLandingProps;
         <ContactSection
             contact={content.contact}
             whatsappLink={content.links.whatsapp}
+            containerClass={sectionContainerClass}
+            source="ecommerce"
         />
     </main>
     <Footer />

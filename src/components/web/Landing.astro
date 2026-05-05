@@ -1,6 +1,6 @@
 ---
 import BuildSection from '@components/web/BuildSection.astro';
-import ContactSection from '@components/web/ContactSection.astro';
+import ContactSection from '@components/common/landing/ContactSection.astro';
 import CriteriaSection from '@components/web/CriteriaSection.astro';
 import Footer from '@components/common/landing/Footer.astro';
 import HeroSection from '@components/web/HeroSection.astro';
@@ -35,6 +35,8 @@ const { content } = Astro.props as WebLandingProps;
         <ContactSection
             contact={content.contact}
             whatsappLink={content.links.whatsapp}
+            containerClass={webContainerClass}
+            source="web"
         />
     </main>
     <Footer />
