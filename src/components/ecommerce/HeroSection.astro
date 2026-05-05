@@ -52,8 +52,10 @@ const { hero, links } = Astro.props as EcommerceHeroSectionProps;
             </p>
         </div>
 
-        <div class="rounded-[1.75rem] border border-slate-200 p-4 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.42)]">
-             <video
+        <div
+            class="rounded-[1.75rem] border border-slate-200 p-4 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.42)]"
+        >
+            <video
                 class="w-full rounded-[1.2rem] object-cover"
                 autoplay
                 loop
@@ -61,7 +63,10 @@ const { hero, links } = Astro.props as EcommerceHeroSectionProps;
                 playsinline
                 poster={HeroVideoPreview.src}
             >
-                <source src={HeroVideo} type="video/webm">
+                <source
+                    src={HeroVideo}
+                    type="video/webm"
+                />
             </video>
         </div>
     </div>

@@ -39,8 +39,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             title: 'No vendo una plantilla, desarrollo un ecommerce a medida para tu negocio.',
             subtitle:
                 'Partimos de una base sólida; definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. Mi idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte en cada parte del proceso',
-            noteTitle:
-                'La ventaja está en arrancar desde una base sólida.',
+            noteTitle: 'La ventaja está en arrancar desde una base sólida.',
             noteDescription:
                 'Una base que ya fue probada de verdad durante años; no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
             cards: [
@@ -189,8 +188,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             title: 'I am not selling a template or isolated dev hours. I build a custom ecommerce that is properly resolved around your business.',
             subtitle:
                 'We start from a solid core; we define how the store should look, how it should operate, and what needs to be solved so you can launch properly. My goal is to build something aligned with your brand, the way you sell, and your real operations, and to support you in every part of the process.',
-            noteTitle:
-                'The advantage is starting from a solid foundation.',
+            noteTitle: 'The advantage is starting from a solid foundation.',
             noteDescription:
                 'A foundation that has already been truly tested for years means we do not waste energy solving the basics. The investment goes into adapting the store to your brand, your operations, and your way of selling.',
             cards: [
