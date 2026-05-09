@@ -4,15 +4,10 @@ import PearsonLogo from '@/assets/logos/pearson_logo.jpeg';
 import ScrumStudy from '@/assets/logos/scrumstudy_logo.jpeg';
 import FreeCodeCampLogo from '@/assets/logos/freecodecamp_logo.jpeg';
 import LinuxFoundationLogo from '@/assets/logos/thelinuxfoundation_logo.jpeg';
+import SemrushLogo from '@/assets/logos/semrush_logo.png';
 import type { Certification } from '@/types/home';
 
 export const certifications: Certification[] = [
-    {
-        id: 'redis-ru102js-redis-for-javascript-developers',
-        title: 'Redis | RU102JS: Redis for JavaScript Developers',
-        icon: RedisLogo.src,
-        href: 'https://university.redis.io/certificate/ipocifjugerm3o',
-    },
     {
         id: 'aws-cloud-practitioner-essentials',
         title: 'AWS Cloud Practitioner Essentials',
@@ -20,10 +15,22 @@ export const certifications: Certification[] = [
         href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
     },
     {
+        id: 'search-and-conversions-for-agencies',
+        title: 'Search and Conversions for Agencies: A Data-Driven Framework',
+        icon: SemrushLogo.src,
+        href: 'https://static.semrush.com/academy/certificates/d21946da0b/nicolas-montiel_5.pdf',
+    },
+    {
         id: 'tdd-javascript',
         title: 'Test-Driven Development for JavaScript Specialization',
         icon: PearsonLogo.src,
         href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
+    },
+    {
+        id: 'redis-ru102js-redis-for-javascript-developers',
+        title: 'Redis | RU102JS: Redis for JavaScript Developers',
+        icon: RedisLogo.src,
+        href: 'https://university.redis.io/certificate/ipocifjugerm3o',
     },
     {
         id: 'scrum-fundamentals-certified',
