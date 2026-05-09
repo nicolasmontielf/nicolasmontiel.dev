@@ -1,6 +1,7 @@
 ---
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import type { LandingNavbarProps } from '@/types/landing/props';
+import logo from '@assets/logo.png';
 
 const { nav, whatsappLink, ctaLabel, containerClass } =
     Astro.props as LandingNavbarProps;
@@ -17,10 +18,13 @@ const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
             href={`/${locale}`}
             class="group flex items-center gap-3 text-slate-950"
         >
-            <span
-                class="grid h-9 w-9 place-items-center rounded-full border border-slate-200 bg-white text-sm font-bold text-indigo-600 shadow-sm"
-                >NM</span
-            >
+            <img
+                src={logo.src}
+                alt="Nicolás Montiel"
+                class="h-10 w-auto"
+                width={logo.width}
+                height={logo.height}
+            />
             <span class="leading-none">
                 <span class="block text-sm font-bold tracking-tight"
                     >Nicolas Montiel</span

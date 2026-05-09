@@ -2,6 +2,7 @@
 import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getCommercialServicePath, getLocalizedPath } from '@/seo/site';
+import logo from '@assets/logo.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const currentPath = Astro.url.pathname;
@@ -22,10 +23,17 @@ const switchToEnPath = getLocalizedPath(currentPath, 'en');
 >
     <div class="flex items-center justify-between gap-4">
         <a
-            class="text-indigo-600 text-2xl font-bold tracking-tight"
+            class="inline-flex items-center"
             href={homePath}
-            >Nicolás Montiel</a
         >
+            <img
+                src={logo.src}
+                alt="Nicolás Montiel"
+                class="h-12 w-auto"
+                width={logo.width}
+                height={logo.height}
+            />
+        </a>
 
         <nav class="hidden md:flex gap-4 items-center text-sm">
             <a
