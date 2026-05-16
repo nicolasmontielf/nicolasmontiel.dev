@@ -1,5 +1,4 @@
 import type {
-    CommercialLandingContent,
     EcommerceLandingContent,
     WebLandingContent,
 } from '@/types/landing/content';
@@ -36,10 +35,11 @@ export type SharedProfileSectionProps = {
     aboutLink: string;
     containerClass: string;
     sectionId?: string;
+    sectionClass?: string;
 };
 
 export type CommercialLandingProps = {
-    content: CommercialLandingContent;
+    content: WebLandingContent | EcommerceLandingContent;
     source: 'web' | 'ecommerce';
     heroVideo: string;
     heroPoster: string;

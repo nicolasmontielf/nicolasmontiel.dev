@@ -30,7 +30,6 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 'Una web bien resuelta te ayuda a explicar qué hacés, generar más confianza y convertir visitas en consultas reales por WhatsApp o formulario.',
             primaryCtaLabel: 'Hablar por WhatsApp',
             secondaryCtaLabel: 'Ver tipos de solución',
-            note: 'No se trata de tener una página por tener. Se trata de construir una herramienta útil para tu negocio actual y para lo que viene después.',
         },
         challenges: {
             eyebrow: 'Qué podés resolver',
@@ -67,77 +66,82 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
         },
         solutions: {
             eyebrow: 'Tipos de soluciones',
-            title: 'No hay una única web: elegimos lo que realmente te conviene.',
+            title: 'No hay una única web: cada opción responde a un objetivo distinto.',
             description:
-                'Definimos una solución proporcional a tu etapa, tu presupuesto y tu objetivo comercial.',
-            items: [
+                'Si todavía no tenés claro qué necesitás, este comparador te ayuda a elegir según tu objetivo actual.',
+            columns: {
+                solution: 'Solución',
+                objective: 'Objetivo principal',
+                outcome: 'Resultado esperado',
+            },
+            rows: [
                 {
-                    title: 'Web institucional',
-                    description:
-                        'Ideal para presentar tu empresa, servicios, diferenciales y datos de contacto.',
+                    solution: 'Web institucional',
+                    objective: 'Tener presencia online profesional y explicar quién sos.',
+                    outcome: 'Marca más clara y mejor primera impresión.',
                 },
                 {
-                    title: 'Landing page',
-                    description:
-                        'Una página enfocada en una oferta puntual para captar consultas rápido.',
+                    solution: 'Landing page',
+                    objective: 'Captar consultas de una oferta o campaña puntual.',
+                    outcome: 'Más contactos calificados en menos pasos.',
                 },
                 {
-                    title: 'Web con formulario',
-                    description:
-                        'Pensada para centralizar consultas y recibir contactos con mejor contexto.',
+                    solution: 'Web con catálogo simple',
+                    objective: 'Mostrar servicios o productos de forma ordenada.',
+                    outcome: 'Cliente entiende mejor qué ofrecés y cómo comprar.',
                 },
                 {
-                    title: 'Web con catálogo simple',
-                    description:
-                        'Mostrá productos o servicios sin complejidad de ecommerce completo.',
+                    solution: 'Web con panel administrador',
+                    objective: 'Actualizar contenido sin depender de terceros.',
+                    outcome: 'Más autonomía para mantener la web vigente.',
                 },
                 {
-                    title: 'Web con panel administrador',
-                    description:
-                        'Gestioná contenido sin depender de cambios técnicos en cada actualización.',
+                    solution: 'Web con funciones especiales',
+                    objective: 'Digitalizar procesos como reservas, turnos o flujos internos.',
+                    outcome: 'Mejor productividad y menos tareas manuales.',
                 },
                 {
-                    title: 'Web con funcionalidades especiales',
-                    description:
-                        'Reservas, turnos, flujos internos u otras funciones según tu operación.',
+                    solution: 'Web custom de productividad/analítica',
+                    objective: 'Conectar operaciones, métricas y decisiones de negocio.',
+                    outcome: 'Visibilidad operativa y crecimiento con datos.',
                 },
             ],
         },
         process: {
             eyebrow: 'Cómo funciona el proceso',
-            title: 'Un proceso claro para avanzar con orden y sin sorpresas.',
+            title: 'Un recorrido claro, paso a paso, para llegar a una web bien resuelta.',
             description:
-                'Trabajamos por etapas para que siempre sepas qué sigue, qué se está construyendo y por qué.',
+                'En cada etapa tenés claridad de lo que hacemos y lo que te llevás como avance.',
             steps: [
                 {
                     title: 'Charla inicial',
                     description:
-                        'Entendemos tu negocio, objetivos y necesidades reales antes de definir cualquier solución.',
+                        'Entendemos tu negocio, tu objetivo y tu contexto actual.',
                 },
                 {
                     title: 'Definición de alcance',
                     description:
-                        'Acordamos secciones, funcionalidades y contenido necesario para cumplir el objetivo.',
+                        'Alineamos secciones, funcionalidades y contenido necesario.',
                 },
                 {
                     title: 'Diseño y propuesta visual',
                     description:
-                        'Presento una dirección visual clara para validar estructura, estilo y experiencia.',
+                        'Validamos la dirección estética y la experiencia de navegación.',
                 },
                 {
                     title: 'Desarrollo',
                     description:
-                        'Construcción de la web con foco en claridad, performance y buena experiencia móvil.',
+                        'Construcción técnica de la web con foco en claridad y performance.',
                 },
                 {
                     title: 'Revisión y ajustes',
                     description:
-                        'Hacemos correcciones finales para que todo quede sólido antes de publicar.',
+                        'Ajustes finales antes de publicar.',
                 },
                 {
                     title: 'Publicación',
                     description:
-                        'Dejamos todo funcionando en dominio y hosting para salir online sin fricción.',
+                        'Salida a producción en dominio y hosting.',
                 },
             ],
         },
@@ -237,7 +241,6 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 'A well-crafted website helps you communicate what you do, increase trust, and turn visits into real inquiries through WhatsApp or forms.',
             primaryCtaLabel: 'Chat on WhatsApp',
             secondaryCtaLabel: 'See solution types',
-            note: 'A website is not just about being online. It is about having a reliable sales and communication asset for your business.',
         },
         challenges: {
             eyebrow: 'What this solves',
@@ -245,107 +248,42 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             description:
                 'If you rely only on social media and chat messages, a website helps centralize and clarify your value proposition.',
             items: [
-                {
-                    title: 'No professional online presence',
-                    description:
-                        'Your brand exists, but there is no clear home where customers understand your offer.',
-                },
-                {
-                    title: 'Scattered information',
-                    description:
-                        'Critical details are spread across social posts, chats, and files.',
-                },
-                {
-                    title: 'Unclear service offering',
-                    description:
-                        'Visitors do not quickly understand what you offer or why they should trust you.',
-                },
-                {
-                    title: 'Low-quality inquiries',
-                    description:
-                        'You get messages, but with poor context and weak purchase intent.',
-                },
-                {
-                    title: 'Weak first impression',
-                    description:
-                        'The business needs a stronger digital presence to build confidence early.',
-                },
+                { title: 'No professional online presence', description: 'Your brand has no clear digital home.' },
+                { title: 'Scattered information', description: 'Key details are split across social media and chats.' },
+                { title: 'Unclear offer', description: 'Visitors do not quickly understand what you offer.' },
+                { title: 'Low-quality inquiries', description: 'You get messages, but with weak purchase intent.' },
+                { title: 'Weak first impression', description: 'Your business needs stronger initial trust online.' },
             ],
         },
         solutions: {
             eyebrow: 'Solution types',
-            title: 'Not one rigid package: options based on your real need.',
-            description:
-                'We choose the right scope for your current stage, budget, and goal.',
-            items: [
-                {
-                    title: 'Institutional website',
-                    description:
-                        'Present your company, services, and differentiators with professional structure.',
-                },
-                {
-                    title: 'Landing page',
-                    description:
-                        'A focused single page for a specific campaign or offer.',
-                },
-                {
-                    title: 'Website with contact flow',
-                    description:
-                        'Capture and organize inquiries with stronger context.',
-                },
-                {
-                    title: 'Website with simple catalog',
-                    description:
-                        'Showcase products or services without full ecommerce complexity.',
-                },
-                {
-                    title: 'Website with admin panel',
-                    description:
-                        'Keep content updated without relying on technical edits every time.',
-                },
-                {
-                    title: 'Special-purpose web solution',
-                    description:
-                        'Bookings, appointments, or custom functionality for your operation.',
-                },
+            title: 'Different goals require different website solutions.',
+            description: 'Use this table as a quick decision guide.',
+            columns: {
+                solution: 'Solution',
+                objective: 'Main objective',
+                outcome: 'Expected outcome',
+            },
+            rows: [
+                { solution: 'Institutional website', objective: 'Establish a professional online presence.', outcome: 'Clear trust and brand presentation.' },
+                { solution: 'Landing page', objective: 'Capture leads for a focused campaign.', outcome: 'Higher lead conversion.' },
+                { solution: 'Website with simple catalog', objective: 'Organize your products/services clearly.', outcome: 'Better understanding and inquiries.' },
+                { solution: 'Website with admin panel', objective: 'Update content with autonomy.', outcome: 'Faster internal publishing cycles.' },
+                { solution: 'Website with special features', objective: 'Digitalize reservations, appointments, or workflows.', outcome: 'Less manual overhead.' },
+                { solution: 'Custom web for productivity/analytics', objective: 'Connect operations and decision-making with data.', outcome: 'Operational visibility and scalable growth.' },
             ],
         },
         process: {
             eyebrow: 'How the process works',
-            title: 'A clear roadmap from idea to launch.',
-            description:
-                'We move in stages so you always know what is being built and why.',
+            title: 'A clear narrative timeline from idea to launch.',
+            description: 'Each stage shows concrete progress.',
             steps: [
-                {
-                    title: 'Initial call',
-                    description:
-                        'We align on business context, goals, and practical needs.',
-                },
-                {
-                    title: 'Scope definition',
-                    description:
-                        'We define sections, functionality, and content requirements.',
-                },
-                {
-                    title: 'Design direction',
-                    description:
-                        'You review a clear visual proposal for structure and UX.',
-                },
-                {
-                    title: 'Development',
-                    description:
-                        'Implementation focused on clarity, performance, and mobile usability.',
-                },
-                {
-                    title: 'Review and refinements',
-                    description:
-                        'Final adjustments before publication.',
-                },
-                {
-                    title: 'Launch',
-                    description:
-                        'Everything goes live on hosting and domain with clean setup.',
-                },
+                { title: 'Initial call', description: 'We align on business goals and context.' },
+                { title: 'Scope definition', description: 'We define sections, content, and key features.' },
+                { title: 'Visual proposal', description: 'We validate look, hierarchy, and UX direction.' },
+                { title: 'Development', description: 'Implementation focused on quality and performance.' },
+                { title: 'Review and refinements', description: 'Final adjustments before publication.' },
+                { title: 'Launch', description: 'Production setup on hosting and domain.' },
             ],
         },
         profile: {

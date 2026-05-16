@@ -8,6 +8,7 @@ const {
     aboutLink,
     containerClass,
     sectionId = 'profile',
+    sectionClass = 'bg-white',
 } = Astro.props as SharedProfileSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const avatarSrc = avatarImage.src;
@@ -17,7 +18,7 @@ const avatarAlt =
 
 <section
     id={sectionId}
-    class="bg-white py-16 md:py-20"
+    class:list={[sectionClass, 'py-16 md:py-20']}
 >
     <div
         class={`${containerClass} grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start`}

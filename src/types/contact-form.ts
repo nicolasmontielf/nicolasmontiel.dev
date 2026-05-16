@@ -43,4 +43,5 @@ export type SharedContactSectionProps = {
     whatsappLink: string;
     containerClass: string;
     source: ContactSource;
+    sectionClass?: string;
 };

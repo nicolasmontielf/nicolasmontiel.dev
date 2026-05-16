@@ -21,7 +21,7 @@ export type CommercialLandingContent = {
         description: string;
         primaryCtaLabel: string;
         secondaryCtaLabel: string;
-        note: string;
+        note?: string;
     };
     challenges: {
         eyebrow: string;
@@ -81,5 +81,33 @@ export type CommercialLandingContent = {
     };
 };
 
-export type WebLandingContent = CommercialLandingContent;
+export type WebLandingContent = Omit<
+    CommercialLandingContent,
+    'solutions' | 'process'
+> & {
+    solutions: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        columns: {
+            solution: string;
+            objective: string;
+            outcome: string;
+        };
+        rows: Array<{
+            solution: string;
+            objective: string;
+            outcome: string;
+        }>;
+    };
+    process: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        steps: Array<{
+            title: string;
+            description: string;
+        }>;
+    };
+};
 export type EcommerceLandingContent = CommercialLandingContent;

@@ -3,8 +3,13 @@ import { DEFAULT_LOCALE } from '@/i18n/locales';
 import type { SharedContactSectionProps } from '@/types/contact-form';
 import ContactForm from '@components/common/landing/ContactForm';
 
-const { contact, whatsappLink, containerClass, source } =
-    Astro.props as SharedContactSectionProps;
+const {
+    contact,
+    whatsappLink,
+    containerClass,
+    source,
+    sectionClass = 'bg-white',
+} = Astro.props as SharedContactSectionProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
@@ -12,7 +17,7 @@ const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
 
 <section
     id="contact"
-    class="bg-white py-16 md:py-20"
+    class:list={[sectionClass, 'py-16 md:py-20']}
 >
     <div
         class={`${containerClass} grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start`}
