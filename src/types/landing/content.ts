@@ -6,6 +6,25 @@ export type CommercialSectionId =
     | 'profile'
     | 'contact';
 
+export type WebLandingIconName =
+    | 'globe'
+    | 'folder-open'
+    | 'search'
+    | 'message-circle'
+    | 'shield'
+    | 'building-2'
+    | 'megaphone'
+    | 'book-open'
+    | 'sliders-horizontal'
+    | 'calendar-clock'
+    | 'chart-column'
+    | 'handshake'
+    | 'clipboard-list'
+    | 'palette'
+    | 'code'
+    | 'check'
+    | 'rocket';
+
 export type CommercialLandingContent = {
     meta: {
         title: string;
@@ -83,8 +102,18 @@ export type CommercialLandingContent = {
 
 export type WebLandingContent = Omit<
     CommercialLandingContent,
-    'solutions' | 'process'
+    'challenges' | 'solutions' | 'process'
 > & {
+    challenges: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        items: Array<{
+            title: string;
+            description: string;
+            icon: WebLandingIconName;
+        }>;
+    };
     solutions: {
         eyebrow: string;
         title: string;
@@ -98,6 +127,9 @@ export type WebLandingContent = Omit<
             solution: string;
             objective: string;
             outcome: string;
+            icon: WebLandingIconName;
+            href?: string;
+            hrefLabel?: string;
         }>;
     };
     process: {
@@ -107,6 +139,7 @@ export type WebLandingContent = Omit<
         steps: Array<{
             title: string;
             description: string;
+            icon: WebLandingIconName;
         }>;
     };
 };
