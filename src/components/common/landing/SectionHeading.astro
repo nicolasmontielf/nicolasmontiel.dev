@@ -1,0 +1,29 @@
+---
+type Props = {
+    eyebrow: string;
+    title: string;
+    description: string;
+    maxWidthClass?: string;
+    titleClass?: string;
+    descriptionClass?: string;
+    className?: string;
+};
+
+const {
+    eyebrow,
+    title,
+    description,
+    maxWidthClass = 'max-w-3xl',
+    titleClass = 'mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl',
+    descriptionClass = 'mt-5 text-base leading-relaxed text-slate-600',
+    className,
+} = Astro.props as Props;
+---
+
+<div class:list={[maxWidthClass, className]}>
+    <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600">
+        {eyebrow}
+    </p>
+    <h2 class={titleClass}>{title}</h2>
+    <p class={descriptionClass}>{description}</p>
+</div>

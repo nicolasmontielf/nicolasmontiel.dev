@@ -1,0 +1,92 @@
+---
+import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
+import { MessageCircle } from '@lucide/astro';
+
+type Props = {
+    badge: string;
+    title: string;
+    description: string;
+    primaryCtaLabel: string;
+    secondaryCtaLabel: string;
+    primaryCtaHref: string;
+    secondaryCtaHref: string;
+    heroVideo: string;
+    heroPoster: string;
+    heroImageAlt: string;
+};
+
+const {
+    badge,
+    title,
+    description,
+    primaryCtaLabel,
+    secondaryCtaLabel,
+    primaryCtaHref,
+    secondaryCtaHref,
+    heroVideo,
+    heroPoster,
+    heroImageAlt,
+} = Astro.props as Props;
+---
+
+<section
+    id="hero"
+    class="overflow-hidden bg-[radial-gradient(circle_at_8%_18%,rgba(99,102,241,0.16),transparent_35%),linear-gradient(140deg,#ffffff_0%,#f8fafc_44%,#eef4ff_100%)] py-16 md:py-24"
+>
+    <div class="mx-auto grid w-full max-w-[1120px] gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(360px,460px)] lg:items-center lg:px-8">
+        <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600">
+                {badge}
+            </p>
+            <h1
+                class="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl md:leading-[1.02]"
+            >
+                {title}
+            </h1>
+            <p class="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
+                {description}
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+                <LandingButtonLink
+                    href={primaryCtaHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="primary"
+                >
+                    <MessageCircle
+                        slot="icon"
+                        size={16}
+                        stroke-width={2}
+                    />
+                    {primaryCtaLabel}
+                </LandingButtonLink>
+                <LandingButtonLink
+                    href={secondaryCtaHref}
+                    variant="secondary"
+                >
+                    {secondaryCtaLabel}
+                </LandingButtonLink>
+            </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-md">
+            <div class="rounded-[1.75rem] border border-slate-200 p-4 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.42)]">
+                <video
+                    class="w-full rounded-[1.2rem] object-cover"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    poster={heroPoster}
+                    aria-label={heroImageAlt}
+                >
+                    <source
+                        src={heroVideo}
+                        type="video/webm"
+                    />
+                </video>
+            </div>
+        </div>
+    </div>
+</section>

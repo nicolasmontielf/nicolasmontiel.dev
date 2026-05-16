@@ -1,5 +1,7 @@
 ---
-import { DEFAULT_LOCALE } from '@/i18n/locales';
+import CalloutPanel from '@components/common/landing/CalloutPanel.astro';
+import SectionHeading from '@components/common/landing/SectionHeading.astro';
+import { resolveLocale } from '@/i18n/locales';
 import type { SharedContactSectionProps } from '@/types/contact-form';
 import ContactForm from '@components/common/landing/ContactForm';
 
@@ -10,7 +12,7 @@ const {
     source,
     sectionClass = 'bg-white',
 } = Astro.props as SharedContactSectionProps;
-const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const locale = resolveLocale(Astro.locals.locale);
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
 ---
@@ -23,35 +25,21 @@ const isTurnstileEnabled = !import.meta.env.DEV && Boolean(turnstileSiteKey);
         class={`${containerClass} grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start`}
     >
         <div>
-            <p
-                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
-            >
-                {contact.eyebrow}
-            </p>
-            <h2
-                class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl"
-            >
-                {contact.title}
-            </h2>
-            <p class="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-                {contact.description}
-            </p>
+            <SectionHeading
+                eyebrow={contact.eyebrow}
+                title={contact.title}
+                description={contact.description}
+                maxWidthClass="max-w-xl"
+                titleClass="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl"
+                descriptionClass="mt-4 text-base leading-relaxed text-slate-600"
+            />
 
-            <div
-                class="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)]"
-            >
-                <p class="text-sm leading-relaxed text-slate-600">
-                    {contact.whatsappNote}
-                </p>
-                <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="mt-5 inline-flex rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
-                >
-                    {contact.whatsappCtaLabel}
-                </a>
-            </div>
+            <CalloutPanel
+                description={contact.whatsappNote}
+                ctaHref={whatsappLink}
+                ctaLabel={contact.whatsappCtaLabel}
+                className="mt-8"
+            />
         </div>
 
         <div

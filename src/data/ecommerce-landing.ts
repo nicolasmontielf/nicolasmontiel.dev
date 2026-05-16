@@ -1,11 +1,6 @@
 import type { Locale } from '@/i18n/locales';
-import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
+import { getCommercialServicePath } from '@/i18n/routing';
 import type { EcommerceLandingContent } from '@/types/landing/content';
-
-const DEFAULT_WHATSAPP_LINK_ES =
-    'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20saber%20m%C3%A1s%20sobre%20un%20ecommerce%20a%20medida.';
-const DEFAULT_WHATSAPP_LINK_EN =
-    'https://wa.me/595973779205?text=Hi%20Nico!%20I%20want%20to%20build%20a%20custom%20ecommerce%20store.';
 
 const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
     es: {
@@ -111,7 +106,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 title: '¿Tu objetivo hoy no es vender online?',
                 description:
                     'Si primero necesitás presencia profesional, captación de consultas o una web institucional, podés empezar por ahí y evolucionar luego a ecommerce.',
-                href: `/es/${COMMERCIAL_SERVICE_SLUGS.web.es}`,
+                href: getCommercialServicePath('web', 'es'),
                 ctaLabel: 'Ver opciones de web',
             },
         },
@@ -208,10 +203,6 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 'Hubo un problema al intentar enviar el formulario. Probá de nuevo o escribime por WhatsApp.',
             successMessage:
                 'Mensaje enviado. Me pondré en contacto contigo en menos de 24 horas.',
-        },
-        links: {
-            whatsapp: DEFAULT_WHATSAPP_LINK_ES,
-            about: '/es/sobre-mi',
         },
     },
     en: {
@@ -317,7 +308,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 title: 'Not ready for a full store yet?',
                 description:
                     'If your current priority is presenting your business and generating leads, a website can be the right first step.',
-                href: `/en/${COMMERCIAL_SERVICE_SLUGS.web.en}`,
+                href: getCommercialServicePath('web', 'en'),
                 ctaLabel: 'Explore website options',
             },
         },
@@ -414,10 +405,6 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 'There was a problem trying to send the form. Try again or contact me on WhatsApp.',
             successMessage:
                 'Message sent. I will get back to you within 24 hours.',
-        },
-        links: {
-            whatsapp: DEFAULT_WHATSAPP_LINK_EN,
-            about: '/en/about-me',
         },
     },
 };

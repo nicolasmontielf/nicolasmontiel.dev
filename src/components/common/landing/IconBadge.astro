@@ -1,0 +1,35 @@
+---
+type Props = {
+    tone?: 'primary' | 'neutral';
+    size?: 'sm' | 'md';
+    className?: string;
+};
+
+const {
+    tone = 'primary',
+    size = 'md',
+    className,
+} = Astro.props as Props;
+
+const toneClass = {
+    primary:
+        'border-indigo-200 bg-indigo-100 text-indigo-600 shadow-[0_10px_24px_-18px_rgba(79,70,229,0.7)]',
+    neutral: 'border-slate-200 bg-white text-slate-500',
+}[tone];
+
+const sizeClass = {
+    sm: 'h-9 w-9 rounded-xl',
+    md: 'h-10 w-10 rounded-xl',
+}[size];
+---
+
+<div
+    class:list={[
+        'flex items-center justify-center border',
+        toneClass,
+        sizeClass,
+        className,
+    ]}
+>
+    <slot />
+</div>

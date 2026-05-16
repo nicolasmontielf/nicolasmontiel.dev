@@ -1,5 +1,8 @@
 ---
-import { DEFAULT_LOCALE } from '@/i18n/locales';
+import FeatureCard from '@components/common/landing/FeatureCard.astro';
+import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
+import { resolveLocale } from '@/i18n/locales';
+import { getMessages } from '@/i18n/messages';
 import type { SharedProfileSectionProps } from '@/types/landing/props';
 import avatarImage from '@assets/nicolas-montiel-avatar.png';
 
@@ -10,10 +13,10 @@ const {
     sectionId = 'profile',
     sectionClass = 'bg-white',
 } = Astro.props as SharedProfileSectionProps;
-const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const locale = resolveLocale(Astro.locals.locale);
+const labels = getMessages(locale).landing;
 const avatarSrc = avatarImage.src;
-const avatarAlt =
-    locale === 'es' ? 'Avatar de Nicolás Montiel' : 'Avatar of Nicolas Montiel';
+const avatarAlt = labels.avatarAlt;
 ---
 
 <section
@@ -53,25 +56,23 @@ const avatarAlt =
             <p class="mt-4 leading-relaxed text-slate-600">
                 {profile.description}
             </p>
-            <a
+            <LandingButtonLink
                 href={aboutLink}
-                class="mt-8 inline-flex rounded-md border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-100"
+                variant="secondary"
+                className="mt-8 inline-flex rounded-md border-slate-200 bg-slate-50 text-slate-900 hover:border-slate-300 hover:bg-slate-100"
             >
                 {profile.buttonLabel}
-            </a>
+            </LandingButtonLink>
         </div>
 
         <div class="grid gap-5">
             {
                 profile.items.map((item) => (
-                    <article class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.16)]">
-                        <h3 class="text-lg font-semibold tracking-tight text-slate-900">
-                            {item.title}
-                        </h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                            {item.description}
-                        </p>
-                    </article>
+                    <FeatureCard
+                        title={item.title}
+                        description={item.description}
+                        className="shadow-[0_18px_40px_-34px_rgba(15,23,42,0.16)]"
+                    />
                 ))
             }
         </div>

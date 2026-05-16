@@ -1,11 +1,6 @@
 import type { Locale } from '@/i18n/locales';
-import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
+import { getCommercialServicePath } from '@/i18n/routing';
 import type { WebLandingContent } from '@/types/landing/content';
-
-const DEFAULT_WHATSAPP_LINK_ES =
-    'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20hacer%20una%20web%20y%20me%20gustar%C3%ADa%20contarte%20mi%20idea.';
-const DEFAULT_WHATSAPP_LINK_EN =
-    'https://wa.me/595973779205?text=Hi%20Nico!%20I%20want%20to%20build%20a%20website%20and%20would%20like%20to%20tell%20you%20about%20my%20project.';
 
 const webLandingByLocale: Record<Locale, WebLandingContent> = {
     es: {
@@ -124,7 +119,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                     outcome:
                         'Canal de venta digital más ordenado y listo para escalar.',
                     icon: 'chart-column',
-                    href: `/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
+                    href: getCommercialServicePath('ecommerce', 'es'),
                     hrefLabel: 'Ver más detalles',
                 },
             ],
@@ -241,10 +236,6 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             successMessage:
                 'Mensaje enviado. Me pondré en contacto contigo en menos de 24 horas.',
         },
-        links: {
-            whatsapp: DEFAULT_WHATSAPP_LINK_ES,
-            about: '/es/sobre-mi',
-        },
     },
     en: {
         meta: {
@@ -304,7 +295,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                     objective: 'Sell products online with the right checkout flow for your stage.',
                     outcome: 'A clearer and more scalable digital sales channel.',
                     icon: 'chart-column',
-                    href: `/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,
+                    href: getCommercialServicePath('ecommerce', 'en'),
                     hrefLabel: 'See more details',
                 },
             ],
@@ -389,10 +380,6 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 'There was a problem trying to send the form. Try again or contact me on WhatsApp.',
             successMessage:
                 'Message sent. I will get back to you within 24 hours.',
-        },
-        links: {
-            whatsapp: DEFAULT_WHATSAPP_LINK_EN,
-            about: '/en/about-me',
         },
     },
 };

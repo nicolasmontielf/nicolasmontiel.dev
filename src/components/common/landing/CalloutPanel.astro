@@ -1,0 +1,65 @@
+---
+import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
+
+type Props = {
+    description: string;
+    eyebrow?: string;
+    title?: string;
+    ctaHref?: string;
+    ctaLabel?: string;
+    tone?: 'neutral' | 'primary';
+    className?: string;
+};
+
+const {
+    description,
+    eyebrow,
+    title,
+    ctaHref,
+    ctaLabel,
+    tone = 'neutral',
+    className,
+} = Astro.props as Props;
+
+const toneClass = {
+    neutral:
+        'border-slate-200 bg-slate-50 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.15)]',
+    primary:
+        'border-indigo-200 bg-indigo-50 shadow-[0_18px_40px_-34px_rgba(79,70,229,0.35)]',
+}[tone];
+
+const eyebrowClass = tone === 'primary' ? 'text-indigo-700' : 'text-slate-500';
+const titleClass = tone === 'primary' ? 'text-indigo-950' : 'text-slate-950';
+const descriptionClass =
+    tone === 'primary'
+        ? 'text-indigo-900/80'
+        : 'text-sm leading-relaxed text-slate-600';
+const ctaClassName = tone === 'primary' ? 'mt-5 inline-flex' : 'mt-5 inline-flex rounded-md';
+---
+
+<aside class:list={['rounded-[1.5rem] border p-6', toneClass, className]}>
+    {eyebrow && (
+        <p class:list={['text-[11px] font-semibold uppercase tracking-[0.14em]', eyebrowClass]}>
+            {eyebrow}
+        </p>
+    )}
+    {title && (
+        <h3 class:list={['mt-2 text-xl font-semibold tracking-tight', titleClass]}>
+            {title}
+        </h3>
+    )}
+    <p class:list={[title || eyebrow ? 'mt-3' : '', descriptionClass]}>
+        {description}
+    </p>
+    {
+        ctaHref && ctaLabel && (
+            <LandingButtonLink
+                href={ctaHref}
+                variant={tone === 'primary' ? 'subtle' : 'primary'}
+                className={ctaClassName}
+            >
+                {ctaLabel}
+            </LandingButtonLink>
+        )
+    }
+</aside>

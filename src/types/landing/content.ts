@@ -107,10 +107,6 @@ export type CommercialLandingContent = {
         errorMessage: string;
         successMessage?: string;
     };
-    links: {
-        whatsapp: string;
-        about: string;
-    };
 };
 
 export type WebLandingContent = Omit<

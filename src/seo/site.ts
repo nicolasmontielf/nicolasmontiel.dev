@@ -1,5 +1,14 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
-import type { CommercialService } from '@/types/seo';
+import {
+    COMMERCIAL_SERVICE_SLUGS,
+    getLocalizedPath,
+} from '@/i18n/routing';
+
+export {
+    COMMERCIAL_SERVICE_SLUGS,
+    getCommercialServicePath,
+    getLocalizedPath,
+} from '@/i18n/routing';
 
 export const SITE_URL = 'https://nicolasmontiel.dev';
 export const SITE_NAME = 'Nicolás Montiel';
@@ -27,20 +36,6 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
     es: 'es-PY',
 };
 
-export const COMMERCIAL_SERVICE_SLUGS: Record<
-    CommercialService,
-    Record<Locale, string>
-> = {
-    ecommerce: {
-        en: 'i-need-an-online-store',
-        es: 'quiero-un-ecommerce',
-    },
-    web: {
-        en: 'i-need-a-website',
-        es: 'quiero-una-web',
-    },
-};
-
 export const PUBLIC_LOCALIZED_PATHS = [
     '/en',
     '/es',
@@ -62,57 +57,6 @@ export function getLanguageTag(locale: Locale) {
 
 export function getOpenGraphLocale(locale: Locale) {
     return OPEN_GRAPH_LOCALES[locale];
-}
-
-export function getCommercialServicePath(
-    service: CommercialService,
-    locale: Locale,
-) {
-    return `/${locale}/${COMMERCIAL_SERVICE_SLUGS[service][locale]}`;
-}
-
-function getLocalizedCommercialServicePath(
-    segment: string,
-    targetLocale: Locale,
-) {
-    const service = Object.entries(COMMERCIAL_SERVICE_SLUGS).find(([, slugs]) =>
-        Object.values(slugs).includes(segment),
-    )?.[0] as CommercialService | undefined;
-
-    return service ? getCommercialServicePath(service, targetLocale) : null;
-}
-
-export function getLocalizedPath(pathname: string, targetLocale: Locale) {
-    const cleanPath = pathname || '/';
-    const segments = cleanPath.split('/').filter(Boolean);
-
-    if (segments.length === 0) {
-        return `/${targetLocale}`;
-    }
-
-    if (segments[0] === 'en' || segments[0] === 'es') {
-        const rest = segments.slice(1);
-        if (rest[0] === 'about-me' && targetLocale === 'es') {
-            return '/es/sobre-mi';
-        }
-        if (rest[0] === 'sobre-mi' && targetLocale === 'en') {
-            return '/en/about-me';
-        }
-
-        const localizedServicePath = rest[0]
-            ? getLocalizedCommercialServicePath(rest[0], targetLocale)
-            : null;
-        if (localizedServicePath) {
-            return localizedServicePath;
-        }
-
-        segments[0] = targetLocale;
-        return `/${segments.join('/')}`;
-    }
-
-    return targetLocale === DEFAULT_LOCALE
-        ? cleanPath
-        : `/${targetLocale}${cleanPath === '/' ? '' : cleanPath}`;
 }
 
 export function getAlternateLanguageLinks(pathname: string) {

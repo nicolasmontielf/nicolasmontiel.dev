@@ -1,40 +1,16 @@
 ---
 import logo from '@/assets/logo.png';
-import { DEFAULT_LOCALE } from '@/i18n/locales';
-import { getCommercialServicePath } from '@/seo/site';
+import { resolveLocale } from '@/i18n/locales';
+import { getWhatsappLink } from '@/i18n/links';
+import { getMessages } from '@/i18n/messages';
+import { getAboutPath, getCommercialServicePath } from '@/i18n/routing';
 
-const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const aboutPath = locale === 'es' ? '/es/sobre-mi' : '/en/about-me';
+const locale = resolveLocale(Astro.locals.locale);
+const aboutPath = getAboutPath(locale);
 const ecommercePath = getCommercialServicePath('ecommerce', locale);
 const webPath = getCommercialServicePath('web', locale);
-const whatsappLink =
-    locale === 'es'
-        ? 'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20hacerte%20una%20consulta.'
-        : 'https://wa.me/595973779205?text=Hi%20Nico!%20I%20would%20like%20to%20ask%20you%20something.';
-const content = {
-    es: {
-        contactTitle: 'Contacto',
-        linksTitle: 'Enlaces útiles',
-        about: 'Sobre mí',
-        ecommerce: 'Ecommerce',
-        web: 'Web',
-        email: 'Email',
-        whatsapp: 'WhatsApp',
-        linkedin: 'LinkedIn',
-        logoAlt: 'Logo de Nicolás Montiel',
-    },
-    en: {
-        contactTitle: 'Contact',
-        linksTitle: 'Useful links',
-        about: 'About me',
-        ecommerce: 'Ecommerce',
-        web: 'Website',
-        email: 'Email',
-        whatsapp: 'WhatsApp',
-        linkedin: 'LinkedIn',
-        logoAlt: 'Nicolás Montiel logo',
-    },
-}[locale];
+const whatsappLink = getWhatsappLink(locale);
+const { common, footer } = getMessages(locale);
 ---
 
 <footer class="border-t border-slate-200 bg-white py-10">
@@ -44,7 +20,7 @@ const content = {
         <div>
             <img
                 src={logo.src}
-                alt={content.logoAlt}
+                alt={footer.logoAlt}
                 class="h-14 w-auto object-contain"
                 loading="lazy"
             />
@@ -54,14 +30,14 @@ const content = {
             <p
                 class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
             >
-                {content.contactTitle}
+                {footer.contactTitle}
             </p>
             <div class="mt-4 flex flex-col items-start gap-3">
                 <a
                     href="mailto:nicolasmontielf@gmail.com"
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.email}
+                    {common.email}
                 </a>
                 <a
                     href={whatsappLink}
@@ -69,7 +45,7 @@ const content = {
                     rel="noreferrer"
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.whatsapp}
+                    {common.whatsapp}
                 </a>
                 <a
                     href="https://www.linkedin.com/in/nicolasmontielf/?locale=en_US"
@@ -77,7 +53,7 @@ const content = {
                     rel="noreferrer"
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.linkedin}
+                    {common.linkedin}
                 </a>
             </div>
         </nav>
@@ -86,26 +62,26 @@ const content = {
             <p
                 class="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
             >
-                {content.linksTitle}
+                {footer.linksTitle}
             </p>
             <div class="mt-4 flex flex-col items-start gap-3">
                 <a
                     href={aboutPath}
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.about}
+                    {footer.about}
                 </a>
                 <a
                     href={ecommercePath}
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.ecommerce}
+                    {footer.ecommerce}
                 </a>
                 <a
                     href={webPath}
                     class="transition-colors hover:text-slate-950"
                 >
-                    {content.web}
+                    {footer.web}
                 </a>
             </div>
         </nav>

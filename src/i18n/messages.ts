@@ -32,6 +32,24 @@ const messagesByLocale: Record<Locale, Messages> = {
             certificationsTitle: 'Certifications and courses',
             viewCredential: 'View Credential',
         },
+        common: {
+            email: 'Email',
+            whatsapp: 'WhatsApp',
+            linkedin: 'LinkedIn',
+        },
+        landing: {
+            alternative: 'Alternative',
+            viewMore: 'View more',
+            avatarAlt: 'Avatar of Nicolas Montiel',
+        },
+        footer: {
+            contactTitle: 'Contact',
+            linksTitle: 'Useful links',
+            about: 'About me',
+            ecommerce: 'Ecommerce',
+            web: 'Website',
+            logoAlt: 'Nicolás Montiel logo',
+        },
     },
     es: {
         navbar: {
@@ -62,6 +80,24 @@ const messagesByLocale: Record<Locale, Messages> = {
             greeting: 'Hola, soy Nico 👋🏻',
             certificationsTitle: 'Certificaciones y cursos',
             viewCredential: 'Ver credencial',
+        },
+        common: {
+            email: 'Email',
+            whatsapp: 'WhatsApp',
+            linkedin: 'LinkedIn',
+        },
+        landing: {
+            alternative: 'Alternativa',
+            viewMore: 'Ver más',
+            avatarAlt: 'Avatar de Nicolás Montiel',
+        },
+        footer: {
+            contactTitle: 'Contacto',
+            linksTitle: 'Enlaces útiles',
+            about: 'Sobre mí',
+            ecommerce: 'Ecommerce',
+            web: 'Web',
+            logoAlt: 'Logo de Nicolás Montiel',
         },
     },
 };

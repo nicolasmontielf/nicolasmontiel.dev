@@ -1,0 +1,47 @@
+---
+import {
+    landingPrimaryButtonClass,
+    landingSecondaryButtonClass,
+    landingSubtleButtonClass,
+} from '@components/common/landing/styles';
+
+type Props = {
+    href: string;
+    variant?: 'primary' | 'secondary' | 'subtle';
+    target?: string;
+    rel?: string;
+    className?: string;
+    ariaLabel?: string;
+};
+
+const {
+    href,
+    variant = 'primary',
+    target,
+    rel,
+    className,
+    ariaLabel,
+} = Astro.props as Props;
+
+const variantClass = {
+    primary: landingPrimaryButtonClass,
+    secondary: landingSecondaryButtonClass,
+    subtle: landingSubtleButtonClass,
+}[variant];
+const hasIcon = Astro.slots.has('icon');
+---
+
+<a
+    href={href}
+    target={target}
+    rel={rel}
+    aria-label={ariaLabel}
+    class:list={[
+        variantClass,
+        hasIcon && 'inline-flex items-center gap-2',
+        className,
+    ]}
+>
+    {hasIcon && <slot name="icon" />}
+    <slot />
+</a>

@@ -1,11 +1,13 @@
 ---
-import { DEFAULT_LOCALE } from '@/i18n/locales';
+import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
+import { getHomePath } from '@/i18n/routing';
+import { resolveLocale } from '@/i18n/locales';
 import type { LandingNavbarProps } from '@/types/landing/props';
 import logo from '@assets/logo.png';
 
 const { nav, whatsappLink, ctaLabel, containerClass } =
     Astro.props as LandingNavbarProps;
-const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const locale = resolveLocale(Astro.locals.locale);
 ---
 
 <header
@@ -15,7 +17,7 @@ const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
         class={`flex items-center justify-between gap-5 py-4 ${containerClass}`}
     >
         <a
-            href={`/${locale}`}
+            href={getHomePath(locale)}
             class="group flex items-center gap-3 text-slate-950"
         >
             <img
@@ -49,13 +51,14 @@ const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
             }
         </nav>
 
-        <a
+        <LandingButtonLink
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
-            class="rounded-full bg-indigo-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700"
+            variant="primary"
+            className="px-4 py-2 text-xs"
         >
             {ctaLabel}
-        </a>
+        </LandingButtonLink>
     </div>
 </header>
