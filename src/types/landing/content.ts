@@ -25,6 +25,19 @@ export type WebLandingIconName =
     | 'check'
     | 'rocket';
 
+export type EcommerceLandingIconName =
+    | 'message-circle'
+    | 'search'
+    | 'package'
+    | 'smartphone'
+    | 'credit-card'
+    | 'layout-grid'
+    | 'shopping-bag'
+    | 'shopping-cart'
+    | 'wallet'
+    | 'boxes'
+    | 'truck';
+
 export type CommercialLandingContent = {
     meta: {
         title: string;
@@ -143,4 +156,38 @@ export type WebLandingContent = Omit<
         }>;
     };
 };
-export type EcommerceLandingContent = CommercialLandingContent;
+export type EcommerceLandingContent = Omit<
+    CommercialLandingContent,
+    'challenges' | 'solutions'
+> & {
+    challenges: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        items: Array<{
+            title: string;
+            description: string;
+            icon: EcommerceLandingIconName;
+        }>;
+    };
+    solutions: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        groups: Array<{
+            title: string;
+            subtitle: string;
+            items: string[];
+        }>;
+        items?: Array<{
+            title: string;
+            description: string;
+        }>;
+        bridgeToWeb?: {
+            title: string;
+            description: string;
+            href: string;
+            ctaLabel: string;
+        };
+    };
+};

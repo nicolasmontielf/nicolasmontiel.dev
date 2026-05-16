@@ -1,4 +1,5 @@
 import type { Locale } from '@/i18n/locales';
+import { COMMERCIAL_SERVICE_SLUGS } from '@/seo/site';
 import type { EcommerceLandingContent } from '@/types/landing/content';
 
 const DEFAULT_WHATSAPP_LINK_ES =
@@ -30,7 +31,6 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 'Un ecommerce bien diseñado simplifica tu operación, mejora la experiencia de compra y te ayuda a escalar sin depender de procesos manuales.',
             primaryCtaLabel: 'Hablar por WhatsApp',
             secondaryCtaLabel: 'Ver qué podés resolver',
-            note: 'La meta no es solo publicar productos. Es construir un canal de venta ordenado, práctico y alineado con cómo vende tu negocio.',
         },
         challenges: {
             eyebrow: 'Qué podés resolver',
@@ -42,66 +42,78 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                     title: 'Ventas manuales por redes',
                     description:
                         'Cada venta depende de responder uno a uno, lo que consume tiempo y genera errores.',
+                    icon: 'message-circle',
                 },
                 {
                     title: 'Consultas repetitivas',
                     description:
                         'Clientes preguntan precio, stock o fotos todo el día porque no tienen la info clara.',
+                    icon: 'search',
                 },
                 {
                     title: 'Pedidos desordenados',
                     description:
                         'Falta un flujo consistente para registrar, confirmar y gestionar ventas.',
+                    icon: 'package',
                 },
                 {
                     title: 'WhatsApp sin estructura',
                     description:
                         'Vendés por WhatsApp, pero sin un recorrido cómodo para cliente ni para tu equipo.',
+                    icon: 'smartphone',
                 },
                 {
                     title: 'Sin pagos online o automatizaciones',
                     description:
                         'El negocio no aprovecha herramientas que reducen fricción y aceleran cierre.',
+                    icon: 'credit-card',
                 },
             ],
         },
         solutions: {
             eyebrow: 'Tipos de soluciones',
-            title: 'Opciones de ecommerce según tu etapa y tu operación.',
+            title: 'Features que podés sumar según cómo vende tu negocio.',
             description:
-                'Podemos empezar simple y escalar funcionalidades de forma progresiva.',
-            items: [
+                'No todo ecommerce necesita lo mismo desde el día uno. Podemos armar una versión base y sumar módulos según prioridad.',
+            groups: [
                 {
-                    title: 'Catálogo online sin pago',
-                    description:
-                        'Mostrá productos ordenados y recibí consultas sin checkout integrado.',
+                    title: 'Base',
+                    subtitle:
+                        'Ideal para negocios que quieren ordenar su presencia y comenzar a vender.',
+                    items: [
+                        'Catálogo online',
+                        'Ventas por WhatsApp',
+                        'Estructura inicial de productos',
+                    ],
                 },
                 {
-                    title: 'Catálogo con venta por WhatsApp',
-                    description:
-                        'Un flujo más cómodo para explorar productos y cerrar por chat.',
+                    title: 'Comercial',
+                    subtitle:
+                        'Para mejorar conversión y facilitar la compra directa en la tienda.',
+                    items: [
+                        'Carrito y checkout',
+                        'Pagos online',
+                        'Promociones y reglas comerciales',
+                    ],
                 },
                 {
-                    title: 'Ecommerce con carrito',
-                    description:
-                        'Permite compras más fluidas con menos intercambio manual.',
-                },
-                {
-                    title: 'Ecommerce con pagos online',
-                    description:
-                        'Integrá medios de pago para reducir fricción en la conversión.',
-                },
-                {
-                    title: 'Tienda con panel administrador',
-                    description:
-                        'Gestioná productos, contenido y configuración con autonomía.',
-                },
-                {
-                    title: 'Gestión de pedidos, stock o envíos',
-                    description:
-                        'Automatizá partes críticas de la operación comercial diaria.',
+                    title: 'Operación',
+                    subtitle:
+                        'Para equipos que necesitan control interno y procesos más eficientes.',
+                    items: [
+                        'Gestión de stock',
+                        'Gestión de envíos',
+                        'Panel administrador e integraciones',
+                    ],
                 },
             ],
+            bridgeToWeb: {
+                title: '¿Tu objetivo hoy no es vender online?',
+                description:
+                    'Si primero necesitás presencia profesional, captación de consultas o una web institucional, podés empezar por ahí y evolucionar luego a ecommerce.',
+                href: `/es/${COMMERCIAL_SERVICE_SLUGS.web.es}`,
+                ctaLabel: 'Ver opciones de web',
+            },
         },
         process: {
             eyebrow: 'Cómo funciona el proceso',
@@ -225,7 +237,6 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 'A well-built ecommerce setup improves customer experience, reduces manual work, and gives you a scalable sales channel.',
             primaryCtaLabel: 'Chat on WhatsApp',
             secondaryCtaLabel: 'See what it solves',
-            note: 'The goal is not just listing products. The goal is building a practical sales operation that works every day.',
         },
         challenges: {
             eyebrow: 'What this solves',
@@ -237,66 +248,78 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                     title: 'Manual social selling',
                     description:
                         'Every sale depends on repetitive one-by-one responses.',
+                    icon: 'message-circle',
                 },
                 {
                     title: 'Repeated customer questions',
                     description:
                         'Price, stock, and photo questions are asked constantly because info is not centralized.',
+                    icon: 'search',
                 },
                 {
                     title: 'Unstructured order handling',
                     description:
                         'There is no consistent flow to register and manage orders.',
+                    icon: 'package',
                 },
                 {
                     title: 'WhatsApp flow without order',
                     description:
                         'You sell via chat, but the buying experience is uncomfortable and hard to scale.',
+                    icon: 'smartphone',
                 },
                 {
                     title: 'No online payments or automation',
                     description:
                         'Key opportunities to reduce friction and improve conversion are missing.',
+                    icon: 'credit-card',
                 },
             ],
         },
         solutions: {
             eyebrow: 'Solution types',
-            title: 'Ecommerce options based on your current stage.',
+            title: 'Features you can include based on your operation.',
             description:
-                'We can start with the right level of complexity and grow step by step.',
-            items: [
+                'You do not need every feature from day one. We can launch lean and expand by priority.',
+            groups: [
                 {
-                    title: 'Online catalog without checkout',
-                    description:
-                        'Organized product showcase and inquiry capture without full payments.',
+                    title: 'Base',
+                    subtitle:
+                        'For businesses that want to start with a clear online catalog and lead flow.',
+                    items: [
+                        'Online catalog',
+                        'WhatsApp sales flow',
+                        'Initial product structure',
+                    ],
                 },
                 {
-                    title: 'Catalog with WhatsApp sales',
-                    description:
-                        'A cleaner product discovery flow that closes via chat.',
+                    title: 'Commercial',
+                    subtitle:
+                        'Focused on conversion and direct checkout experience.',
+                    items: [
+                        'Cart and checkout',
+                        'Online payments',
+                        'Commercial rules and promos',
+                    ],
                 },
                 {
-                    title: 'Ecommerce with cart',
-                    description:
-                        'Smoother purchase path with fewer manual interactions.',
-                },
-                {
-                    title: 'Ecommerce with online payments',
-                    description:
-                        'Integrated payments to reduce friction at checkout.',
-                },
-                {
-                    title: 'Store with admin panel',
-                    description:
-                        'Manage products and content without depending on technical edits.',
-                },
-                {
-                    title: 'Order, stock, and shipping workflows',
-                    description:
-                        'Automate operational processes that consume time daily.',
+                    title: 'Operations',
+                    subtitle:
+                        'For teams that need internal control and scalable workflows.',
+                    items: [
+                        'Stock management',
+                        'Shipping management',
+                        'Admin panel and integrations',
+                    ],
                 },
             ],
+            bridgeToWeb: {
+                title: 'Not ready for a full store yet?',
+                description:
+                    'If your current priority is presenting your business and generating leads, a website can be the right first step.',
+                href: `/en/${COMMERCIAL_SERVICE_SLUGS.web.en}`,
+                ctaLabel: 'Explore website options',
+            },
         },
         process: {
             eyebrow: 'How the process works',
