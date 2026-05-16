@@ -1,4 +1,5 @@
 import type {
+    CommercialLandingContent,
     EcommerceLandingContent,
     WebLandingContent,
 } from '@/types/landing/content';
@@ -37,26 +38,62 @@ export type SharedProfileSectionProps = {
     sectionId?: string;
 };
 
+export type CommercialLandingProps = {
+    content: CommercialLandingContent;
+    source: 'web' | 'ecommerce';
+    heroVideo: string;
+    heroPoster: string;
+    heroImageAlt: string;
+};
+
 export type EcommerceLandingProps = {
     content: EcommerceLandingContent;
 };
 
+export type WebLandingProps = {
+    content: WebLandingContent;
+};
+
+// Legacy props kept for compatibility with old section components.
 export type EcommerceHeroSectionProps = {
-    hero: EcommerceLandingContent['hero'];
-    links: EcommerceLandingContent['links'];
+    hero: {
+        badge: string;
+        title: string;
+        description: string;
+        trustNote: string;
+        primaryCtaLabel: string;
+        secondaryCtaLabel: string;
+    };
+    links: { whatsapp: string; about: string };
 };
 
 export type EcommerceWorkSectionProps = {
-    work: EcommerceLandingContent['work'];
+    work: {
+        eyebrow: string;
+        title: string;
+        subtitle: string;
+        noteTitle: string;
+        noteDescription: string;
+        cards: Array<{
+            title: string;
+            description: string;
+            icon: ServiceIconName;
+        }>;
+    };
 };
 
 export type EcommerceProfileSectionProps = {
-    profile: EcommerceLandingContent['profile'];
+    profile: SharedProfileContent;
     aboutLink: string;
 };
 
 export type EcommerceProcessSectionProps = {
-    process: EcommerceLandingContent['process'];
+    process: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        steps: Array<{ title: string; description: string }>;
+    };
 };
 
 export type EcommerceContactSectionProps = {
@@ -69,30 +106,54 @@ export type EcommerceServiceIconProps = {
     inverted?: boolean;
 };
 
-export type WebLandingProps = {
-    content: WebLandingContent;
-};
-
 export type WebHeroSectionProps = {
-    hero: WebLandingContent['hero'];
-    links: WebLandingContent['links'];
+    hero: {
+        badge: string;
+        title: string;
+        description: string;
+        primaryCtaLabel: string;
+        secondaryCtaLabel: string;
+        note: string;
+    };
+    links: { whatsapp: string; about: string };
 };
 
 export type WebProjectTypesSectionProps = {
-    projects: WebLandingContent['projects'];
+    projects: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        items: Array<{
+            title: string;
+            description: string;
+            accent: string;
+            href?: string;
+            linkLabel?: string;
+        }>;
+    };
 };
 
 export type WebBuildSectionProps = {
-    build: WebLandingContent['build'];
+    build: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        capabilities: Array<{ title: string; description: string }>;
+    };
 };
 
 export type WebProfileSectionProps = {
-    profile: WebLandingContent['profile'];
+    profile: SharedProfileContent;
     aboutLink: string;
 };
 
 export type WebCriteriaSectionProps = {
-    criteria: WebLandingContent['criteria'];
+    criteria: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        items: Array<{ title: string; description: string }>;
+    };
 };
 
 export type WebContactSectionProps = {

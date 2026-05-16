@@ -4,131 +4,175 @@ import type { EcommerceLandingContent } from '@/types/landing/content';
 const DEFAULT_WHATSAPP_LINK_ES =
     'https://wa.me/595973779205?text=Hola%20Nico!%2C%20quiero%20saber%20m%C3%A1s%20sobre%20un%20ecommerce%20a%20medida.';
 const DEFAULT_WHATSAPP_LINK_EN =
-    'https://wa.me/595973779205?text=Hi%20Nico!%20I%20want%20to%20learn%20more%20about%20a%20custom%20ecommerce%20build.';
+    'https://wa.me/595973779205?text=Hi%20Nico!%20I%20want%20to%20build%20a%20custom%20ecommerce%20store.';
 
 const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
     es: {
         meta: {
-            title: 'Ecommerce a Medida para Marcas y Negocios',
+            title: 'Ecommerce a Medida para Vender con Más Orden',
             description:
-                'Desarrollo ecommerce a medida sobre un core sólido, seguro y probado durante años, con ayuda para diseño, lanzamiento, servidor, dominio y soporte si lo necesitás.',
+                'Desarrollo tiendas online para vender mejor, ordenar pedidos y facilitar pagos o ventas por WhatsApp.',
         },
         nav: {
-            label: 'Ecommerce',
+            label: 'Quiero un ecommerce',
             items: [
-                { id: 'work', label: 'Servicio' },
-                { id: 'profile', label: 'Quién soy?' },
+                { id: 'challenges', label: 'Qué resolvés' },
+                { id: 'solutions', label: 'Tipos de ecommerce' },
                 { id: 'process', label: 'Proceso' },
+                { id: 'profile', label: 'Por qué conmigo' },
                 { id: 'contact', label: 'Contacto' },
             ],
         },
         hero: {
-            badge: 'Ecommerce a medida',
-            title: 'Un ecommerce para negocios que quieren vender online en Paraguay.',
+            badge: 'Tienda online a medida',
+            title: 'Creá una tienda online para vender mejor y con más control.',
             description:
-                'Trabajo sobre una base que ya pasó años de prueba, es seguro y me permite construir algo realmente adaptado a tu negocio. Empezá a vender online en Paraguay sin preocuparte por la base técnica.',
-            trustNote:
-                'No trabajo con la idea de “te entrego una web y arreglate”. Me involucro para que la tienda quede bien armada, salga online con criterio y después también puedas contar conmigo si hace falta.',
-            primaryCtaLabel: 'Hablemos por WhatsApp',
-            secondaryCtaLabel: 'Conocé mi perfil',
-            floatingCardLabel: 'Base técnica',
-            floatingCardValue: 'Core sólido, seguro y ya probado',
+                'Un ecommerce bien diseñado simplifica tu operación, mejora la experiencia de compra y te ayuda a escalar sin depender de procesos manuales.',
+            primaryCtaLabel: 'Hablar por WhatsApp',
+            secondaryCtaLabel: 'Ver qué podés resolver',
+            note: 'La meta no es solo publicar productos. Es construir un canal de venta ordenado, práctico y alineado con cómo vende tu negocio.',
         },
-        work: {
-            eyebrow: 'Qué incluye',
-            title: 'No vendo una plantilla, desarrollo un ecommerce a medida para tu negocio.',
-            subtitle:
-                'Partimos de una base sólida; definimos cómo tiene que verse la tienda, cómo tiene que operar y qué necesitás resolver para salir online bien. Mi idea es construir algo alineado con tu marca, tu forma de vender y tu operación real, y acompañarte en cada parte del proceso',
-            noteTitle: 'La ventaja está en arrancar desde una base sólida.',
-            noteDescription:
-                'Una base que ya fue probada de verdad durante años; no gastamos energía resolviendo lo elemental. La inversión está en adaptar bien la tienda a tu marca, tu operación y tu forma de vender.',
-            cards: [
+        challenges: {
+            eyebrow: 'Qué podés resolver',
+            title: 'Problemas reales que una tienda online puede simplificar.',
+            description:
+                'Si hoy todo pasa por mensajes sueltos y procesos manuales, una tienda bien armada te da estructura y previsibilidad.',
+            items: [
                 {
-                    title: 'Tienda diseñada a medida',
+                    title: 'Ventas manuales por redes',
                     description:
-                        'Trabajo para que la tienda se vea y se sienta alineada con tu marca, tu producto y la experiencia que querés darle al cliente.',
-                    icon: 'storefront',
+                        'Cada venta depende de responder uno a uno, lo que consume tiempo y genera errores.',
                 },
                 {
-                    title: 'Adaptación a tu negocio',
+                    title: 'Consultas repetitivas',
                     description:
-                        'No adapto tu negocio a una plantilla. Adapto la tienda a tu operación, tu propuesta comercial y las prioridades reales de tu canal.',
-                    icon: 'business',
+                        'Clientes preguntan precio, stock o fotos todo el día porque no tienen la info clara.',
                 },
                 {
-                    title: 'Acompañamiento técnico',
+                    title: 'Pedidos desordenados',
                     description:
-                        'Desde el inicio puedo ayudarte con servidor, dominio y puesta online. Después, si querés soporte o mejoras continuas, puedo acompañarte o asesorarte según lo necesites.',
-                    icon: 'launch',
+                        'Falta un flujo consistente para registrar, confirmar y gestionar ventas.',
                 },
                 {
-                    title: 'Configuración complementaria',
+                    title: 'WhatsApp sin estructura',
                     description:
-                        'Si suma valor para tu caso, también puedo ayudarte con la configuración de Google Analytics, Google Search Console, Meta Pixel, SEO, etc.',
-                    icon: 'setup',
+                        'Vendés por WhatsApp, pero sin un recorrido cómodo para cliente ni para tu equipo.',
+                },
+                {
+                    title: 'Sin pagos online o automatizaciones',
+                    description:
+                        'El negocio no aprovecha herramientas que reducen fricción y aceleran cierre.',
+                },
+            ],
+        },
+        solutions: {
+            eyebrow: 'Tipos de soluciones',
+            title: 'Opciones de ecommerce según tu etapa y tu operación.',
+            description:
+                'Podemos empezar simple y escalar funcionalidades de forma progresiva.',
+            items: [
+                {
+                    title: 'Catálogo online sin pago',
+                    description:
+                        'Mostrá productos ordenados y recibí consultas sin checkout integrado.',
+                },
+                {
+                    title: 'Catálogo con venta por WhatsApp',
+                    description:
+                        'Un flujo más cómodo para explorar productos y cerrar por chat.',
+                },
+                {
+                    title: 'Ecommerce con carrito',
+                    description:
+                        'Permite compras más fluidas con menos intercambio manual.',
+                },
+                {
+                    title: 'Ecommerce con pagos online',
+                    description:
+                        'Integrá medios de pago para reducir fricción en la conversión.',
+                },
+                {
+                    title: 'Tienda con panel administrador',
+                    description:
+                        'Gestioná productos, contenido y configuración con autonomía.',
+                },
+                {
+                    title: 'Gestión de pedidos, stock o envíos',
+                    description:
+                        'Automatizá partes críticas de la operación comercial diaria.',
+                },
+            ],
+        },
+        process: {
+            eyebrow: 'Cómo funciona el proceso',
+            title: 'Implementación guiada para salir online con orden.',
+            description:
+                'Trabajamos por etapas para construir una tienda que no solo se vea bien, sino que funcione para vender.',
+            steps: [
+                {
+                    title: 'Charla inicial',
+                    description:
+                        'Entendemos qué vendés, cómo operás y qué necesitás mejorar en tu canal digital.',
+                },
+                {
+                    title: 'Definición de alcance',
+                    description:
+                        'Acordamos catálogo, flujo de compra, pagos y funcionalidades necesarias.',
+                },
+                {
+                    title: 'Diseño y propuesta visual',
+                    description:
+                        'Definimos una experiencia clara para cliente y operación interna.',
+                },
+                {
+                    title: 'Desarrollo',
+                    description:
+                        'Construimos la tienda y las integraciones principales según el alcance.',
+                },
+                {
+                    title: 'Revisión y ajustes',
+                    description:
+                        'Validamos recorridos, textos y detalles de operación antes de publicar.',
+                },
+                {
+                    title: 'Publicación',
+                    description:
+                        'Dejamos la tienda funcionando en dominio y hosting, lista para operar.',
                 },
             ],
         },
         profile: {
             eyebrow: 'Por qué trabajar conmigo',
-            title: 'Además de construir tu tienda, puedo ser tu partner técnico para ordenar tu operación desde el principio',
+            title: 'Enfoque práctico para vender más y ordenar procesos.',
             description:
-                'Tengo experiencia construyendo productos web para equipos de distintos mercados y me interesa trabajar con criterio, no solo ejecutar tareas aisladas. Si querés ver mejor cómo trabajo y cuál es mi perfil:',
+                'Te acompaño para implementar solo lo que agrega valor real a tu negocio en esta etapa.',
             items: [
                 {
-                    title: 'Más de 8 años construyendo productos',
+                    title: 'Experiencia en soluciones prácticas',
                     description:
-                        'Trabajé con equipos de Paraguay, Latinoamérica, Estados Unidos y Europa a construir productos digitales con una mirada práctica y orientada al negocio.',
+                        'Priorizo decisiones que mejoran ventas y operación, no complejidad innecesaria.',
                 },
                 {
-                    title: 'Partner técnico de verdad',
+                    title: 'Integraciones útiles para ecommerce',
                     description:
-                        'Me gusta entender el negocio, ayudarte a mejorar flujos de trabajo y tomar decisiones que te ayuden a hacer crecer tu negocio.',
+                        'WhatsApp, pagos, paneles y flujos que simplifican tareas del día a día.',
                 },
                 {
-                    title: 'Ejecución senior y comunicación clara',
+                    title: 'Escalable y con acompañamiento',
                     description:
-                        'Si trabajás conmigo, podés esperar criterio técnico, buena comunicación y foco real en entregar algo confiable, mantenible y útil para tu negocio.',
+                        'Construimos una base que puedas mejorar con nuevas etapas cuando te convenga.',
                 },
             ],
             buttonLabel: 'Ver mi perfil completo',
         },
-        process: {
-            eyebrow: 'Cómo trabajo',
-            title: 'La base técnica ya está resuelta. El trabajo importante es adaptarla bien a tu negocio.',
-            description:
-                'Primero entiendo cómo vendés y qué realmente necesitás. Después definimos la implementación, construyo la tienda a medida y te ayudo a salir online listo para que puedas operar de manera eficiente.',
-            steps: [
-                {
-                    title: 'Entender el negocio',
-                    description:
-                        'Reviso catálogo, proceso comercial, operación y expectativas para entender qué tipo de tienda necesitás de verdad.',
-                },
-                {
-                    title: 'Definir la implementación',
-                    description:
-                        'Tomamos el core existente y definimos qué se adapta, qué se diseña a medida y cómo conviene ordenar la salida.',
-                },
-                {
-                    title: 'Construir la tienda',
-                    description:
-                        'Avanzo con la implementación y me aseguro de que la tienda responda a tu marca, a tu operación y a la experiencia que querés dar.',
-                },
-                {
-                    title: 'Salir online con más orden',
-                    description:
-                        'Te ayudo con servidor, dominio, configuración inicial y, si hace falta, también con medición y algunos puntos de SEO para que el lanzamiento quede mejor armado.',
-                },
-            ],
-        },
         contact: {
             eyebrow: 'Contacto',
-            title: 'Si querés un ecommerce bien resuelto y pensado para tu negocio, hablemos.',
+            title: 'Si querés crear tu tienda online, hablemos.',
             description:
-                'Contame qué necesitás vender, cómo operás hoy, qué esperás de tu tienda Y qué experiencia querés darle a tus clientes. Te voy a proponer la mejor forma de construir la tienda y ordenarla desde el arranque.',
-            formTitle: 'Dejame tu contacto',
+                'Contame qué vendés y cómo vendés hoy para proponerte la mejor forma de pasar a una operación más ordenada.',
+            formTitle: 'Dejame algunos datos',
             formDescription:
-                'Completá tu nombre y podés dejarme tu email o WhatsApp. Te estare dando retorno en menos de 24 horas.',
+                'Completá tu nombre y dejame email o WhatsApp. Te voy a responder en menos de 24 horas.',
             nameLabel: 'Nombre',
             namePlaceholder: 'Tu nombre',
             emailLabel: 'Email',
@@ -137,11 +181,11 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             whatsappPlaceholder: 'Tu numero de WhatsApp',
             helperText:
                 'Nombre es obligatorio. Email o WhatsApp: al menos uno de los dos.',
-            submitLabel: 'Enviar consulta',
+            submitLabel: 'Quiero crear mi tienda online',
             submittingLabel: 'Enviando...',
-            whatsappCtaLabel: 'Escribime por WhatsApp',
+            whatsappCtaLabel: 'Consultar por mi ecommerce',
             whatsappNote:
-                'Si preferís ir directo, también podés escribirme por WhatsApp y contarme tu caso ahí.',
+                'Si preferís avanzar rápido, escribime directo por WhatsApp.',
             nameRequiredMessage:
                 'Necesito al menos tu nombre para poder responderte.',
             contactRequiredMessage:
@@ -150,6 +194,8 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                 'El formulario todavía no está conectado a un servicio de envío. Por ahora escribime por WhatsApp.',
             errorMessage:
                 'Hubo un problema al intentar enviar el formulario. Probá de nuevo o escribime por WhatsApp.',
+            successMessage:
+                'Mensaje enviado. Me pondré en contacto contigo en menos de 24 horas.',
         },
         links: {
             whatsapp: DEFAULT_WHATSAPP_LINK_ES,
@@ -158,126 +204,170 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
     },
     en: {
         meta: {
-            title: 'Custom Ecommerce for Brands and Growing Businesses',
+            title: 'Custom Ecommerce Stores to Sell with More Control',
             description:
-                'Custom ecommerce built on top of a solid, secure core that has been tested for years, with help for design, launch, hosting, domain setup, and support when needed.',
+                'I build online stores to improve sales, organize orders, and support payments or WhatsApp-based selling.',
         },
         nav: {
-            label: 'Ecommerce',
+            label: 'I need ecommerce',
             items: [
-                { id: 'work', label: 'Service' },
-                { id: 'profile', label: 'Who am I?' },
+                { id: 'challenges', label: 'Problems' },
+                { id: 'solutions', label: 'Store types' },
                 { id: 'process', label: 'Process' },
+                { id: 'profile', label: 'Why me' },
                 { id: 'contact', label: 'Contact' },
             ],
         },
         hero: {
-            badge: 'Custom ecommerce',
-            title: 'A custom ecommerce build for businesses that want to sell online seriously.',
+            badge: 'Custom online store',
+            title: 'Build an online store that helps you sell better and operate with control.',
             description:
-                'I work on top of a core that has already been tested for years, is secure, and gives me a strong base to build something that truly fits your business. The goal is not to drop you into a patched-up WordPress setup or start everything from zero, but to launch on something well thought out and technically reliable.',
-            trustNote:
-                'I do not work with a “here is your website, now you are on your own” mindset. I get involved so the store is well structured, launched with clear criteria, and so you can still count on me later if needed.',
-            primaryCtaLabel: 'Let’s chat on WhatsApp',
-            secondaryCtaLabel: 'See my background',
-            floatingCardLabel: 'Technical base',
-            floatingCardValue: 'Solid, secure, and already proven core',
+                'A well-built ecommerce setup improves customer experience, reduces manual work, and gives you a scalable sales channel.',
+            primaryCtaLabel: 'Chat on WhatsApp',
+            secondaryCtaLabel: 'See what it solves',
+            note: 'The goal is not just listing products. The goal is building a practical sales operation that works every day.',
         },
-        work: {
-            eyebrow: 'What is included',
-            title: 'I am not selling a template or isolated dev hours. I build a custom ecommerce that is properly resolved around your business.',
-            subtitle:
-                'We start from a solid core; we define how the store should look, how it should operate, and what needs to be solved so you can launch properly. My goal is to build something aligned with your brand, the way you sell, and your real operations, and to support you in every part of the process.',
-            noteTitle: 'The advantage is starting from a solid foundation.',
-            noteDescription:
-                'A foundation that has already been truly tested for years means we do not waste energy solving the basics. The investment goes into adapting the store to your brand, your operations, and your way of selling.',
-            cards: [
+        challenges: {
+            eyebrow: 'What this solves',
+            title: 'Real commerce pain points an online store can fix.',
+            description:
+                'If sales still happen mostly through manual chat workflows, a proper store gives structure and efficiency.',
+            items: [
                 {
-                    title: 'Custom storefront design',
+                    title: 'Manual social selling',
                     description:
-                        'I work to make sure the store looks and feels aligned with your brand, your product, and the experience you want to give customers.',
-                    icon: 'storefront',
+                        'Every sale depends on repetitive one-by-one responses.',
                 },
                 {
-                    title: 'Adaptation to your business',
+                    title: 'Repeated customer questions',
                     description:
-                        'I am not forcing your business into a template. I adapt the implementation to your operations, your commercial model, and the real priorities of the channel.',
-                    icon: 'business',
+                        'Price, stock, and photo questions are asked constantly because info is not centralized.',
                 },
                 {
-                    title: 'Launch and technical support',
+                    title: 'Unstructured order handling',
                     description:
-                        'From day one I can help with hosting, domain, and going live. After launch, if you want ongoing support or improvements, I can continue supporting or advising you based on what you need.',
-                    icon: 'launch',
+                        'There is no consistent flow to register and manage orders.',
                 },
                 {
-                    title: 'Complementary setup',
+                    title: 'WhatsApp flow without order',
                     description:
-                        'If it adds value for your case, I can also help with Google Analytics, Google Search Console, Meta Pixel, SEO, etc.',
-                    icon: 'setup',
+                        'You sell via chat, but the buying experience is uncomfortable and hard to scale.',
+                },
+                {
+                    title: 'No online payments or automation',
+                    description:
+                        'Key opportunities to reduce friction and improve conversion are missing.',
+                },
+            ],
+        },
+        solutions: {
+            eyebrow: 'Solution types',
+            title: 'Ecommerce options based on your current stage.',
+            description:
+                'We can start with the right level of complexity and grow step by step.',
+            items: [
+                {
+                    title: 'Online catalog without checkout',
+                    description:
+                        'Organized product showcase and inquiry capture without full payments.',
+                },
+                {
+                    title: 'Catalog with WhatsApp sales',
+                    description:
+                        'A cleaner product discovery flow that closes via chat.',
+                },
+                {
+                    title: 'Ecommerce with cart',
+                    description:
+                        'Smoother purchase path with fewer manual interactions.',
+                },
+                {
+                    title: 'Ecommerce with online payments',
+                    description:
+                        'Integrated payments to reduce friction at checkout.',
+                },
+                {
+                    title: 'Store with admin panel',
+                    description:
+                        'Manage products and content without depending on technical edits.',
+                },
+                {
+                    title: 'Order, stock, and shipping workflows',
+                    description:
+                        'Automate operational processes that consume time daily.',
+                },
+            ],
+        },
+        process: {
+            eyebrow: 'How the process works',
+            title: 'Guided implementation from discovery to launch.',
+            description:
+                'We move in stages so the store is both commercial and operationally strong.',
+            steps: [
+                {
+                    title: 'Initial call',
+                    description:
+                        'We review what you sell, how you currently sell, and what needs to improve.',
+                },
+                {
+                    title: 'Scope definition',
+                    description:
+                        'We align on catalog structure, checkout flow, payments, and key features.',
+                },
+                {
+                    title: 'Design direction',
+                    description:
+                        'We define a clear customer flow and visual structure before build.',
+                },
+                {
+                    title: 'Development',
+                    description:
+                        'Store implementation with the agreed integrations and functionality.',
+                },
+                {
+                    title: 'Review and refinements',
+                    description:
+                        'Final validation of buying flow and operational details before launch.',
+                },
+                {
+                    title: 'Launch',
+                    description:
+                        'Go live with domain/hosting configured and a clean initial setup.',
                 },
             ],
         },
         profile: {
             eyebrow: 'Why work with me',
-            title: 'Beyond building your store, I can be your technical partner to organize your operation from day one.',
+            title: 'Practical ecommerce execution focused on sales and process clarity.',
             description:
-                'I have experience building web products for teams across different markets, and I care about working with judgment, not just executing isolated tasks. If you want a better sense of how I work and my profile:',
+                'I help you decide what to implement now and what to defer, so effort goes where it matters most.',
             items: [
                 {
-                    title: '8+ years building products',
+                    title: 'Practical, business-first approach',
                     description:
-                        'I have worked with teams across Latin America, the United States, and Europe to build digital products with a practical, business-oriented mindset.',
+                        'Decisions are guided by sales impact and operational simplicity.',
                 },
                 {
-                    title: 'A real technical partner',
+                    title: 'Useful integrations',
                     description:
-                        'I like understanding the business, helping improve workflows, and making decisions that help you grow your business.',
+                        'WhatsApp, payments, and admin tools that support daily operations.',
                 },
                 {
-                    title: 'Senior execution and clear communication',
+                    title: 'Scalable foundation with support',
                     description:
-                        'If you work with me, you can expect technical judgment, clear communication, and a strong focus on building something reliable, maintainable, and useful for the business.',
+                        'You launch with confidence and keep room for future growth.',
                 },
             ],
-            buttonLabel: 'See my full background',
-        },
-        process: {
-            eyebrow: 'How I work',
-            title: 'The technical foundation is already there. The important work is adapting it properly to your business.',
-            description:
-                'First I understand how you sell and what you need. Then we define the implementation, I build the store around that, and I help you launch with more order. If it helps later, we keep going.',
-            steps: [
-                {
-                    title: 'Understand the business',
-                    description:
-                        'I review your catalog, sales flow, operations, and expectations so I can understand what kind of store you actually need.',
-                },
-                {
-                    title: 'Define the implementation',
-                    description:
-                        'We take the existing core and define what should be adapted, what should be custom-designed, and how the launch should be structured.',
-                },
-                {
-                    title: 'Build the store',
-                    description:
-                        'I move forward with the implementation and the storefront so the store responds to your brand, your operations, and the experience you want to deliver.',
-                },
-                {
-                    title: 'Launch with more order',
-                    description:
-                        'I can help with hosting, domain setup, initial configuration, and, if useful, with measurement and a few SEO basics so the launch is better put together.',
-                },
-            ],
+            buttonLabel: 'See my full profile',
         },
         contact: {
             eyebrow: 'Contact',
-            title: 'If you want an ecommerce store that is well built and designed for your business, let’s talk.',
+            title: 'If you want to build your online store, let’s talk.',
             description:
-                'Tell me what you need to sell, how you operate today, what you expect from your store, and what experience you want to deliver to your customers. I will suggest the best way to build and organize your store from the start.',
-            formTitle: 'Leave your contact details',
+                'Tell me what you sell and how you sell today, and I will suggest the best next step for your ecommerce setup.',
+            formTitle: 'Leave a few details',
             formDescription:
-                'Fill in your name and leave your email or WhatsApp. I will get back to you in less than 24 hours.',
+                'Add your name and leave your email or WhatsApp. I will reply within 24 hours.',
             nameLabel: 'Name',
             namePlaceholder: 'Your name',
             emailLabel: 'Email',
@@ -286,19 +376,21 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
             whatsappPlaceholder: 'Your WhatsApp number',
             helperText:
                 'Name is required. Email or WhatsApp: at least one of the two.',
-            submitLabel: 'Send inquiry',
+            submitLabel: 'I want to build my online store',
             submittingLabel: 'Sending...',
-            whatsappCtaLabel: 'Message me on WhatsApp',
+            whatsappCtaLabel: 'Ask about my ecommerce project',
             whatsappNote:
-                'If you prefer the fastest path, you can also message me directly on WhatsApp and tell me about your case there.',
+                'If you prefer the fastest route, message me directly on WhatsApp.',
             nameRequiredMessage:
                 'I need at least your name so I can reply properly.',
             contactRequiredMessage:
                 'Leave either an email or a WhatsApp number, at least one of the two.',
             notConfiguredMessage:
-                'The form is not connected to a delivery service yet. For now, please message me on WhatsApp.',
+                'The form is not connected yet. For now, please message me on WhatsApp.',
             errorMessage:
                 'There was a problem trying to send the form. Try again or contact me on WhatsApp.',
+            successMessage:
+                'Message sent. I will get back to you within 24 hours.',
         },
         links: {
             whatsapp: DEFAULT_WHATSAPP_LINK_EN,

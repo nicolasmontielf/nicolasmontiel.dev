@@ -1,42 +1,16 @@
 ---
+import HeroVideo from '@/assets/hero-ecommerce.webm';
+import HeroVideoPreview from '@/assets/hero-ecommerce-preview.webp';
+import CommercialLanding from '@components/common/landing/CommercialLanding.astro';
 import type { EcommerceLandingProps } from '@/types/landing/props';
-import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
-import ContactSection from '@components/common/landing/ContactSection.astro';
-import HeroSection from '@components/ecommerce/HeroSection.astro';
-import ProcessSection from '@components/ecommerce/ProcessSection.astro';
-import ProfileSection from '@components/ecommerce/ProfileSection.astro';
-import WorkSection from '@components/ecommerce/WorkSection.astro';
-import Footer from '@components/common/landing/Footer.astro';
-import { sectionContainerClass } from '@components/ecommerce/styles';
 
 const { content } = Astro.props as EcommerceLandingProps;
 ---
 
-<div class="bg-white text-slate-700">
-    <LandingNavbar
-        nav={content.nav}
-        whatsappLink={content.links.whatsapp}
-        ctaLabel={content.hero.primaryCtaLabel}
-        containerClass={sectionContainerClass}
-    />
-
-    <main>
-        <HeroSection
-            hero={content.hero}
-            links={content.links}
-        />
-        <WorkSection work={content.work} />
-        <ProfileSection
-            profile={content.profile}
-            aboutLink={content.links.about}
-        />
-        <ProcessSection process={content.process} />
-        <ContactSection
-            contact={content.contact}
-            whatsappLink={content.links.whatsapp}
-            containerClass={sectionContainerClass}
-            source="ecommerce"
-        />
-    </main>
-    <Footer />
-</div>
+<CommercialLanding
+    content={content}
+    source="ecommerce"
+    heroVideo={HeroVideo}
+    heroPoster={HeroVideoPreview.src}
+    heroImageAlt="Ecommerce storefront preview"
+/>

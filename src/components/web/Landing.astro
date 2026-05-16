@@ -1,43 +1,16 @@
 ---
-import BuildSection from '@components/web/BuildSection.astro';
-import ContactSection from '@components/common/landing/ContactSection.astro';
-import CriteriaSection from '@components/web/CriteriaSection.astro';
-import Footer from '@components/common/landing/Footer.astro';
-import HeroSection from '@components/web/HeroSection.astro';
-import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
-import ProfileSection from '@components/web/ProfileSection.astro';
-import ProjectTypesSection from '@components/web/ProjectTypesSection.astro';
+import HeroVideo from '@/assets/hero.webm';
+import HeroVideoPreview from '@/assets/hero-preview.webp';
+import CommercialLanding from '@components/common/landing/CommercialLanding.astro';
 import type { WebLandingProps } from '@/types/landing/props';
-import { webContainerClass } from '@components/web/styles';
+
 const { content } = Astro.props as WebLandingProps;
 ---
 
-<div class="bg-white text-slate-700">
-    <LandingNavbar
-        nav={content.nav}
-        whatsappLink={content.links.whatsapp}
-        ctaLabel={content.hero.primaryCtaLabel}
-        containerClass={webContainerClass}
-    />
-
-    <main>
-        <HeroSection
-            hero={content.hero}
-            links={content.links}
-        />
-        <ProjectTypesSection projects={content.projects} />
-        <BuildSection build={content.build} />
-        <ProfileSection
-            profile={content.profile}
-            aboutLink={content.links.about}
-        />
-        <CriteriaSection criteria={content.criteria} />
-        <ContactSection
-            contact={content.contact}
-            whatsappLink={content.links.whatsapp}
-            containerClass={webContainerClass}
-            source="web"
-        />
-    </main>
-    <Footer />
-</div>
+<CommercialLanding
+    content={content}
+    source="web"
+    heroVideo={HeroVideo}
+    heroPoster={HeroVideoPreview.src}
+    heroImageAlt="Website dashboard preview"
+/>

@@ -1,0 +1,291 @@
+---
+import ContactSection from '@components/common/landing/ContactSection.astro';
+import Footer from '@components/common/landing/Footer.astro';
+import LandingNavbar from '@components/common/landing/LandingNavbar.astro';
+import SharedProfileSection from '@components/common/landing/ProfileSection.astro';
+import {
+    landingContainerClass,
+    landingLabelClass,
+    landingPrimaryButtonClass,
+    landingSecondaryButtonClass,
+} from '@components/common/landing/styles';
+import type { CommercialLandingProps } from '@/types/landing/props';
+
+const { content, source, heroVideo, heroPoster, heroImageAlt } =
+    Astro.props as CommercialLandingProps;
+const secondCtaAnchor = source === 'web' ? '#solutions' : '#challenges';
+const isWeb = source === 'web';
+---
+
+<div class="bg-white text-slate-700">
+    <LandingNavbar
+        nav={content.nav}
+        whatsappLink={content.links.whatsapp}
+        ctaLabel={content.hero.primaryCtaLabel}
+        containerClass={landingContainerClass}
+    />
+
+    <main>
+        <section
+            id="hero"
+            class="overflow-hidden bg-[radial-gradient(circle_at_8%_18%,rgba(99,102,241,0.16),transparent_35%),linear-gradient(140deg,#ffffff_0%,#f8fafc_44%,#eef4ff_100%)] py-16 md:py-24"
+        >
+            <div
+                class={`${landingContainerClass} grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,460px)] lg:items-center`}
+            >
+                <div>
+                    <p class={landingLabelClass}>{content.hero.badge}</p>
+                    <h1
+                        class="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl md:leading-[1.02]"
+                    >
+                        {content.hero.title}
+                    </h1>
+                    <p
+                        class="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg"
+                    >
+                        {content.hero.description}
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a
+                            href={content.links.whatsapp}
+                            target="_blank"
+                            rel="noreferrer"
+                            class={landingPrimaryButtonClass}
+                            >{content.hero.primaryCtaLabel}</a
+                        >
+                        <a
+                            href={secondCtaAnchor}
+                            class={landingSecondaryButtonClass}
+                            >{content.hero.secondaryCtaLabel}</a
+                        >
+                    </div>
+
+                    <p
+                        class="mt-7 max-w-xl border-l-2 border-indigo-300 pl-4 text-sm leading-relaxed text-slate-500"
+                    >
+                        {content.hero.note}
+                    </p>
+                </div>
+
+                <div class="relative mx-auto w-full max-w-md">
+                    <div
+                        class="rounded-[1.75rem] border border-slate-200 p-4 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.42)]"
+                    >
+                        <video
+                            class="w-full rounded-[1.2rem] object-cover"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            poster={heroPoster}
+                            aria-label={heroImageAlt}
+                        >
+                            <source
+                                src={heroVideo}
+                                type="video/webm"
+                            />
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="bg-white py-16 md:py-20">
+            <div class={landingContainerClass}>
+                {
+                    isWeb ? (
+                        <>
+                            <div class="max-w-3xl">
+                                <p class={landingLabelClass}>
+                                    {content.challenges.eyebrow}
+                                </p>
+                                <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                                    {content.challenges.title}
+                                </h2>
+                                <p class="mt-5 text-base leading-relaxed text-slate-600">
+                                    {content.challenges.description}
+                                </p>
+                            </div>
+
+                            <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                                {content.challenges.items.map((item, index) => (
+                                    <article class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.18)] transition hover:-translate-y-1 hover:border-indigo-200 hover:bg-white">
+                                        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                                            {String(index + 1).padStart(2, '0')}
+                                        </p>
+                                        <h3 class="mt-5 text-xl font-semibold tracking-tight text-slate-950">
+                                            {item.title}
+                                        </h3>
+                                        <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                                            {item.description}
+                                        </p>
+                                    </article>
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] lg:items-start">
+                            <div class="grid gap-5 md:grid-cols-2">
+                                {content.challenges.items.map((item, index) => (
+                                    <article class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.18)]">
+                                        <div class="flex items-center gap-3">
+                                            <span class="grid h-9 w-9 place-items-center rounded-xl bg-indigo-600 text-sm font-semibold text-white">
+                                                {index + 1}
+                                            </span>
+                                            <h3 class="text-lg font-semibold tracking-tight text-slate-900">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                        <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                                            {item.description}
+                                        </p>
+                                    </article>
+                                ))}
+                            </div>
+
+                            <div>
+                                <p class={landingLabelClass}>
+                                    {content.challenges.eyebrow}
+                                </p>
+                                <h2 class="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-4xl">
+                                    {content.challenges.title}
+                                </h2>
+                                <p class="mt-5 text-base leading-relaxed text-slate-600">
+                                    {content.challenges.description}
+                                </p>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+        </section>
+
+        <section id="solutions" class="border-y border-slate-200 bg-slate-50 py-16 md:py-20">
+            <div class={landingContainerClass}>
+                <div class="max-w-3xl">
+                    <p class={landingLabelClass}>{content.solutions.eyebrow}</p>
+                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                        {content.solutions.title}
+                    </h2>
+                    <p class="mt-5 text-base leading-relaxed text-slate-600">
+                        {content.solutions.description}
+                    </p>
+                </div>
+
+                {
+                    isWeb ? (
+                        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {content.solutions.items.map((item, index) => (
+                                <article class="group min-h-[17rem] rounded-[1.5rem] border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-[0_24px_60px_-42px_rgba(15,23,42,0.35)]">
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </p>
+                                    <h3 class="mt-7 text-xl font-semibold tracking-tight text-slate-950">
+                                        {item.title}
+                                    </h3>
+                                    <p class="mt-4 text-sm leading-relaxed text-slate-600">
+                                        {item.description}
+                                    </p>
+                                    <div class="mt-7 h-1 w-10 rounded-full bg-indigo-600/70 transition group-hover:w-16" />
+                                </article>
+                            ))}
+                        </div>
+                    ) : (
+                        <div class="mt-10 grid gap-px overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-3">
+                            {content.solutions.items.map((item) => (
+                                <article class="bg-white p-6 transition hover:bg-slate-50">
+                                    <h3 class="text-lg font-semibold tracking-tight text-slate-950">
+                                        {item.title}
+                                    </h3>
+                                    <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                                        {item.description}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
+        </section>
+
+        <section id="process" class="border-y border-slate-200 bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)] py-16 md:py-20">
+            <div class={landingContainerClass}>
+                <div class="max-w-2xl">
+                    <p class={landingLabelClass}>{content.process.eyebrow}</p>
+                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+                        {content.process.title}
+                    </h2>
+                    <p class="mt-4 text-base leading-relaxed text-slate-600">
+                        {content.process.description}
+                    </p>
+                </div>
+
+                {
+                    isWeb ? (
+                        <ol class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {content.process.steps.map((step, index) => (
+                                <li class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.18)]">
+                                    <div class="flex items-center gap-3">
+                                        <span class="grid h-8 w-8 place-items-center rounded-full bg-indigo-600 text-xs font-bold text-white">
+                                            {index + 1}
+                                        </span>
+                                        <h3 class="text-base font-semibold tracking-tight text-slate-950">
+                                            {step.title}
+                                        </h3>
+                                    </div>
+                                    <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                                        {step.description}
+                                    </p>
+                                </li>
+                            ))}
+                        </ol>
+                    ) : (
+                        <ol class="relative mt-12 grid gap-5 md:grid-cols-2">
+                            <div class="pointer-events-none absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent md:block">
+                            </div>
+                            {content.process.steps.map((step, index) => (
+                                <li
+                                    class:list={[
+                                        'relative rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_20px_45px_-34px_rgba(15,23,42,0.18)]',
+                                        index % 2 === 1 && 'md:translate-y-10',
+                                    ]}
+                                >
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-sm font-semibold text-white shadow-[0_12px_30px_-18px_rgba(79,70,229,0.9)]">
+                                            {index + 1}
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold tracking-tight text-slate-950">
+                                                {step.title}
+                                            </h3>
+                                            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                                                {step.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                    )
+                }
+            </div>
+        </section>
+
+        <SharedProfileSection
+            profile={content.profile}
+            aboutLink={content.links.about}
+            containerClass={landingContainerClass}
+            sectionId="profile"
+        />
+
+        <ContactSection
+            contact={content.contact}
+            whatsappLink={content.links.whatsapp}
+            containerClass={landingContainerClass}
+            source={source}
+        />
+    </main>
+
+    <Footer />
+</div>
