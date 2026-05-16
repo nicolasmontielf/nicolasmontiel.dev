@@ -73,7 +73,10 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
             heroImageAlt={heroImageAltByLocale[locale]}
         />
 
-        <section id="challenges" class="bg-white py-16 md:py-20">
+        <section
+            id="challenges"
+            class="bg-white py-16 md:py-20"
+        >
             <div class={landingContainerClass}>
                 <SectionHeading
                     eyebrow={content.challenges.eyebrow}
@@ -82,31 +85,36 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
                 />
 
                 <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {content.challenges.items.map((item) => {
-                        const Icon = challengeIconByName[item.icon];
+                    {
+                        content.challenges.items.map((item) => {
+                            const Icon = challengeIconByName[item.icon];
 
-                        return (
-                            <FeatureCard
-                                title={item.title}
-                                description={item.description}
-                                layout="stacked"
-                                hoverable={true}
-                                className="p-5"
-                            >
-                                <IconBadge slot="icon">
-                                    <Icon
-                                        size={18}
-                                        strokeWidth={1.9}
-                                    />
-                                </IconBadge>
-                            </FeatureCard>
-                        );
-                    })}
+                            return (
+                                <FeatureCard
+                                    title={item.title}
+                                    description={item.description}
+                                    layout="stacked"
+                                    hoverable={true}
+                                    className="p-5"
+                                >
+                                    <IconBadge slot="icon">
+                                        <Icon
+                                            size={18}
+                                            strokeWidth={1.9}
+                                        />
+                                    </IconBadge>
+                                </FeatureCard>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </section>
 
-        <section id="solutions" class="bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)] py-16 md:py-20">
+        <section
+            id="solutions"
+            class="bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)] py-16 md:py-20"
+        >
             <div class={landingContainerClass}>
                 <SectionHeading
                     eyebrow={content.solutions.eyebrow}
@@ -115,13 +123,15 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
                 />
 
                 <div class="mt-10 grid gap-5 lg:grid-cols-3">
-                    {content.solutions.groups.map((group) => (
-                        <EcommerceSolutionGroupCard
-                            title={group.title}
-                            subtitle={group.subtitle}
-                            items={group.items}
-                        />
-                    ))}
+                    {
+                        content.solutions.groups.map((group) => (
+                            <EcommerceSolutionGroupCard
+                                title={group.title}
+                                subtitle={group.subtitle}
+                                items={group.items}
+                            />
+                        ))
+                    }
                 </div>
 
                 {
@@ -129,7 +139,9 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
                         <CalloutPanel
                             eyebrow={labels.alternative}
                             title={content.solutions.bridgeToWeb.title}
-                            description={content.solutions.bridgeToWeb.description}
+                            description={
+                                content.solutions.bridgeToWeb.description
+                            }
                             ctaHref={content.solutions.bridgeToWeb.href}
                             ctaLabel={content.solutions.bridgeToWeb.ctaLabel}
                             tone="primary"
@@ -140,7 +152,10 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
             </div>
         </section>
 
-        <section id="process" class="bg-white py-16 md:py-20">
+        <section
+            id="process"
+            class="bg-white py-16 md:py-20"
+        >
             <div class={landingContainerClass}>
                 <SectionHeading
                     eyebrow={content.process.eyebrow}

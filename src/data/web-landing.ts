@@ -78,20 +78,24 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             rows: [
                 {
                     solution: 'Web institucional',
-                    objective: 'Tener presencia online profesional y explicar quién sos.',
+                    objective:
+                        'Tener presencia online profesional y explicar quién sos.',
                     outcome: 'Marca más clara y mejor primera impresión.',
                     icon: 'building-2',
                 },
                 {
                     solution: 'Landing page',
-                    objective: 'Captar consultas de una oferta o campaña puntual.',
+                    objective:
+                        'Captar consultas de una oferta o campaña puntual.',
                     outcome: 'Más contactos calificados en menos pasos.',
                     icon: 'megaphone',
                 },
                 {
                     solution: 'Web con catálogo simple',
-                    objective: 'Mostrar servicios o productos de forma ordenada.',
-                    outcome: 'Cliente entiende mejor qué ofrecés y cómo comprar.',
+                    objective:
+                        'Mostrar servicios o productos de forma ordenada.',
+                    outcome:
+                        'Cliente entiende mejor qué ofrecés y cómo comprar.',
                     icon: 'book-open',
                 },
                 {
@@ -102,13 +106,15 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 },
                 {
                     solution: 'Web con funciones especiales',
-                    objective: 'Digitalizar procesos como reservas, turnos o flujos internos.',
+                    objective:
+                        'Digitalizar procesos como reservas, turnos o flujos internos.',
                     outcome: 'Mejor productividad y menos tareas manuales.',
                     icon: 'calendar-clock',
                 },
                 {
                     solution: 'Web custom de productividad/analítica',
-                    objective: 'Conectar operaciones, métricas y decisiones de negocio.',
+                    objective:
+                        'Conectar operaciones, métricas y decisiones de negocio.',
                     outcome: 'Visibilidad operativa y crecimiento con datos.',
                     icon: 'chart-column',
                 },
@@ -156,14 +162,12 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 },
                 {
                     title: 'Revisión y ajustes',
-                    description:
-                        'Ajustes finales antes de publicar.',
+                    description: 'Ajustes finales antes de publicar.',
                     icon: 'check',
                 },
                 {
                     title: 'Publicación',
-                    description:
-                        'Salida a producción en dominio y hosting.',
+                    description: 'Salida a producción en dominio y hosting.',
                     icon: 'rocket',
                 },
             ],
@@ -267,11 +271,35 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             description:
                 'If you rely only on social media and chat messages, a website helps centralize and clarify your value proposition.',
             items: [
-                { title: 'No professional online presence', description: 'Your brand has no clear digital home.', icon: 'globe' },
-                { title: 'Scattered information', description: 'Key details are split across social media and chats.', icon: 'folder-open' },
-                { title: 'Unclear offer', description: 'Visitors do not quickly understand what you offer.', icon: 'search' },
-                { title: 'Low-quality inquiries', description: 'You get messages, but with weak purchase intent.', icon: 'message-circle' },
-                { title: 'Weak first impression', description: 'Your business needs stronger initial trust online.', icon: 'shield' },
+                {
+                    title: 'No professional online presence',
+                    description: 'Your brand has no clear digital home.',
+                    icon: 'globe',
+                },
+                {
+                    title: 'Scattered information',
+                    description:
+                        'Key details are split across social media and chats.',
+                    icon: 'folder-open',
+                },
+                {
+                    title: 'Unclear offer',
+                    description:
+                        'Visitors do not quickly understand what you offer.',
+                    icon: 'search',
+                },
+                {
+                    title: 'Low-quality inquiries',
+                    description:
+                        'You get messages, but with weak purchase intent.',
+                    icon: 'message-circle',
+                },
+                {
+                    title: 'Weak first impression',
+                    description:
+                        'Your business needs stronger initial trust online.',
+                    icon: 'shield',
+                },
             ],
         },
         solutions: {
@@ -284,16 +312,50 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                 outcome: 'Expected outcome',
             },
             rows: [
-                { solution: 'Institutional website', objective: 'Establish a professional online presence.', outcome: 'Clear trust and brand presentation.', icon: 'building-2' },
-                { solution: 'Landing page', objective: 'Capture leads for a focused campaign.', outcome: 'Higher lead conversion.', icon: 'megaphone' },
-                { solution: 'Website with simple catalog', objective: 'Organize your products/services clearly.', outcome: 'Better understanding and inquiries.', icon: 'book-open' },
-                { solution: 'Website with admin panel', objective: 'Update content with autonomy.', outcome: 'Faster internal publishing cycles.', icon: 'sliders-horizontal' },
-                { solution: 'Website with special features', objective: 'Digitalize reservations, appointments, or workflows.', outcome: 'Less manual overhead.', icon: 'calendar-clock' },
-                { solution: 'Custom web for productivity/analytics', objective: 'Connect operations and decision-making with data.', outcome: 'Operational visibility and scalable growth.', icon: 'chart-column' },
+                {
+                    solution: 'Institutional website',
+                    objective: 'Establish a professional online presence.',
+                    outcome: 'Clear trust and brand presentation.',
+                    icon: 'building-2',
+                },
+                {
+                    solution: 'Landing page',
+                    objective: 'Capture leads for a focused campaign.',
+                    outcome: 'Higher lead conversion.',
+                    icon: 'megaphone',
+                },
+                {
+                    solution: 'Website with simple catalog',
+                    objective: 'Organize your products/services clearly.',
+                    outcome: 'Better understanding and inquiries.',
+                    icon: 'book-open',
+                },
+                {
+                    solution: 'Website with admin panel',
+                    objective: 'Update content with autonomy.',
+                    outcome: 'Faster internal publishing cycles.',
+                    icon: 'sliders-horizontal',
+                },
+                {
+                    solution: 'Website with special features',
+                    objective:
+                        'Digitalize reservations, appointments, or workflows.',
+                    outcome: 'Less manual overhead.',
+                    icon: 'calendar-clock',
+                },
+                {
+                    solution: 'Custom web for productivity/analytics',
+                    objective:
+                        'Connect operations and decision-making with data.',
+                    outcome: 'Operational visibility and scalable growth.',
+                    icon: 'chart-column',
+                },
                 {
                     solution: 'Ecommerce',
-                    objective: 'Sell products online with the right checkout flow for your stage.',
-                    outcome: 'A clearer and more scalable digital sales channel.',
+                    objective:
+                        'Sell products online with the right checkout flow for your stage.',
+                    outcome:
+                        'A clearer and more scalable digital sales channel.',
                     icon: 'chart-column',
                     href: getCommercialServicePath('ecommerce', 'en'),
                     hrefLabel: 'See more details',
@@ -305,12 +367,39 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
             title: 'A clear narrative timeline from idea to launch.',
             description: 'Each stage shows concrete progress.',
             steps: [
-                { title: 'Initial call', description: 'We align on business goals and context.', icon: 'handshake' },
-                { title: 'Scope definition', description: 'We define sections, content, and key features.', icon: 'clipboard-list' },
-                { title: 'Visual proposal', description: 'We validate look, hierarchy, and UX direction.', icon: 'palette' },
-                { title: 'Development', description: 'Implementation focused on quality and performance.', icon: 'code' },
-                { title: 'Review and refinements', description: 'Final adjustments before publication.', icon: 'check' },
-                { title: 'Launch', description: 'Production setup on hosting and domain.', icon: 'rocket' },
+                {
+                    title: 'Initial call',
+                    description: 'We align on business goals and context.',
+                    icon: 'handshake',
+                },
+                {
+                    title: 'Scope definition',
+                    description:
+                        'We define sections, content, and key features.',
+                    icon: 'clipboard-list',
+                },
+                {
+                    title: 'Visual proposal',
+                    description:
+                        'We validate look, hierarchy, and UX direction.',
+                    icon: 'palette',
+                },
+                {
+                    title: 'Development',
+                    description:
+                        'Implementation focused on quality and performance.',
+                    icon: 'code',
+                },
+                {
+                    title: 'Review and refinements',
+                    description: 'Final adjustments before publication.',
+                    icon: 'check',
+                },
+                {
+                    title: 'Launch',
+                    description: 'Production setup on hosting and domain.',
+                    icon: 'rocket',
+                },
             ],
         },
         profile: {

@@ -5,11 +5,7 @@ type Props = {
     className?: string;
 };
 
-const {
-    tone = 'primary',
-    size = 'md',
-    className,
-} = Astro.props as Props;
+const { tone = 'primary', size = 'md', className } = Astro.props as Props;
 
 const toneClass = {
     primary:

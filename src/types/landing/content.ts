@@ -45,7 +45,10 @@ export type CommercialLandingContent = {
     };
     nav: {
         label: string;
-        items: Array<{ id: Exclude<CommercialSectionId, 'hero'>; label: string }>;
+        items: Array<{
+            id: Exclude<CommercialSectionId, 'hero'>;
+            label: string;
+        }>;
     };
     hero: {
         badge: string;

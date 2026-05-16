@@ -27,11 +27,13 @@ const hasIcon = Astro.slots.has('icon');
         className,
     ]}
 >
-    {accentLabel && (
-        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-indigo-600">
-            {accentLabel}
-        </p>
-    )}
+    {
+        accentLabel && (
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                {accentLabel}
+            </p>
+        )
+    }
 
     {
         layout === 'stacked' && (

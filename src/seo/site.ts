@@ -1,8 +1,5 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
-import {
-    COMMERCIAL_SERVICE_SLUGS,
-    getLocalizedPath,
-} from '@/i18n/routing';
+import { COMMERCIAL_SERVICE_SLUGS, getLocalizedPath } from '@/i18n/routing';
 
 export {
     COMMERCIAL_SERVICE_SLUGS,
