@@ -36,6 +36,8 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
 export const PUBLIC_LOCALIZED_PATHS = [
     '/en',
     '/es',
+    '/en/qr-code',
+    '/es/qr-code',
     '/en/about-me',
     '/es/sobre-mi',
     `/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,

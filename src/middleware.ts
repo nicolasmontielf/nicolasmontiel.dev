@@ -2,7 +2,7 @@ import { defineMiddleware } from 'astro:middleware';
 import { resolveRequestLocale } from '@/i18n/detect-locale';
 import { isLocale } from '@/i18n/locales';
 
-const BYPASS_PREFIXES = ['/api', '/_astro', '/icons', '/qr-code'];
+const BYPASS_PREFIXES = ['/api', '/_astro', '/icons'];
 
 function shouldBypass(pathname: string) {
     if (pathname === '/favicon.svg') {

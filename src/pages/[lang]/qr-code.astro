@@ -1,0 +1,127 @@
+---
+import avatarImage from '@assets/nicolas-montiel-avatar.png';
+import FeatureCard from '@components/common/landing/FeatureCard.astro';
+import IconBadge from '@components/common/landing/IconBadge.astro';
+import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
+import { getQrCodeContent, getQrCodeWhatsappLink } from '@/data/qr-code';
+import { isLocale } from '@/i18n/locales';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+import { Globe, House, ShoppingCart, UserRound } from '@lucide/astro';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+    return Astro.redirect('/en/qr-code');
+}
+
+const content = getQrCodeContent(lang);
+const whatsappLink = getQrCodeWhatsappLink(lang);
+const canonical = `${SITE_URL}/${lang}/qr-code`;
+const iconByName = {
+    home: House,
+    user: UserRound,
+    globe: Globe,
+    'shopping-cart': ShoppingCart,
+};
+---
+
+<Layout
+    title={content.metaTitle}
+    description={content.metaDescription}
+    canonical={canonical}
+    showDefaultNavbar={false}
+    containerMode="fluid"
+>
+    <section
+        class="min-h-screen bg-[linear-gradient(135deg,#f8fafc_0%,#eef2ff_42%,#ffffff_100%)] px-4 py-6 text-slate-700 sm:px-6"
+    >
+        <div
+            class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-3xl flex-col justify-center"
+        >
+            <div
+                class="rounded-[1.3rem] border border-slate-200 bg-white p-5 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.55)] sm:p-6"
+            >
+                <a
+                    href={`/${lang}`}
+                    class="flex items-center gap-3 text-slate-950"
+                    aria-label="Nicolas Montiel"
+                >
+                    <img
+                        src={avatarImage.src}
+                        alt=""
+                        class="h-12 w-12 rounded-full border border-white bg-white object-cover shadow-sm"
+                        loading="eager"
+                    />
+                    <span>
+                        <span class="block text-sm font-bold tracking-tight"
+                            >Nicolas Montiel</span
+                        >
+                        <span
+                            class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] text-indigo-600"
+                        >
+                            {content.profileLabel}
+                        </span>
+                    </span>
+                </a>
+
+                <p
+                    class="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-600"
+                >
+                    {content.badge}
+                </p>
+                <h1
+                    class="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl"
+                >
+                    {content.title}
+                </h1>
+                <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                    {content.description}
+                </p>
+
+                <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {
+                        content.links.map((item) => {
+                            const Icon = iconByName[item.icon];
+
+                            return (
+                                <a
+                                    href={item.href}
+                                    class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 rounded-[1.5rem]"
+                                    aria-label={item.label}
+                                >
+                                    <FeatureCard
+                                        title={item.label}
+                                        description={item.description}
+                                        layout="stacked"
+                                        hoverable={true}
+                                        className="p-5"
+                                    >
+                                        <IconBadge slot="icon">
+                                            <Icon
+                                                size={18}
+                                                stroke-width={1.9}
+                                            />
+                                        </IconBadge>
+                                    </FeatureCard>
+                                </a>
+                            );
+                        })
+                    }
+                </div>
+
+                <div class="mt-6 border-t border-slate-200 pt-5">
+                    <LandingButtonLink
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        variant="primary"
+                        className="flex w-full items-center justify-center rounded-md px-5 py-4 text-sm"
+                    >
+                        {content.whatsappLabel}
+                    </LandingButtonLink>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

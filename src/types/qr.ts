@@ -4,18 +4,18 @@ export type QrLinkItem = {
     label: string;
     description: string;
     href: string;
+    icon: 'home' | 'user' | 'globe' | 'shopping-cart';
 };
 
-export type QrLocaleContent = {
+export type QrPageContent = {
     metaTitle: string;
     metaDescription: string;
     badge: string;
     title: string;
     description: string;
-    languageLabel: string;
+    profileLabel: string;
     whatsappLabel: string;
-    whatsappNote: string;
     links: QrLinkItem[];
 };
 
-export type QrContentByLocale = Record<Locale, QrLocaleContent>;
+export type QrContentByLocale = Record<Locale, QrPageContent>;
