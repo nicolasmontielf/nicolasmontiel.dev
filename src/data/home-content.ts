@@ -106,9 +106,8 @@ const homeContentByLocale: Record<Locale, HomeContent> = {
             languageLabel: 'Idioma',
             items: [
                 { id: 'posts', label: 'Posts' },
+                { id: 'experience', label: 'Experiencia' },
                 { id: 'certifications', label: 'Certificaciones y cursos' },
-                { id: 'ecommerce', label: 'Quiero un ecommerce' },
-                { id: 'web', label: 'Quiero una web' },
             ],
         },
         presentation: {
@@ -194,9 +193,8 @@ const homeContentByLocale: Record<Locale, HomeContent> = {
             languageLabel: 'Language',
             items: [
                 { id: 'posts', label: 'Posts' },
+                { id: 'experience', label: 'Experience' },
                 { id: 'certifications', label: 'Certifications and courses' },
-                { id: 'ecommerce', label: 'I need an online store' },
-                { id: 'web', label: 'I need a website' },
             ],
         },
         presentation: {

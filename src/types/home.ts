@@ -23,7 +23,7 @@ export type PresentationBodyByVariant = Record<
 >;
 
 export type HomeNavbarItem = {
-    id: 'posts' | 'certifications' | 'ecommerce' | 'web';
+    id: 'posts' | 'experience' | 'certifications';
     label: string;
 };
 

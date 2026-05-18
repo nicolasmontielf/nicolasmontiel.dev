@@ -54,15 +54,19 @@ const cards = certifications.items.map((item) => {
                             <span data-cert-preview data-cert-id={item.id}>
                                 {item.preview}
                             </span>
+                            <span
+                                class="hidden"
+                                data-cert-full
+                                data-cert-id={item.id}
+                            >
+                                {item.description}
+                            </span>
                             {
                                 item.shouldTruncate && (
                                     <>
-                                        <span class="mx-1" data-cert-ellipsis data-cert-id={item.id}>
-                                            {" "}
-                                        </span>
                                         <button
                                             type="button"
-                                            class="inline-flex align-baseline text-xs font-medium text-slate-700 transition-colors hover:text-slate-950"
+                                            class="ml-1 inline-flex align-baseline text-xs font-medium text-slate-700 transition-colors hover:text-slate-950"
                                             data-cert-toggle
                                             data-cert-id={item.id}
                                             aria-expanded="false"
@@ -72,13 +76,6 @@ const cards = certifications.items.map((item) => {
                                     </>
                                 )
                             }
-                        </p>
-                        <p
-                            class="hidden text-sm leading-relaxed text-slate-600"
-                            data-cert-full
-                            data-cert-id={item.id}
-                        >
-                            {item.description}
                         </p>
                     </div>
 
@@ -114,10 +111,6 @@ const cards = certifications.items.map((item) => {
             const full = document.querySelector(
                 `[data-cert-full][data-cert-id="${certId}"]`,
             );
-            const ellipsis = document.querySelector(
-                `[data-cert-ellipsis][data-cert-id="${certId}"]`,
-            );
-
             if (!(preview instanceof HTMLElement) || !(full instanceof HTMLElement)) {
                 return;
             }
@@ -127,9 +120,6 @@ const cards = certifications.items.map((item) => {
             button.textContent = isExpanded ? viewMoreLabel : viewLessLabel;
             preview.classList.toggle('hidden', !isExpanded);
             full.classList.toggle('hidden', isExpanded);
-            if (ellipsis instanceof HTMLElement) {
-                ellipsis.classList.toggle('hidden', !isExpanded);
-            }
         });
     });
 </script>

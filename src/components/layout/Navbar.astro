@@ -1,7 +1,7 @@
 ---
 import { getHomeContent } from '@/data/home-content';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
-import { getCommercialServicePath, getLocalizedPath } from '@/seo/site';
+import { getLocalizedPath } from '@/seo/site';
 import logo from '@assets/logo.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
@@ -10,19 +10,17 @@ const homeContent = getHomeContent(locale);
 const labels = homeContent.navbar;
 
 const homePath = `/${locale}`;
+const experiencePath = `${homePath}#experience`;
 const certificationsPath = `${homePath}#certifications`;
-const ecommercePath = getCommercialServicePath('ecommerce', locale);
-const webPath = getCommercialServicePath('web', locale);
 const switchToEsPath = getLocalizedPath(currentPath, 'es');
 const switchToEnPath = getLocalizedPath(currentPath, 'en');
 const navLabelById = Object.fromEntries(
     labels.items.map((item) => [item.id, item.label]),
-) as Record<'posts' | 'certifications' | 'ecommerce' | 'web', string>;
+) as Record<'posts' | 'experience' | 'certifications', string>;
 const navHrefById = {
     posts: homeContent.navbar.postsHref,
+    experience: experiencePath,
     certifications: certificationsPath,
-    ecommerce: ecommercePath,
-    web: webPath,
 };
 ---
 
@@ -135,16 +133,9 @@ const navHrefById = {
             <a
                 class="hover:text-indigo-600 transition-colors"
                 data-mobile-link
-                href={navHrefById.ecommerce}
+                href={navHrefById.experience}
             >
-                {navLabelById.ecommerce}
-            </a>
-            <a
-                class="hover:text-indigo-600 transition-colors"
-                data-mobile-link
-                href={navHrefById.web}
-            >
-                {navLabelById.web}
+                {navLabelById.experience}
             </a>
             <div>
                 <label
