@@ -1,6 +1,8 @@
 ---
+import { getHomeContent } from '@/data/home-content';
 import Layout from '@/layouts/Layout.astro';
 import Presentation from '@components/home/Presentation.astro';
+import WorkExperience from '@components/home/WorkExperience.astro';
 import Certifications from '@components/home/Certifications.astro';
 import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
@@ -12,6 +14,7 @@ if (!lang || !isLocale(lang)) {
 }
 
 const messages = getMessages(lang);
+const homeContent = getHomeContent(lang);
 ---
 
 <Layout
@@ -21,14 +24,15 @@ const messages = getMessages(lang);
     <section id="presentation-section">
         <Presentation
             variant="pro"
-            greeting={messages.home.greeting}
+            greeting={homeContent.presentation.greeting}
         />
     </section>
 
+    <section id="experience">
+        <WorkExperience />
+    </section>
+
     <section id="certifications">
-        <Certifications
-            title={messages.home.certificationsTitle}
-            credentialLabel={messages.home.viewCredential}
-        />
+        <Certifications />
     </section>
 </Layout>

@@ -1,20 +1,29 @@
 ---
-import { getMessages } from '@/i18n/messages';
+import { getHomeContent } from '@/data/home-content';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getCommercialServicePath, getLocalizedPath } from '@/seo/site';
 import logo from '@assets/logo.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const currentPath = Astro.url.pathname;
-const labels = getMessages(locale).navbar;
+const homeContent = getHomeContent(locale);
+const labels = homeContent.navbar;
 
 const homePath = `/${locale}`;
-const postsPath = `/${locale}/posts`;
 const certificationsPath = `${homePath}#certifications`;
 const ecommercePath = getCommercialServicePath('ecommerce', locale);
 const webPath = getCommercialServicePath('web', locale);
 const switchToEsPath = getLocalizedPath(currentPath, 'es');
 const switchToEnPath = getLocalizedPath(currentPath, 'en');
+const navLabelById = Object.fromEntries(
+    labels.items.map((item) => [item.id, item.label]),
+) as Record<'posts' | 'certifications' | 'ecommerce' | 'web', string>;
+const navHrefById = {
+    posts: homeContent.navbar.postsHref,
+    certifications: certificationsPath,
+    ecommerce: ecommercePath,
+    web: webPath,
+};
 ---
 
 <header
@@ -36,35 +45,27 @@ const switchToEnPath = getLocalizedPath(currentPath, 'en');
         </a>
 
         <nav class="hidden md:flex gap-4 items-center text-sm">
-            <a
-                class="hover:text-indigo-600 transition-colors"
-                target="_blank"
-                href="https://dev.to/nicolasmontielf"
-                >{labels.posts}</a
-            >
-            <span class="text-slate-300"> / </span>
-            <a
-                class="hover:text-indigo-600 transition-colors"
-                href={certificationsPath}
-                >{labels.certifications}</a
-            >
-            <span class="text-slate-300"> / </span>
-            <a
-                class="hover:text-indigo-600 transition-colors"
-                href={ecommercePath}
-                >{labels.wantEcommerce}</a
-            >
-            <span class="text-slate-300"> / </span>
-            <a
-                class="hover:text-indigo-600 transition-colors"
-                href={webPath}
-                >{labels.wantWeb}</a
-            >
+            {
+                labels.items.map((item, index) => (
+                    <>
+                        <a
+                            class="hover:text-indigo-600 transition-colors"
+                            target={item.id === 'posts' ? '_blank' : undefined}
+                            href={navHrefById[item.id]}
+                        >
+                            {item.label}
+                        </a>
+                        {index < labels.items.length - 1 && (
+                            <span class="text-slate-300"> / </span>
+                        )}
+                    </>
+                ))
+            }
             <span class="text-slate-300"> / </span>
             <label
                 class="sr-only"
                 for="desktop-language-select"
-                >{labels.language}</label
+                >{labels.languageLabel}</label
             >
             <select
                 id="desktop-language-select"
@@ -119,32 +120,37 @@ const switchToEnPath = getLocalizedPath(currentPath, 'en');
             <a
                 class="hover:text-indigo-600 transition-colors"
                 data-mobile-link
-                href={postsPath}
-                >{labels.posts}</a
+                href={navHrefById.posts}
+                target="_blank"
             >
+                {navLabelById.posts}
+            </a>
             <a
                 class="hover:text-indigo-600 transition-colors"
                 data-mobile-link
-                href={certificationsPath}
-                >{labels.certifications}</a
+                href={navHrefById.certifications}
             >
+                {navLabelById.certifications}
+            </a>
             <a
                 class="hover:text-indigo-600 transition-colors"
                 data-mobile-link
-                href={ecommercePath}
-                >{labels.wantEcommerce}</a
+                href={navHrefById.ecommerce}
             >
+                {navLabelById.ecommerce}
+            </a>
             <a
                 class="hover:text-indigo-600 transition-colors"
                 data-mobile-link
-                href={webPath}
-                >{labels.wantWeb}</a
+                href={navHrefById.web}
             >
+                {navLabelById.web}
+            </a>
             <div>
                 <label
                     class="block text-xs text-slate-500 mb-1"
                     for="mobile-language-select"
-                    >{labels.language}</label
+                    >{labels.languageLabel}</label
                 >
                 <select
                     id="mobile-language-select"

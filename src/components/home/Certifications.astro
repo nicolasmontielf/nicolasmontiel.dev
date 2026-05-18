@@ -1,42 +1,135 @@
 ---
-import { certifications } from '@/data/certifications';
+import { ExternalLink } from '@lucide/astro';
+import { getHomeContent } from '@/data/home-content';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 import type { CertificationsProps } from '@/types/home';
 
 const { title, credentialLabel } = Astro.props as CertificationsProps;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const certifications = getHomeContent(locale).certifications;
+const sectionTitle = title ?? certifications.title;
+const credentialText = credentialLabel ?? certifications.viewCredentialLabel;
+const cards = certifications.items.map((item) => {
+    const shouldTruncate = item.description.length > certifications.previewLength;
+    const preview = shouldTruncate
+        ? `${item.description.slice(0, certifications.previewLength).trimEnd()}...`
+        : item.description;
+
+    return {
+        ...item,
+        preview,
+        shouldTruncate,
+    };
+});
 ---
 
 <section
     id="certifications-section"
-    class="mt-16"
+    class="mt-24"
 >
-    <h2 class="text-4xl font-bold tracking-tight text-slate-900">{title}</h2>
+    <div class="max-w-3xl">
+        <h2 class="text-4xl font-bold tracking-tight text-slate-900">{sectionTitle}</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-600">
+            {certifications.description}
+        </p>
+    </div>
 
-    <div class="mt-8 grid gap-5 md:grid-cols-3">
+    <div class="mt-10 grid gap-4 md:grid-cols-3">
         {
-            certifications.map((item) => (
-                <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col h-full">
-                    <div class="flex items-center gap-x-5">
+            cards.map((item) => (
+                <article class="flex h-full flex-col rounded-xl border border-slate-200/90 bg-white/80 p-5">
+                    <div class="flex items-start gap-4">
                         <img
                             src={item.icon}
-                            class="h-16 object-contain"
+                            class="h-11 w-auto shrink-0 object-contain"
                             alt={item.title}
                         />
 
-                        <h3 class="text-xl font-semibold leading-tight text-slate-900">
+                        <h3 class="text-base font-semibold leading-snug text-slate-900">
                             {item.title}
                         </h3>
                     </div>
+                    <div class="mt-4">
+                        <p class="text-sm leading-relaxed text-slate-600">
+                            <span data-cert-preview data-cert-id={item.id}>
+                                {item.preview}
+                            </span>
+                            {
+                                item.shouldTruncate && (
+                                    <>
+                                        <span class="mx-1" data-cert-ellipsis data-cert-id={item.id}>
+                                            {" "}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            class="inline-flex align-baseline text-xs font-medium text-slate-700 transition-colors hover:text-slate-950"
+                                            data-cert-toggle
+                                            data-cert-id={item.id}
+                                            aria-expanded="false"
+                                        >
+                                            {certifications.viewMoreLabel}
+                                        </button>
+                                    </>
+                                )
+                            }
+                        </p>
+                        <p
+                            class="hidden text-sm leading-relaxed text-slate-600"
+                            data-cert-full
+                            data-cert-id={item.id}
+                        >
+                            {item.description}
+                        </p>
+                    </div>
 
                     <a
-                        class="mt-auto pt-8 inline-flex text-base font-semibold text-indigo-700 hover:text-indigo-800 transition-colors"
+                        class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-slate-800 transition-colors hover:text-slate-950"
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {credentialLabel}
+                        {credentialText}
+                        <ExternalLink size={15} stroke-width={2} />
                     </a>
                 </article>
             ))
         }
     </div>
 </section>
+
+<script is:inline define:vars={{
+    viewMoreLabel: certifications.viewMoreLabel,
+    viewLessLabel: certifications.viewLessLabel,
+}}>
+    const certToggles = Array.from(document.querySelectorAll('[data-cert-toggle]'));
+
+    certToggles.forEach((button) => {
+        button.addEventListener('click', () => {
+            const certId = button.getAttribute('data-cert-id');
+            if (!certId) return;
+
+            const preview = document.querySelector(
+                `[data-cert-preview][data-cert-id="${certId}"]`,
+            );
+            const full = document.querySelector(
+                `[data-cert-full][data-cert-id="${certId}"]`,
+            );
+            const ellipsis = document.querySelector(
+                `[data-cert-ellipsis][data-cert-id="${certId}"]`,
+            );
+
+            if (!(preview instanceof HTMLElement) || !(full instanceof HTMLElement)) {
+                return;
+            }
+
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+            button.textContent = isExpanded ? viewMoreLabel : viewLessLabel;
+            preview.classList.toggle('hidden', !isExpanded);
+            full.classList.toggle('hidden', isExpanded);
+            if (ellipsis instanceof HTMLElement) {
+                ellipsis.classList.toggle('hidden', !isExpanded);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,109 @@
+---
+import { getHomeContent } from '@/data/home-content';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const experience = getHomeContent(locale).experience;
+---
+
+<section id="experience-section" class="mt-24">
+    <div class="max-w-3xl">
+        <h2 class="text-4xl font-bold tracking-tight text-slate-900">
+            {experience.title}
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-600">
+            {experience.description}
+        </p>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-10 md:flex-row md:items-start">
+        <aside class="md:w-3/12">
+            <div class="space-y-1">
+                {
+                    experience.items.map((item, index) => (
+                        <button
+                            type="button"
+                            class:list={[
+                                'w-full border-l-2 px-4 py-3 text-left transition-colors',
+                                index === 0
+                                    ? 'border-slate-900 text-slate-950'
+                                    : 'border-slate-200 text-slate-500 hover:border-slate-400 hover:text-slate-900',
+                            ]}
+                            data-exp-tab
+                            data-target={item.id}
+                            aria-controls={item.id}
+                            aria-selected={index === 0 ? 'true' : 'false'}
+                        >
+                            <p class="text-sm font-semibold">{item.company}</p>
+                            <p class="mt-1 text-xs text-slate-500">{item.role}</p>
+                        </button>
+                    ))
+                }
+            </div>
+        </aside>
+
+        <div class="md:w-9/12">
+            {
+                experience.items.map((item, index) => (
+                    <article
+                        id={item.id}
+                        data-exp-panel
+                        class:list={[index === 0 ? 'block' : 'hidden']}
+                    >
+                        <h3 class="text-2xl font-semibold tracking-tight text-slate-950">
+                            {item.role}
+                        </h3>
+                        <p class="mt-2 text-sm text-slate-500">
+                            {item.company} · {item.period}
+                        </p>
+                        <p class="mt-6 text-base leading-relaxed text-slate-700">
+                            {item.summary}
+                        </p>
+                        <ul class="mt-6 space-y-3 text-base leading-relaxed text-slate-700">
+                            {
+                                item.responsibilities.map((bullet) => (
+                                    <li class="flex items-start gap-3">
+                                        <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400"></span>
+                                        <span>{bullet}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="mt-6 text-sm text-slate-500">
+                            Stack: <span class="text-slate-700">{item.stack}</span>
+                        </p>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    const tabButtons = Array.from(document.querySelectorAll('[data-exp-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-exp-panel]'));
+
+    function activateExperience(targetId) {
+        tabButtons.forEach((button) => {
+            const selected = button.getAttribute('data-target') === targetId;
+            button.setAttribute('aria-selected', selected ? 'true' : 'false');
+            button.classList.toggle('border-slate-900', selected);
+            button.classList.toggle('text-slate-950', selected);
+            button.classList.toggle('border-slate-200', !selected);
+            button.classList.toggle('text-slate-500', !selected);
+        });
+
+        panels.forEach((panel) => {
+            panel.classList.toggle('hidden', panel.id !== targetId);
+            panel.classList.toggle('block', panel.id === targetId);
+        });
+    }
+
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            if (!targetId) return;
+            activateExperience(targetId);
+        });
+    });
+</script>
