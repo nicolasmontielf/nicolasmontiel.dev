@@ -45,11 +45,7 @@ const socialMediaItems = [
         </h1>
 
         <div class="space-y-3 text-lg leading-relaxed text-slate-700">
-            {
-                bodyParagraphs.map((paragraph) => (
-                    <p set:html={paragraph} />
-                ))
-            }
+            {bodyParagraphs.map((paragraph) => <p set:html={paragraph} />)}
         </div>
 
         <div class="flex gap-4 items-center">

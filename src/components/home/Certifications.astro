@@ -10,7 +10,8 @@ const certifications = getHomeContent(locale).certifications;
 const sectionTitle = title ?? certifications.title;
 const credentialText = credentialLabel ?? certifications.viewCredentialLabel;
 const cards = certifications.items.map((item) => {
-    const shouldTruncate = item.description.length > certifications.previewLength;
+    const shouldTruncate =
+        item.description.length > certifications.previewLength;
     const preview = shouldTruncate
         ? `${item.description.slice(0, certifications.previewLength).trimEnd()}...`
         : item.description;
@@ -28,7 +29,9 @@ const cards = certifications.items.map((item) => {
     class="mt-24"
 >
     <div class="max-w-3xl">
-        <h2 class="text-4xl font-bold tracking-tight text-slate-900">{sectionTitle}</h2>
+        <h2 class="text-4xl font-bold tracking-tight text-slate-900">
+            {sectionTitle}
+        </h2>
         <p class="mt-4 text-base leading-relaxed text-slate-600">
             {certifications.description}
         </p>
@@ -51,7 +54,10 @@ const cards = certifications.items.map((item) => {
                     </div>
                     <div class="mt-4">
                         <p class="text-sm leading-relaxed text-slate-600">
-                            <span data-cert-preview data-cert-id={item.id}>
+                            <span
+                                data-cert-preview
+                                data-cert-id={item.id}
+                            >
                                 {item.preview}
                             </span>
                             <span
@@ -61,21 +67,19 @@ const cards = certifications.items.map((item) => {
                             >
                                 {item.description}
                             </span>
-                            {
-                                item.shouldTruncate && (
-                                    <>
-                                        <button
-                                            type="button"
-                                            class="ml-1 inline-flex align-baseline text-xs font-medium text-slate-700 transition-colors hover:text-slate-950"
-                                            data-cert-toggle
-                                            data-cert-id={item.id}
-                                            aria-expanded="false"
-                                        >
-                                            {certifications.viewMoreLabel}
-                                        </button>
-                                    </>
-                                )
-                            }
+                            {item.shouldTruncate && (
+                                <>
+                                    <button
+                                        type="button"
+                                        class="ml-1 inline-flex align-baseline text-xs font-medium text-slate-700 transition-colors hover:text-slate-950"
+                                        data-cert-toggle
+                                        data-cert-id={item.id}
+                                        aria-expanded="false"
+                                    >
+                                        {certifications.viewMoreLabel}
+                                    </button>
+                                </>
+                            )}
                         </p>
                     </div>
 
@@ -86,7 +90,10 @@ const cards = certifications.items.map((item) => {
                         rel="noopener noreferrer"
                     >
                         {credentialText}
-                        <ExternalLink size={15} stroke-width={2} />
+                        <ExternalLink
+                            size={15}
+                            stroke-width={2}
+                        />
                     </a>
                 </article>
             ))
@@ -94,11 +101,16 @@ const cards = certifications.items.map((item) => {
     </div>
 </section>
 
-<script is:inline define:vars={{
-    viewMoreLabel: certifications.viewMoreLabel,
-    viewLessLabel: certifications.viewLessLabel,
-}}>
-    const certToggles = Array.from(document.querySelectorAll('[data-cert-toggle]'));
+<script
+    is:inline
+    define:vars={{
+        viewMoreLabel: certifications.viewMoreLabel,
+        viewLessLabel: certifications.viewLessLabel,
+    }}
+>
+    const certToggles = Array.from(
+        document.querySelectorAll('[data-cert-toggle]'),
+    );
 
     certToggles.forEach((button) => {
         button.addEventListener('click', () => {
@@ -111,7 +123,10 @@ const cards = certifications.items.map((item) => {
             const full = document.querySelector(
                 `[data-cert-full][data-cert-id="${certId}"]`,
             );
-            if (!(preview instanceof HTMLElement) || !(full instanceof HTMLElement)) {
+            if (
+                !(preview instanceof HTMLElement) ||
+                !(full instanceof HTMLElement)
+            ) {
                 return;
             }
 

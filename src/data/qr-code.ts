@@ -28,13 +28,15 @@ const qrCodeContentByLocale: QrContentByLocale = {
             },
             {
                 label: 'Sobre mí',
-                description: 'Mi enfoque como socio tecnológico para tu negocio.',
+                description:
+                    'Mi enfoque como socio tecnológico para tu negocio.',
                 href: '/es/sobre-mi',
                 icon: 'user',
             },
             {
                 label: 'Quiero una web',
-                description: 'Webs y landings profesionales con foco comercial.',
+                description:
+                    'Webs y landings profesionales con foco comercial.',
                 href: getCommercialServicePath('web', 'es'),
                 icon: 'globe',
             },
@@ -67,7 +69,8 @@ const qrCodeContentByLocale: QrContentByLocale = {
             },
             {
                 label: 'About me',
-                description: 'How I work as a technical partner for businesses.',
+                description:
+                    'How I work as a technical partner for businesses.',
                 href: '/en/about-me',
                 icon: 'user',
             },

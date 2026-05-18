@@ -6,7 +6,10 @@ const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const experience = getHomeContent(locale).experience;
 ---
 
-<section id="experience-section" class="mt-24">
+<section
+    id="experience-section"
+    class="mt-24"
+>
     <div class="max-w-3xl">
         <h2 class="text-4xl font-bold tracking-tight text-slate-900">
             {experience.title}
@@ -35,7 +38,9 @@ const experience = getHomeContent(locale).experience;
                             aria-selected={index === 0 ? 'true' : 'false'}
                         >
                             <p class="text-sm font-semibold">{item.company}</p>
-                            <p class="mt-1 text-xs text-slate-500">{item.role}</p>
+                            <p class="mt-1 text-xs text-slate-500">
+                                {item.role}
+                            </p>
                         </button>
                     ))
                 }
@@ -60,17 +65,16 @@ const experience = getHomeContent(locale).experience;
                             {item.summary}
                         </p>
                         <ul class="mt-6 space-y-3 text-base leading-relaxed text-slate-700">
-                            {
-                                item.responsibilities.map((bullet) => (
-                                    <li class="flex items-start gap-3">
-                                        <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400"></span>
-                                        <span>{bullet}</span>
-                                    </li>
-                                ))
-                            }
+                            {item.responsibilities.map((bullet) => (
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                                    <span>{bullet}</span>
+                                </li>
+                            ))}
                         </ul>
                         <p class="mt-6 text-sm text-slate-500">
-                            Stack: <span class="text-slate-700">{item.stack}</span>
+                            Stack:{' '}
+                            <span class="text-slate-700">{item.stack}</span>
                         </p>
                     </article>
                 ))

@@ -53,7 +53,10 @@ const certificationBaseItems: Certification[] = [
     },
 ];
 
-const certificationDescriptionsByLocale: Record<Locale, Record<string, string>> = {
+const certificationDescriptionsByLocale: Record<
+    Locale,
+    Record<string, string>
+> = {
     es: {
         'aws-cloud-practitioner-essentials':
             'Fundamentos de AWS Cloud, servicios principales, seguridad, modelo de responsabilidad compartida, arquitectura basica, pricing y soporte para tomar mejores decisiones iniciales.',

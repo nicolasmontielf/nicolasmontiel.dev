@@ -4,6 +4,4 @@ import { DEFAULT_LOCALE } from '@/i18n/locales';
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 ---
 
-{
-    Astro.redirect(`/${locale}/qr-code`)
-}
+{Astro.redirect(`/${locale}/qr-code`)}
