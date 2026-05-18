@@ -56,35 +56,35 @@ const certificationBaseItems: Certification[] = [
 const certificationDescriptionsByLocale: Record<Locale, Record<string, string>> = {
     es: {
         'aws-cloud-practitioner-essentials':
-            'Fundamentos de cloud, servicios base y criterio de arquitectura inicial.',
+            'Fundamentos de AWS Cloud, servicios principales, seguridad, modelo de responsabilidad compartida, arquitectura basica, pricing y soporte para tomar mejores decisiones iniciales.',
         'search-and-conversions-for-agencies':
-            'Medicion, adquisicion y lectura mas rigurosa de performance digital.',
+            'Crecimiento organico para agencias con foco en SEO, conversion rate optimization, contenido orientado a demanda y generacion de leads mas calificados.',
         'tdd-javascript':
-            'Diseno guiado por tests, mejor criterio de refactor y cobertura util.',
+            'Testing en JavaScript y TypeScript con Jest, mocking, cobertura util y enfoque TDD aplicado tanto a codigo backend como a interfaces.',
         'redis-ru102js-redis-for-javascript-developers':
-            'Caching, estructuras de datos y uso practico de Redis en backend.',
+            'Uso de Redis desde Node.js y JavaScript: conexiones, lectura y escritura de datos, estructuras utiles y patrones practicos de caching y mensajeria.',
         'scrum-fundamentals-certified':
-            'Marco de trabajo, prioridades y coordinacion mas clara con producto.',
+            'Principios de Scrum, roles, eventos y artefactos, con una base clara para colaborar en ciclos iterativos y alinear mejor con producto.',
         'apis-and-microservices':
-            'Diseno de APIs, servicios desacoplados y fundamentos de integracion.',
+            'Backend con Node.js, npm y Express, diseno de APIs y microservicios, mas practica con MongoDB y Mongoose para persistencia e integraciones simples.',
         'introduction-to-jenkins':
-            'Automatizacion basica de pipelines y nociones de delivery continuo.',
+            'Bases de Jenkins para automatizar builds, tests y pipelines de CI/CD, con mejor entendimiento de jobs, integraciones y flujo de entrega.',
     },
     en: {
         'aws-cloud-practitioner-essentials':
-            'Cloud foundations, core AWS services, and practical criteria for early architecture decisions.',
+            'AWS Cloud fundamentals, core services, security, the shared responsibility model, basic architecture, pricing, and support for stronger early-stage decisions.',
         'search-and-conversions-for-agencies':
-            'Stronger measurement, acquisition strategy, and more rigorous performance analysis.',
+            'Organic agency growth with emphasis on SEO, conversion rate optimization, demand-focused content, and higher-quality lead generation.',
         'tdd-javascript':
-            'Test-driven design, stronger refactoring judgment, and practical coverage discipline.',
+            'JavaScript and TypeScript testing with Jest, mocking, meaningful coverage, and a TDD mindset applied to both backend code and user interfaces.',
         'redis-ru102js-redis-for-javascript-developers':
-            'Caching patterns, data structures, and practical Redis usage in backend systems.',
+            'Using Redis from Node.js and JavaScript: connections, data access, useful data structures, and practical caching and messaging patterns.',
         'scrum-fundamentals-certified':
-            'Working framework fundamentals, prioritization, and clearer product collaboration.',
+            'Scrum principles, roles, events, and artifacts, with a clearer foundation for iterative delivery and healthier collaboration with product teams.',
         'apis-and-microservices':
-            'API design, service decoupling principles, and integration foundations.',
+            'Backend work with Node.js, npm, and Express, plus API and microservice design, with hands-on practice around MongoDB and Mongoose.',
         'introduction-to-jenkins':
-            'Basic pipeline automation and continuous delivery fundamentals.',
+            'Jenkins fundamentals for automating builds, tests, and CI/CD pipelines, with a better grasp of jobs, integrations, and delivery flow.',
     },
 };
 
