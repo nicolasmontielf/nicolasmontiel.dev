@@ -1,5 +1,8 @@
 import type { Locale } from '@/i18n/locales';
-import { getCommercialServicePath } from '@/i18n/routing';
+import {
+    getCommercialProfilePath,
+    getCommercialServicePath,
+} from '@/i18n/routing';
 import type { QrContentByLocale } from '@/types/qr';
 
 const whatsappLinksByLocale: Record<Locale, string> = {
@@ -27,10 +30,10 @@ const qrCodeContentByLocale: QrContentByLocale = {
                 icon: 'home',
             },
             {
-                label: 'Sobre mí',
+                label: 'Por que trabajar conmigo',
                 description:
-                    'Mi enfoque como socio tecnológico para tu negocio.',
-                href: '/es/sobre-mi',
+                    'Mi enfoque como socio tecnologico para tu negocio.',
+                href: getCommercialProfilePath('es'),
                 icon: 'user',
             },
             {
@@ -68,10 +71,10 @@ const qrCodeContentByLocale: QrContentByLocale = {
                 icon: 'home',
             },
             {
-                label: 'About me',
+                label: 'Why work with me',
                 description:
                     'How I work as a technical partner for businesses.',
-                href: '/en/about-me',
+                href: getCommercialProfilePath('en'),
                 icon: 'user',
             },
             {

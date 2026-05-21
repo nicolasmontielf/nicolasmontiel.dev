@@ -170,7 +170,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                         'Construimos una base que puedas mejorar con nuevas etapas cuando te convenga.',
                 },
             ],
-            buttonLabel: 'Ver mi perfil completo',
+            buttonLabel: 'Por que trabajar conmigo',
         },
         contact: {
             eyebrow: 'Contacto',
@@ -372,7 +372,7 @@ const ecommerceLandingByLocale: Record<Locale, EcommerceLandingContent> = {
                         'You launch with confidence and keep room for future growth.',
                 },
             ],
-            buttonLabel: 'See my full profile',
+            buttonLabel: 'Why work with me',
         },
         contact: {
             eyebrow: 'Contact',

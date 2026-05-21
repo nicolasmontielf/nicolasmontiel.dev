@@ -122,12 +122,6 @@ const homeContentByLocale: Record<Locale, HomeContent> = {
                     '🚀 Hoy estoy creciendo hacia un perfil mas orientado a <strong>Staff Engineer</strong>, combinando profundidad tecnica en la ejecucion con mas ownership, vision de sistemas y colaboracion cross-functional.',
                     '📚 Ademas del trabajo con clientes y producto, sigo invirtiendo en <strong>Project Management</strong>, <strong>React</strong> y <strong>Python/Django</strong> para mantenerme fuerte tanto en implementacion como en ejecucion de producto.',
                 ],
-                freelancer: [
-                    '👨‍💻 Trabajo con negocios y equipos que necesitan <strong>webs, ecommerce o mejoras tecnicas</strong> sin sumar complejidad innecesaria.',
-                    '🧭 Mi enfoque es practico: definir prioridad, ejecutar con claridad y entregar soluciones que impacten en operacion, conversion o velocidad de entrega.',
-                    '🤖 Integro herramientas de IA como <strong>Codex, Gemini y Claude Code</strong> para acelerar desarrollo y mejorar decisiones tecnicas, sin perder criterio de ingenieria.',
-                    '🤝 Si necesitas alguien que combine ejecucion, comunicacion y ownership tecnico, puedo ayudarte a llevar la idea a produccion con una base solida.',
-                ],
             },
         },
         experience: {
@@ -255,12 +249,6 @@ const homeContentByLocale: Record<Locale, HomeContent> = {
                     '🤖 I also work hands-on with modern AI tooling such as <strong>Codex, Gemini, and Claude Code</strong>. I integrate these tools into delivery workflows to speed up development, reduce friction, and improve technical decision-making across teams.',
                     '🚀 My current focus is growing toward a <strong>Staff Engineer path</strong>, combining deep execution with stronger systems thinking, technical leadership, and cross-functional ownership.',
                     '📚 Alongside delivery work, I continue investing in <strong>Project Management</strong>, <strong>React</strong>, and <strong>Python/Django</strong> to stay sharp on both implementation and product execution.',
-                ],
-                freelancer: [
-                    '👨‍💻 I partner with teams and businesses that need <strong>web platforms, ecommerce, or technical improvements</strong> without unnecessary complexity.',
-                    '🧭 My approach is pragmatic: define the right priorities, execute clearly, and ship solutions that improve operations, conversion, or delivery speed.',
-                    '🤖 I integrate modern AI tooling like <strong>Codex, Gemini, and Claude Code</strong> to accelerate development while keeping engineering judgment high.',
-                    '🤝 If you need someone who combines execution, communication, and technical ownership, I can help you move from idea to production with a solid foundation.',
                 ],
             },
         },

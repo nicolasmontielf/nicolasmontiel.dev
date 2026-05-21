@@ -16,7 +16,7 @@ import CalloutPanel from '@components/common/landing/CalloutPanel.astro';
 import { getCommercialWhatsappLink } from '@/i18n/links';
 import { resolveLocale } from '@/i18n/locales';
 import { getMessages } from '@/i18n/messages';
-import { getAboutPath } from '@/i18n/routing';
+import { getCommercialProfilePath } from '@/i18n/routing';
 import type { EcommerceLandingIconName } from '@/types/landing/content';
 import type { EcommerceLandingProps } from '@/types/landing/props';
 import {
@@ -29,7 +29,7 @@ import {
 
 const { content } = Astro.props as EcommerceLandingProps;
 const locale = resolveLocale(Astro.locals.locale);
-const aboutPath = getAboutPath(locale);
+const profilePath = getCommercialProfilePath(locale);
 const whatsappLink = getCommercialWhatsappLink('ecommerce', locale);
 const labels = getMessages(locale).landing;
 const heroImageAltByLocale = {
@@ -172,7 +172,7 @@ const challengeIconByName: Record<EcommerceLandingIconName, any> = {
 
         <SharedProfileSection
             profile={content.profile}
-            aboutLink={aboutPath}
+            profileLink={profilePath}
             containerClass={landingContainerClass}
             sectionId="profile"
             sectionClass="bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]"

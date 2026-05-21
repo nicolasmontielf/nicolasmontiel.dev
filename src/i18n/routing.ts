@@ -15,12 +15,17 @@ export const COMMERCIAL_SERVICE_SLUGS: Record<
     },
 };
 
+export const COMMERCIAL_PROFILE_SLUGS: Record<Locale, string> = {
+    en: 'why-work-with-me',
+    es: 'por-que-trabajar-conmigo',
+};
+
 export function getHomePath(locale: Locale) {
     return `/${locale}`;
 }
 
-export function getAboutPath(locale: Locale) {
-    return locale === 'es' ? '/es/sobre-mi' : '/en/about-me';
+export function getCommercialProfilePath(locale: Locale) {
+    return `/${locale}/${COMMERCIAL_PROFILE_SLUGS[locale]}`;
 }
 
 export function getCommercialServicePath(
@@ -51,11 +56,14 @@ export function getLocalizedPath(pathname: string, targetLocale: Locale) {
 
     if (SUPPORTED_LOCALES.includes(segments[0] as Locale)) {
         const rest = segments.slice(1);
-        if (rest[0] === 'about-me' && targetLocale === 'es') {
-            return '/es/sobre-mi';
+        if (rest[0] === 'about-me' || rest[0] === 'sobre-mi') {
+            return getCommercialProfilePath(targetLocale);
         }
-        if (rest[0] === 'sobre-mi' && targetLocale === 'en') {
-            return '/en/about-me';
+        if (rest[0] === COMMERCIAL_PROFILE_SLUGS.en && targetLocale === 'es') {
+            return getCommercialProfilePath(targetLocale);
+        }
+        if (rest[0] === COMMERCIAL_PROFILE_SLUGS.es && targetLocale === 'en') {
+            return getCommercialProfilePath(targetLocale);
         }
 
         const localizedServicePath = rest[0]

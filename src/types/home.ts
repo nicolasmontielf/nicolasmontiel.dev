@@ -1,5 +1,5 @@
 export type PresentationProps = {
-    variant: 'pro' | 'freelancer';
+    variant: 'pro';
     greeting: string;
 };
 
@@ -15,7 +15,7 @@ export type Certification = {
     href: string;
 };
 
-export type PresentationBodyVariant = 'pro' | 'freelancer';
+export type PresentationBodyVariant = 'pro';
 
 export type PresentationBodyByVariant = Record<
     PresentationBodyVariant,

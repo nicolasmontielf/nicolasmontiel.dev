@@ -194,7 +194,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                         'La base queda lista para iterar nuevas secciones o funcionalidades cuando lo necesites.',
                 },
             ],
-            buttonLabel: 'Ver mi perfil completo',
+            buttonLabel: 'Por que trabajar conmigo',
         },
         contact: {
             eyebrow: 'Contacto',
@@ -424,7 +424,7 @@ const webLandingByLocale: Record<Locale, WebLandingContent> = {
                         'Your website starts solid and can evolve as your business grows.',
                 },
             ],
-            buttonLabel: 'See my full profile',
+            buttonLabel: 'Why work with me',
         },
         contact: {
             eyebrow: 'Contact',

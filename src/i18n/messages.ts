@@ -45,7 +45,7 @@ const messagesByLocale: Record<Locale, Messages> = {
         footer: {
             contactTitle: 'Contact',
             linksTitle: 'Useful links',
-            about: 'About me',
+            about: 'Why work with me',
             ecommerce: 'Ecommerce',
             web: 'Website',
             logoAlt: 'Nicolás Montiel logo',
@@ -94,7 +94,7 @@ const messagesByLocale: Record<Locale, Messages> = {
         footer: {
             contactTitle: 'Contacto',
             linksTitle: 'Enlaces útiles',
-            about: 'Sobre mí',
+            about: 'Por que trabajar conmigo',
             ecommerce: 'Ecommerce',
             web: 'Web',
             logoAlt: 'Logo de Nicolás Montiel',

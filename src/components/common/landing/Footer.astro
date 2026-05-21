@@ -3,10 +3,13 @@ import logo from '@/assets/logo.png';
 import { resolveLocale } from '@/i18n/locales';
 import { getWhatsappLink } from '@/i18n/links';
 import { getMessages } from '@/i18n/messages';
-import { getAboutPath, getCommercialServicePath } from '@/i18n/routing';
+import {
+    getCommercialProfilePath,
+    getCommercialServicePath,
+} from '@/i18n/routing';
 
 const locale = resolveLocale(Astro.locals.locale);
-const aboutPath = getAboutPath(locale);
+const aboutPath = getCommercialProfilePath(locale);
 const ecommercePath = getCommercialServicePath('ecommerce', locale);
 const webPath = getCommercialServicePath('web', locale);
 const whatsappLink = getWhatsappLink(locale);

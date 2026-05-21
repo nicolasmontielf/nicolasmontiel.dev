@@ -30,7 +30,7 @@ export type SharedProfileContent = {
 
 export type SharedProfileSectionProps = {
     profile: SharedProfileContent;
-    aboutLink: string;
+    profileLink: string;
     containerClass: string;
     sectionId?: string;
     sectionClass?: string;

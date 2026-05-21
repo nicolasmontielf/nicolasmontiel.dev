@@ -1,38 +1,10 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Presentation from '@components/home/Presentation.astro';
-import Certifications from '@components/home/Certifications.astro';
-import { getMessages } from '@/i18n/messages';
-import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import { isLocale } from '@/i18n/locales';
 
 const { lang } = Astro.params;
 
 if (!lang || !isLocale(lang)) {
-    return Astro.redirect(`/${DEFAULT_LOCALE}`);
+    return Astro.redirect('/en');
 }
 
-if (lang === 'es') {
-    return Astro.redirect('/es/sobre-mi');
-}
-
-const messages = getMessages(lang);
----
-
-<Layout
-    title={messages.aboutPage.title}
-    description={messages.aboutPage.description}
->
-    <section id="presentation-section">
-        <Presentation
-            variant="freelancer"
-            greeting={messages.home.greeting}
-        />
-    </section>
-
-    <section id="certifications">
-        <Certifications
-            title={messages.home.certificationsTitle}
-            credentialLabel={messages.home.viewCredential}
-        />
-    </section>
-</Layout>
+return Astro.redirect(lang === 'es' ? '/es/por-que-trabajar-conmigo' : '/en/why-work-with-me');
