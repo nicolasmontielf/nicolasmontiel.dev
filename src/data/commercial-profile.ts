@@ -15,7 +15,7 @@ const commercialProfileByLocale: Record<Locale, CommercialProfileContent> = {
         meta: {
             title: 'Por qué trabajar conmigo | Nicolás Montiel',
             description:
-                'Conocé cómo trabajo, en qué contextos ya aporté valor y por qué puedo ayudarte a construir algo útil para tu negocio.',
+                'Conocé por qué puedo ayudarte a crear una web o ecommerce que genere confianza, explique mejor tu negocio y acompañe tus objetivos.',
         },
         navbar: {
             label: 'Por que trabajar conmigo',
@@ -32,146 +32,146 @@ const commercialProfileByLocale: Record<Locale, CommercialProfileContent> = {
             secondaryCtaHref: getCommercialServicePath('ecommerce', 'es'),
         },
         profile: {
-            title: 'Una presentacion directa, humana y con peso comercial.',
+            title: 'Te ayudo a convertir tu idea, servicio o negocio en una presencia digital clara, confiable y pensada para vender mejor.',
             paragraphs: [
-                'Soy Nicolás Montiel, ingeniero de software de Paraguay. Hace más de 8 años trabajo con productos digitales, equipos distribuidos y negocios que necesitan construir mejor, ordenar procesos o vender con más claridad.',
-                'No me interesa hacer una web “porque sí”. Me interesa entender qué querés lograr, qué problema de negocio hay atrás y cómo resolverlo con criterio, buena ejecución y una base que realmente sirva.',
+                'Soy Nicolás Montiel, de Paraguay. Hace más de 8 años trabajo con empresas, equipos y emprendedores que necesitan mostrar mejor lo que hacen, ordenar su propuesta y generar más confianza desde el primer contacto.',
+                'No me limito a “hacer una página”. Me involucro para entender tu negocio, lo que querés lograr y lo que tu cliente necesita ver para animarse a escribirte, comprar o pedir más información.',
             ],
             avatarAlt: 'Avatar de Nicolás Montiel',
             stats: [
                 {
-                    value: '8+',
-                    label: 'anos de experiencia',
+                    value: '+8',
+                    label: 'años de experiencia',
                     description:
-                        'Construyendo producto, ecommerce y automatizaciones.',
+                        'Acompañando negocios que necesitan verse más profesionales y vender mejor.',
                 },
                 {
                     value: '13',
-                    label: 'paises',
+                    label: 'países',
                     description:
-                        'Clientes o equipos con los que ya trabaje de forma remota.',
+                        'Trabajando con clientes y equipos de forma remota e internacional.',
                 },
                 {
-                    value: 'Multi-rubro',
-                    label: 'contexto real',
+                    value: '+10',
+                    label: 'sectores diferentes',
                     description:
-                        'SaaS, marketing, operaciones, conversion y procesos internos.',
+                        'Marketing, ecommerce, SaaS, logística, salud, educación y servicios.',
                 },
                 {
-                    value: '40+',
+                    value: '+40',
                     label: 'proyectos',
                     description:
-                        'Entre mejoras de producto, landings, integraciones y procesos internos.',
+                        'Entre webs, landings, ecommerce, mejoras de producto y procesos internos.',
                 },
             ],
         },
         reasons: {
-            eyebrow: 'Seccion 2',
+            eyebrow: 'Confianza antes que código',
             title: 'Por que trabajar conmigo',
             description:
-                'La idea aca no es vender tareas sueltas, sino mostrar por que puedo aportar mas valor que una simple ejecucion puntual.',
+                'Si vas a invertir en una web o ecommerce, necesitás a alguien que entienda qué querés lograr, no solo alguien que arme pantallas bonitas.',
             items: [
                 {
-                    title: 'Orientado a objetivos',
+                    title: 'Pienso en tu cliente',
                     description:
-                        'La prioridad no es construir por construir, sino ayudar a mover un resultado concreto.',
+                        'La web tiene que responder las dudas de la persona que te visita y darle motivos para confiar en vos.',
                 },
                 {
-                    title: 'Criterio de negocio',
+                    title: 'Cuido cómo se vende tu propuesta',
                     description:
-                        'Me interesa entender conversion, operacion, marketing y contexto antes de proponer soluciones.',
+                        'Te ayudo a ordenar el mensaje para que se entienda rápido qué hacés, para quién es y por qué conviene elegirte.',
                 },
                 {
-                    title: 'Ejecucion clara',
+                    title: 'Trabajo con claridad',
                     description:
-                        'Resolver bien tambien implica comunicar bien, bajar complejidad y mantener el proceso ordenado.',
+                        'Vas a saber qué estamos haciendo, por qué lo hacemos y qué decisiones conviene tomar en cada etapa.',
                 },
                 {
-                    title: 'Adaptacion real',
+                    title: 'Me adapto a tu realidad',
                     description:
-                        'Distintos rubros piden prioridades distintas, y eso cambia la forma de pensar y ejecutar el trabajo.',
+                        'No todos los negocios necesitan lo mismo. Ajusto la solución a tu contexto, presupuesto, etapa y prioridades.',
                 },
             ],
         },
         process: {
-            eyebrow: 'Seccion 3',
+            eyebrow: 'Una forma simple de avanzar',
             title: 'Como trabajo',
             description:
-                'La idea aca no es vender una metodologia cerrada, sino mostrar una forma de pensar y ejecutar con claridad.',
+                'La idea es que el proceso no se vuelva pesado. Primero entendemos, después ordenamos, construimos y ajustamos con criterio.',
             steps: [
                 {
                     label: 'Paso 1',
-                    title: 'Entender el objetivo real',
+                    title: 'Entendemos tu objetivo',
                     description:
-                        'Antes de pensar soluciones, conviene entender que se quiere lograr y por que eso importa.',
+                        'Definimos qué querés conseguir: más consultas, más ventas, mejor imagen, menos trabajo manual o una presentación más profesional.',
                 },
                 {
                     label: 'Paso 2',
-                    title: 'Detectar lo importante',
+                    title: 'Ordenamos lo importante',
                     description:
-                        'No todo tiene el mismo peso. Aca entra el criterio para priorizar bien.',
+                        'Separamos lo urgente de lo accesorio para invertir tiempo y energía en lo que realmente puede mover la aguja.',
                 },
                 {
                     label: 'Paso 3',
-                    title: 'Ejecutar con foco',
+                    title: 'Construimos con intención',
                     description:
-                        'Resolver bien, comunicar con claridad y evitar complejidad innecesaria.',
+                        'Cada sección, texto y decisión visual tiene que ayudar a que la persona entienda, confíe y avance.',
                 },
                 {
                     label: 'Paso 4',
-                    title: 'Ajustar si hace falta',
+                    title: 'Pulimos antes de salir',
                     description:
-                        'La ejecucion no termina cuando algo sale. Tambien importa medir, aprender y mejorar.',
+                        'Revisamos detalles, corregimos fricciones y dejamos la solución lista para presentarse con seguridad.',
                 },
             ],
         },
         contexts: {
-            eyebrow: 'Seccion 4',
-            title: 'Rubros y contextos donde ya aplique ese criterio',
+            eyebrow: 'Experiencia en negocios reales',
+            title: 'Rubros donde ya trabajé',
             description:
-                'El objetivo aca es mostrar amplitud y adaptacion sin volver a hablar de forma abstracta sobre mi perfil.',
+                'Haber trabajado con sectores distintos me ayuda a entender más rápido qué puede necesitar tu negocio, incluso si no sabés explicarlo en términos técnicos.',
             items: [
                 {
                     title: 'Ecommerce',
                     description:
-                        'Conversion e integraciones comerciales.',
+                        'Tiendas, procesos de compra y mejoras para vender con menos fricción.',
                 },
                 {
                     title: 'SaaS',
-                    description: 'Producto y flujos complejos.',
+                    description: 'Productos digitales, registros, paneles y experiencias de usuario.',
                 },
                 {
                     title: 'Automatizacion',
-                    description: 'Procesos internos y eficiencia.',
+                    description: 'Tareas repetitivas, formularios, reportes y ahorro de tiempo.',
                 },
                 {
                     title: 'Marketing',
-                    description: 'Landings, CRO y analitica.',
+                    description: 'Landings, campañas, mensajes claros y medición de resultados.',
                 },
                 {
                     title: 'Logistica',
-                    description: 'Operaciones con varias dependencias.',
+                    description: 'Operaciones con varios pasos, estados y personas involucradas.',
                 },
                 {
                     title: 'Producto interno',
                     description:
-                        'Claridad operativa y mejoras de uso.',
+                        'Herramientas para que los equipos trabajen mejor y con más orden.',
                 },
                 {
                     title: 'Educacion',
                     description:
-                        'Necesidades de comunicacion y acceso.',
+                        'Comunicación, acceso a información y experiencias simples para usuarios.',
                 },
                 {
                     title: 'Salud',
                     description:
-                        'Contextos con prioridades especificas.',
+                        'Turnos, datos sensibles y recorridos donde la claridad importa mucho.',
                 },
             ],
         },
         contact: {
-            eyebrow: 'Seccion 5',
-            title: 'Si buscas alguien que pueda pensar, ejecutar y acompanar bien el proceso, hablemos.',
+            eyebrow: 'Próximo paso',
+            title: 'Si querés que tu web transmita más confianza y trabaje mejor para tu negocio, hablemos.',
             primaryLabel: 'Escribirme por email',
             primaryHref: emailHref,
             secondaryLabel: 'Ver LinkedIn',
@@ -183,7 +183,7 @@ const commercialProfileByLocale: Record<Locale, CommercialProfileContent> = {
         meta: {
             title: 'Why work with me | Nicolás Montiel',
             description:
-                'See how I work, the kinds of business contexts I have already helped, and why I can be a strong technical partner for your next project.',
+                'See why I can help you build a website or ecommerce experience that creates trust, explains your business better, and supports your goals.',
         },
         navbar: {
             label: 'Why work with me',
@@ -200,142 +200,142 @@ const commercialProfileByLocale: Record<Locale, CommercialProfileContent> = {
             secondaryCtaHref: getCommercialServicePath('ecommerce', 'en'),
         },
         profile: {
-            title: 'A direct, human introduction with real commercial weight.',
+            title: 'I help turn your idea, service, or business into a clear, trustworthy digital presence built to sell better.',
             paragraphs: [
-                "I'm Nicolás Montiel, a software engineer from Paraguay. For more than 8 years I've worked with digital products, distributed teams, and businesses that need to build better, streamline operations, or sell with more clarity.",
-                "I'm not interested in building a website just for the sake of it. I care about understanding what you want to achieve, what business problem sits behind it, and how to solve it with judgment, strong execution, and a foundation that actually helps.",
+                "I'm Nicolás Montiel, from Paraguay. For more than 8 years I've worked with companies, teams, and founders who need to present what they do better, clarify their offer, and create trust from the very first visit.",
+                "I don't just “build a page”. I get involved to understand your business, what you want to achieve, and what your customer needs to see before they decide to contact you, buy, or ask for more information.",
             ],
             avatarAlt: 'Avatar of Nicolas Montiel',
             stats: [
                 {
-                    value: '8+',
+                    value: '+8',
                     label: 'years of experience',
                     description:
-                        'Building product, ecommerce, and automation flows.',
+                        'Helping businesses look more professional and sell with more clarity.',
                 },
                 {
                     value: '13',
                     label: 'countries',
                     description:
-                        'Clients or teams I have worked with remotely.',
+                        'Working remotely with clients and teams in different markets.',
                 },
                 {
-                    value: 'Multi-sector',
-                    label: 'real context',
+                    value: '+10',
+                    label: 'different sectors',
                     description:
-                        'SaaS, marketing, operations, conversion, and internal processes.',
+                        'Marketing, ecommerce, SaaS, logistics, healthcare, education, and services.',
                 },
                 {
-                    value: '40+',
+                    value: '+40',
                     label: 'projects',
                     description:
-                        'Across product improvements, landing pages, integrations, and internal systems.',
+                        'Across websites, landing pages, ecommerce, product improvements, and internal workflows.',
                 },
             ],
         },
         reasons: {
-            eyebrow: 'Section 2',
+            eyebrow: 'Trust before code',
             title: 'Why work with me',
             description:
-                'This section is not about selling isolated tasks. It is about showing why I can bring more value than simple execution alone.',
+                'If you are investing in a website or ecommerce project, you need someone who understands what you want to achieve, not just someone who can assemble nice screens.',
             items: [
                 {
-                    title: 'Goal-oriented',
+                    title: 'I think about your customer',
                     description:
-                        'The priority is not just building something, but helping move a meaningful result.',
+                        'Your website has to answer the questions people have and give them real reasons to trust you.',
                 },
                 {
-                    title: 'Business judgment',
+                    title: 'I help sell your offer better',
                     description:
-                        'I care about understanding conversion, operations, marketing, and context before proposing solutions.',
+                        'I help organize the message so people quickly understand what you do, who it is for, and why they should choose you.',
                 },
                 {
-                    title: 'Clear execution',
+                    title: 'I work with clarity',
                     description:
-                        'Doing good work also means communicating well, reducing unnecessary complexity, and keeping the process organized.',
+                        'You will know what we are doing, why we are doing it, and which decisions make sense at each stage.',
                 },
                 {
-                    title: 'Real adaptability',
+                    title: 'I adapt to your reality',
                     description:
-                        'Different industries require different priorities, and that changes how I think and execute.',
+                        'Not every business needs the same thing. I adjust the solution to your context, budget, stage, and priorities.',
                 },
             ],
         },
         process: {
-            eyebrow: 'Section 3',
+            eyebrow: 'A simple way to move forward',
             title: 'How I work',
             description:
-                'The goal here is not to sell a rigid methodology, but to show a clear way of thinking and executing.',
+                'The process should not feel heavy. We understand the goal, organize priorities, build with intention, and refine what needs attention.',
             steps: [
                 {
                     label: 'Step 1',
-                    title: 'Understand the real goal',
+                    title: 'We understand your goal',
                     description:
-                        'Before thinking about solutions, it helps to understand what should happen and why that matters.',
+                        'We define what you want to get: more inquiries, more sales, better perception, less manual work, or a stronger presentation.',
                 },
                 {
                     label: 'Step 2',
-                    title: 'Identify what matters most',
+                    title: 'We organize what matters',
                     description:
-                        'Not everything has the same weight. This is where judgment matters.',
+                        'We separate what is essential from what can wait, so time and energy go where they can actually make a difference.',
                 },
                 {
                     label: 'Step 3',
-                    title: 'Execute with focus',
+                    title: 'We build with intention',
                     description:
-                        'Solve well, communicate clearly, and avoid unnecessary complexity.',
+                        'Every section, piece of copy, and visual decision should help people understand, trust, and take the next step.',
                 },
                 {
                     label: 'Step 4',
-                    title: 'Adjust when needed',
+                    title: 'We polish before launch',
                     description:
-                        'Execution does not end once something ships. Measuring, learning, and improving also matter.',
+                        'We review details, remove friction, and make sure the result is ready to represent your business with confidence.',
                 },
             ],
         },
         contexts: {
-            eyebrow: 'Section 4',
-            title: 'Business contexts where I have already applied that judgment',
+            eyebrow: 'Experience with real businesses',
+            title: 'Sectors I have worked with',
             description:
-                'The point here is to show breadth and adaptability without falling back into abstract self-description.',
+                'Working across different sectors helps me understand faster what your business may need, even if you do not describe it in technical terms.',
             items: [
                 {
                     title: 'Ecommerce',
-                    description: 'Conversion and commercial integrations.',
+                    description: 'Stores, buying journeys, and improvements that reduce friction.',
                 },
                 {
                     title: 'SaaS',
-                    description: 'Product thinking and complex flows.',
+                    description: 'Digital products, signups, dashboards, and user journeys.',
                 },
                 {
                     title: 'Automation',
-                    description: 'Internal processes and efficiency.',
+                    description: 'Repetitive tasks, forms, reports, and time-saving workflows.',
                 },
                 {
                     title: 'Marketing',
-                    description: 'Landing pages, CRO, and analytics.',
+                    description: 'Landing pages, campaigns, clear messaging, and performance tracking.',
                 },
                 {
                     title: 'Logistics',
-                    description: 'Operations with multiple dependencies.',
+                    description: 'Operations with several steps, statuses, and people involved.',
                 },
                 {
                     title: 'Internal product',
-                    description: 'Operational clarity and usability improvements.',
+                    description: 'Tools that help teams work with more clarity and order.',
                 },
                 {
                     title: 'Education',
-                    description: 'Communication and accessibility needs.',
+                    description: 'Communication, access to information, and simple user experiences.',
                 },
                 {
                     title: 'Healthcare',
-                    description: 'Contexts with more specific priorities.',
+                    description: 'Scheduling, sensitive data, and flows where clarity matters.',
                 },
             ],
         },
         contact: {
-            eyebrow: 'Section 5',
-            title: 'If you want someone who can think, execute, and support the process well, let’s talk.',
+            eyebrow: 'Next step',
+            title: 'If you want your website to build more trust and work better for your business, let’s talk.',
             primaryLabel: 'Send me an email',
             primaryHref: emailHref,
             secondaryLabel: 'View LinkedIn',
