@@ -5,6 +5,7 @@ import ScrumStudy from '@/assets/logos/scrumstudy_logo.jpeg';
 import FreeCodeCampLogo from '@/assets/logos/freecodecamp_logo.jpeg';
 import LinuxFoundationLogo from '@/assets/logos/thelinuxfoundation_logo.jpeg';
 import SemrushLogo from '@/assets/logos/semrush_logo.png';
+import MetaLogo from '@/assets/logos/meta_logo.jpeg';
 import type { Certification } from '@/types/home';
 
 export const certifications: Certification[] = [
@@ -13,6 +14,12 @@ export const certifications: Certification[] = [
         title: 'AWS Cloud Practitioner Essentials',
         icon: AwsLogo.src,
         href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
+    },
+    {
+        id: 'react-advanced',
+        title: 'React Advanced',
+        icon: MetaLogo.src,
+        href: 'https://coursera.org/share/c28d57fdbe726343be7d2fd7f73be978',
     },
     {
         id: 'search-and-conversions-for-agencies',
