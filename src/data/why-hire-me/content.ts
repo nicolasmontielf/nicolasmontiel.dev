@@ -91,7 +91,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
             'Updated recruiter-focused experience aligned with current role scope, responsibilities, and technical ownership.',
         items: [
             {
-                id: 'exp-1',
+                id: 'amazing',
                 company: 'Amazing Inc',
                 role: 'Principal Software Engineer',
                 period: 'June 2024 - Present',
@@ -107,7 +107,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
                 stack: 'PHP, Laravel, TypeScript, Vue.js, React, AWS EC2, Laravel Forge, OpenAI, Gemini, Perplexity AI, Sentry',
             },
             {
-                id: 'exp-2',
+                id: 'mindcloud',
                 company: 'MindCloud Inc',
                 role: 'Senior Software Development Engineer',
                 period: 'December 2023 - June 2024',
@@ -123,7 +123,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
                 stack: 'Node.js, TypeScript, React, API Integrations, AWS SQS, AWS Lambda, Slack API, GPT-3.5',
             },
             {
-                id: 'exp-3',
+                id: 'platformscience',
                 company: 'ITJ / Platform Science',
                 role: 'Senior Software Development Engineer',
                 period: 'July 2022 - December 2023',
@@ -139,7 +139,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
                 stack: 'TypeScript, Node.js, NestJS, Vue.js, Laravel, PostgreSQL, AWS, Cypress, Android Enterprise, EMM',
             },
             {
-                id: 'exp-4',
+                id: 'lasoft',
                 company: 'LaSoft',
                 role: 'Backend Engineer',
                 period: 'December 2021 - July 2022',
@@ -155,7 +155,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
                 stack: 'Node.js, Express.js, React, MongoDB, PHP, Laravel, Vue.js, MySQL, Stripe, AWS, CircleCI, DesignHuddle',
             },
             {
-                id: 'exp-5',
+                id: 'elipseai',
                 company: 'Elipse AI',
                 role: 'Full Stack Developer',
                 period: 'June 2021 - December 2021',
@@ -171,7 +171,7 @@ const whyHireMeContentEn: WhyHireMeContent = {
                 stack: 'PHP, Laravel, Vue.js, Bootstrap, MySQL, Node.js, IBM Watson, WhatsApp Business API',
             },
             {
-                id: 'exp-6',
+                id: 'monchis',
                 company: 'Monchis S.A.',
                 role: 'Backend Developer',
                 period: 'January 2021 - June 2021',
@@ -224,7 +224,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
             'Experiencia actualizada con foco recruiter, alineada a seniority, ownership técnico y responsabilidades reales de cada etapa.',
         items: [
             {
-                id: 'exp-1',
+                id: 'amazing',
                 company: 'Amazing Inc',
                 role: 'Principal Software Engineer',
                 period: 'Junio 2024 - Actualidad',
@@ -240,7 +240,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
                 stack: 'PHP, Laravel, TypeScript, Vue.js, React, AWS EC2, Laravel Forge, OpenAI, Gemini, Perplexity AI, Sentry',
             },
             {
-                id: 'exp-2',
+                id: 'mindcloud',
                 company: 'MindCloud Inc',
                 role: 'Senior Software Development Engineer',
                 period: 'Diciembre 2023 - Junio 2024',
@@ -256,7 +256,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
                 stack: 'Node.js, TypeScript, React, API Integrations, AWS SQS, AWS Lambda, Slack API, GPT-3.5',
             },
             {
-                id: 'exp-3',
+                id: 'platformscience',
                 company: 'ITJ / Platform Science',
                 role: 'Senior Software Development Engineer',
                 period: 'Julio 2022 - Diciembre 2023',
@@ -272,7 +272,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
                 stack: 'TypeScript, Node.js, NestJS, Vue.js, Laravel, PostgreSQL, AWS, Cypress, Android Enterprise, EMM',
             },
             {
-                id: 'exp-4',
+                id: 'lasoft',
                 company: 'LaSoft',
                 role: 'Backend Engineer',
                 period: 'Diciembre 2021 - Julio 2022',
@@ -288,7 +288,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
                 stack: 'Node.js, Express.js, React, MongoDB, PHP, Laravel, Vue.js, MySQL, Stripe, AWS, CircleCI, DesignHuddle',
             },
             {
-                id: 'exp-5',
+                id: 'elipseai',
                 company: 'Elipse AI',
                 role: 'Full Stack Developer',
                 period: 'Junio 2021 - Diciembre 2021',
@@ -304,7 +304,7 @@ const whyHireMeContentEs: WhyHireMeContent = {
                 stack: 'PHP, Laravel, Vue.js, Bootstrap, MySQL, Node.js, IBM Watson, WhatsApp Business API',
             },
             {
-                id: 'exp-6',
+                id: 'monchis',
                 company: 'Monchis S.A.',
                 role: 'Backend Developer',
                 period: 'Enero 2021 - Junio 2021',
