@@ -4,7 +4,9 @@ import { COMMERCIAL_SERVICE_SLUGS, getLocalizedPath } from '@/i18n/routing';
 export {
     COMMERCIAL_SERVICE_SLUGS,
     getCommercialProfilePath,
+    getRecruiterProfilePath,
     getCommercialServicePath,
+    getFreelancerProfilePath,
     getLocalizedPath,
 } from '@/i18n/routing';
 
@@ -41,6 +43,10 @@ export const PUBLIC_LOCALIZED_PATHS = [
     '/es/qr-code',
     '/en/why-work-with-me',
     '/es/por-que-trabajar-conmigo',
+    '/en/why-hire-me',
+    '/es/porque-contratarme',
+    '/en/for-clients',
+    '/es/para-clientes',
     `/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,
     `/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
     `/en/${COMMERCIAL_SERVICE_SLUGS.web.en}`,

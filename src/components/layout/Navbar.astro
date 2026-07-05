@@ -2,6 +2,7 @@
 import { getHomeContent } from '@/data/home-content';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getLocalizedPath } from '@/seo/site';
+import { getRecruiterProfilePath } from '@/i18n/routing';
 import logo from '@assets/logo.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
@@ -10,8 +11,10 @@ const homeContent = getHomeContent(locale);
 const labels = homeContent.navbar;
 
 const homePath = `/${locale}`;
-const experiencePath = `${homePath}#experience`;
-const certificationsPath = `${homePath}#certifications`;
+const recruiterPath = getRecruiterProfilePath(locale);
+const sectionBasePath = currentPath === recruiterPath ? recruiterPath : homePath;
+const experiencePath = `${sectionBasePath}#experience`;
+const certificationsPath = `${sectionBasePath}#certifications`;
 const switchToEsPath = getLocalizedPath(currentPath, 'es');
 const switchToEnPath = getLocalizedPath(currentPath, 'en');
 const navLabelById = Object.fromEntries(

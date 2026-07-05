@@ -1,0 +1,29 @@
+---
+import FreelancerPlaceholderPage from '@components/home/FreelancerPlaceholderPage.astro';
+import { getMessages } from '@/i18n/messages';
+import { isLocale } from '@/i18n/locales';
+import { getFreelancerProfilePath } from '@/i18n/routing';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+    return Astro.redirect('/en');
+}
+
+if (lang === 'en') {
+    return Astro.redirect(getFreelancerProfilePath('en'));
+}
+
+const messages = getMessages(lang);
+const canonical = `${SITE_URL}${getFreelancerProfilePath(lang)}`;
+---
+
+<Layout
+    title={messages.freelancerPage.title}
+    description={messages.freelancerPage.description}
+    canonical={canonical}
+>
+    <FreelancerPlaceholderPage />
+</Layout>

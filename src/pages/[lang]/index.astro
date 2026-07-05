@@ -1,9 +1,6 @@
 ---
-import { getHomeContent } from '@/data/home-content';
 import Layout from '@/layouts/Layout.astro';
-import Presentation from '@components/home/Presentation.astro';
-import WorkExperience from '@components/home/WorkExperience.astro';
-import Certifications from '@components/home/Certifications.astro';
+import SimpleHome from '@components/home/SimpleHome.astro';
 import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
 
@@ -14,25 +11,13 @@ if (!lang || !isLocale(lang)) {
 }
 
 const messages = getMessages(lang);
-const homeContent = getHomeContent(lang);
 ---
 
 <Layout
     title={messages.homePage.title}
     description={messages.homePage.description}
+    showDefaultNavbar={false}
+    containerMode="fluid"
 >
-    <section id="presentation-section">
-        <Presentation
-            variant="pro"
-            greeting={homeContent.presentation.greeting}
-        />
-    </section>
-
-    <section id="experience">
-        <WorkExperience />
-    </section>
-
-    <section id="certifications">
-        <Certifications />
-    </section>
+    <SimpleHome />
 </Layout>

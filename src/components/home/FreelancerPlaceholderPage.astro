@@ -1,0 +1,28 @@
+---
+import { getMessages } from '@/i18n/messages';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getHomePath } from '@/i18n/routing';
+
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const messages = getMessages(locale);
+---
+
+<section class="flex min-h-[70vh] items-center justify-center py-16">
+    <div class="max-w-2xl rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+            {messages.freelancerPage.eyebrow}
+        </p>
+        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950">
+            {messages.freelancerPage.titleLabel}
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600">
+            {messages.freelancerPage.descriptionLabel}
+        </p>
+        <a
+            href={getHomePath(locale)}
+            class="mt-8 inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+            {locale === 'es' ? 'Volver al inicio' : 'Back to home'}
+        </a>
+    </div>
+</section>
