@@ -4,7 +4,7 @@ export type QrLinkItem = {
     label: string;
     description: string;
     href: string;
-    icon: 'home' | 'user' | 'globe' | 'shopping-cart';
+    icon: 'home' | 'user';
 };
 
 export type QrPageContent = {

@@ -2,12 +2,12 @@
 import Layout from '@/layouts/Layout.astro';
 import SimpleHome from '@components/home/SimpleHome.astro';
 import { getMessages } from '@/i18n/messages';
-import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import { isLocale } from '@/i18n/locales';
 
 const { lang } = Astro.params;
 
 if (!lang || !isLocale(lang)) {
-    return Astro.redirect(`/${DEFAULT_LOCALE}`);
+    return Astro.redirect('/en');
 }
 
 const messages = getMessages(lang);

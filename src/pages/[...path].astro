@@ -10,12 +10,10 @@ if (firstSegment && isLocale(firstSegment)) {
     throw new Response('Not found', { status: 404 });
 }
 
-const locale = resolveRequestLocale({
-    request: Astro.request,
-    cookies: Astro.cookies,
-});
-
 return Astro.redirect(
-    `/${locale}${pathname === '/' ? '' : pathname}${Astro.url.search}`,
+    `/${resolveRequestLocale({
+        request: Astro.request,
+        cookies: Astro.cookies,
+    })}${pathname === '/' ? '' : pathname}${Astro.url.search}`,
 );
 ---

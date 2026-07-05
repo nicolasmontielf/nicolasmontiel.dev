@@ -1,17 +1,23 @@
-# 🛬 My landing page
+# nicolasmontiel.dev
 
-This repository contains the information and source code of my personal website. It is a simple landing page where I have links to my LinkedIn profile, GitHub, Stack Overflow, and pull data from my blog.
+Sitio personal construido con `Astro`, `TypeScript`, `Tailwind CSS` y `Preact`.
 
-## 💻 Technologies Used
+El estado actual del repo está enfocado en:
 
-The website was created using Astro, a static site generator that allows you to use Preact components to create static websites. The website is hosted on Vercel, which allows you to deploy your website with a simple git push.
+- una landing principal
+- una página técnica para recruiters
+- rutas auxiliares como `posts` y `qr-code`
 
-## 👀 View the website
+## Scripts
 
-You can visit my personal website at [nicolasmontiel.dev](https://nicolasmontiel.dev).
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run format
+npm run format:check
+```
 
-## ️🙅🏻‍♂️ Contributions
+## Contexto del proyecto
 
-I do not accept contributions to this repository as the website is personal and does not require any additional changes at this time.
-
-Thank you for visiting my personal website! :) If you want to contact me, please add me on Linkedin and we can talk there! :D
+La documentación viva del repo está en [PROJECT_CONTEXT.md](/home/nico/projects/nicolasmontiel.dev/PROJECT_CONTEXT.md:1).

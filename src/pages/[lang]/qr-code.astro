@@ -1,13 +1,10 @@
 ---
 import avatarImage from '@assets/nicolas-montiel-avatar.png';
-import FeatureCard from '@components/common/landing/FeatureCard.astro';
-import IconBadge from '@components/common/landing/IconBadge.astro';
-import LandingButtonLink from '@components/common/landing/LandingButtonLink.astro';
 import { getQrCodeContent, getQrCodeWhatsappLink } from '@/data/qr-code';
 import { isLocale } from '@/i18n/locales';
 import Layout from '@/layouts/Layout.astro';
 import { SITE_URL } from '@/seo/site';
-import { Globe, House, ShoppingCart, UserRound } from '@lucide/astro';
+import { House, UserRound } from '@lucide/astro';
 
 const { lang } = Astro.params;
 
@@ -21,8 +18,6 @@ const canonical = `${SITE_URL}/${lang}/qr-code`;
 const iconByName = {
     home: House,
     user: UserRound,
-    globe: Globe,
-    'shopping-cart': ShoppingCart,
 };
 ---
 
@@ -89,23 +84,20 @@ const iconByName = {
                             return (
                                 <a
                                     href={item.href}
-                                    class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 rounded-[1.5rem]"
+                                    class="flex rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 text-left transition hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-white hover:shadow-[0_24px_60px_-48px_rgba(79,70,229,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
                                     aria-label={item.label}
                                 >
-                                    <FeatureCard
-                                        title={item.label}
-                                        description={item.description}
-                                        layout="stacked"
-                                        hoverable={true}
-                                        className="p-5"
-                                    >
-                                        <IconBadge slot="icon">
-                                            <Icon
-                                                size={18}
-                                                stroke-width={1.9}
-                                            />
-                                        </IconBadge>
-                                    </FeatureCard>
+                                    <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-700">
+                                        <Icon size={18} stroke-width={1.9} />
+                                    </span>
+                                    <span class="ml-4 block">
+                                        <span class="block text-base font-semibold text-slate-950">
+                                            {item.label}
+                                        </span>
+                                        <span class="mt-2 block text-sm leading-relaxed text-slate-600">
+                                            {item.description}
+                                        </span>
+                                    </span>
                                 </a>
                             );
                         })
@@ -113,15 +105,14 @@ const iconByName = {
                 </div>
 
                 <div class="mt-6 border-t border-slate-200 pt-5">
-                    <LandingButtonLink
+                    <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noreferrer"
-                        variant="primary"
-                        className="flex w-full items-center justify-center rounded-md px-5 py-4 text-sm"
+                        class="flex w-full items-center justify-center rounded-md bg-indigo-600 px-5 py-4 text-sm font-semibold text-white transition hover:bg-indigo-700"
                     >
                         {content.whatsappLabel}
-                    </LandingButtonLink>
+                    </a>
                 </div>
             </div>
         </div>

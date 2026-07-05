@@ -1,8 +1,5 @@
 import type { Locale } from '@/i18n/locales';
-import {
-    getCommercialProfilePath,
-    getCommercialServicePath,
-} from '@/i18n/routing';
+import { getRecruiterProfilePath } from '@/i18n/routing';
 import type { QrContentByLocale } from '@/types/qr';
 
 const whatsappLinksByLocale: Record<Locale, string> = {
@@ -14,82 +11,52 @@ const qrCodeContentByLocale: QrContentByLocale = {
     es: {
         metaTitle: 'Links rápidos',
         metaDescription:
-            'Links rápidos de Nicolás Montiel para conocer su perfil técnico, perfil de socio, servicios web y ecommerce.',
+            'Links rápidos de Nicolás Montiel para conocer su landing principal y su perfil técnico para recruiters.',
         badge: 'Nicolas Montiel',
-        title: 'Hablemos de tu negocio y de lo que querés construir.',
+        title: 'Accesos rápidos a mi sitio y perfil técnico.',
         description:
-            'Elegí el acceso que te sirva y en minutos podés ver cómo trabajo o escribirme directo por WhatsApp.',
-        profileLabel: 'Technical partner',
+            'Elegí el punto de entrada más útil para vos y, si querés, escribime directo por WhatsApp.',
+        profileLabel: 'Software engineer',
         whatsappLabel: 'Contactar por WhatsApp',
         links: [
             {
                 label: 'Inicio',
-                description:
-                    'Mi perfil técnico y experiencia construyendo software.',
+                description: 'La landing principal del sitio.',
                 href: '/es',
                 icon: 'home',
             },
             {
-                label: 'Por que trabajar conmigo',
+                label: 'Perfil para recruiters',
                 description:
-                    'Mi enfoque como socio tecnologico para tu negocio.',
-                href: getCommercialProfilePath('es'),
+                    'Mi experiencia, stack y recorrido técnico en formato más directo.',
+                href: getRecruiterProfilePath('es'),
                 icon: 'user',
-            },
-            {
-                label: 'Quiero una web',
-                description:
-                    'Webs y landings profesionales con foco comercial.',
-                href: getCommercialServicePath('web', 'es'),
-                icon: 'globe',
-            },
-            {
-                label: 'Quiero un ecommerce',
-                description:
-                    'Tiendas online para vender con más orden y control operativo.',
-                href: getCommercialServicePath('ecommerce', 'es'),
-                icon: 'shopping-cart',
             },
         ],
     },
     en: {
         metaTitle: 'Quick links',
         metaDescription:
-            'Quick links from Nicolás Montiel to see his technical profile, partner profile, web services, and ecommerce services.',
+            'Quick links from Nicolás Montiel to see the main landing page and the recruiter-focused technical profile.',
         badge: 'Nicolas Montiel',
-        title: 'Let’s talk about your business and what you want to build.',
+        title: 'Quick access to my site and technical profile.',
         description:
-            'Choose the most relevant entry point and in minutes you can understand how I work or message me directly on WhatsApp.',
-        profileLabel: 'Technical partner',
+            'Choose the most relevant entry point and, if you want, message me directly on WhatsApp.',
+        profileLabel: 'Software engineer',
         whatsappLabel: 'Contact on WhatsApp',
         links: [
             {
                 label: 'Home',
-                description:
-                    'My technical profile and software engineering experience.',
+                description: 'The main landing page of the site.',
                 href: '/en',
                 icon: 'home',
             },
             {
-                label: 'Why work with me',
+                label: 'Recruiter profile',
                 description:
-                    'How I work as a technical partner for businesses.',
-                href: getCommercialProfilePath('en'),
+                    'My background, stack, and technical experience in a more direct format.',
+                href: getRecruiterProfilePath('en'),
                 icon: 'user',
-            },
-            {
-                label: 'I need a website',
-                description:
-                    'Professional websites and landing pages with business focus.',
-                href: getCommercialServicePath('web', 'en'),
-                icon: 'globe',
-            },
-            {
-                label: 'I need ecommerce',
-                description:
-                    'Online stores built to improve sales and operational control.',
-                href: getCommercialServicePath('ecommerce', 'en'),
-                icon: 'shopping-cart',
             },
         ],
     },
