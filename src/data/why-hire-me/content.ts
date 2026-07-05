@@ -5,6 +5,7 @@ import PearsonLogo from '@/assets/logos/pearson_logo.jpeg';
 import RedisLogo from '@/assets/logos/redis_logo.jpeg';
 import ScrumStudyLogo from '@/assets/logos/scrumstudy_logo.jpeg';
 import SemrushLogo from '@/assets/logos/semrush_logo.png';
+import MetaLogo from '@/assets/logos/meta_logo.jpeg';
 import type { Locale } from '@/i18n/locales';
 import type { Certification, WhyHireMeContent } from '@/types/content';
 
@@ -16,6 +17,14 @@ const certificationItems: Certification[] = [
         href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
         description:
             'AWS Cloud fundamentals, core services, security, the shared responsibility model, basic architecture, pricing, and support for stronger early-stage decisions.',
+    },
+    {
+        id: 'react-advanced',
+        title: 'Meta: Advanced React',
+        icon: MetaLogo.src,
+        href: 'https://coursera.org/share/c28d57fdbe726343be7d2fd7f73be978',
+        description:
+            'Create robust and reusable components with advanced techniques and learn different patterns to reuse common behavior',
     },
     {
         id: 'search-and-conversions-for-agencies',
