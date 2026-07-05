@@ -1,9 +1,19 @@
 ---
-import { getHomeContent } from '@/data/home-content';
+import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { renderMarkdown } from '@/utils/markdown';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const experience = getHomeContent(locale).experience;
+const experience = getWhyHireMeContent(locale).experience;
+const renderedItems = await Promise.all(
+    experience.items.map(async (item) => ({
+        ...item,
+        renderedSummary: await renderMarkdown(item.summary),
+        renderedResponsibilities: await Promise.all(
+            item.responsibilities.map((bullet) => renderMarkdown(bullet)),
+        ),
+    })),
+);
 ---
 
 <section
@@ -23,7 +33,7 @@ const experience = getHomeContent(locale).experience;
         <aside class="md:w-3/12">
             <div class="space-y-1">
                 {
-                    experience.items.map((item, index) => (
+                    renderedItems.map((item, index) => (
                         <button
                             type="button"
                             class:list={[
@@ -49,7 +59,7 @@ const experience = getHomeContent(locale).experience;
 
         <div class="md:w-9/12">
             {
-                experience.items.map((item, index) => (
+                renderedItems.map((item, index) => (
                     <article
                         id={item.id}
                         data-exp-panel
@@ -61,14 +71,18 @@ const experience = getHomeContent(locale).experience;
                         <p class="mt-2 text-sm text-slate-500">
                             {item.company} · {item.period}
                         </p>
-                        <p class="mt-6 text-base leading-relaxed text-slate-700">
-                            {item.summary}
-                        </p>
+                        <div
+                            class="mt-6 text-base leading-relaxed text-slate-700 [&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-slate-900"
+                            set:html={item.renderedSummary}
+                        />
                         <ul class="mt-6 space-y-3 text-base leading-relaxed text-slate-700">
-                            {item.responsibilities.map((bullet) => (
+                            {item.renderedResponsibilities.map((bullet) => (
                                 <li class="flex items-start gap-3">
                                     <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-                                    <span>{bullet}</span>
+                                    <div
+                                        class="flex-1 [&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-slate-900"
+                                        set:html={bullet}
+                                    />
                                 </li>
                             ))}
                         </ul>

@@ -82,7 +82,7 @@ Contiene casi toda la UI relevante del producto actual:
 
 ### `src/data`
 
-- `home-content.ts`
+- `why-hire-me.ts`
   Contenido de home, experiencia y certificaciones por idioma.
 - `qr-code.ts`
   Contenido de la página QR.
@@ -183,4 +183,4 @@ Leer en este orden:
 7. [src/components/home/SimpleHome.astro](/home/nico/projects/nicolasmontiel.dev/src/components/home/SimpleHome.astro:1)
 8. [src/pages/[lang]/why-hire-me.astro](/home/nico/projects/nicolasmontiel.dev/src/pages/[lang]/why-hire-me.astro:1)
 9. [src/components/home/RecruiterProfilePage.astro](/home/nico/projects/nicolasmontiel.dev/src/components/home/RecruiterProfilePage.astro:1)
-10. [src/data/home-content.ts](/home/nico/projects/nicolasmontiel.dev/src/data/home-content.ts:1)
+10. [src/data/why-hire-me.ts](/home/nico/projects/nicolasmontiel.dev/src/data/why-hire-me.ts:1)

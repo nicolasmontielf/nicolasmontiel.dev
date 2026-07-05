@@ -3,14 +3,19 @@ import devIcon from '@assets/icons/devto.svg';
 import linkedinIcon from '@assets/icons/linkedin.svg';
 import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
-import { getHomeContent } from '@/data/home-content';
+import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { renderMarkdown } from '@/utils/markdown';
 import type { PresentationProps } from '@/types/home';
 
 const { variant, greeting } = Astro.props as PresentationProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const homeContent = getHomeContent(locale);
-const bodyParagraphs = homeContent.presentation.bodyByVariant[variant];
+const whyHireMeContent = getWhyHireMeContent(locale);
+const bodyParagraphs = await Promise.all(
+    whyHireMeContent.presentation.bodyByVariant[variant].map((paragraph) =>
+        renderMarkdown(paragraph),
+    ),
+);
 
 const socialMediaItems = [
     {
@@ -45,7 +50,14 @@ const socialMediaItems = [
         </h1>
 
         <div class="space-y-3 text-lg leading-relaxed text-slate-700">
-            {bodyParagraphs.map((paragraph) => <p set:html={paragraph} />)}
+            {
+                bodyParagraphs.map((paragraph) => (
+                    <div
+                        class="[&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-slate-900"
+                        set:html={paragraph}
+                    />
+                ))
+            }
         </div>
 
         <div class="flex gap-4 items-center">

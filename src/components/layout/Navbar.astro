@@ -1,5 +1,5 @@
 ---
-import { getHomeContent } from '@/data/home-content';
+import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getLocalizedPath } from '@/seo/site';
 import { getRecruiterProfilePath } from '@/i18n/routing';
@@ -7,8 +7,8 @@ import logo from '@assets/logo.png';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const currentPath = Astro.url.pathname;
-const homeContent = getHomeContent(locale);
-const labels = homeContent.navbar;
+const whyHireMeContent = getWhyHireMeContent(locale);
+const labels = whyHireMeContent.navbar;
 
 const homePath = `/${locale}`;
 const recruiterPath = getRecruiterProfilePath(locale);
@@ -21,7 +21,7 @@ const navLabelById = Object.fromEntries(
     labels.items.map((item) => [item.id, item.label]),
 ) as Record<'posts' | 'experience' | 'certifications', string>;
 const navHrefById = {
-    posts: homeContent.navbar.postsHref,
+    posts: whyHireMeContent.navbar.postsHref,
     experience: experiencePath,
     certifications: certificationsPath,
 };
