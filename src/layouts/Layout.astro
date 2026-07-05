@@ -2,8 +2,8 @@
 import Navbar from '@components/layout/Navbar.astro';
 // @ts-ignore
 import '@fontsource-variable/space-grotesk';
-import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getSiteCopy } from '@/i18n/site-copy';
 import type { LayoutProps } from '@/types/layout';
 import {
 	DEFAULT_OG_IMAGE,
@@ -37,9 +37,9 @@ const {
 
 const locale = Astro.locals.locale ?? localeProp ?? DEFAULT_LOCALE;
 
-const messages = getMessages(locale);
-const pageDescription = description || messages.layout.defaultDescription;
-const pageTitle = title ? `${title} | ${SITE_TITLE_SUFFIX}` : `${messages.layout.defaultTitle} | ${SITE_TITLE_SUFFIX}`;
+const siteCopy = getSiteCopy(locale);
+const pageDescription = description || siteCopy.layout.defaultDescription;
+const pageTitle = title ? `${title} | ${SITE_TITLE_SUFFIX}` : `${siteCopy.layout.defaultTitle} | ${SITE_TITLE_SUFFIX}`;
 const resolvedCanonical = canonical || toAbsoluteUrl(Astro.url.pathname);
 const openGraphLocale = getOpenGraphLocale(locale);
 const alternateLanguageLinks = includeAlternateLinks ? getAlternateLanguageLinks(Astro.url.pathname) : [];
@@ -79,7 +79,7 @@ const personSchema = {
 	name: SITE_NAME,
 	url: SITE_URL,
 	jobTitle: locale === 'es' ? 'Ingeniero de software full-stack' : 'Full-stack software engineer',
-	description: messages.layout.defaultDescription,
+	description: siteCopy.layout.defaultDescription,
 	email: 'mailto:nicolasmontielf@gmail.com',
 	sameAs: SAME_AS_LINKS,
 	knowsAbout: [

@@ -2,13 +2,11 @@
 import { ExternalLink } from '@lucide/astro';
 import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
-import type { CertificationsProps } from '@/types/home';
 
-const { title, credentialLabel } = Astro.props as CertificationsProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const certifications = getWhyHireMeContent(locale).certifications;
-const sectionTitle = title ?? certifications.title;
-const credentialText = credentialLabel ?? certifications.viewCredentialLabel;
+const sectionTitle = certifications.title;
+const credentialText = certifications.viewCredentialLabel;
 const cards = certifications.items.map((item) => {
     const shouldTruncate =
         item.description.length > certifications.previewLength;

@@ -1,6 +1,7 @@
 ---
 import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getSiteCopy } from '@/i18n/site-copy';
 import { getLocalizedPath } from '@/seo/site';
 import { getRecruiterProfilePath } from '@/i18n/routing';
 import logo from '@assets/logo.png';
@@ -8,6 +9,7 @@ import logo from '@assets/logo.png';
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const currentPath = Astro.url.pathname;
 const whyHireMeContent = getWhyHireMeContent(locale);
+const siteCopy = getSiteCopy(locale);
 const labels = whyHireMeContent.navbar;
 
 const homePath = `/${locale}`;
@@ -66,7 +68,7 @@ const navHrefById = {
             <label
                 class="sr-only"
                 for="desktop-language-select"
-                >{labels.languageLabel}</label
+                >{siteCopy.common.languageLabel}</label
             >
             <select
                 id="desktop-language-select"
@@ -144,7 +146,7 @@ const navHrefById = {
                 <label
                     class="block text-xs text-slate-500 mb-1"
                     for="mobile-language-select"
-                    >{labels.languageLabel}</label
+                    >{siteCopy.common.languageLabel}</label
                 >
                 <select
                     id="mobile-language-select"

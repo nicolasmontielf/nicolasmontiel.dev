@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SimpleHome from '@components/home/SimpleHome.astro';
-import { getMessages } from '@/i18n/messages';
+import { getHomeSeo } from '@/data/home';
 import { isLocale } from '@/i18n/locales';
 
 const { lang } = Astro.params;
@@ -10,12 +10,12 @@ if (!lang || !isLocale(lang)) {
     return Astro.redirect('/en');
 }
 
-const messages = getMessages(lang);
+const seo = getHomeSeo(lang);
 ---
 
 <Layout
-    title={messages.homePage.title}
-    description={messages.homePage.description}
+    title={seo.title}
+    description={seo.description}
     showDefaultNavbar={false}
     containerMode="fluid"
 >

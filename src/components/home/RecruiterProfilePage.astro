@@ -1,12 +1,7 @@
 ---
-import { getMessages } from '@/i18n/messages';
-import { DEFAULT_LOCALE } from '@/i18n/locales';
 import Certifications from '@components/home/Certifications.astro';
 import Presentation from '@components/home/Presentation.astro';
 import WorkExperience from '@components/home/WorkExperience.astro';
-
-const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const messages = getMessages(locale);
 ---
 
 <>
@@ -19,9 +14,6 @@ const messages = getMessages(locale);
     </section>
 
     <section id="certifications">
-        <Certifications
-            title={messages.home.certificationsTitle}
-            credentialLabel={messages.home.viewCredential}
-        />
+        <Certifications />
     </section>
 </>

@@ -5,10 +5,12 @@ import githubIcon from '@assets/icons/github.svg';
 import mailIcon from '@assets/icons/mail.svg';
 import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getSiteCopy } from '@/i18n/site-copy';
 import { renderMarkdown } from '@/utils/markdown';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const whyHireMeContent = getWhyHireMeContent(locale);
+const siteCopy = getSiteCopy(locale);
 const bodyParagraphs = await Promise.all(
     whyHireMeContent.presentation.body.map((paragraph) => renderMarkdown(paragraph)),
 );
@@ -18,7 +20,7 @@ const socialMediaItems = [
     {
         url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
         icon: linkedinIcon,
-        label: 'LinkedIn',
+        label: siteCopy.common.linkedin,
     },
     {
         url: 'https://github.com/nicolasmontielf',
@@ -33,7 +35,7 @@ const socialMediaItems = [
     {
         url: 'mailto:nicolasmontielf@gmail.com',
         icon: mailIcon,
-        label: locale === 'es' ? 'Enviar email' : 'Send email',
+        label: siteCopy.common.email,
     },
 ];
 ---

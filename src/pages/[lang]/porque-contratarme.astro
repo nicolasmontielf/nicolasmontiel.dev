@@ -1,6 +1,6 @@
 ---
 import RecruiterProfilePage from '@components/home/RecruiterProfilePage.astro';
-import { getMessages } from '@/i18n/messages';
+import { getWhyHireMeSeo } from '@/data/why-hire-me';
 import { isLocale } from '@/i18n/locales';
 import { getRecruiterProfilePath } from '@/i18n/routing';
 import Layout from '@/layouts/Layout.astro';
@@ -16,13 +16,13 @@ if (lang === 'en') {
     return Astro.redirect(getRecruiterProfilePath('en'));
 }
 
-const messages = getMessages(lang);
+const seo = getWhyHireMeSeo(lang);
 const canonical = `${SITE_URL}${getRecruiterProfilePath(lang)}`;
 ---
 
 <Layout
-    title={messages.recruiterPage.title}
-    description={messages.recruiterPage.description}
+    title={seo.title}
+    description={seo.description}
     canonical={canonical}
 >
     <RecruiterProfilePage />
