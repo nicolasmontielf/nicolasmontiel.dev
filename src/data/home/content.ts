@@ -3,22 +3,41 @@ import type { HomePageContent } from '@/types/content';
 
 const homeContentEn: HomePageContent = {
     hero: {
-        roleLabel: 'Principal Software Engineer',
-        subtitleFirstParagraph:
-            'I’m a full-stack developer focused on building practical, reliable software for businesses and technical teams.',
-        subtitleSecondParagraph:
-            'If you are hiring for a software role and want a concise, technical overview, the recruiter profile gives you the clearest picture of how I work.',
+        profile: {
+            name: 'Nicolás Montiel',
+            location: 'Based in Argentina / Paraguay',
+            handle: '@nicolasmontielf',
+        },
+        greeting: {
+            prefix: "Hello, I'm",
+            accent: 'Nicolás Montiel',
+        },
+        roles: [
+            'Principal Software Engineer',
+            'Freelancer',
+            'Consultant',
+        ],
+        metrics: [
+            {
+                value: '8+',
+                label: 'Years of experience as a software engineer',
+            },
+            {
+                value: '5+',
+                label: 'Years working fully remote for companies across LATAM, US, and Europe',
+            },
+        ],
         ctas: [
             {
-                label: 'For recruiters',
+                label: 'Technical experience',
                 description:
-                    'Technical background, experience, stack, projects.',
+                    'Recruiter-facing profile with technical background, experience, and stack.',
                 href: '/en/why-hire-me',
             },
             {
-                label: 'For clients',
+                label: 'Freelancer services',
                 description:
-                    'Freelance builds, technical execution, and direct collaboration.',
+                    'Product builds, technical execution, and direct collaboration for client work.',
                 href: 'mailto:nicolasmontielf@gmail.com?subject=Freelance%20Project',
             },
         ],
@@ -27,22 +46,41 @@ const homeContentEn: HomePageContent = {
 
 const homeContentEs: HomePageContent = {
     hero: {
-        roleLabel: 'Principal Software Engineer',
-        subtitleFirstParagraph:
-            'Soy un desarrollador full-stack enfocado en construir software práctico y confiable para empresas y equipos técnicos.',
-        subtitleSecondParagraph:
-            'Si estás evaluándome para un rol de software y querés una vista técnica, breve y directa, el perfil para recruiters es el mejor punto de entrada.',
+        profile: {
+            name: 'Nicolás Montiel',
+            location: 'Basado en Argentina / Paraguay',
+            handle: '@nicolasmontielf',
+        },
+        greeting: {
+            prefix: 'Hola, soy',
+            accent: 'Nicolás Montiel',
+        },
+        roles: [
+            'Principal Software Engineer',
+            'Freelancer',
+            'Consultor',
+        ],
+        metrics: [
+            {
+                value: '8+',
+                label: 'Años de experiencia como software engineer',
+            },
+            {
+                value: '5+',
+                label: 'Años trabajando full remoto para empresas de LATAM, US y Europa',
+            },
+        ],
         ctas: [
             {
-                label: 'Para recruiters',
+                label: 'Experiencia técnica',
                 description:
-                    'Perfil técnico, experiencia, stack y proyectos.',
+                    'Perfil orientado a recruiters con experiencia, stack y recorrido técnico.',
                 href: '/es/porque-contratarme',
             },
             {
-                label: 'Para clientes',
+                label: 'Servicios freelance',
                 description:
-                    'Desarrollo freelance, ejecución técnica y colaboración directa.',
+                    'Desarrollo de producto, ejecución técnica y colaboración directa para clientes.',
                 href: 'mailto:nicolasmontielf@gmail.com?subject=Proyecto%20Freelance',
             },
         ],

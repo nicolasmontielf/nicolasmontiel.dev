@@ -1,12 +1,10 @@
 ---
-import devIcon from '@assets/icons/devto.svg';
-import linkedinIcon from '@assets/icons/linkedin.svg';
-import githubIcon from '@assets/icons/github.svg';
-import mailIcon from '@assets/icons/mail.svg';
 import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getSiteCopy } from '@/i18n/site-copy';
 import { renderMarkdown } from '@/utils/markdown';
+import { Icon } from 'astro-icon/components';
+import { Mail } from '@lucide/astro';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const whyHireMeContent = getWhyHireMeContent(locale);
@@ -19,22 +17,22 @@ const greeting = whyHireMeContent.presentation.greeting;
 const socialMediaItems = [
     {
         url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
-        icon: linkedinIcon,
+        icon: 'simple-icons:linkedin',
         label: siteCopy.common.linkedin,
     },
     {
         url: 'https://github.com/nicolasmontielf',
-        icon: githubIcon,
+        icon: 'simple-icons:github',
         label: 'GitHub',
     },
     {
         url: 'https://dev.to/nicolasmontielf',
-        icon: devIcon,
+        icon: 'simple-icons:devdotto',
         label: 'DEV Community',
     },
     {
         url: 'mailto:nicolasmontielf@gmail.com',
-        icon: mailIcon,
+        icon: 'mail',
         label: siteCopy.common.email,
     },
 ];
@@ -70,19 +68,19 @@ const socialMediaItems = [
                             rel="noreferrer"
                             aria-label={item.label}
                         >
-                            <div
-                                class="h-5 w-5 cursor-pointer bg-indigo-600 transition-colors group-hover:bg-indigo-700"
-                                style={`
-                                    mask-image: url(${item.icon.src}); 
-                                    -webkit-mask-image: url(${item.icon.src});
-                                    mask-size: contain; 
-                                    -webkit-mask-size: contain;
-                                    mask-repeat: no-repeat;
-                                    -webkit-mask-repeat: no-repeat;
-                                    mask-position: center;
-                                    -webkit-mask-position: center;
-                                `}
-                            />
+                            {item.icon === 'mail' ? (
+                                <Mail
+                                    class="h-5 w-5 cursor-pointer text-primary transition-colors group-hover:text-primary-800"
+                                    stroke-width={2}
+                                    aria-hidden="true"
+                                />
+                            ) : (
+                                <Icon
+                                    name={item.icon}
+                                    class="h-5 w-5 cursor-pointer text-primary transition-colors group-hover:text-primary-800"
+                                    aria-hidden="true"
+                                />
+                            )}
                         </a>
                     );
                 })

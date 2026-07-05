@@ -1,185 +1,166 @@
 ---
 import avatar from '@assets/nicolas-montiel-avatar.png';
-import devIcon from '@assets/icons/devto.svg';
-import githubIcon from '@assets/icons/github.svg';
-import linkedinIcon from '@assets/icons/linkedin.svg';
-import mailIcon from '@assets/icons/mail.svg';
-import logo from '@assets/logo.png';
+import HomeHeader from '@components/home/HomeHeader.astro';
 import { getHomeContent } from '@/data/home';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import { getSiteCopy } from '@/i18n/site-copy';
-import { getLocalizedPath } from '@/seo/site';
+import { Icon } from 'astro-icon/components';
+import { Mail } from '@lucide/astro';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const homeContent = getHomeContent(locale);
 const siteCopy = getSiteCopy(locale);
-const currentPath = Astro.url.pathname;
-const switchToEsPath = getLocalizedPath(currentPath, 'es');
-const switchToEnPath = getLocalizedPath(currentPath, 'en');
-const backgroundImageUrl =
-    'https://images.unsplash.com/photo-1471572891026-8ca1e66adf49?fm=jpg&q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 const socialMediaItems = [
     {
         url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
-        icon: linkedinIcon,
+        icon: 'simple-icons:linkedin',
         label: siteCopy.common.linkedin,
     },
     {
         url: 'mailto:nicolasmontielf@gmail.com',
-        icon: mailIcon,
+        icon: 'mail',
         label: siteCopy.common.email,
     },
     {
         url: 'https://dev.to/nicolasmontielf',
-        icon: devIcon,
+        icon: 'simple-icons:devdotto',
         label: 'DEV Community',
     },
     {
         url: 'https://github.com/nicolasmontielf',
-        icon: githubIcon,
+        icon: 'simple-icons:github',
         label: 'GitHub',
     },
 ];
 ---
 
-<section class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
-    <div
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-fixed"
-        style={`background-image: linear-gradient(90deg, rgba(3, 7, 18, 0.82) 0%, rgba(3, 7, 18, 0.64) 42%, rgba(3, 7, 18, 0.56) 100%), url(${backgroundImageUrl});`}
-    ></div>
-    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.12),rgba(2,6,23,0.3))]"></div>
-    <div class="absolute inset-y-0 left-0 w-full bg-[radial-gradient(circle_at_22%_30%,rgba(99,102,241,0.22),transparent_32%)]"></div>
+<section class="relative min-h-screen overflow-hidden bg-[#171717] text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.12),transparent_30%)]"></div>
+    <div class="absolute inset-0 opacity-[0.035] [background-image:radial-gradient(circle,white_0.7px,transparent_0.7px)] [background-size:14px_14px]"></div>
 
-    <div class="relative z-10 flex min-h-screen flex-col px-4 py-6 sm:px-6 lg:px-10">
-        <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-1 py-2">
-            <a
-                class="inline-flex items-center"
-                href={`/${locale}`}
-            >
-                <img
-                    src={logo.src}
-                    alt="Nicolás Montiel"
-                    class="h-10 w-auto sm:h-11"
-                    width={logo.width}
-                    height={logo.height}
-                />
-            </a>
+    <div class="relative z-10 flex min-h-screen flex-col px-4 py-4 sm:px-6 lg:px-10">
+        <HomeHeader />
 
-            <div class="flex items-center gap-3">
-                <label
-                    class="sr-only"
-                    for="home-language-select"
-                    >{siteCopy.common.languageLabel}</label
-                >
-                <select
-                    id="home-language-select"
-                    data-language-select
-                    class="rounded-md border border-white/35 bg-transparent px-3 py-2 text-sm font-medium text-white outline-none transition focus:border-indigo-300 focus:bg-indigo-500/10"
-                >
-                    <option
-                        value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
-                        selected={locale === 'es'}
-                        class="text-slate-900"
-                    >
-                        ES
-                    </option>
-                    <option
-                        value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
-                        selected={locale === 'en'}
-                        class="text-slate-900"
-                    >
-                        EN
-                    </option>
-                </select>
-            </div>
-        </header>
-
-        <div class="mx-auto flex w-full max-w-6xl flex-1 items-center">
-            <div class="grid w-full items-center gap-12 py-16 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)] lg:gap-20 lg:py-24">
+        <div class="mx-auto flex w-full max-w-[1380px] flex-1 items-center">
+            <div class="grid w-full items-start gap-12 py-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-20 lg:py-8">
                 <div class="flex justify-center lg:justify-start">
-                    <div class="relative">
-                        <img
-                            src={avatar.src}
-                            alt="Nicolás Montiel"
-                            class="relative h-48 w-48 rounded-full border-4 border-white object-cover shadow-[0_18px_40px_rgba(2,6,23,0.4)] sm:h-60 sm:w-60 lg:h-72 lg:w-72"
-                            width={avatar.width}
-                            height={avatar.height}
-                        />
+                    <div class="w-full max-w-[340px]">
+                        <div class="rounded-[28px] border border-white/10 bg-transparent px-9 py-8">
+                            <div class="bg-primary p-5">
+                                <img
+                                    src={avatar.src}
+                                    alt="Nicolás Montiel"
+                                    class="aspect-square w-full object-cover"
+                                    width={avatar.width}
+                                    height={avatar.height}
+                                />
+                            </div>
+
+                            <div class="mt-7 text-center">
+                                <p class="text-[2rem] font-medium tracking-[-0.03em] text-white">
+                                    {homeContent.hero.profile.name}
+                                </p>
+                                <p class="mt-2 text-[1.05rem] text-white/70">
+                                    {homeContent.hero.profile.handle}
+                                </p>
+                                <p class="mt-5 text-[0.8rem] uppercase tracking-[0.24em] text-white/78">
+                                    {homeContent.hero.profile.location}
+                                </p>
+                            </div>
+
+                            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                                {
+                                    socialMediaItems.map((item) => (
+                                        <a
+                                            href={item.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            aria-label={item.label}
+                                            class="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-transparent transition hover:border-primary"
+                                        >
+                                            {item.icon === 'mail' ? (
+                                                <Mail
+                                                    class="h-5 w-5 text-white/85 transition group-hover:text-primary"
+                                                    stroke-width={2}
+                                                    aria-hidden="true"
+                                                />
+                                            ) : (
+                                                <Icon
+                                                    name={item.icon}
+                                                    class="h-5 w-5 text-white/85 transition group-hover:text-primary"
+                                                    aria-hidden="true"
+                                                />
+                                            )}
+                                        </a>
+                                    ))
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="text-center lg:text-left">
-                    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-200">
-                        {homeContent.hero.roleLabel}
-                    </p>
-                    <h1 class="mt-4 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                        Nicolás <span class="text-indigo-300">Montiel</span>
-                    </h1>
-                    <div class="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-slate-100 sm:text-lg">
-                        <p>{homeContent.hero.subtitleFirstParagraph}</p>
-                        <p>{homeContent.hero.subtitleSecondParagraph}</p>
+                    <div class="max-w-[920px]">
+                        <p class="text-[2.9rem] font-semibold leading-none tracking-[-0.04em] text-white md:text-[4.2rem]">
+                            {homeContent.hero.greeting.prefix && (
+                                <span class="font-medium text-white/92">
+                                    {homeContent.hero.greeting.prefix}{' '}
+                                </span>
+                            )}
+                            {homeContent.hero.greeting.accent && (
+                                <span class="text-primary">
+                                    {homeContent.hero.greeting.accent}
+                                </span>
+                            )}
+                            {homeContent.hero.greeting.suffix && (
+                                <span> {homeContent.hero.greeting.suffix}</span>
+                            )}
+                        </p>
+                        <p class="mt-5 text-lg font-medium uppercase tracking-[0.18em] text-white/72 md:text-xl">
+                            {homeContent.hero.roles.join(' / ')}
+                        </p>
                     </div>
 
-                    <div class="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+                    <div class="mt-10 flex max-w-[920px] flex-col gap-8 border-t border-white/10 pt-6 md:flex-row md:items-start md:gap-12">
                         {
-                            homeContent.hero.ctas.map((cta) => (
-                                <a
-                                    href={cta.href}
-                                    class="group rounded-2xl border border-white/55 bg-transparent px-6 py-5 text-left text-white transition duration-200 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-indigo-500/18 hover:text-white"
-                                >
-                                    <p class="whitespace-nowrap text-xl font-semibold">
-                                        {cta.label}
+                            homeContent.hero.metrics.map((metric) => (
+                                <div class="text-center md:max-w-[260px] md:flex-1 md:text-left">
+                                    <p class="text-4xl font-bold tracking-[-0.05em] text-white md:text-[3.85rem]">
+                                        {metric.value}
                                     </p>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-100 transition group-hover:text-indigo-100">
-                                        {cta.description}
+                                    <p class="mt-3 max-w-[16rem] text-[1rem] leading-snug text-white/72">
+                                        {metric.label}
                                     </p>
-                                </a>
+                                </div>
                             ))
                         }
                     </div>
 
-                    <div class="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                        {
-                            socialMediaItems.map((item) => (
-                                <a
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    aria-label={item.label}
-                                    class="group inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/35 bg-transparent transition hover:border-indigo-300 hover:bg-indigo-500/18"
-                                >
-                                    <span
-                                        class="h-5 w-5 bg-white transition group-hover:bg-indigo-100"
-                                        style={`
-                                            mask-image: url(${item.icon.src});
-                                            -webkit-mask-image: url(${item.icon.src});
-                                            mask-size: contain;
-                                            -webkit-mask-size: contain;
-                                            mask-repeat: no-repeat;
-                                            -webkit-mask-repeat: no-repeat;
-                                            mask-position: center;
-                                            -webkit-mask-position: center;
-                                        `}
-                                    ></span>
-                                </a>
-                            ))
-                        }
+                    <div class="mt-12 max-w-[920px]">
+                        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white">
+                            {locale === 'es' ? 'Saber más.' : 'Learn more.'}
+                        </p>
+                        <div class="mt-7 grid gap-4 md:grid-cols-2">
+                            {
+                                homeContent.hero.ctas.map((cta) => (
+                                    <a
+                                        href={cta.href}
+                                        class="group rounded-md border border-white/18 bg-transparent px-7 py-5 text-left text-white transition hover:border-primary"
+                                    >
+                                        <p class="text-[1.15rem] font-medium tracking-[-0.02em] text-white">
+                                            {cta.label}
+                                        </p>
+                                        <p class="mt-3 max-w-[24rem] text-base leading-relaxed text-white/70 transition group-hover:text-white/88">
+                                            {cta.description}
+                                        </p>
+                                    </a>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<script is:inline>
-    const languageSelect = document.querySelector('[data-language-select]');
-
-    if (languageSelect) {
-        languageSelect.addEventListener('change', (event) => {
-            const target = event.target;
-            if (!(target instanceof HTMLSelectElement)) return;
-            if (target.value) window.location.href = target.value;
-        });
-    }
-</script>
