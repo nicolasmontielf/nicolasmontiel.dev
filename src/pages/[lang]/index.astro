@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import SimpleHome from '@components/home/SimpleHome.astro';
+import Home from '@components/home/Home.astro';
 import { getHomeSeo } from '@/data/home';
 import { isLocale } from '@/i18n/locales';
 
@@ -19,5 +19,5 @@ const seo = getHomeSeo(lang);
     showDefaultNavbar={false}
     containerMode="fluid"
 >
-    <SimpleHome />
+    <Home />
 </Layout>

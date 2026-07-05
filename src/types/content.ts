@@ -21,8 +21,11 @@ export type HomePageContent = {
         roleLabel: string;
         subtitleFirstParagraph: string;
         subtitleSecondParagraph: string;
-        recruiterCtaLabel: string;
-        recruiterCtaDescription: string;
+        ctas: Array<{
+            label: string;
+            description: string;
+            href: string;
+        }>;
     };
 };
 
