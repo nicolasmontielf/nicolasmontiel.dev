@@ -1,5 +1,4 @@
 ---
-import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { getMessages } from '@/i18n/messages';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
 import Certifications from '@components/home/Certifications.astro';
@@ -8,15 +7,11 @@ import WorkExperience from '@components/home/WorkExperience.astro';
 
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
 const messages = getMessages(locale);
-const whyHireMeContent = getWhyHireMeContent(locale);
 ---
 
 <>
     <section id="presentation-section">
-        <Presentation
-            variant="pro"
-            greeting={whyHireMeContent.presentation.greeting}
-        />
+        <Presentation />
     </section>
 
     <section id="experience">

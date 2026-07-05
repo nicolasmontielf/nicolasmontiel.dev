@@ -1,8 +1,3 @@
-export type PresentationProps = {
-    variant: 'pro';
-    greeting: string;
-};
-
 export type CertificationsProps = {
     title?: string;
     credentialLabel?: string;
@@ -13,14 +8,8 @@ export type Certification = {
     title: string;
     icon: string;
     href: string;
+    description: string;
 };
-
-export type PresentationBodyVariant = 'pro';
-
-export type PresentationBodyByVariant = Record<
-    PresentationBodyVariant,
-    string[]
->;
 
 export type HomeNavbarItem = {
     id: 'posts' | 'experience' | 'certifications';
@@ -49,10 +38,6 @@ export type HomeExperienceContent = {
     items: WorkExperienceItem[];
 };
 
-export type LocalizedCertification = Certification & {
-    description: string;
-};
-
 export type HomeCertificationsContent = {
     title: string;
     description: string;
@@ -60,14 +45,14 @@ export type HomeCertificationsContent = {
     viewMoreLabel: string;
     viewLessLabel: string;
     previewLength: number;
-    items: LocalizedCertification[];
+    items: Certification[];
 };
 
 export type HomeContent = {
     navbar: HomeNavbarContent;
     presentation: {
         greeting: string;
-        bodyByVariant: PresentationBodyByVariant;
+        body: string[];
     };
     experience: HomeExperienceContent;
     certifications: HomeCertificationsContent;

@@ -6,101 +6,7 @@ import RedisLogo from '@/assets/logos/redis_logo.jpeg';
 import ScrumStudyLogo from '@/assets/logos/scrumstudy_logo.jpeg';
 import SemrushLogo from '@/assets/logos/semrush_logo.png';
 import type { Locale } from '@/i18n/locales';
-import type { Certification, HomeContent } from '@/types/home';
-
-const certificationBaseItems: Certification[] = [
-    {
-        id: 'aws-cloud-practitioner-essentials',
-        title: 'AWS Cloud Practitioner Essentials',
-        icon: AwsLogo.src,
-        href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
-    },
-    {
-        id: 'search-and-conversions-for-agencies',
-        title: 'Search and Conversions for Agencies: A Data-Driven Framework',
-        icon: SemrushLogo.src,
-        href: 'https://static.semrush.com/academy/certificates/d21946da0b/nicolas-montiel_5.pdf',
-    },
-    {
-        id: 'tdd-javascript',
-        title: 'Test-Driven Development for JavaScript Specialization',
-        icon: PearsonLogo.src,
-        href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
-    },
-    {
-        id: 'redis-ru102js-redis-for-javascript-developers',
-        title: 'Redis | RU102JS: Redis for JavaScript Developers',
-        icon: RedisLogo.src,
-        href: 'https://university.redis.io/certificate/ipocifjugerm3o',
-    },
-    {
-        id: 'scrum-fundamentals-certified',
-        title: 'Scrum Fundamentals Certified',
-        icon: ScrumStudyLogo.src,
-        href: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=829046',
-    },
-    {
-        id: 'apis-and-microservices',
-        title: "API's and Microservices",
-        icon: FreeCodeCampLogo.src,
-        href: 'https://www.freecodecamp.org/certification/nicolasmontielf/back-end-development-and-apis',
-    },
-    {
-        id: 'introduction-to-jenkins',
-        title: 'Introduction to Jenkins',
-        icon: LinuxFoundationLogo.src,
-        href: 'https://courses.edx.org/certificates/7331bea249c44b3e8123b92e15550bc0',
-    },
-];
-
-const certificationDescriptionsByLocale: Record<
-    Locale,
-    Record<string, string>
-> = {
-    es: {
-        'aws-cloud-practitioner-essentials':
-            'Fundamentos de AWS Cloud, servicios principales, seguridad, modelo de responsabilidad compartida, arquitectura basica, pricing y soporte para tomar mejores decisiones iniciales.',
-        'search-and-conversions-for-agencies':
-            'Crecimiento organico para agencias con foco en SEO, conversion rate optimization, contenido orientado a demanda y generacion de leads mas calificados.',
-        'tdd-javascript':
-            'Testing en JavaScript y TypeScript con Jest, mocking, cobertura util y enfoque TDD aplicado tanto a codigo backend como a interfaces.',
-        'redis-ru102js-redis-for-javascript-developers':
-            'Uso de Redis desde Node.js y JavaScript: conexiones, lectura y escritura de datos, estructuras utiles y patrones practicos de caching y mensajeria.',
-        'scrum-fundamentals-certified':
-            'Principios de Scrum, roles, eventos y artefactos, con una base clara para colaborar en ciclos iterativos y alinear mejor con producto.',
-        'apis-and-microservices':
-            'Backend con Node.js, npm y Express, diseno de APIs y microservicios, mas practica con MongoDB y Mongoose para persistencia e integraciones simples.',
-        'introduction-to-jenkins':
-            'Bases de Jenkins para automatizar builds, tests y pipelines de CI/CD, con mejor entendimiento de jobs, integraciones y flujo de entrega.',
-    },
-    en: {
-        'aws-cloud-practitioner-essentials':
-            'AWS Cloud fundamentals, core services, security, the shared responsibility model, basic architecture, pricing, and support for stronger early-stage decisions.',
-        'search-and-conversions-for-agencies':
-            'Organic agency growth with emphasis on SEO, conversion rate optimization, demand-focused content, and higher-quality lead generation.',
-        'tdd-javascript':
-            'JavaScript and TypeScript testing with Jest, mocking, meaningful coverage, and a TDD mindset applied to both backend code and user interfaces.',
-        'redis-ru102js-redis-for-javascript-developers':
-            'Using Redis from Node.js and JavaScript: connections, data access, useful data structures, and practical caching and messaging patterns.',
-        'scrum-fundamentals-certified':
-            'Scrum principles, roles, events, and artifacts, with a clearer foundation for iterative delivery and healthier collaboration with product teams.',
-        'apis-and-microservices':
-            'Backend work with Node.js, npm, and Express, plus API and microservice design, with hands-on practice around MongoDB and Mongoose.',
-        'introduction-to-jenkins':
-            'Jenkins fundamentals for automating builds, tests, and CI/CD pipelines, with a better grasp of jobs, integrations, and delivery flow.',
-    },
-};
-
-function getLocalizedCertifications(locale: Locale) {
-    const descriptions = certificationDescriptionsByLocale[locale];
-
-    return certificationBaseItems.map((item) => ({
-        ...item,
-        description:
-            descriptions[item.id] ??
-            'Training focused on engineering quality, delivery, and technical decision-making.',
-    }));
-}
+import type { HomeContent } from '@/types/home';
 
 const whyHireMeContentByLocale: Record<Locale, HomeContent> = {
     en: {
@@ -115,14 +21,12 @@ const whyHireMeContentByLocale: Record<Locale, HomeContent> = {
         },
         presentation: {
             greeting: "Hi, I'm Nico.",
-            bodyByVariant: {
-                pro: [
-                    '**Senior/Principal full-stack software engineer** with **8 years of experience**, including **5+ years working fully remote** with distributed teams across product, platform, and integration-heavy environments.',
-                    'Strong backend depth across **PHP, Laravel, Node.js, PostgreSQL, MySQL, MongoDB, and DynamoDB**, with hands-on work building **scalable APIs, integrations, platform features, and internal engineering workflows**.',
-                    'Comfortable shipping user-facing work with **Vue.js, React, TypeScript, JavaScript, Astro, and Preact**, while also owning delivery workflows across **AWS, Laravel Forge, VPS environments, CI/CD pipelines, monitoring, and production operations**.',
-                    'Experienced using **Codex, Claude, Gemini, MCP servers, and skills-based workflows** to improve delivery speed, debugging, and engineering productivity, plus hands-on work integrating **OpenAI and Google Gemini** into real product and automation systems.',
-                ],
-            },
+            body: [
+                '**Senior/Principal full-stack software engineer** with **8 years of experience**, including **5+ years working fully remote** with distributed teams across product, platform, and integration-heavy environments.',
+                'Strong backend depth across **PHP, Laravel, Node.js, PostgreSQL, MySQL, MongoDB, and DynamoDB**, with hands-on work building **scalable APIs, integrations, platform features, and internal engineering workflows**.',
+                'Comfortable shipping user-facing work with **Vue.js, React, TypeScript, JavaScript, Astro, and Preact**, while also owning delivery workflows across **AWS, Laravel Forge, VPS environments, CI/CD pipelines, monitoring, and production operations**.',
+                'Experienced using **Codex, Claude, Gemini, MCP servers, and skills-based workflows** to improve delivery speed, debugging, and engineering productivity, plus hands-on work integrating **OpenAI and Google Gemini** into real product and automation systems.',
+            ],
         },
         experience: {
             title: 'Experience',
@@ -235,7 +139,64 @@ const whyHireMeContentByLocale: Record<Locale, HomeContent> = {
             viewMoreLabel: 'View more',
             viewLessLabel: 'View less',
             previewLength: 92,
-            items: getLocalizedCertifications('en'),
+            items: [
+                {
+                    id: 'aws-cloud-practitioner-essentials',
+                    title: 'AWS Cloud Practitioner Essentials',
+                    icon: AwsLogo.src,
+                    href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
+                    description:
+                        'AWS Cloud fundamentals, core services, security, the shared responsibility model, basic architecture, pricing, and support for stronger early-stage decisions.',
+                },
+                {
+                    id: 'search-and-conversions-for-agencies',
+                    title: 'Search and Conversions for Agencies: A Data-Driven Framework',
+                    icon: SemrushLogo.src,
+                    href: 'https://static.semrush.com/academy/certificates/d21946da0b/nicolas-montiel_5.pdf',
+                    description:
+                        'Organic agency growth with emphasis on SEO, conversion rate optimization, demand-focused content, and higher-quality lead generation.',
+                },
+                {
+                    id: 'tdd-javascript',
+                    title: 'Test-Driven Development for JavaScript Specialization',
+                    icon: PearsonLogo.src,
+                    href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
+                    description:
+                        'JavaScript and TypeScript testing with Jest, mocking, meaningful coverage, and a TDD mindset applied to both backend code and user interfaces.',
+                },
+                {
+                    id: 'redis-ru102js-redis-for-javascript-developers',
+                    title: 'Redis | RU102JS: Redis for JavaScript Developers',
+                    icon: RedisLogo.src,
+                    href: 'https://university.redis.io/certificate/ipocifjugerm3o',
+                    description:
+                        'Using Redis from Node.js and JavaScript: connections, data access, useful data structures, and practical caching and messaging patterns.',
+                },
+                {
+                    id: 'scrum-fundamentals-certified',
+                    title: 'Scrum Fundamentals Certified',
+                    icon: ScrumStudyLogo.src,
+                    href: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=829046',
+                    description:
+                        'Scrum principles, roles, events, and artifacts, with a clearer foundation for iterative delivery and healthier collaboration with product teams.',
+                },
+                {
+                    id: 'apis-and-microservices',
+                    title: "API's and Microservices",
+                    icon: FreeCodeCampLogo.src,
+                    href: 'https://www.freecodecamp.org/certification/nicolasmontielf/back-end-development-and-apis',
+                    description:
+                        'Backend work with Node.js, npm, and Express, plus API and microservice design, with hands-on practice around MongoDB and Mongoose.',
+                },
+                {
+                    id: 'introduction-to-jenkins',
+                    title: 'Introduction to Jenkins',
+                    icon: LinuxFoundationLogo.src,
+                    href: 'https://courses.edx.org/certificates/7331bea249c44b3e8123b92e15550bc0',
+                    description:
+                        'Jenkins fundamentals for automating builds, tests, and CI/CD pipelines, with a better grasp of jobs, integrations, and delivery flow.',
+                },
+            ],
         },
     },
     es: {
@@ -250,14 +211,12 @@ const whyHireMeContentByLocale: Record<Locale, HomeContent> = {
         },
         presentation: {
             greeting: 'Hola, soy Nico.',
-            bodyByVariant: {
-                pro: [
-                    '**Ingeniero de software full-stack senior/principal** con **8 años de experiencia**, incluyendo **más de 5 años trabajando 100% remoto** con equipos distribuidos en productos, plataformas e integraciones complejas.',
-                    'Fuerte base backend con **PHP, Laravel, Node.js, PostgreSQL, MySQL, MongoDB y DynamoDB**, diseñando y construyendo **APIs escalables, integraciones, features de plataforma y workflows internos de ingeniería**.',
-                    'Cómodo trabajando también sobre interfaces y producto con **Vue.js, React, TypeScript, JavaScript, Astro y Preact**, además de ownership sobre delivery e infraestructura con **AWS, Laravel Forge, entornos VPS, CI/CD, monitoreo y operación en producción**.',
-                    'Experiencia práctica usando **Codex, Claude, Gemini, MCP servers y workflows basados en skills** para acelerar delivery, debugging y productividad de ingeniería, además de integrar **OpenAI y Google Gemini** en sistemas reales de producto y automatización.',
-                ],
-            },
+            body: [
+                '**Ingeniero de software full-stack senior/principal** con **8 años de experiencia**, incluyendo **más de 5 años trabajando 100% remoto** con equipos distribuidos en productos, plataformas e integraciones complejas.',
+                'Fuerte base backend con **PHP, Laravel, Node.js, PostgreSQL, MySQL, MongoDB y DynamoDB**, diseñando y construyendo **APIs escalables, integraciones, features de plataforma y workflows internos de ingeniería**.',
+                'Cómodo trabajando también sobre interfaces y producto con **Vue.js, React, TypeScript, JavaScript, Astro y Preact**, además de ownership sobre delivery e infraestructura con **AWS, Laravel Forge, entornos VPS, CI/CD, monitoreo y operación en producción**.',
+                'Experiencia práctica usando **Codex, Claude, Gemini, MCP servers y workflows basados en skills** para acelerar delivery, debugging y productividad de ingeniería, además de integrar **OpenAI y Google Gemini** en sistemas reales de producto y automatización.',
+            ],
         },
         experience: {
             title: 'Experiencia',
@@ -370,7 +329,64 @@ const whyHireMeContentByLocale: Record<Locale, HomeContent> = {
             viewMoreLabel: 'Ver más',
             viewLessLabel: 'Ver menos',
             previewLength: 92,
-            items: getLocalizedCertifications('es'),
+            items: [
+                {
+                    id: 'aws-cloud-practitioner-essentials',
+                    title: 'AWS Cloud Practitioner Essentials',
+                    icon: AwsLogo.src,
+                    href: 'https://drive.google.com/file/d/1f1qko9SQANtnyE_9ipjiWajLjW2LmiyR/view',
+                    description:
+                        'Fundamentos de AWS Cloud, servicios principales, seguridad, modelo de responsabilidad compartida, arquitectura basica, pricing y soporte para tomar mejores decisiones iniciales.',
+                },
+                {
+                    id: 'search-and-conversions-for-agencies',
+                    title: 'Search and Conversions for Agencies: A Data-Driven Framework',
+                    icon: SemrushLogo.src,
+                    href: 'https://static.semrush.com/academy/certificates/d21946da0b/nicolas-montiel_5.pdf',
+                    description:
+                        'Crecimiento organico para agencias con foco en SEO, conversion rate optimization, contenido orientado a demanda y generacion de leads mas calificados.',
+                },
+                {
+                    id: 'tdd-javascript',
+                    title: 'Test-Driven Development for JavaScript Specialization',
+                    icon: PearsonLogo.src,
+                    href: 'https://coursera.org/share/67a1f7a5c95ab9783e89f40e0fc9b952',
+                    description:
+                        'Testing en JavaScript y TypeScript con Jest, mocking, cobertura util y enfoque TDD aplicado tanto a codigo backend como a interfaces.',
+                },
+                {
+                    id: 'redis-ru102js-redis-for-javascript-developers',
+                    title: 'Redis | RU102JS: Redis for JavaScript Developers',
+                    icon: RedisLogo.src,
+                    href: 'https://university.redis.io/certificate/ipocifjugerm3o',
+                    description:
+                        'Uso de Redis desde Node.js y JavaScript: conexiones, lectura y escritura de datos, estructuras utiles y patrones practicos de caching y mensajeria.',
+                },
+                {
+                    id: 'scrum-fundamentals-certified',
+                    title: 'Scrum Fundamentals Certified',
+                    icon: ScrumStudyLogo.src,
+                    href: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=829046',
+                    description:
+                        'Principios de Scrum, roles, eventos y artefactos, con una base clara para colaborar en ciclos iterativos y alinear mejor con producto.',
+                },
+                {
+                    id: 'apis-and-microservices',
+                    title: "API's and Microservices",
+                    icon: FreeCodeCampLogo.src,
+                    href: 'https://www.freecodecamp.org/certification/nicolasmontielf/back-end-development-and-apis',
+                    description:
+                        'Backend con Node.js, npm y Express, diseno de APIs y microservicios, mas practica con MongoDB y Mongoose para persistencia e integraciones simples.',
+                },
+                {
+                    id: 'introduction-to-jenkins',
+                    title: 'Introduction to Jenkins',
+                    icon: LinuxFoundationLogo.src,
+                    href: 'https://courses.edx.org/certificates/7331bea249c44b3e8123b92e15550bc0',
+                    description:
+                        'Bases de Jenkins para automatizar builds, tests y pipelines de CI/CD, con mejor entendimiento de jobs, integraciones y flujo de entrega.',
+                },
+            ],
         },
     },
 };
