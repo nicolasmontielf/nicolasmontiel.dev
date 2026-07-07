@@ -7,6 +7,10 @@ export default {
     theme: {
         extend: {
             colors: {
+                background: {
+                    primary: '#1b1b1b',
+                    secondary: '#1f1f1f',
+                },
                 primary: {
                     DEFAULT: colors.indigo[700],
                     50: colors.indigo[50],

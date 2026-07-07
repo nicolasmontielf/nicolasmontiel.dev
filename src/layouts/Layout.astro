@@ -3,6 +3,7 @@ import Navbar from '@components/layout/Navbar.astro';
 // @ts-ignore
 import '@fontsource-variable/space-grotesk';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getRecruiterProfilePath } from '@/i18n/routing';
 import { getSiteCopy } from '@/i18n/site-copy';
 import type { LayoutProps } from '@/types/layout';
 import {
@@ -36,6 +37,8 @@ const {
 } = Astro.props as LayoutProps;
 
 const locale = Astro.locals.locale ?? localeProp ?? DEFAULT_LOCALE;
+const isRecruiterProfileRoute =
+    Astro.url.pathname === getRecruiterProfilePath(locale);
 
 const siteCopy = getSiteCopy(locale);
 const pageDescription = description || siteCopy.layout.defaultDescription;
@@ -100,9 +103,18 @@ const additionalStructuredData = structuredData
 	: [];
 const structuredDataEntries = [personSchema, websiteSchema, webpageSchema, ...additionalStructuredData];
 const bodyClass =
+	isRecruiterProfileRoute
+		? 'min-h-screen bg-background-primary text-white selection:bg-primary/40 selection:text-white'
+		: 'min-h-screen bg-slate-50 text-slate-600 selection:bg-indigo-100 selection:text-indigo-900';
+const contentShellClass =
 	containerMode === 'fluid'
-		? 'bg-slate-50 text-slate-600 selection:bg-indigo-100 selection:text-indigo-900'
-		: 'max-w-screen-lg lg:px-0 px-3 mx-auto bg-slate-50 text-slate-600 mb-10 selection:bg-indigo-100 selection:text-indigo-900';
+		? ''
+		: 'mx-auto mb-10 max-w-screen-lg px-3 lg:px-0';
+const navbarShellClass =
+	containerMode === 'fluid'
+		? 'mx-auto max-w-screen-lg px-3 lg:px-0'
+		: '';
+const themeColor = isRecruiterProfileRoute ? '#1b1b1b' : DEFAULT_THEME_COLOR;
 
 const isDev = import.meta.env.DEV;
 ---
@@ -126,7 +138,7 @@ const isDev = import.meta.env.DEV;
 		<meta name="author" content={SITE_NAME} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="robots" content={robots} />
-		<meta name="theme-color" content={DEFAULT_THEME_COLOR} />
+		<meta name="theme-color" content={themeColor} />
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 		<!-- Open Graph meta tags -->
@@ -171,13 +183,15 @@ const isDev = import.meta.env.DEV;
 
 		{
 			showDefaultNavbar && (
-				<div class="lg:mb-5">
-					<Navbar />
+				<div class={navbarShellClass}>
+					<div class="lg:mb-5">
+						<Navbar />
+					</div>
 				</div>
 			)
 		}
 
-        <main>
+        <main class={contentShellClass}>
             <slot />
         </main>
 

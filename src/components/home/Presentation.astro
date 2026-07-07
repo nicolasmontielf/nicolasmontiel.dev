@@ -41,16 +41,16 @@ const socialMediaItems = [
 <section class="flex items-center gap-12 w-full md:w-10/12 text-justify">
     <div class="w-full flex flex-col gap-6">
         <h1
-            class="text-5xl md:text-6xl text-slate-900 font-bold tracking-tight"
+            class="text-5xl md:text-6xl text-white font-bold tracking-tight"
         >
             {greeting}
         </h1>
 
-        <div class="space-y-3 text-lg leading-relaxed text-slate-700">
+        <div class="space-y-3 text-lg leading-relaxed text-white/72">
             {
                 bodyParagraphs.map((paragraph) => (
                     <div
-                        class="[&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-slate-900"
+                        class="[&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-white"
                         set:html={paragraph}
                     />
                 ))
@@ -70,14 +70,14 @@ const socialMediaItems = [
                         >
                             {item.icon === 'mail' ? (
                                 <Mail
-                                    class="h-5 w-5 cursor-pointer text-primary transition-colors group-hover:text-primary-800"
+                                    class="h-5 w-5 cursor-pointer text-white/85 transition-colors group-hover:text-primary"
                                     stroke-width={2}
                                     aria-hidden="true"
                                 />
                             ) : (
                                 <Icon
                                     name={item.icon}
-                                    class="h-5 w-5 cursor-pointer text-primary transition-colors group-hover:text-primary-800"
+                                    class="h-5 w-5 cursor-pointer text-white/85 transition-colors group-hover:text-primary"
                                     aria-hidden="true"
                                 />
                             )}
