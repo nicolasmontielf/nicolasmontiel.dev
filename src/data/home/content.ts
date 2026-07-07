@@ -38,7 +38,7 @@ const homeContentEn: HomePageContent = {
                 label: 'Freelancer services',
                 description:
                     'Product builds, technical execution, and direct collaboration for client work.',
-                href: 'mailto:nicolasmontielf@gmail.com?subject=Freelance%20Project',
+                href: '/en/freelancer',
             },
         ],
     },
@@ -81,7 +81,7 @@ const homeContentEs: HomePageContent = {
                 label: 'Servicios freelance',
                 description:
                     'Desarrollo de producto, ejecución técnica y colaboración directa para clientes.',
-                href: 'mailto:nicolasmontielf@gmail.com?subject=Proyecto%20Freelance',
+                href: '/es/freelancer',
             },
         ],
     },

@@ -1,0 +1,854 @@
+---
+import avatar from '@assets/nicolas-montiel-avatar.png';
+import {
+    ChevronUp,
+    CodeXml,
+    Database,
+    Download,
+    Palette,
+} from '@lucide/astro';
+import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+    return Astro.redirect('/en');
+}
+
+const locale = Astro.locals.locale ?? lang ?? DEFAULT_LOCALE;
+const canonical = `${SITE_URL}/${locale}/freelancer`;
+const navItems = [
+    'About',
+    'Skills',
+    'Projects',
+    'Experience',
+    'Pricing',
+    'Blog',
+    'What I Offer',
+    'Gallery',
+    'Contact',
+];
+---
+
+<Layout
+    title="Freelancer"
+    description="Freelancer landing page inspired by a dark portfolio reference."
+    canonical={canonical}
+    showDefaultNavbar={false}
+    containerMode="fluid"
+>
+    <div
+        id="top"
+        class="min-h-screen bg-[#060b18] font-sans text-white"
+    >
+        <header class="border-b border-[#202a3c] bg-[#060b18]">
+            <div class="mx-auto flex min-h-[100px] max-w-[1640px] items-center justify-between gap-8 px-6 md:px-10 xl:px-[54px]">
+                <a
+                    href={`/${locale}`}
+                    class="shrink-0 text-[28px] font-bold tracking-[-0.03em] text-white"
+                >
+                    Alex Rivera
+                </a>
+
+                <nav class="hidden flex-1 items-center justify-center gap-8 xl:flex">
+                    {
+                        navItems.map((item) => (
+                            <a
+                                href="#"
+                                class:list={[
+                                    'text-[18px] font-semibold tracking-[-0.02em] transition',
+                                    item === 'Skills'
+                                        ? 'text-white'
+                                        : 'text-[#909aac] hover:text-white',
+                                ]}
+                            >
+                                {item}
+                            </a>
+                        ))
+                    }
+                </nav>
+
+                <a
+                    href="#"
+                    class="inline-flex h-[52px] shrink-0 items-center justify-center rounded-[12px] bg-[#8247f5] px-8 text-[17px] font-bold text-white shadow-[0_14px_34px_rgba(130,71,245,0.28)] transition hover:bg-[#935cff]"
+                >
+                    Hire Me
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <section class="px-6 pb-20 pt-14 md:px-10 md:pb-24 md:pt-20">
+                <div class="mx-auto grid max-w-[1040px] gap-12 lg:grid-cols-[430px_minmax(0,1fr)] lg:items-center lg:gap-10">
+                    <div class="overflow-hidden rounded-[14px] bg-[#151e31] shadow-[0_22px_80px_rgba(0,0,0,0.28)]">
+                        <img
+                            src={avatar.src}
+                            alt="Alex Rivera portrait"
+                            width={avatar.width}
+                            height={avatar.height}
+                            class="h-full min-h-[420px] w-full object-cover"
+                        />
+                    </div>
+
+                    <div class="max-w-[470px] lg:justify-self-end">
+                        <h1 class="text-[36px] font-bold leading-none tracking-[-0.03em] text-white md:text-[46px]">
+                            About Me
+                        </h1>
+
+                        <div class="mt-7 space-y-5 text-[14px] leading-7 text-[#9fb0c9] md:text-[15px]">
+                            <p>
+                                I&apos;m a full-stack developer and designer
+                                with over 8 years of experience building digital
+                                products that people love. Based in San
+                                Francisco, I specialize in creating clean,
+                                performant web applications using modern
+                                technologies.
+                            </p>
+                            <p>
+                                My journey started with a fascination for the
+                                intersection of design and technology. Today, I
+                                bring that same curiosity to every project,
+                                whether it&apos;s crafting pixel-perfect
+                                interfaces, architecting scalable backends, or
+                                designing intuitive user experiences.
+                            </p>
+                            <p>
+                                When I&apos;m not coding, you&apos;ll find me
+                                contributing to open-source projects, mentoring
+                                aspiring developers, or exploring the latest
+                                design trends.
+                            </p>
+                        </div>
+
+                        <div class="mt-8 grid grid-cols-3 gap-5 text-center">
+                            <div>
+                                <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-[#9867ff]">
+                                    8+
+                                </p>
+                                <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                                    Years Experience
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-[#9867ff]">
+                                    50+
+                                </p>
+                                <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                                    Projects Completed
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-[#9867ff]">
+                                    30+
+                                </p>
+                                <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                                    Happy Clients
+                                </p>
+                            </div>
+                        </div>
+
+                        <a
+                            href="#"
+                            class="mt-9 inline-flex h-11 items-center gap-2 rounded-[8px] border border-[#2a3550] bg-[#151e31] px-4 text-[12px] font-semibold text-[#d9e2f1] transition hover:border-[#3f4d6e]"
+                        >
+                            <Download class="h-3.5 w-3.5 text-[#9867ff]" />
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-[#161e2c] px-6 py-20 md:px-10 md:py-24">
+                <div class="mx-auto max-w-[1040px]">
+                    <div class="text-center">
+                        <span class="inline-flex rounded-full bg-[#4c2d95] px-3 py-1 text-[10px] font-semibold text-[#d7c3ff]">
+                            Skills
+                        </span>
+                        <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                            My Expertise
+                        </h2>
+                        <p class="mx-auto mt-3 max-w-[640px] text-[15px] text-[#96a6c1]">
+                            A versatile skill set spanning frontend development,
+                            backend engineering, and design.
+                        </p>
+                    </div>
+
+                    <div class="mt-14 grid gap-5 lg:grid-cols-3">
+                        <article class="rounded-[12px] bg-[#232d3e] p-6">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#4c2d95] text-[#caa8ff]">
+                                <CodeXml class="h-5 w-5" />
+                            </div>
+                            <h3 class="mt-5 text-[26px] font-bold tracking-[-0.03em] text-white">
+                                Frontend
+                            </h3>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">React</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">TypeScript</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Next.js</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Tailwind CSS</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Vue.js</span>
+                            </div>
+                        </article>
+
+                        <article class="rounded-[12px] bg-[#232d3e] p-6">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#4c2d95] text-[#caa8ff]">
+                                <Database class="h-5 w-5" />
+                            </div>
+                            <h3 class="mt-5 text-[26px] font-bold tracking-[-0.03em] text-white">
+                                Backend
+                            </h3>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Node.js</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Python</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">PostgreSQL</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Redis</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">GraphQL</span>
+                            </div>
+                        </article>
+
+                        <article class="rounded-[12px] bg-[#232d3e] p-6">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#4c2d95] text-[#caa8ff]">
+                                <Palette class="h-5 w-5" />
+                            </div>
+                            <h3 class="mt-5 text-[26px] font-bold tracking-[-0.03em] text-white">
+                                Design
+                            </h3>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Figma</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Adobe XD</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">UI/UX</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Design Systems</span>
+                                <span class="rounded-[6px] bg-[#3a4659] px-2.5 py-1 text-[11px] font-semibold text-[#dbe4f5]">Prototyping</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="px-6 py-20 md:px-10 md:py-24">
+                <div class="mx-auto max-w-[1040px]">
+                    <div class="text-center">
+                        <span class="inline-flex rounded-full bg-[#4c2d95] px-3 py-1 text-[10px] font-semibold text-[#d7c3ff]">
+                            Projects
+                        </span>
+                        <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                            Featured Work
+                        </h2>
+                        <p class="mx-auto mt-3 max-w-[640px] text-[15px] text-[#96a6c1]">
+                            A selection of projects that showcase my approach
+                            to design and development.
+                        </p>
+                    </div>
+
+                    <div class="mt-14 grid gap-4 lg:grid-cols-2">
+                        <article class="overflow-hidden rounded-[12px] bg-[#151e31]">
+                            <div class="relative h-[230px] overflow-hidden">
+                                <img
+                                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                                    alt="E-commerce Platform"
+                                    class="h-full w-full object-cover"
+                                    loading="lazy"
+                                />
+                                <span class="absolute left-3 top-3 rounded-full bg-[#3b4558] px-2.5 py-1 text-[10px] font-semibold text-white">
+                                    Web Application
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-[30px] font-bold tracking-[-0.03em] text-white">
+                                    E-commerce Platform
+                                </h3>
+                                <p class="mt-2 text-[14px] leading-6 text-[#96a6c1]">
+                                    A full-featured online store with real-time
+                                    inventory, payment processing, and an admin
+                                    dashboard for managing products and orders.
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">React</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Node.js</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Stripe</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">PostgreSQL</span>
+                                </div>
+                                <a
+                                    href="#"
+                                    class="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-[#8f63ff]"
+                                >
+                                    View Project
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="overflow-hidden rounded-[12px] bg-[#151e31]">
+                            <div class="relative h-[230px] overflow-hidden">
+                                <img
+                                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+                                    alt="Design System"
+                                    class="h-full w-full object-cover"
+                                    loading="lazy"
+                                />
+                                <span class="absolute left-3 top-3 rounded-full bg-[#3b4558] px-2.5 py-1 text-[10px] font-semibold text-white">
+                                    UI/UX Design
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-[30px] font-bold tracking-[-0.03em] text-white">
+                                    Design System
+                                </h3>
+                                <p class="mt-2 text-[14px] leading-6 text-[#96a6c1]">
+                                    A comprehensive component library and
+                                    design system powering consistent user
+                                    experiences across multiple products.
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Figma</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Storybook</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">React</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Tokens</span>
+                                </div>
+                                <a
+                                    href="#"
+                                    class="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-[#8f63ff]"
+                                >
+                                    View Project
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="overflow-hidden rounded-[12px] bg-[#151e31]">
+                            <div class="relative h-[230px] overflow-hidden">
+                                <img
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                                    alt="Analytics Dashboard"
+                                    class="h-full w-full object-cover"
+                                    loading="lazy"
+                                />
+                                <span class="absolute left-3 top-3 rounded-full bg-[#3b4558] px-2.5 py-1 text-[10px] font-semibold text-white">
+                                    Data Visualization
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-[30px] font-bold tracking-[-0.03em] text-white">
+                                    Analytics Dashboard
+                                </h3>
+                                <p class="mt-2 text-[14px] leading-6 text-[#96a6c1]">
+                                    An interactive dashboard for monitoring key
+                                    business metrics with real-time data
+                                    streaming and customizable charts.
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Vue.js</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">D3.js</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">WebSocket</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Python</span>
+                                </div>
+                                <a
+                                    href="#"
+                                    class="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-[#8f63ff]"
+                                >
+                                    View Project
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="overflow-hidden rounded-[12px] bg-[#151e31]">
+                            <div class="relative h-[230px] overflow-hidden">
+                                <img
+                                    src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80"
+                                    alt="Mobile Fitness App"
+                                    class="h-full w-full object-cover"
+                                    loading="lazy"
+                                />
+                                <span class="absolute left-3 top-3 rounded-full bg-[#3b4558] px-2.5 py-1 text-[10px] font-semibold text-white">
+                                    Mobile Application
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-[30px] font-bold tracking-[-0.03em] text-white">
+                                    Mobile Fitness App
+                                </h3>
+                                <p class="mt-2 text-[14px] leading-6 text-[#96a6c1]">
+                                    A cross-platform fitness tracking app with
+                                    workout plans, progress analytics, and
+                                    social features for community engagement.
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">React Native</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Firebase</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">TypeScript</span>
+                                    <span class="rounded-[5px] bg-[#5f36be] px-2 py-1 text-[10px] font-semibold text-[#e7d9ff]">Expo</span>
+                                </div>
+                                <a
+                                    href="#"
+                                    class="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-[#8f63ff]"
+                                >
+                                    View Project
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-[#161e2c] px-6 py-20 md:px-10 md:py-24">
+                <div class="mx-auto max-w-[1040px]">
+                    <div class="text-center">
+                        <span class="inline-flex rounded-full bg-[#4c2d95] px-3 py-1 text-[10px] font-semibold text-[#d7c3ff]">
+                            Experience
+                        </span>
+                        <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                            Career Journey
+                        </h2>
+                        <p class="mx-auto mt-3 max-w-[680px] text-[15px] text-[#96a6c1]">
+                            A timeline of my professional growth and the
+                            companies I have contributed to.
+                        </p>
+                    </div>
+
+                    <div class="relative mx-auto mt-16 max-w-[760px]">
+                        <div class="absolute bottom-0 left-[9px] top-2 w-px bg-[#34425d] lg:left-1/2 lg:-translate-x-1/2"></div>
+
+                        <div class="space-y-14">
+                            <article class="relative pl-12 lg:grid lg:grid-cols-2 lg:pl-0">
+                                <div class="lg:pr-12 lg:text-right">
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8f63ff]">
+                                        2022 - Present
+                                    </p>
+                                    <h3 class="mt-2 text-[20px] font-bold text-white">
+                                        Senior Developer
+                                    </h3>
+                                    <p class="mt-1 text-[12px] text-[#8da0bd]">
+                                        TechCorp
+                                    </p>
+                                    <ul class="mt-4 space-y-2 text-[13px] leading-6 text-[#9fb0c9]">
+                                        <li>Lead a team of 6 developers building microservices architecture serving 2M+ users</li>
+                                        <li>Reduced page load times by 40% through performance optimization and code splitting</li>
+                                        <li>Established engineering best practices and mentored junior developers</li>
+                                    </ul>
+                                </div>
+                                <div></div>
+                                <div class="absolute left-1 top-2 h-4 w-4 rounded-full bg-[#8f63ff] ring-4 ring-[#161e2c] lg:left-1/2 lg:-translate-x-1/2"></div>
+                            </article>
+
+                            <article class="relative pl-12 lg:grid lg:grid-cols-2 lg:pl-0">
+                                <div class="lg:col-start-2 lg:pl-12">
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8f63ff]">
+                                        2020 - 2022
+                                    </p>
+                                    <h3 class="mt-2 text-[20px] font-bold text-white">
+                                        Full-stack Developer
+                                    </h3>
+                                    <p class="mt-1 text-[12px] text-[#8da0bd]">
+                                        StartupXYZ
+                                    </p>
+                                    <ul class="mt-4 space-y-2 text-[13px] leading-6 text-[#9fb0c9]">
+                                        <li>Built the core product from scratch using React, Node.js, and PostgreSQL</li>
+                                        <li>Implemented CI/CD pipelines reducing deployment time from hours to minutes</li>
+                                        <li>Collaborated directly with founders to shape product strategy and roadmap</li>
+                                    </ul>
+                                </div>
+                                <div class="absolute left-1 top-2 h-4 w-4 rounded-full bg-[#8f63ff] ring-4 ring-[#161e2c] lg:left-1/2 lg:-translate-x-1/2"></div>
+                            </article>
+
+                            <article class="relative pl-12 lg:grid lg:grid-cols-2 lg:pl-0">
+                                <div class="lg:pr-12 lg:text-right">
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8f63ff]">
+                                        2018 - 2020
+                                    </p>
+                                    <h3 class="mt-2 text-[20px] font-bold text-white">
+                                        Frontend Developer
+                                    </h3>
+                                    <p class="mt-1 text-[12px] text-[#8da0bd]">
+                                        DesignStudio
+                                    </p>
+                                    <ul class="mt-4 space-y-2 text-[13px] leading-6 text-[#9fb0c9]">
+                                        <li>Developed responsive web applications for clients across healthcare and fintech</li>
+                                        <li>Created reusable component libraries adopted across multiple client projects</li>
+                                        <li>Introduced automated testing practices increasing code coverage to 85%</li>
+                                    </ul>
+                                </div>
+                                <div></div>
+                                <div class="absolute left-1 top-2 h-4 w-4 rounded-full bg-[#8f63ff] ring-4 ring-[#161e2c] lg:left-1/2 lg:-translate-x-1/2"></div>
+                            </article>
+
+                            <article class="relative pl-12 lg:grid lg:grid-cols-2 lg:pl-0">
+                                <div class="lg:col-start-2 lg:pl-12">
+                                    <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8f63ff]">
+                                        2016 - 2018
+                                    </p>
+                                    <h3 class="mt-2 text-[20px] font-bold text-white">
+                                        Junior Developer
+                                    </h3>
+                                    <p class="mt-1 text-[12px] text-[#8da0bd]">
+                                        WebAgency
+                                    </p>
+                                    <ul class="mt-4 space-y-2 text-[13px] leading-6 text-[#9fb0c9]">
+                                        <li>Built and maintained client websites using modern JavaScript frameworks</li>
+                                        <li>Collaborated with designers to translate mockups into pixel-perfect interfaces</li>
+                                        <li>Gained experience with agile methodologies and cross-functional team workflows</li>
+                                    </ul>
+                                </div>
+                                <div class="absolute left-1 top-2 h-4 w-4 rounded-full bg-[#8f63ff] ring-4 ring-[#161e2c] lg:left-1/2 lg:-translate-x-1/2"></div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="px-6 py-20 md:px-10 md:py-24">
+                <div class="mx-auto max-w-[1040px]">
+                    <div class="text-center">
+                        <span class="inline-flex rounded-full bg-[#4c2d95] px-3 py-1 text-[10px] font-semibold text-[#d7c3ff]">
+                            Testimonials
+                        </span>
+                        <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                            What Clients Say
+                        </h2>
+                        <p class="mx-auto mt-3 max-w-[640px] text-[15px] text-[#96a6c1]">
+                            Feedback from people I have had the pleasure of
+                            working with.
+                        </p>
+                    </div>
+
+                    <div class="relative mt-14">
+                        <button
+                            type="button"
+                            aria-label="Previous testimonials"
+                            class="absolute left-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Next testimonials"
+                            class="absolute right-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
+                        >
+                            &gt;
+                        </button>
+
+                        <div class="grid gap-4 lg:grid-cols-3">
+                            <article class="rounded-[12px] bg-[#151e31] p-5">
+                                <div class="text-[12px] tracking-[0.2em] text-[#ffd84d]">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                                <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
+                                    "Alex redesigned our entire web platform and
+                                    the results speak for themselves. His
+                                    attention to detail and ability to turn
+                                    complex requirements into elegant solutions
+                                    is remarkable."
+                                </p>
+                                <div class="mt-5 flex items-center gap-3">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
+                                        S
+                                    </div>
+                                    <div>
+                                        <p class="text-[13px] font-semibold text-white">
+                                            Sarah Chen
+                                        </p>
+                                        <p class="text-[11px] text-[#8293af]">
+                                            CEO, TechFlow
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="rounded-[12px] bg-[#151e31] p-5">
+                                <div class="text-[12px] tracking-[0.2em] text-[#ffd84d]">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                                <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
+                                    "Working with Alex was effortless. He
+                                    understood our vision immediately and
+                                    delivered a brand identity that perfectly
+                                    balanced modern aesthetics with practical
+                                    usability."
+                                </p>
+                                <div class="mt-5 flex items-center gap-3">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
+                                        M
+                                    </div>
+                                    <div>
+                                        <p class="text-[13px] font-semibold text-white">
+                                            Marcus Johnson
+                                        </p>
+                                        <p class="text-[11px] text-[#8293af]">
+                                            CTO, DataSync
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="rounded-[12px] bg-[#151e31] p-5">
+                                <div class="text-[12px] tracking-[0.2em] text-[#ffd84d]">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                                <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
+                                    "The mobile app Alex designed for us won a
+                                    design award. His attention to micro-
+                                    interactions and performance makes the
+                                    product feel polished from the very first
+                                    tap."
+                                </p>
+                                <div class="mt-5 flex items-center gap-3">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
+                                        E
+                                    </div>
+                                    <div>
+                                        <p class="text-[13px] font-semibold text-white">
+                                            Emily Rodriguez
+                                        </p>
+                                        <p class="text-[11px] text-[#8293af]">
+                                            Product Manager, CloudBase
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="mt-6 flex items-center justify-center gap-2">
+                            <span class="h-1.5 w-4 rounded-full bg-[#d8dbe4]"></span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto mt-24 max-w-[610px]">
+                        <div class="text-center">
+                            <span class="inline-flex rounded-full bg-[#2d3442] px-3 py-1 text-[10px] font-semibold text-[#d8dbe4]">
+                                FAQ
+                            </span>
+                            <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                                Frequently Asked Questions
+                            </h2>
+                            <p class="mx-auto mt-3 max-w-[520px] text-[15px] text-[#96a6c1]">
+                                Find answers to common questions about my
+                                services, process, and availability.
+                            </p>
+                        </div>
+
+                        <div class="mt-10 divide-y divide-[#273146] border-y border-[#273146]">
+                            <div class="flex items-center justify-between py-5">
+                                <p class="text-[14px] font-semibold text-white">
+                                    What is your availability for new projects?
+                                </p>
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#273146] text-[14px] text-[#dbe4f5]">
+                                    +
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between py-5">
+                                <p class="text-[14px] font-semibold text-white">
+                                    What does your process look like?
+                                </p>
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#273146] text-[14px] text-[#dbe4f5]">
+                                    +
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between py-5">
+                                <p class="text-[14px] font-semibold text-white">
+                                    How do you handle pricing?
+                                </p>
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#273146] text-[14px] text-[#dbe4f5]">
+                                    +
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between py-5">
+                                <p class="text-[14px] font-semibold text-white">
+                                    What technologies do you work with?
+                                </p>
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#273146] text-[14px] text-[#dbe4f5]">
+                                    +
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between py-5">
+                                <p class="text-[14px] font-semibold text-white">
+                                    Do you offer ongoing maintenance?
+                                </p>
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#273146] text-[14px] text-[#dbe4f5]">
+                                    +
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-[#161e2c] px-6 py-20 md:px-10 md:py-24">
+                <div class="mx-auto max-w-[1040px]">
+                    <div class="mx-auto max-w-[600px] text-center">
+                        <h2 class="text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                            Let&apos;s Work Together
+                        </h2>
+                        <p class="mx-auto mt-3 max-w-[520px] text-[15px] leading-7 text-[#96a6c1]">
+                            Have a project in mind or just want to chat? I&apos;d
+                            love to hear from you. Send me a message and I&apos;ll
+                            get back to you within 24 hours.
+                        </p>
+                    </div>
+
+                    <div class="mx-auto mt-10 max-w-[600px]">
+                        <form class="space-y-4">
+                            <div class="grid gap-4 md:grid-cols-2">
+                                <label class="block">
+                                    <span class="mb-2 block text-[11px] font-semibold text-[#dbe4f5]">
+                                        Name
+                                    </span>
+                                    <input
+                                        type="text"
+                                        placeholder="Your name"
+                                        class="h-12 w-full rounded-[4px] border border-[#34425d] bg-[#232d3e] px-4 text-[13px] text-white outline-none placeholder:text-[#7f90aa]"
+                                    />
+                                </label>
+                                <label class="block">
+                                    <span class="mb-2 block text-[11px] font-semibold text-[#dbe4f5]">
+                                        Email
+                                    </span>
+                                    <input
+                                        type="email"
+                                        placeholder="your@email.com"
+                                        class="h-12 w-full rounded-[4px] border border-[#34425d] bg-[#232d3e] px-4 text-[13px] text-white outline-none placeholder:text-[#7f90aa]"
+                                    />
+                                </label>
+                            </div>
+
+                            <label class="block">
+                                <span class="mb-2 block text-[11px] font-semibold text-[#dbe4f5]">
+                                    Subject
+                                </span>
+                                <input
+                                    type="text"
+                                    placeholder="What&apos;s this about?"
+                                    class="h-12 w-full rounded-[4px] border border-[#34425d] bg-[#232d3e] px-4 text-[13px] text-white outline-none placeholder:text-[#7f90aa]"
+                                />
+                            </label>
+
+                            <label class="block">
+                                <span class="mb-2 block text-[11px] font-semibold text-[#dbe4f5]">
+                                    Message
+                                </span>
+                                <textarea
+                                    rows="5"
+                                    placeholder="Tell me about your project..."
+                                    class="w-full rounded-[4px] border border-[#34425d] bg-[#232d3e] px-4 py-3 text-[13px] text-white outline-none placeholder:text-[#7f90aa]"
+                                ></textarea>
+                            </label>
+
+                            <div class="pt-2 text-center">
+                                <button
+                                    type="submit"
+                                    class="inline-flex h-10 items-center justify-center rounded-[6px] bg-[#8b4dff] px-8 text-[12px] font-semibold text-white shadow-[0_10px_30px_rgba(139,77,255,0.35)]"
+                                >
+                                    Send Message &#9651;
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="mt-10 border-t border-[#2a3550] pt-8 text-center">
+                            <a
+                                href="mailto:hello@alexrivera.dev"
+                                class="text-[13px] text-[#b8c6dc]"
+                            >
+                                @ hello@alexrivera.dev
+                            </a>
+
+                            <div class="mt-5 flex items-center justify-center gap-3">
+                                <a
+                                    href="#"
+                                    aria-label="GitHub"
+                                    class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                                >
+                                    G
+                                </a>
+                                <a
+                                    href="#"
+                                    aria-label="X"
+                                    class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                                >
+                                    X
+                                </a>
+                                <a
+                                    href="#"
+                                    aria-label="LinkedIn"
+                                    class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                                >
+                                    in
+                                </a>
+                                <a
+                                    href="#"
+                                    aria-label="Dribbble"
+                                    class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                                >
+                                    o
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-[#101827] bg-[#060b18] px-6 py-10 md:px-10">
+            <div class="mx-auto max-w-[1040px] text-center">
+                <p class="text-[18px] font-bold text-white">Alex Rivera</p>
+                <p class="mx-auto mt-2 max-w-[260px] text-[13px] leading-6 text-[#8da0bd]">
+                    Full-stack developer and designer crafting exceptional
+                    digital experiences.
+                </p>
+
+                <div class="mt-5 flex items-center justify-center gap-3">
+                    <a
+                        href="#"
+                        aria-label="GitHub"
+                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                    >
+                        G
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="X"
+                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                    >
+                        X
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="LinkedIn"
+                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                    >
+                        in
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="Dribbble"
+                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
+                    >
+                        o
+                    </a>
+                </div>
+
+                <div class="mt-5 flex flex-wrap items-center justify-center gap-4 text-[12px] text-[#7f90aa]">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Style Guide</a>
+                </div>
+
+                <p class="mt-5 text-[12px] text-[#7f90aa]">
+                    &copy; 2026 Alex Rivera. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <a
+            href="#top"
+            aria-label="Back to top"
+            class="fixed bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#4e5463] text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+        >
+            <ChevronUp class="h-4 w-4" />
+        </a>
+    </div>
+</Layout>
