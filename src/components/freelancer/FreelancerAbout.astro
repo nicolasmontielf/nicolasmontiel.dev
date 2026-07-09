@@ -1,0 +1,72 @@
+---
+import avatar from '@assets/nicolas-montiel-avatar.png';
+---
+
+<section class="px-6 pb-20 pt-14 md:px-10 md:pb-24 md:pt-20">
+    <div class="mx-auto grid max-w-[1040px] gap-12 lg:grid-cols-[430px_minmax(0,1fr)] lg:items-center lg:gap-10">
+        <div class="overflow-hidden rounded-[14px] bg-background-secondary shadow-[0_22px_80px_rgba(0,0,0,0.28)]">
+            <img
+                src={avatar.src}
+                alt="Alex Rivera portrait"
+                width={avatar.width}
+                height={avatar.height}
+                class="h-full min-h-[420px] w-full object-cover"
+            />
+        </div>
+
+        <div class="max-w-[470px] lg:justify-self-end">
+            <h1 class="text-[36px] font-bold leading-none tracking-[-0.03em] text-white md:text-[46px]">
+                About Me
+            </h1>
+
+            <div class="mt-7 space-y-5 text-[14px] leading-7 text-[#9fb0c9] md:text-[15px]">
+                <p>
+                    I&apos;m a full-stack developer and designer with over 8
+                    years of experience building digital products that people
+                    love. Based in San Francisco, I specialize in creating
+                    clean, performant web applications using modern
+                    technologies.
+                </p>
+                <p>
+                    My journey started with a fascination for the intersection
+                    of design and technology. Today, I bring that same
+                    curiosity to every project, whether it&apos;s crafting
+                    pixel-perfect interfaces, architecting scalable backends, or
+                    designing intuitive user experiences.
+                </p>
+                <p>
+                    When I&apos;m not coding, you&apos;ll find me contributing
+                    to open-source projects, mentoring aspiring developers, or
+                    exploring the latest design trends.
+                </p>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-5 text-center">
+                <div>
+                    <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-primary-300">
+                        8+
+                    </p>
+                    <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                        Years of Experience
+                    </p>
+                </div>
+                <div>
+                    <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-primary-300">
+                        13+
+                    </p>
+                    <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                        Countries Served
+                    </p>
+                </div>
+                <div>
+                    <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-primary-300">
+                        7+
+                    </p>
+                    <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                        Industries Supported
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

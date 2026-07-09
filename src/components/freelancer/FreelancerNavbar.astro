@@ -1,0 +1,55 @@
+---
+interface Props {
+    locale: string;
+}
+
+const { locale } = Astro.props;
+
+const navItems = [
+    'About',
+    'Services',
+    'Process',
+    'Case Studies',
+    'Pricing',
+    'Blog',
+    'What I Offer',
+    'Gallery',
+    'Contact',
+];
+---
+
+<header class="border-b border-white/10 bg-background-primary">
+    <div class="mx-auto flex min-h-[100px] max-w-[1640px] items-center justify-between gap-8 px-6 md:px-10 xl:px-[54px]">
+        <a
+            href={`/${locale}`}
+            class="shrink-0 text-[28px] font-bold tracking-[-0.03em] text-white"
+        >
+            Alex Rivera
+        </a>
+
+        <nav class="hidden flex-1 items-center justify-center gap-8 xl:flex">
+            {
+                navItems.map((item) => (
+                    <a
+                        href="#"
+                        class:list={[
+                            'text-[18px] font-semibold tracking-[-0.02em] transition',
+                            item === 'Services'
+                                ? 'text-white'
+                                : 'text-[#909aac] hover:text-white',
+                        ]}
+                    >
+                        {item}
+                    </a>
+                ))
+            }
+        </nav>
+
+        <a
+            href="#"
+            class="inline-flex h-[52px] shrink-0 items-center justify-center rounded-[12px] bg-primary px-8 text-[17px] font-bold text-white shadow-[0_14px_34px_rgba(67,56,202,0.28)] transition hover:bg-primary-600"
+        >
+            Hire Me
+        </a>
+    </div>
+</header>
