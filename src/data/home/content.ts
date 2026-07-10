@@ -1,5 +1,5 @@
 import type { Locale } from '@/i18n/locales';
-import type { HomePageContent } from '@/types/content';
+import type { HomePageContent } from '@/types/home';
 
 const homeContentEn: HomePageContent = {
     hero: {

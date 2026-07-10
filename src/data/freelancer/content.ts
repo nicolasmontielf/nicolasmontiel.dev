@@ -1,5 +1,5 @@
 import type { Locale } from '@/i18n/locales';
-import type { FreelancerPageContent } from '@/types/content';
+import type { FreelancerPageContent } from '@/types/freelancer';
 
 const freelancerContentEn: FreelancerPageContent = {
     navbar: {
