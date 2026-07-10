@@ -1,23 +1,14 @@
 ---
 import logo from '@assets/logo.png';
+import type { FreelancerNavbarContent } from '@/types/content';
+import type { Locale } from '@/i18n/locales';
 
 interface Props {
-    locale: string;
+    locale: Locale;
+    content: FreelancerNavbarContent;
 }
 
-const { locale } = Astro.props;
-
-const navItems = [
-    'About',
-    'Services',
-    'Process',
-    'Case Studies',
-    'Pricing',
-    'Blog',
-    'What I Offer',
-    'Gallery',
-    'Contact',
-];
+const { locale, content } = Astro.props;
 ---
 
 <header class="border-b border-white/10 bg-background-primary">
@@ -37,7 +28,7 @@ const navItems = [
 
         <nav class="hidden flex-1 items-center justify-center gap-5 xl:flex">
             {
-                navItems.map((item) => (
+                content.items.map((item) => (
                     <a
                         href="#"
                         class:list={[
@@ -57,7 +48,7 @@ const navItems = [
             href="#"
             class="inline-flex h-[52px] shrink-0 items-center justify-center rounded-[12px] bg-primary px-8 text-[17px] font-bold text-white shadow-[0_14px_34px_rgba(67,56,202,0.28)] transition hover:bg-primary-600"
         >
-            Hire Me
+            {content.ctaLabel}
         </a>
     </div>
 </header>

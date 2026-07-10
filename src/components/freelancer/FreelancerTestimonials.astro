@@ -1,14 +1,24 @@
+---
+import type { FreelancerTestimonialsContent } from '@/types/content';
+
+interface Props {
+    content: FreelancerTestimonialsContent;
+}
+
+const { content } = Astro.props;
+---
+
 <section class="px-6 py-20 md:px-10 md:py-24">
     <div class="mx-auto max-w-[1040px]">
         <div class="text-center">
             <span class="inline-flex rounded-full bg-primary-900 px-3 py-1 text-[10px] font-semibold text-primary-200">
-                Testimonials
+                {content.badgeLabel}
             </span>
             <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
-                What Clients Say
+                {content.title}
             </h2>
             <p class="mx-auto mt-3 max-w-[640px] text-[15px] text-[#96a6c1]">
-                Feedback from people I have had the pleasure of working with.
+                {content.description}
             </p>
         </div>
 
@@ -29,71 +39,28 @@
             </button>
 
             <div class="grid gap-4 lg:grid-cols-3">
-                <article class="rounded-[12px] bg-[#151e31] p-5">
-                    <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
-                        "Alex redesigned our entire web platform and the
-                        results speak for themselves. His attention to detail
-                        and ability to turn complex requirements into elegant
-                        solutions is remarkable."
-                    </p>
-                    <div class="mt-5 flex items-center gap-3">
-                        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
-                            S
-                        </div>
-                        <div>
-                            <p class="text-[13px] font-semibold text-white">
-                                Sarah Chen
+                {
+                    content.items.map((item) => (
+                        <article class="rounded-[12px] bg-[#151e31] p-5">
+                            <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
+                                {item.quote}
                             </p>
-                            <p class="text-[11px] text-[#8293af]">
-                                CEO, TechFlow
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="rounded-[12px] bg-[#151e31] p-5">
-                    <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
-                        "Working with Alex was effortless. He understood our
-                        vision immediately and delivered a brand identity that
-                        perfectly balanced modern aesthetics with practical
-                        usability."
-                    </p>
-                    <div class="mt-5 flex items-center gap-3">
-                        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
-                            M
-                        </div>
-                        <div>
-                            <p class="text-[13px] font-semibold text-white">
-                                Marcus Johnson
-                            </p>
-                            <p class="text-[11px] text-[#8293af]">
-                                CTO, DataSync
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="rounded-[12px] bg-[#151e31] p-5">
-                    <p class="mt-4 text-[14px] leading-6 text-[#d8e0ef]">
-                        "The mobile app Alex designed for us won a design
-                        award. His attention to micro-interactions and
-                        performance makes the product feel polished from the
-                        very first tap."
-                    </p>
-                    <div class="mt-5 flex items-center gap-3">
-                        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
-                            E
-                        </div>
-                        <div>
-                            <p class="text-[13px] font-semibold text-white">
-                                Emily Rodriguez
-                            </p>
-                            <p class="text-[11px] text-[#8293af]">
-                                Product Manager, CloudBase
-                            </p>
-                        </div>
-                    </div>
-                </article>
+                            <div class="mt-5 flex items-center gap-3">
+                                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6f42da] text-[12px] font-bold text-white">
+                                    {item.initial}
+                                </div>
+                                <div>
+                                    <p class="text-[13px] font-semibold text-white">
+                                        {item.author}
+                                    </p>
+                                    <p class="text-[11px] text-[#8293af]">
+                                        {item.role}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                }
             </div>
 
             <div class="mt-6 flex items-center justify-center gap-2">

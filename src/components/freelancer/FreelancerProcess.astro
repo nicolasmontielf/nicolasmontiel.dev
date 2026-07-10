@@ -1,83 +1,47 @@
+---
+import type { FreelancerProcessContent } from '@/types/content';
+
+interface Props {
+    content: FreelancerProcessContent;
+}
+
+const { content } = Astro.props;
+---
+
 <section class="px-6 py-20 md:px-10 md:py-24">
     <div class="mx-auto max-w-[1040px]">
         <div class="text-center">
             <span class="inline-flex rounded-full bg-primary-900 px-3 py-1 text-[10px] font-semibold text-primary-200">
-                Process
+                {content.badgeLabel}
             </span>
             <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
-                My Process
+                {content.title}
             </h2>
             <p class="mx-auto mt-3 max-w-[680px] text-[15px] text-[#96a6c1]">
-                A simple and collaborative process that keeps the project
-                clear, focused, and moving forward.
+                {content.description}
             </p>
         </div>
 
         <div class="mx-auto mt-16 max-w-[1100px]">
             <div class="grid gap-6 xl:grid-cols-4 xl:gap-5">
-                <article class="relative rounded-[16px] border border-white/10 bg-[#151e31] p-6 pr-24 pt-6 xl:p-5 xl:pr-20 xl:pt-5">
-                    <span class="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full bg-primary px-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_24px_rgba(67,56,202,0.28)] xl:right-3 xl:top-3">
-                        Step 01
-                    </span>
-                    <h3 class="pr-2 text-[21px] font-bold text-white xl:text-[19px]">
-                        Understand
-                    </h3>
-                    <p class="mt-2 text-[13px] text-[#8da0bd]">
-                        Discovery and alignment
-                    </p>
-                    <p class="mt-4 text-[14px] leading-6 text-[#b5c2d8]">
-                        We define goals, audience, and constraints before
-                        proposing solutions.
-                    </p>
-                </article>
-
-                <article class="relative rounded-[16px] border border-white/10 bg-[#151e31] p-6 pr-24 pt-6 xl:p-5 xl:pr-20 xl:pt-5">
-                    <span class="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full bg-primary px-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_24px_rgba(67,56,202,0.28)] xl:right-3 xl:top-3">
-                        Step 02
-                    </span>
-                    <h3 class="pr-2 text-[21px] font-bold text-white xl:text-[19px]">
-                        Plan
-                    </h3>
-                    <p class="mt-2 text-[13px] text-[#8da0bd]">
-                        Scope and direction
-                    </p>
-                    <p class="mt-4 text-[14px] leading-6 text-[#b5c2d8]">
-                        We shape the structure, priorities, and roadmap so the
-                        execution stays focused.
-                    </p>
-                </article>
-
-                <article class="relative rounded-[16px] border border-white/10 bg-[#151e31] p-6 pr-24 pt-6 xl:p-5 xl:pr-20 xl:pt-5">
-                    <span class="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full bg-primary px-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_24px_rgba(67,56,202,0.28)] xl:right-3 xl:top-3">
-                        Step 03
-                    </span>
-                    <h3 class="pr-2 text-[21px] font-bold text-white xl:text-[19px]">
-                        Execute
-                    </h3>
-                    <p class="mt-2 text-[13px] text-[#8da0bd]">
-                        Build and refine
-                    </p>
-                    <p class="mt-4 text-[14px] leading-6 text-[#b5c2d8]">
-                        The solution is built with speed, clarity, and room
-                        for thoughtful iteration.
-                    </p>
-                </article>
-
-                <article class="relative rounded-[16px] border border-white/10 bg-[#151e31] p-6 pr-24 pt-6 xl:p-5 xl:pr-20 xl:pt-5">
-                    <span class="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full bg-primary px-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_24px_rgba(67,56,202,0.28)] xl:right-3 xl:top-3">
-                        Step 04
-                    </span>
-                    <h3 class="pr-2 text-[21px] font-bold text-white xl:text-[19px]">
-                        Launch
-                    </h3>
-                    <p class="mt-2 text-[13px] text-[#8da0bd]">
-                        Go live with confidence
-                    </p>
-                    <p class="mt-4 text-[14px] leading-6 text-[#b5c2d8]">
-                        Final polish, launch support, and a careful handoff
-                        close the loop.
-                    </p>
-                </article>
+                {
+                    content.steps.map((step) => (
+                        <article class="relative rounded-[16px] border border-white/10 bg-[#151e31] p-6 pr-24 pt-6 xl:p-5 xl:pr-20 xl:pt-5">
+                            <span class="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full bg-primary px-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_24px_rgba(67,56,202,0.28)] xl:right-3 xl:top-3">
+                                {step.badge}
+                            </span>
+                            <h3 class="pr-2 text-[21px] font-bold text-white xl:text-[19px]">
+                                {step.title}
+                            </h3>
+                            <p class="mt-2 text-[13px] text-[#8da0bd]">
+                                {step.subtitle}
+                            </p>
+                            <p class="mt-4 text-[14px] leading-6 text-[#b5c2d8]">
+                                {step.description}
+                            </p>
+                        </article>
+                    ))
+                }
             </div>
         </div>
     </div>
