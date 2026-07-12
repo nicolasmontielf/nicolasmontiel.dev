@@ -1,3 +1,4 @@
+import { getFreelancerCaseStudyPreviews } from '@/data/case-studies';
 import type { Locale } from '@/i18n/locales';
 import type { FreelancerPageContent } from '@/types/freelancer';
 
@@ -111,56 +112,8 @@ const freelancerContentEn: FreelancerPageContent = {
         title: 'Selected Case Studies',
         description:
             'A few examples of how strategy, design, and execution come together in the work.',
-        items: [
-            {
-                category: 'Web Application',
-                title: 'E-commerce Platform',
-                description:
-                    'A full-featured online store with real-time inventory, payment processing, and an admin dashboard for managing products and orders.',
-                tags: ['React', 'Node.js', 'Stripe', 'PostgreSQL'],
-                ctaLabel: 'View Project',
-                href: '#',
-                imageSrc:
-                    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
-                imageAlt: 'E-commerce Platform',
-            },
-            {
-                category: 'UI/UX Design',
-                title: 'Design System',
-                description:
-                    'A comprehensive component library and design system powering consistent user experiences across multiple products.',
-                tags: ['Figma', 'Storybook', 'React', 'Tokens'],
-                ctaLabel: 'View Project',
-                href: '#',
-                imageSrc:
-                    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
-                imageAlt: 'Design System',
-            },
-            {
-                category: 'Data Visualization',
-                title: 'Analytics Dashboard',
-                description:
-                    'An interactive dashboard for monitoring key business metrics with real-time data streaming and customizable charts.',
-                tags: ['Vue.js', 'D3.js', 'WebSocket', 'Python'],
-                ctaLabel: 'View Project',
-                href: '#',
-                imageSrc:
-                    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-                imageAlt: 'Analytics Dashboard',
-            },
-            {
-                category: 'Mobile Application',
-                title: 'Mobile Fitness App',
-                description:
-                    'A cross-platform fitness tracking app with workout plans, progress analytics, and social features for community engagement.',
-                tags: ['React Native', 'Firebase', 'TypeScript', 'Expo'],
-                ctaLabel: 'View Project',
-                href: '#',
-                imageSrc:
-                    'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
-                imageAlt: 'Mobile Fitness App',
-            },
-        ],
+        ctaLabel: 'View Project',
+        items: getFreelancerCaseStudyPreviews('en'),
     },
     testimonials: {
         badgeLabel: 'Testimonials',
@@ -216,6 +169,10 @@ const freelancerContentEn: FreelancerPageContent = {
 
 const freelancerContentEs: FreelancerPageContent = {
     ...freelancerContentEn,
+    caseStudies: {
+        ...freelancerContentEn.caseStudies,
+        items: getFreelancerCaseStudyPreviews('es'),
+    },
 };
 
 const freelancerContentByLocale: Record<Locale, FreelancerPageContent> = {

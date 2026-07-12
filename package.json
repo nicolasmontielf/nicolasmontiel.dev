@@ -8,6 +8,7 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
+        "generate:freelancer-case-studies": "node ./scripts/generate-freelancer-case-studies.mjs",
         "format": "prettier --write .",
         "format:check": "prettier --check ."
     },

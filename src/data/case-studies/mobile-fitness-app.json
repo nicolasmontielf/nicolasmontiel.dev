@@ -1,0 +1,97 @@
+{
+    "slug": "mobile-fitness-app",
+    "metadata": {
+        "order": 4,
+        "technologies": ["React Native", "Firebase", "TypeScript", "Expo"],
+        "preview": {
+            "en": {
+                "title": "Mobile Fitness App",
+                "previewText": "A cross-platform fitness tracking app with workout plans, progress analytics, and social features for community engagement.",
+                "category": "Mobile Application",
+                "imageSrc": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "Mobile fitness app preview"
+            },
+            "es": {
+                "title": "Mobile Fitness App",
+                "previewText": "Una app cross-platform de fitness con rutinas, analiticas de progreso y funciones sociales para impulsar constancia.",
+                "category": "Aplicacion Mobile",
+                "imageSrc": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "Vista previa de una app mobile de fitness"
+            }
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": {
+                "title": "Mobile Fitness App",
+                "subtitle": "A mobile product focused on helping users track routines, progress, and engagement more consistently.",
+                "paragraphs": [
+                    "This case study looks at a cross-platform fitness experience designed to make daily activity tracking more motivating and easier to sustain."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "Mobile fitness app cover image"
+                    }
+                ]
+            },
+            "es": {
+                "title": "Mobile Fitness App",
+                "subtitle": "Un producto mobile orientado a ayudar a usuarios a seguir rutinas, progreso y engagement de forma mas constante.",
+                "paragraphs": [
+                    "Este caso de estudio recorre una experiencia cross-platform de fitness disenada para hacer mas motivador y sostenible el seguimiento diario de actividad."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "Imagen principal de una app mobile de fitness"
+                    }
+                ]
+            }
+        },
+        "context": {
+            "en": {
+                "title": "Context",
+                "paragraphs": [
+                    "The product needed to balance usability, habit formation, and a clear mobile-first experience for recurring engagement."
+                ]
+            },
+            "es": {
+                "title": "Contexto",
+                "paragraphs": [
+                    "El producto necesitaba equilibrar usabilidad, formacion de habito y una experiencia claramente mobile-first para interaccion recurrente."
+                ]
+            }
+        },
+        "approach": {
+            "en": {
+                "title": "Approach",
+                "paragraphs": [
+                    "We focused on simple navigation, meaningful progress feedback, and a structure that supported both planning and consistency."
+                ]
+            },
+            "es": {
+                "title": "Enfoque",
+                "paragraphs": [
+                    "Se priorizo navegacion simple, feedback de progreso util y una estructura que acompanara tanto la planificacion como la constancia."
+                ]
+            }
+        },
+        "outcome": {
+            "en": {
+                "title": "Outcome",
+                "paragraphs": [
+                    "The resulting app experience emphasized clarity, momentum, and a more engaging path for users following their routines."
+                ]
+            },
+            "es": {
+                "title": "Resultado",
+                "paragraphs": [
+                    "La experiencia final puso el foco en claridad, continuidad y un recorrido mas atractivo para usuarios siguiendo sus rutinas."
+                ]
+            }
+        }
+    }
+}

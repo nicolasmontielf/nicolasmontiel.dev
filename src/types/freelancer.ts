@@ -1,3 +1,5 @@
+import type { CaseStudyPreviewCard } from './case-study';
+
 export type FreelancerNavbarContent = {
     items: string[];
     ctaLabel: string;
@@ -43,19 +45,11 @@ export type FreelancerProcessContent = FreelancerSectionHeaderContent & {
     steps: FreelancerProcessStep[];
 };
 
-export type FreelancerCaseStudyItem = {
-    category: string;
-    title: string;
-    description: string;
-    tags: string[];
-    ctaLabel: string;
-    href: string;
-    imageSrc: string;
-    imageAlt: string;
-};
+export type FreelancerCaseStudyPreview = CaseStudyPreviewCard;
 
 export type FreelancerCaseStudiesContent = FreelancerSectionHeaderContent & {
-    items: FreelancerCaseStudyItem[];
+    ctaLabel: string;
+    items: FreelancerCaseStudyPreview[];
 };
 
 export type FreelancerTestimonialItem = {

@@ -1,0 +1,97 @@
+{
+    "slug": "analytics-dashboard",
+    "metadata": {
+        "order": 3,
+        "technologies": ["Vue.js", "D3.js", "WebSocket", "Python"],
+        "preview": {
+            "en": {
+                "title": "Analytics Dashboard",
+                "previewText": "An interactive dashboard for monitoring key business metrics with real-time data streaming and customizable charts.",
+                "category": "Data Visualization",
+                "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "Analytics dashboard preview"
+            },
+            "es": {
+                "title": "Analytics Dashboard",
+                "previewText": "Un dashboard interactivo para monitorear metricas clave con datos en tiempo real y graficos configurables.",
+                "category": "Visualizacion de Datos",
+                "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "Vista previa de un dashboard analitico"
+            }
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": {
+                "title": "Analytics Dashboard",
+                "subtitle": "A data-rich dashboard built to make complex metrics easier to understand and act on.",
+                "paragraphs": [
+                    "This case study focuses on a dashboard experience designed to turn live operational data into something clear, useful, and actionable."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "Analytics dashboard cover image"
+                    }
+                ]
+            },
+            "es": {
+                "title": "Analytics Dashboard",
+                "subtitle": "Un dashboard orientado a datos para volver metricas complejas mas claras y accionables.",
+                "paragraphs": [
+                    "Este caso de estudio se centra en una experiencia de dashboard pensada para transformar datos operativos en algo claro, util y accionable."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "Imagen principal de un dashboard analitico"
+                    }
+                ]
+            }
+        },
+        "context": {
+            "en": {
+                "title": "Context",
+                "paragraphs": [
+                    "The existing reporting flow made it difficult for teams to identify trends quickly and respond with confidence."
+                ]
+            },
+            "es": {
+                "title": "Contexto",
+                "paragraphs": [
+                    "El flujo de reporting existente dificultaba detectar tendencias rapidamente y reaccionar con confianza."
+                ]
+            }
+        },
+        "approach": {
+            "en": {
+                "title": "Approach",
+                "paragraphs": [
+                    "We shaped a modular dashboard with better information hierarchy, clearer chart usage, and more useful defaults for ongoing monitoring."
+                ]
+            },
+            "es": {
+                "title": "Enfoque",
+                "paragraphs": [
+                    "Se construyo un dashboard modular con mejor jerarquia de informacion, uso mas claro de graficos y defaults mas utiles para monitoreo continuo."
+                ]
+            }
+        },
+        "outcome": {
+            "en": {
+                "title": "Outcome",
+                "paragraphs": [
+                    "The final product made it easier to track performance, highlight anomalies, and support faster business decisions."
+                ]
+            },
+            "es": {
+                "title": "Resultado",
+                "paragraphs": [
+                    "El resultado facilito el seguimiento de performance, la deteccion de anomalias y decisiones de negocio mas rapidas."
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{
+    "en": [
+        {
+            "slug": "ecommerce-platform",
+            "title": "E-commerce Platform",
+            "previewText": "A full-featured online store with real-time inventory, payment processing, and an admin dashboard for managing products and orders.",
+            "category": "Web Application",
+            "technologies": [
+                "React",
+                "Node.js",
+                "Stripe",
+                "PostgreSQL"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "E-commerce platform preview"
+        },
+        {
+            "slug": "design-system",
+            "title": "Design System",
+            "previewText": "A comprehensive component library and design system powering consistent user experiences across multiple products.",
+            "category": "UI/UX Design",
+            "technologies": [
+                "Figma",
+                "Storybook",
+                "React",
+                "Tokens"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Design system preview"
+        },
+        {
+            "slug": "analytics-dashboard",
+            "title": "Analytics Dashboard",
+            "previewText": "An interactive dashboard for monitoring key business metrics with real-time data streaming and customizable charts.",
+            "category": "Data Visualization",
+            "technologies": [
+                "Vue.js",
+                "D3.js",
+                "WebSocket",
+                "Python"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Analytics dashboard preview"
+        },
+        {
+            "slug": "mobile-fitness-app",
+            "title": "Mobile Fitness App",
+            "previewText": "A cross-platform fitness tracking app with workout plans, progress analytics, and social features for community engagement.",
+            "category": "Mobile Application",
+            "technologies": [
+                "React Native",
+                "Firebase",
+                "TypeScript",
+                "Expo"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Mobile fitness app preview"
+        }
+    ],
+    "es": [
+        {
+            "slug": "ecommerce-platform",
+            "title": "E-commerce Platform",
+            "previewText": "Una tienda online completa con inventario en tiempo real, pagos integrados y un panel administrativo para gestionar productos y pedidos.",
+            "category": "Aplicacion Web",
+            "technologies": [
+                "React",
+                "Node.js",
+                "Stripe",
+                "PostgreSQL"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Vista previa de una plataforma ecommerce"
+        },
+        {
+            "slug": "design-system",
+            "title": "Design System",
+            "previewText": "Una libreria de componentes y sistema de diseno pensados para mantener consistencia entre multiples productos.",
+            "category": "Diseno UI/UX",
+            "technologies": [
+                "Figma",
+                "Storybook",
+                "React",
+                "Tokens"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Vista previa de un sistema de diseno"
+        },
+        {
+            "slug": "analytics-dashboard",
+            "title": "Analytics Dashboard",
+            "previewText": "Un dashboard interactivo para monitorear metricas clave con datos en tiempo real y graficos configurables.",
+            "category": "Visualizacion de Datos",
+            "technologies": [
+                "Vue.js",
+                "D3.js",
+                "WebSocket",
+                "Python"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Vista previa de un dashboard analitico"
+        },
+        {
+            "slug": "mobile-fitness-app",
+            "title": "Mobile Fitness App",
+            "previewText": "Una app cross-platform de fitness con rutinas, analiticas de progreso y funciones sociales para impulsar constancia.",
+            "category": "Aplicacion Mobile",
+            "technologies": [
+                "React Native",
+                "Firebase",
+                "TypeScript",
+                "Expo"
+            ],
+            "imageSrc": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+            "imageAlt": "Vista previa de una app mobile de fitness"
+        }
+    ]
+}

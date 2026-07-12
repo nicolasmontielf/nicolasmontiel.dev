@@ -1,0 +1,97 @@
+{
+    "slug": "ecommerce-platform",
+    "metadata": {
+        "order": 1,
+        "technologies": ["React", "Node.js", "Stripe", "PostgreSQL"],
+        "preview": {
+            "en": {
+                "title": "E-commerce Platform",
+                "previewText": "A full-featured online store with real-time inventory, payment processing, and an admin dashboard for managing products and orders.",
+                "category": "Web Application",
+                "imageSrc": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "E-commerce platform preview"
+            },
+            "es": {
+                "title": "E-commerce Platform",
+                "previewText": "Una tienda online completa con inventario en tiempo real, pagos integrados y un panel administrativo para gestionar productos y pedidos.",
+                "category": "Aplicacion Web",
+                "imageSrc": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+                "imageAlt": "Vista previa de una plataforma ecommerce"
+            }
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": {
+                "title": "E-commerce Platform",
+                "subtitle": "A full-featured online store with real-time inventory, payment processing, and admin tooling.",
+                "paragraphs": [
+                    "This case study explores the delivery of a modern e-commerce experience built to support real-time inventory, checkout reliability, and operational visibility for internal teams."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "E-commerce platform cover image"
+                    }
+                ]
+            },
+            "es": {
+                "title": "E-commerce Platform",
+                "subtitle": "Una tienda online completa con inventario en tiempo real, pagos y herramientas administrativas.",
+                "paragraphs": [
+                    "Este caso de estudio recorre la construccion de una experiencia ecommerce moderna pensada para combinar inventario en tiempo real, pagos confiables y visibilidad operativa para el equipo interno."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+                        "alt": "Imagen principal de una plataforma ecommerce"
+                    }
+                ]
+            }
+        },
+        "context": {
+            "en": {
+                "title": "Context",
+                "paragraphs": [
+                    "The goal was to create a store that felt fast and trustworthy for customers while also giving the business team strong control over catalog, orders, and payments."
+                ]
+            },
+            "es": {
+                "title": "Contexto",
+                "paragraphs": [
+                    "El objetivo fue crear una tienda rapida y confiable para clientes, pero tambien con un panel administrativo solido para manejar catalogo, pedidos y pagos."
+                ]
+            }
+        },
+        "approach": {
+            "en": {
+                "title": "Approach",
+                "paragraphs": [
+                    "We focused on a clean purchase flow, reliable backend integrations, and an admin experience that reduced friction for daily operations."
+                ]
+            },
+            "es": {
+                "title": "Enfoque",
+                "paragraphs": [
+                    "Se priorizo un flujo de compra claro, integraciones backend confiables y una experiencia interna que redujera friccion operativa."
+                ]
+            }
+        },
+        "outcome": {
+            "en": {
+                "title": "Outcome",
+                "paragraphs": [
+                    "The result was a platform designed to support growth, improve operational clarity, and create a smoother path from discovery to purchase."
+                ]
+            },
+            "es": {
+                "title": "Resultado",
+                "paragraphs": [
+                    "El resultado fue una plataforma preparada para crecer, mejorar la claridad operativa y acompanar mejor el recorrido desde el descubrimiento hasta la compra."
+                ]
+            }
+        }
+    }
+}
