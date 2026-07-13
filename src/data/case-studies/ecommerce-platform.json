@@ -14,7 +14,7 @@
             "es": {
                 "title": "E-commerce Platform",
                 "previewText": "Una tienda online completa con inventario en tiempo real, pagos integrados y un panel administrativo para gestionar productos y pedidos.",
-                "category": "Aplicacion Web",
+                "category": "Aplicación Web",
                 "imageSrc": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
                 "imageAlt": "Vista previa de una plataforma ecommerce"
             }
@@ -40,7 +40,7 @@
                 "title": "E-commerce Platform",
                 "subtitle": "Una tienda online completa con inventario en tiempo real, pagos y herramientas administrativas.",
                 "paragraphs": [
-                    "Este caso de estudio recorre la construccion de una experiencia ecommerce moderna pensada para combinar inventario en tiempo real, pagos confiables y visibilidad operativa para el equipo interno."
+                    "Este caso de estudio recorre la construcción de una experiencia ecommerce moderna, pensada para combinar inventario en tiempo real, pagos confiables y visibilidad operativa para el equipo interno."
                 ],
                 "media": [
                     {
@@ -61,7 +61,7 @@
             "es": {
                 "title": "Contexto",
                 "paragraphs": [
-                    "El objetivo fue crear una tienda rapida y confiable para clientes, pero tambien con un panel administrativo solido para manejar catalogo, pedidos y pagos."
+                    "El objetivo fue crear una tienda rápida y confiable para clientes, pero también con un panel administrativo sólido para manejar catálogo, pedidos y pagos sin fricción."
                 ]
             }
         },
@@ -75,7 +75,7 @@
             "es": {
                 "title": "Enfoque",
                 "paragraphs": [
-                    "Se priorizo un flujo de compra claro, integraciones backend confiables y una experiencia interna que redujera friccion operativa."
+                    "Se priorizó un flujo de compra claro, integraciones backend confiables y una experiencia interna que redujera fricción en la operación diaria."
                 ]
             }
         },
@@ -89,7 +89,7 @@
             "es": {
                 "title": "Resultado",
                 "paragraphs": [
-                    "El resultado fue una plataforma preparada para crecer, mejorar la claridad operativa y acompanar mejor el recorrido desde el descubrimiento hasta la compra."
+                    "El resultado fue una plataforma preparada para crecer, mejorar la claridad operativa y acompañar mejor el recorrido desde el descubrimiento hasta la compra."
                 ]
             }
         }

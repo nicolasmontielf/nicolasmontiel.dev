@@ -13,10 +13,10 @@
             },
             "es": {
                 "title": "Analytics Dashboard",
-                "previewText": "Un dashboard interactivo para monitorear metricas clave con datos en tiempo real y graficos configurables.",
-                "category": "Visualizacion de Datos",
+                "previewText": "Un dashboard interactivo para monitorear métricas clave con datos en tiempo real y gráficos configurables.",
+                "category": "Visualización de Datos",
                 "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-                "imageAlt": "Vista previa de un dashboard analitico"
+                "imageAlt": "Vista previa de un dashboard analítico"
             }
         }
     },
@@ -38,15 +38,15 @@
             },
             "es": {
                 "title": "Analytics Dashboard",
-                "subtitle": "Un dashboard orientado a datos para volver metricas complejas mas claras y accionables.",
+                "subtitle": "Un dashboard orientado a datos para volver métricas complejas más claras y accionables.",
                 "paragraphs": [
-                    "Este caso de estudio se centra en una experiencia de dashboard pensada para transformar datos operativos en algo claro, util y accionable."
+                    "Este caso de estudio se centra en una experiencia de dashboard pensada para transformar datos operativos en información clara, útil y accionable."
                 ],
                 "media": [
                     {
                         "type": "image",
                         "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-                        "alt": "Imagen principal de un dashboard analitico"
+                        "alt": "Imagen principal de un dashboard analítico"
                     }
                 ]
             }
@@ -61,7 +61,7 @@
             "es": {
                 "title": "Contexto",
                 "paragraphs": [
-                    "El flujo de reporting existente dificultaba detectar tendencias rapidamente y reaccionar con confianza."
+                    "El flujo de reporting existente dificultaba detectar tendencias rápidamente y reaccionar con confianza."
                 ]
             }
         },
@@ -75,7 +75,7 @@
             "es": {
                 "title": "Enfoque",
                 "paragraphs": [
-                    "Se construyo un dashboard modular con mejor jerarquia de informacion, uso mas claro de graficos y defaults mas utiles para monitoreo continuo."
+                    "Se construyó un dashboard modular con mejor jerarquía de información, uso más claro de gráficos y defaults más útiles para monitoreo continuo."
                 ]
             }
         },
@@ -89,7 +89,7 @@
             "es": {
                 "title": "Resultado",
                 "paragraphs": [
-                    "El resultado facilito el seguimiento de performance, la deteccion de anomalias y decisiones de negocio mas rapidas."
+                    "El resultado facilitó el seguimiento de performance, la detección de anomalías y decisiones de negocio más rápidas."
                 ]
             }
         }

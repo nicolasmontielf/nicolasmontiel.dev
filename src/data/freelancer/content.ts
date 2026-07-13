@@ -20,9 +20,9 @@ const freelancerContentEn: FreelancerPageContent = {
     about: {
         title: 'About Me',
         paragraphs: [
-            "I'm a full-stack developer and designer with over 8 years of experience building digital products that people love. Based in San Francisco, I specialize in creating clean, performant web applications using modern technologies.",
-            "My journey started with a fascination for the intersection of design and technology. Today, I bring that same curiosity to every project, whether it's crafting pixel-perfect interfaces, architecting scalable backends, or designing intuitive user experiences.",
-            "When I'm not coding, you'll find me contributing to open-source projects, mentoring aspiring developers, or exploring the latest design trends.",
+            'I help founders and growing businesses improve how they work through software, automation, and AI. More than simply building what I am asked for, I work as a technical partner helping clarify ideas, identify the right solution, and turn them into practical digital products.',
+            'I take ownership of the entire process, from planning and product decisions to development, documentation, and launch. My approach is analytical, organized, and focused on building solutions that are useful, maintainable, and aligned with the real goals of the business.',
+            'With over eight years of experience building complex products for companies across the US and Europe, I bring senior-level expertise with the flexibility, direct communication, and close collaboration of an independent partner.',
         ],
         metrics: [
             {
@@ -30,44 +30,44 @@ const freelancerContentEn: FreelancerPageContent = {
                 label: 'Years of Experience',
             },
             {
-                value: '13+',
-                label: 'Countries Served',
+                value: '5+',
+                label: 'Years Working Remotely',
             },
             {
-                value: '7+',
-                label: 'Industries Supported',
+                value: '13+',
+                label: 'Countries Collaborated With',
             },
         ],
     },
     services: {
         badgeLabel: 'Services',
-        title: 'What I Can Help You Build',
+        title: 'How I Can Help',
         description:
-            'A focused set of digital services designed to help you launch faster, communicate clearly, and grow with confidence.',
+            'I help founders and growing businesses launch better products, automate repetitive work, and use technology more effectively.',
         items: [
             {
                 icon: 'globe',
-                title: 'Web Development',
+                title: 'Custom Web Applications',
                 description:
-                    'Custom websites and digital platforms built to look sharp, load fast, and support your business goals.',
+                    'For businesses that need more than a standard website, I build focused web applications designed around a specific process, service, or product.',
+            },
+            {
+                icon: 'palette',
+                title: 'Landing Pages & Business Websites',
+                description:
+                    'Clear, fast, and conversion-focused websites built to communicate your value, generate leads, and give your business a professional digital presence.',
             },
             {
                 icon: 'sparkles',
                 title: 'AI Integrations',
                 description:
-                    'Smart workflows, AI-powered features, and practical automations that improve operations without adding complexity.',
-            },
-            {
-                icon: 'palette',
-                title: 'Landing Pages',
-                description:
-                    'High-converting pages crafted to explain your offer clearly, build trust fast, and turn visitors into leads.',
+                    'Practical AI features and integrations that improve customer experiences, support decision-making, and add real value to existing products or workflows.',
             },
             {
                 icon: 'rocket',
-                title: 'Product Launch Support',
+                title: 'Process Automation',
                 description:
-                    'From positioning to launch readiness, I help shape the final experience so your release feels polished and intentional.',
+                    'Custom automations that reduce repetitive work, connect tools, and make day-to-day operations faster and more reliable.',
             },
         ],
     },
@@ -75,35 +75,35 @@ const freelancerContentEn: FreelancerPageContent = {
         badgeLabel: 'Process',
         title: 'My Process',
         description:
-            'A simple and collaborative process that keeps the project clear, focused, and moving forward.',
+            'A clear, collaborative process designed to turn real business problems into practical digital solutions.',
         steps: [
             {
                 badge: 'Step 01',
                 title: 'Understand',
-                subtitle: 'Discovery and alignment',
+                subtitle: 'Clarify the problem',
                 description:
-                    'We define goals, audience, and constraints before proposing solutions.',
+                    'I start by understanding your goals, current challenges, users, and constraints before proposing a solution.',
             },
             {
                 badge: 'Step 02',
-                title: 'Plan',
-                subtitle: 'Scope and direction',
+                title: 'Define',
+                subtitle: 'Shape the right solution',
                 description:
-                    'We shape the structure, priorities, and roadmap so the execution stays focused.',
+                    'Together, we turn the problem into a clear scope, priorities, and a practical plan aligned with your business goals.',
             },
             {
                 badge: 'Step 03',
-                title: 'Execute',
-                subtitle: 'Build and refine',
+                title: 'Build',
+                subtitle: 'Develop and iterate',
                 description:
-                    'The solution is built with speed, clarity, and room for thoughtful iteration.',
+                    'I build the solution in focused stages, share progress regularly, and refine it through feedback.',
             },
             {
                 badge: 'Step 04',
-                title: 'Launch',
-                subtitle: 'Go live with confidence',
+                title: 'Launch & Validate',
+                subtitle: 'Release with confidence',
                 description:
-                    'Final polish, launch support, and a careful handoff close the loop.',
+                    'After launch, I verify that everything works as expected, handle final adjustments, and make sure the product is ready to fulfill its purpose.',
             },
         ],
     },
@@ -117,9 +117,9 @@ const freelancerContentEn: FreelancerPageContent = {
     },
     testimonials: {
         badgeLabel: 'Testimonials',
-        title: 'What Clients Say',
+        title: "What It's Like to Work With Me",
         description:
-            'Feedback from people I have had the pleasure of working with.',
+            'Feedback from clients and collaborators about my approach, communication, and the results we achieved together.',
         items: [
             {
                 quote:
@@ -158,9 +158,9 @@ const freelancerContentEn: FreelancerPageContent = {
         ],
     },
     contact: {
-        title: "Let's Work Together",
+        title: "Let's Talk About Your Project",
         description:
-            "Have a project in mind or just want to chat? I'd love to hear from you. Send me a message and I'll get back to you within 24 hours.",
+            'Whether you have a clear plan or just a problem that needs solving, I can help you define the right approach and turn it into a practical digital solution.',
         placeholder:
             'A custom contact form will be embedded here in a later iteration. For now, this section keeps the same visual rhythm as the original layout.',
         email: 'hello@alexrivera.dev',
@@ -168,10 +168,167 @@ const freelancerContentEn: FreelancerPageContent = {
 };
 
 const freelancerContentEs: FreelancerPageContent = {
-    ...freelancerContentEn,
+    navbar: {
+        items: [
+            'Sobre mí',
+            'Servicios',
+            'Proceso',
+            'Casos de estudio',
+            'Precios',
+            'Blog',
+            'Qué ofrezco',
+            'Galería',
+            'Contacto',
+        ],
+        ctaLabel: 'Trabajemos',
+    },
+    about: {
+        title: 'Sobre mí',
+        paragraphs: [
+            'Ayudo a founders y negocios en crecimiento a mejorar la forma en que trabajan mediante software, automatización e inteligencia artificial. Más que simplemente construir lo que me piden, trabajo como un partner técnico: ayudo a clarificar ideas, identificar la solución adecuada y convertirlas en productos digitales prácticos.',
+            'Me involucro en todo el proceso, desde la planificación y las decisiones de producto hasta el desarrollo, la documentación y el lanzamiento. Mi enfoque es analítico, organizado y orientado a construir soluciones útiles, mantenibles y alineadas con los objetivos reales del negocio.',
+            'Con más de ocho años de experiencia construyendo productos complejos para empresas de Estados Unidos y Europa, combino expertise senior con la flexibilidad, comunicación directa y colaboración cercana de un partner independiente.',
+        ],
+        metrics: [
+            {
+                value: '8+',
+                label: 'Años de experiencia',
+            },
+            {
+                value: '5+',
+                label: 'Años trabajando remoto',
+            },
+            {
+                value: '13+',
+                label: 'Países donde colaboré',
+            },
+        ],
+    },
+    services: {
+        badgeLabel: 'Servicios',
+        title: 'Cómo puedo ayudarte',
+        description:
+            'Ayudo a founders y negocios en crecimiento a lanzar mejores productos, automatizar trabajo repetitivo y usar la tecnología de forma más efectiva.',
+        items: [
+            {
+                icon: 'globe',
+                title: 'Aplicaciones web a medida',
+                description:
+                    'Para negocios que necesitan más que un sitio web estándar, construyo aplicaciones enfocadas en un proceso, servicio o producto específico.',
+            },
+            {
+                icon: 'palette',
+                title: 'Landing pages & sitios de negocio',
+                description:
+                    'Sitios claros, rápidos y orientados a conversión para comunicar tu valor, generar leads y darle a tu negocio una presencia digital profesional.',
+            },
+            {
+                icon: 'sparkles',
+                title: 'Integraciones con AI',
+                description:
+                    'Funcionalidades e integraciones prácticas con AI para mejorar experiencias, apoyar decisiones y sumar valor real a productos o flujos existentes.',
+            },
+            {
+                icon: 'rocket',
+                title: 'Automatización de procesos',
+                description:
+                    'Automatizaciones a medida para reducir trabajo repetitivo, conectar herramientas y hacer que la operación diaria sea más rápida y confiable.',
+            },
+        ],
+    },
+    process: {
+        badgeLabel: 'Proceso',
+        title: 'Mi proceso',
+        description:
+            'Un proceso claro y colaborativo para convertir problemas reales de negocio en soluciones digitales prácticas.',
+        steps: [
+            {
+                badge: 'Paso 01',
+                title: 'Entender',
+                subtitle: 'Clarificar el problema',
+                description:
+                    'Empiezo entendiendo tus objetivos, desafíos actuales, usuarios y restricciones antes de proponer una solución.',
+            },
+            {
+                badge: 'Paso 02',
+                title: 'Definir',
+                subtitle: 'Dar forma a la solución correcta',
+                description:
+                    'Juntos convertimos el problema en un alcance claro, prioridades concretas y un plan práctico alineado con los objetivos del negocio.',
+            },
+            {
+                badge: 'Paso 03',
+                title: 'Construir',
+                subtitle: 'Desarrollar e iterar',
+                description:
+                    'Construyo la solución en etapas enfocadas, comparto avances regularmente y la refinamos con feedback.',
+            },
+            {
+                badge: 'Paso 04',
+                title: 'Lanzar y validar',
+                subtitle: 'Salir con confianza',
+                description:
+                    'Después del lanzamiento, verifico que todo funcione como corresponde, hago los ajustes finales y me aseguro de que el producto esté listo para cumplir su propósito.',
+            },
+        ],
+    },
     caseStudies: {
-        ...freelancerContentEn.caseStudies,
+        badgeLabel: 'Casos de estudio',
+        title: 'Casos de estudio seleccionados',
+        description:
+            'Algunos ejemplos de cómo estrategia, diseño y ejecución se combinan en el trabajo.',
+        ctaLabel: 'Ver proyecto',
         items: getFreelancerCaseStudyPreviews('es'),
+    },
+    testimonials: {
+        badgeLabel: 'Testimonios',
+        title: 'Cómo es trabajar conmigo',
+        description:
+            'Feedback de clientes y colaboradores sobre mi enfoque, comunicación y los resultados que logramos juntos.',
+        items: [
+            {
+                quote:
+                    '"Alex rediseñó toda nuestra plataforma web y los resultados hablan por sí solos. Su atención al detalle y su capacidad para convertir requerimientos complejos en soluciones elegantes es notable."',
+                author: 'Sarah Chen',
+                role: 'CEO, TechFlow',
+                initial: 'S',
+            },
+            {
+                quote:
+                    '"Trabajar con Alex fue muy simple. Entendió nuestra visión rápidamente y entregó una identidad de marca que equilibró perfecto una estética moderna con usabilidad real."',
+                author: 'Marcus Johnson',
+                role: 'CTO, DataSync',
+                initial: 'M',
+            },
+            {
+                quote:
+                    '"La app mobile que Alex diseñó para nosotros ganó un premio de diseño. Su atención a las microinteracciones y al performance hace que el producto se sienta pulido desde el primer tap."',
+                author: 'Emily Rodriguez',
+                role: 'Product Manager, CloudBase',
+                initial: 'E',
+            },
+        ],
+    },
+    faq: {
+        badgeLabel: 'FAQ',
+        title: 'Preguntas frecuentes',
+        description:
+            'Respuestas a preguntas comunes sobre mis servicios, proceso y disponibilidad.',
+        items: [
+            { question: '¿Cuál es tu disponibilidad para nuevos proyectos?' },
+            { question: '¿Cómo es tu proceso de trabajo?' },
+            { question: '¿Cómo manejás los precios?' },
+            { question: '¿Con qué tecnologías trabajás?' },
+            { question: '¿Ofrecés mantenimiento continuo?' },
+        ],
+    },
+    contact: {
+        title: 'Hablemos sobre tu proyecto',
+        description:
+            'Ya sea que tengas un plan claro o simplemente un problema que necesita resolverse, puedo ayudarte a definir el enfoque correcto y convertirlo en una solución digital práctica.',
+        placeholder:
+            'Más adelante vamos a insertar acá un formulario de contacto personalizado. Por ahora, esta sección mantiene el mismo ritmo visual del layout original.',
+        email: 'hello@alexrivera.dev',
     },
 };
 

@@ -28,12 +28,12 @@ const { locale, content } = Astro.props;
 
         <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex">
             {
-                content.items.map((item) => (
+                content.items.map((item, index) => (
                     <a
                         href="#"
                         class:list={[
                             'text-[14px] font-semibold tracking-[-0.01em] transition 2xl:text-[15px]',
-                            item === 'Services'
+                            index === 1
                                 ? 'text-white'
                                 : 'text-[#909aac] hover:text-white',
                         ]}

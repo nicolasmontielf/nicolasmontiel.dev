@@ -13,10 +13,10 @@
             },
             "es": {
                 "title": "Design System",
-                "previewText": "Una libreria de componentes y sistema de diseno pensados para mantener consistencia entre multiples productos.",
-                "category": "Diseno UI/UX",
+                "previewText": "Una librería de componentes y un design system pensados para mantener consistencia entre múltiples productos.",
+                "category": "Diseño UI/UX",
                 "imageSrc": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-                "imageAlt": "Vista previa de un sistema de diseno"
+                "imageAlt": "Vista previa de un design system"
             }
         }
     },
@@ -38,15 +38,15 @@
             },
             "es": {
                 "title": "Design System",
-                "subtitle": "Un sistema de diseno reutilizable para alinear multiples productos bajo un mismo lenguaje visual y de componentes.",
+                "subtitle": "Un design system reutilizable para alinear múltiples productos bajo un mismo lenguaje visual y de componentes.",
                 "paragraphs": [
-                    "Este caso de estudio describe la creacion de una base compartida de diseno pensada para mejorar consistencia, velocidad y colaboracion entre equipos."
+                    "Este caso de estudio describe la creación de una base compartida de diseño pensada para mejorar consistencia, velocidad y colaboración entre equipos."
                 ],
                 "media": [
                     {
                         "type": "image",
                         "src": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-                        "alt": "Imagen principal de un sistema de diseno"
+                        "alt": "Imagen principal de un design system"
                     }
                 ]
             }
@@ -61,7 +61,7 @@
             "es": {
                 "title": "Contexto",
                 "paragraphs": [
-                    "Con el tiempo, distintas interfaces habian empezado a divergir visual y estructuralmente, haciendo mas lentas las decisiones de diseno y menos consistente la implementacion."
+                    "Con el tiempo, distintas interfaces habían empezado a divergir visual y estructuralmente, haciendo más lentas las decisiones de diseño y menos consistente la implementación."
                 ]
             }
         },
@@ -75,7 +75,7 @@
             "es": {
                 "title": "Enfoque",
                 "paragraphs": [
-                    "Se definieron primitivas reutilizables, patrones de componentes y convenciones de documentacion para escalar a traves de varios productos."
+                    "Se definieron primitivas reutilizables, patrones de componentes y convenciones de documentación para escalar a través de varios productos."
                 ]
             }
         },
@@ -89,7 +89,7 @@
             "es": {
                 "title": "Resultado",
                 "paragraphs": [
-                    "El sistema genero un lenguaje compartido mas solido entre diseno e ingenieria, reduciendo decisiones repetidas de interfaz."
+                    "El sistema generó un lenguaje compartido más sólido entre diseño e ingeniería, reduciendo decisiones repetidas de interfaz."
                 ]
             }
         }

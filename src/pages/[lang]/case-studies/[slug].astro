@@ -16,6 +16,8 @@ if (!lang || !isLocale(lang) || !slug) {
 const locale = Astro.locals.locale ?? lang ?? DEFAULT_LOCALE;
 const freelancerContent = getFreelancerContent(locale);
 const caseStudy = getCaseStudyPageContent(slug, locale);
+const caseStudyLabel = locale === 'es' ? 'Caso de estudio' : 'Case Study';
+const stackLabel = locale === 'es' ? 'Tecnologías' : 'Stack';
 
 if (!caseStudy) {
     return new Response('Not found', { status: 404 });
@@ -61,7 +63,7 @@ const renderedSections = await Promise.all(
 
                 <header class="mt-8">
                     <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-300">
-                        Case Study
+                        {caseStudyLabel}
                     </p>
                     <h1 class="mt-4 text-[40px] font-bold tracking-[-0.04em] text-white md:text-[56px]">
                         {caseStudy.hero.title}
@@ -247,7 +249,7 @@ const renderedSections = await Promise.all(
 
                 <div class="mt-14 border-t border-white/10 pt-8">
                     <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-300">
-                        Stack
+                        {stackLabel}
                     </p>
                     <div class="mt-4 flex flex-wrap gap-2">
                         {caseStudy.technologies.map((technology) => (

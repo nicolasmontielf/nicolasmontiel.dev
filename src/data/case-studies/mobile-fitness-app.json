@@ -13,8 +13,8 @@
             },
             "es": {
                 "title": "Mobile Fitness App",
-                "previewText": "Una app cross-platform de fitness con rutinas, analiticas de progreso y funciones sociales para impulsar constancia.",
-                "category": "Aplicacion Mobile",
+                "previewText": "Una app cross-platform de fitness con rutinas, analíticas de progreso y funciones sociales para impulsar la constancia.",
+                "category": "Aplicación Mobile",
                 "imageSrc": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
                 "imageAlt": "Vista previa de una app mobile de fitness"
             }
@@ -38,9 +38,9 @@
             },
             "es": {
                 "title": "Mobile Fitness App",
-                "subtitle": "Un producto mobile orientado a ayudar a usuarios a seguir rutinas, progreso y engagement de forma mas constante.",
+                "subtitle": "Un producto mobile orientado a ayudar a usuarios a seguir rutinas, progreso y engagement de forma más constante.",
                 "paragraphs": [
-                    "Este caso de estudio recorre una experiencia cross-platform de fitness disenada para hacer mas motivador y sostenible el seguimiento diario de actividad."
+                    "Este caso de estudio recorre una experiencia cross-platform de fitness diseñada para hacer más motivador y sostenible el seguimiento diario de actividad."
                 ],
                 "media": [
                     {
@@ -61,7 +61,7 @@
             "es": {
                 "title": "Contexto",
                 "paragraphs": [
-                    "El producto necesitaba equilibrar usabilidad, formacion de habito y una experiencia claramente mobile-first para interaccion recurrente."
+                    "El producto necesitaba equilibrar usabilidad, formación de hábito y una experiencia claramente mobile-first para interacción recurrente."
                 ]
             }
         },
@@ -75,7 +75,7 @@
             "es": {
                 "title": "Enfoque",
                 "paragraphs": [
-                    "Se priorizo navegacion simple, feedback de progreso util y una estructura que acompanara tanto la planificacion como la constancia."
+                    "Se priorizó navegación simple, feedback de progreso útil y una estructura que acompañara tanto la planificación como la constancia."
                 ]
             }
         },
@@ -89,7 +89,7 @@
             "es": {
                 "title": "Resultado",
                 "paragraphs": [
-                    "La experiencia final puso el foco en claridad, continuidad y un recorrido mas atractivo para usuarios siguiendo sus rutinas."
+                    "La experiencia final puso el foco en claridad, continuidad y un recorrido más atractivo para usuarios siguiendo sus rutinas."
                 ]
             }
         }

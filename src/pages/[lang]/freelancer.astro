@@ -22,6 +22,7 @@ const locale = Astro.locals.locale ?? lang ?? DEFAULT_LOCALE;
 const canonical = `${SITE_URL}/${locale}/freelancer`;
 const seo = getFreelancerSeo(locale);
 const content = getFreelancerContent(locale);
+const backToTopLabel = locale === 'es' ? 'Volver arriba' : 'Back to top';
 ---
 
 <Layout
@@ -49,7 +50,7 @@ const content = getFreelancerContent(locale);
 
         <a
             href="#top"
-            aria-label="Back to top"
+            aria-label={backToTopLabel}
             class="fixed bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#4e5463] text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
         >
             <ChevronUp class="h-4 w-4" />
