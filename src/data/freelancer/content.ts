@@ -5,15 +5,12 @@ import type { FreelancerPageContent } from '@/types/freelancer';
 const freelancerContentEn: FreelancerPageContent = {
     navbar: {
         items: [
-            'About',
-            'Services',
-            'Process',
-            'Case Studies',
-            'Pricing',
-            'Blog',
-            'What I Offer',
-            'Gallery',
-            'Contact',
+            { label: 'About', sectionId: 'about' },
+            { label: 'Services', sectionId: 'services' },
+            { label: 'Process', sectionId: 'process' },
+            { label: 'Case Studies', sectionId: 'case-studies' },
+            { label: 'Testimonials', sectionId: 'testimonials' },
+            { label: 'Contact', sectionId: 'contact' },
         ],
         ctaLabel: 'Hire Me',
     },
@@ -170,15 +167,12 @@ const freelancerContentEn: FreelancerPageContent = {
 const freelancerContentEs: FreelancerPageContent = {
     navbar: {
         items: [
-            'Sobre mí',
-            'Servicios',
-            'Proceso',
-            'Casos de estudio',
-            'Precios',
-            'Blog',
-            'Qué ofrezco',
-            'Galería',
-            'Contacto',
+            { label: 'Sobre mí', sectionId: 'about' },
+            { label: 'Servicios', sectionId: 'services' },
+            { label: 'Proceso', sectionId: 'process' },
+            { label: 'Casos de estudio', sectionId: 'case-studies' },
+            { label: 'Testimonios', sectionId: 'testimonials' },
+            { label: 'Contacto', sectionId: 'contact' },
         ],
         ctaLabel: 'Trabajemos',
     },

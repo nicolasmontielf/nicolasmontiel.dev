@@ -1,69 +1,50 @@
 ---
 import type { FreelancerContactContent } from '@/types/freelancer';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
 
 interface Props {
     content: FreelancerContactContent;
 }
 
 const { content } = Astro.props;
+const typeformUrl = 'https://form.typeform.com/to/vOVcAa4H';
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const contactCta =
+    locale === 'es'
+        ? {
+              responseTime: 'Te respondo en menos de 24 horas.',
+              buttonLabel: 'Enviar consulta',
+          }
+        : {
+              responseTime: 'I will reply in less than 24 hours.',
+              buttonLabel: 'Send inquiry',
+          };
 ---
 
-<section class="bg-background-secondary px-6 py-20 md:px-10 md:py-24">
+<section id="contact" class="scroll-mt-28 bg-background-secondary px-6 py-20 md:px-10 md:py-24">
     <div class="mx-auto max-w-[1040px]">
-        <div class="mx-auto max-w-[600px] text-center">
-            <h2 class="text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
-                {content.title}
-            </h2>
-            <p class="mx-auto mt-3 max-w-[520px] text-[15px] leading-7 text-[#96a6c1]">
-                {content.description}
-            </p>
-        </div>
-
-        <div class="mx-auto mt-10 max-w-[600px]">
-            <div class="rounded-[14px] border border-white/10 bg-[#232d3e] px-6 py-14 text-center">
-                <p class="text-[15px] leading-7 text-[#b5c2d8]">
-                    {content.placeholder}
+        <div class="grid gap-10 lg:grid-cols-[1fr_340px] lg:items-center">
+            <div>
+                <h2 class="text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                    {content.title}
+                </h2>
+                <p class="mt-3 max-w-[520px] text-[15px] leading-7 text-[#96a6c1]">
+                    {content.description}
                 </p>
             </div>
 
-            <div class="mt-10 border-t border-[#2a3550] pt-8 text-center">
+            <div>
+                <p class="text-[14px] font-semibold leading-6 text-[#96a6c1]">
+                    {contactCta.responseTime}
+                </p>
                 <a
-                    href={`mailto:${content.email}`}
-                    class="text-[13px] text-[#b8c6dc]"
+                    href={typeformUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-6 inline-flex w-full items-center justify-center rounded-[16px] bg-primary px-6 py-5 text-[17px] font-bold text-white transition hover:bg-primary-600"
                 >
-                    @ {content.email}
+                    {contactCta.buttonLabel}
                 </a>
-
-                <div class="mt-5 flex items-center justify-center gap-3">
-                    <a
-                        href="#"
-                        aria-label="GitHub"
-                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
-                    >
-                        G
-                    </a>
-                    <a
-                        href="#"
-                        aria-label="X"
-                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
-                    >
-                        X
-                    </a>
-                    <a
-                        href="#"
-                        aria-label="LinkedIn"
-                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
-                    >
-                        in
-                    </a>
-                    <a
-                        href="#"
-                        aria-label="Dribbble"
-                        class="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#2b3548] text-[11px] font-semibold text-[#dbe4f5]"
-                    >
-                        o
-                    </a>
-                </div>
             </div>
         </div>
     </div>

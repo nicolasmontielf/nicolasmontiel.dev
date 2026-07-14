@@ -1,7 +1,20 @@
 import type { CaseStudyPreviewCard } from './case-study';
 
+export type FreelancerSectionId =
+    | 'about'
+    | 'services'
+    | 'process'
+    | 'case-studies'
+    | 'testimonials'
+    | 'contact';
+
+export type FreelancerNavbarItem = {
+    label: string;
+    sectionId: FreelancerSectionId;
+};
+
 export type FreelancerNavbarContent = {
-    items: string[];
+    items: FreelancerNavbarItem[];
     ctaLabel: string;
 };
 
