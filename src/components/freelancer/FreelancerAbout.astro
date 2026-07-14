@@ -1,0 +1,53 @@
+---
+import avatar from '@assets/nicolas-montiel-avatar.png';
+import type { FreelancerAboutContent } from '@/types/freelancer';
+
+interface Props {
+    content: FreelancerAboutContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="about" class="scroll-mt-28 px-6 pb-20 pt-14 md:px-10 md:pb-24 md:pt-20">
+    <div class="mx-auto grid max-w-[1040px] gap-12 lg:grid-cols-[430px_minmax(0,1fr)] lg:items-center lg:gap-10">
+        <div class="overflow-hidden rounded-[14px] bg-background-secondary shadow-[0_22px_80px_rgba(0,0,0,0.28)]">
+            <img
+                src={avatar.src}
+                alt="Alex Rivera portrait"
+                width={avatar.width}
+                height={avatar.height}
+                class="h-full min-h-[420px] w-full object-cover"
+            />
+        </div>
+
+        <div class="max-w-[470px] lg:justify-self-end">
+            <h1 class="text-[36px] font-bold leading-none tracking-[-0.03em] text-white md:text-[46px]">
+                {content.title}
+            </h1>
+
+            <div class="mt-7 space-y-5 text-[14px] leading-7 text-[#9fb0c9] md:text-[15px]">
+                {
+                    content.paragraphs.map((paragraph) => (
+                        <p>{paragraph}</p>
+                    ))
+                }
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-5 text-center">
+                {
+                    content.metrics.map((metric) => (
+                        <div>
+                            <p class="text-[34px] font-bold leading-none tracking-[-0.04em] text-primary-300">
+                                {metric.value}
+                            </p>
+                            <p class="mt-2 text-[12px] text-[#9fb0c9]">
+                                {metric.label}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+---
+import RecruiterProfilePage from '@components/home/RecruiterProfilePage.astro';
+import { getWhyHireMeSeo } from '@/data/why-hire-me';
+import { isLocale } from '@/i18n/locales';
+import { getRecruiterProfilePath } from '@/i18n/routing';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+    return Astro.redirect('/en');
+}
+
+if (lang === 'es') {
+    return Astro.redirect(getRecruiterProfilePath('es'));
+}
+
+const seo = getWhyHireMeSeo(lang);
+const canonical = `${SITE_URL}${getRecruiterProfilePath(lang)}`;
+---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonical}
+    containerMode="fluid"
+>
+    <RecruiterProfilePage />
+</Layout>

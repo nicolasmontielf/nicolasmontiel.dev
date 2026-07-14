@@ -1,0 +1,265 @@
+---
+import FreelancerNavbar from '@/components/freelancer/FreelancerNavbar.astro';
+import { getCaseStudyPageContent } from '@/data/case-studies';
+import { getFreelancerContent } from '@/data/freelancer';
+import { DEFAULT_LOCALE, isLocale } from '@/i18n/locales';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+import { renderMarkdown } from '@/utils/markdown';
+
+const { lang, slug } = Astro.params;
+
+if (!lang || !isLocale(lang) || !slug) {
+    return Astro.redirect('/en');
+}
+
+const locale = Astro.locals.locale ?? lang ?? DEFAULT_LOCALE;
+const freelancerContent = getFreelancerContent(locale);
+const caseStudy = getCaseStudyPageContent(slug, locale);
+const caseStudyLabel = locale === 'es' ? 'Caso de estudio' : 'Case Study';
+const stackLabel = locale === 'es' ? 'Tecnologías' : 'Stack';
+
+if (!caseStudy) {
+    return new Response('Not found', { status: 404 });
+}
+
+const canonical = `${SITE_URL}/${locale}/case-studies/${slug}`;
+const description = caseStudy.hero.subtitle ?? caseStudy.preview.previewText;
+const heroParagraphs = await Promise.all(
+    caseStudy.hero.paragraphs.map((paragraph) => renderMarkdown(paragraph)),
+);
+const renderedSections = await Promise.all(
+    caseStudy.sections.map(async (section) => ({
+        ...section,
+        renderedParagraphs: await Promise.all(
+            section.paragraphs.map((paragraph) => renderMarkdown(paragraph)),
+        ),
+        renderedSubsections: await Promise.all(
+            (section.subsections ?? []).map(async (subsection) => ({
+                ...subsection,
+                renderedParagraphs: await Promise.all(
+                    subsection.paragraphs.map((paragraph) =>
+                        renderMarkdown(paragraph),
+                    ),
+                ),
+            })),
+        ),
+    })),
+);
+---
+
+<Layout
+    title={caseStudy.hero.title}
+    description={description}
+    canonical={canonical}
+    showDefaultNavbar={false}
+    containerMode="fluid"
+>
+    <div class="min-h-screen bg-background-primary font-sans text-white">
+        <FreelancerNavbar locale={locale} content={freelancerContent.navbar} />
+
+        <main class="px-6 py-16 md:px-10 md:py-10">
+            <article class="mx-auto max-w-[860px]">
+
+                <header class="mt-8">
+                    <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-300">
+                        {caseStudyLabel}
+                    </p>
+                    <h1 class="mt-4 text-[40px] font-bold tracking-[-0.04em] text-white md:text-[56px]">
+                        {caseStudy.hero.title}
+                    </h1>
+                    {
+                        caseStudy.hero.subtitle && (
+                            <p class="mt-4 max-w-[720px] text-[16px] leading-8 text-[#9fb0c9] md:text-[18px]">
+                                {caseStudy.hero.subtitle}
+                            </p>
+                        )
+                    }
+                    {
+                        caseStudy.hero.media?.[0] && (
+                            caseStudy.hero.media[0].type === 'video' ? (
+                                <video
+                                    src={caseStudy.hero.media[0].src}
+                                    class="mt-10 h-[320px] w-full rounded-[18px] object-cover md:h-[420px]"
+                                    controls
+                                />
+                            ) : (
+                                <img
+                                    src={caseStudy.hero.media[0].src}
+                                    alt={
+                                        caseStudy.hero.media[0].alt ??
+                                        caseStudy.hero.title
+                                    }
+                                    class="mt-10 h-[320px] w-full rounded-[18px] object-cover md:h-[420px]"
+                                />
+                            )
+                        )
+                    }
+                </header>
+
+                {
+                    heroParagraphs.length > 0 && (
+                        <div class="prose prose-invert mt-12 max-w-none prose-headings:font-bold prose-headings:tracking-[-0.03em] prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
+                            {heroParagraphs.map((paragraph) => (
+                                <div set:html={paragraph} />
+                            ))}
+                        </div>
+                    )
+                }
+
+                {
+                    renderedSections.map((section) => (
+                        <section class="mt-14 border-t border-white/10 pt-10">
+                            <h2 class="text-[30px] font-bold tracking-[-0.03em] text-white md:text-[34px]">
+                                {section.title}
+                            </h2>
+                            {
+                                section.subtitle && (
+                                    <p class="mt-3 max-w-[700px] text-[16px] leading-8 text-[#9fb0c9]">
+                                        {section.subtitle}
+                                    </p>
+                                )
+                            }
+
+                            <div class="prose prose-invert mt-6 max-w-none prose-headings:font-bold prose-headings:tracking-[-0.03em] prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
+                                {section.renderedParagraphs.map((paragraph) => (
+                                    <div set:html={paragraph} />
+                                ))}
+                            </div>
+
+                            {
+                                section.media && section.media.length > 0 && (
+                                    <div class="mt-8 space-y-6">
+                                        {section.media.map((media) => (
+                                            <figure>
+                                                {
+                                                    media.type === 'video' ? (
+                                                        <video
+                                                            src={media.src}
+                                                            class="w-full rounded-[18px] object-cover"
+                                                            controls
+                                                        />
+                                                    ) : (
+                                                        <img
+                                                            src={media.src}
+                                                            alt={
+                                                                media.alt ??
+                                                                section.title
+                                                            }
+                                                            class="w-full rounded-[18px] object-cover"
+                                                        />
+                                                    )
+                                                }
+                                                {
+                                                    media.caption && (
+                                                        <figcaption class="mt-3 text-[13px] text-[#8ea0bb]">
+                                                            {media.caption}
+                                                        </figcaption>
+                                                    )
+                                                }
+                                            </figure>
+                                        ))}
+                                    </div>
+                                )
+                            }
+
+                            {
+                                section.renderedSubsections.length > 0 && (
+                                    <div class="mt-10 space-y-10">
+                                        {section.renderedSubsections.map(
+                                            (subsection) => (
+                                                <div>
+                                                    {
+                                                        subsection.title && (
+                                                            <h3 class="text-[22px] font-semibold text-white">
+                                                                {subsection.title}
+                                                            </h3>
+                                                        )
+                                                    }
+                                                    {
+                                                        subsection.subtitle && (
+                                                            <p class="mt-2 text-[15px] leading-7 text-[#9fb0c9]">
+                                                                {subsection.subtitle}
+                                                            </p>
+                                                        )
+                                                    }
+
+                                                    <div class="prose prose-invert mt-4 max-w-none prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
+                                                        {subsection.renderedParagraphs.map(
+                                                            (paragraph) => (
+                                                                <div
+                                                                    set:html={paragraph}
+                                                                />
+                                                            ),
+                                                        )}
+                                                    </div>
+
+                                                    {
+                                                        subsection.media &&
+                                                            subsection.media
+                                                                .length > 0 && (
+                                                                <div class="mt-6 space-y-6">
+                                                                    {subsection.media.map(
+                                                                        (
+                                                                            media,
+                                                                        ) => (
+                                                                            <figure>
+                                                                                {
+                                                                                    media.type ===
+                                                                                    'video' ? (
+                                                                                        <video
+                                                                                            src={media.src}
+                                                                                            class="w-full rounded-[18px] object-cover"
+                                                                                            controls
+                                                                                        />
+                                                                                    ) : (
+                                                                                        <img
+                                                                                            src={media.src}
+                                                                                            alt={
+                                                                                                media.alt ??
+                                                                                                subsection.title ??
+                                                                                                section.title
+                                                                                            }
+                                                                                            class="w-full rounded-[18px] object-cover"
+                                                                                        />
+                                                                                    )
+                                                                                }
+                                                                                {
+                                                                                    media.caption && (
+                                                                                        <figcaption class="mt-3 text-[13px] text-[#8ea0bb]">
+                                                                                            {media.caption}
+                                                                                        </figcaption>
+                                                                                    )
+                                                                                }
+                                                                            </figure>
+                                                                        ),
+                                                                    )}
+                                                                </div>
+                                                            )
+                                                    }
+                                                </div>
+                                            ),
+                                        )}
+                                    </div>
+                                )
+                            }
+                        </section>
+                    ))
+                }
+
+                <div class="mt-14 border-t border-white/10 pt-8">
+                    <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-300">
+                        {stackLabel}
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        {caseStudy.technologies.map((technology) => (
+                            <span class="rounded-[5px] bg-primary-800 px-2 py-1 text-[10px] font-semibold text-primary-100">
+                                {technology}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+</Layout>

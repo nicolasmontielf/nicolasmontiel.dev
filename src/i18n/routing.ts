@@ -1,49 +1,25 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
-import type { CommercialService } from '@/types/seo';
 
-export const COMMERCIAL_SERVICE_SLUGS: Record<
-    CommercialService,
-    Record<Locale, string>
-> = {
-    ecommerce: {
-        en: 'i-need-an-online-store',
-        es: 'quiero-un-ecommerce',
-    },
-    web: {
-        en: 'i-need-a-website',
-        es: 'quiero-una-web',
-    },
+export const RECRUITER_PROFILE_SLUGS: Record<Locale, string> = {
+    en: 'why-hire-me',
+    es: 'porque-contratarme',
 };
 
-export const COMMERCIAL_PROFILE_SLUGS: Record<Locale, string> = {
-    en: 'why-work-with-me',
-    es: 'por-que-trabajar-conmigo',
+export const FREELANCER_SLUGS: Record<Locale, string> = {
+    en: 'work-with-me',
+    es: 'trabaja-conmigo',
 };
 
 export function getHomePath(locale: Locale) {
     return `/${locale}`;
 }
 
-export function getCommercialProfilePath(locale: Locale) {
-    return `/${locale}/${COMMERCIAL_PROFILE_SLUGS[locale]}`;
+export function getRecruiterProfilePath(locale: Locale) {
+    return `/${locale}/${RECRUITER_PROFILE_SLUGS[locale]}`;
 }
 
-export function getCommercialServicePath(
-    service: CommercialService,
-    locale: Locale,
-) {
-    return `/${locale}/${COMMERCIAL_SERVICE_SLUGS[service][locale]}`;
-}
-
-function getLocalizedCommercialServicePath(
-    segment: string,
-    targetLocale: Locale,
-) {
-    const service = Object.entries(COMMERCIAL_SERVICE_SLUGS).find(([, slugs]) =>
-        Object.values(slugs).includes(segment),
-    )?.[0] as CommercialService | undefined;
-
-    return service ? getCommercialServicePath(service, targetLocale) : null;
+export function getFreelancerPath(locale: Locale) {
+    return `/${locale}/${FREELANCER_SLUGS[locale]}`;
 }
 
 export function getLocalizedPath(pathname: string, targetLocale: Locale) {
@@ -56,21 +32,12 @@ export function getLocalizedPath(pathname: string, targetLocale: Locale) {
 
     if (SUPPORTED_LOCALES.includes(segments[0] as Locale)) {
         const rest = segments.slice(1);
-        if (rest[0] === 'about-me' || rest[0] === 'sobre-mi') {
-            return getCommercialProfilePath(targetLocale);
-        }
-        if (rest[0] === COMMERCIAL_PROFILE_SLUGS.en && targetLocale === 'es') {
-            return getCommercialProfilePath(targetLocale);
-        }
-        if (rest[0] === COMMERCIAL_PROFILE_SLUGS.es && targetLocale === 'en') {
-            return getCommercialProfilePath(targetLocale);
+        if (Object.values(RECRUITER_PROFILE_SLUGS).includes(rest[0])) {
+            return getRecruiterProfilePath(targetLocale);
         }
 
-        const localizedServicePath = rest[0]
-            ? getLocalizedCommercialServicePath(rest[0], targetLocale)
-            : null;
-        if (localizedServicePath) {
-            return localizedServicePath;
+        if (Object.values(FREELANCER_SLUGS).includes(rest[0])) {
+            return getFreelancerPath(targetLocale);
         }
 
         segments[0] = targetLocale;

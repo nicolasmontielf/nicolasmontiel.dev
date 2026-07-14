@@ -1,0 +1,56 @@
+---
+import logo from '@assets/logo.png';
+import LanguageSelect from '@/components/layout/LanguageSelect.astro';
+import type { FreelancerNavbarContent } from '@/types/freelancer';
+import type { Locale } from '@/i18n/locales';
+import { getFreelancerPath } from '@/i18n/routing';
+
+interface Props {
+    locale: Locale;
+    content: FreelancerNavbarContent;
+}
+
+const { locale, content } = Astro.props;
+const freelancerPath = getFreelancerPath(locale);
+---
+
+<header class="border-b border-white/10 bg-background-primary">
+    <div class="mx-auto flex min-h-[100px] max-w-[1640px] items-center justify-between gap-8 px-6 md:px-10 xl:px-[54px]">
+        <a
+            href={`/${locale}`}
+            class="inline-flex shrink-0 items-center"
+        >
+            <img
+                src={logo.src}
+                alt="Nicolas Montiel"
+                class="h-12 w-auto"
+                width={logo.width}
+                height={logo.height}
+            />
+        </a>
+
+        <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex">
+            {
+                content.items.map((item, index) => (
+                    <a
+                        href={`${freelancerPath}#${item.sectionId}`}
+                        class:list={[
+                            'text-[14px] font-semibold tracking-[-0.01em] transition 2xl:text-[15px]',
+                            index === 1
+                                ? 'text-white'
+                                : 'text-[#909aac] hover:text-white',
+                        ]}
+                    >
+                        {item.label}
+                    </a>
+                ))
+            }
+        </nav>
+
+        <LanguageSelect
+            id="freelancer-language-select"
+            selectClass="shrink-0 rounded-md border border-white/12 bg-transparent px-2 py-1 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-primary/40"
+            optionClass="text-slate-900"
+        />
+    </div>
+</header>

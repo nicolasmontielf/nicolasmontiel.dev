@@ -1,0 +1,34 @@
+---
+import Certifications from '@components/home/Certifications.astro';
+import Presentation from '@components/home/Presentation.astro';
+import WorkExperience from '@components/home/WorkExperience.astro';
+---
+
+<>
+    <section
+        id="presentation-section"
+        class="bg-transparent pb-24 pt-6"
+    >
+        <div class="mx-auto max-w-screen-lg px-3 lg:px-0">
+            <Presentation />
+        </div>
+    </section>
+
+    <section
+        id="experience"
+        class="bg-background-secondary py-24"
+    >
+        <div class="mx-auto max-w-screen-lg px-3 lg:px-0">
+            <WorkExperience />
+        </div>
+    </section>
+
+    <section
+        id="certifications"
+        class="bg-transparent py-24"
+    >
+        <div class="mx-auto max-w-screen-lg px-3 lg:px-0">
+            <Certifications />
+        </div>
+    </section>
+</>

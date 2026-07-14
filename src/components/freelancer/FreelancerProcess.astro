@@ -1,0 +1,69 @@
+---
+import type { FreelancerProcessContent } from '@/types/freelancer';
+
+interface Props {
+    content: FreelancerProcessContent;
+}
+
+const { content } = Astro.props;
+
+const steps = content.steps.map((step, index) => ({
+    ...step,
+    number: String(index + 1).padStart(2, '0'),
+    badgeLabel: step.badge.split(' ')[0] ?? 'Step',
+    badgeNumber: step.badge.split(' ')[1] ?? String(index + 1).padStart(2, '0'),
+}));
+---
+
+<section id="process" class="scroll-mt-28 px-6 py-20 md:px-10 md:py-24">
+    <div class="mx-auto max-w-[1040px]">
+        <div class="text-center">
+            <span class="inline-flex rounded-full bg-primary-900 px-3 py-1 text-[10px] font-semibold text-primary-200">
+                {content.badgeLabel}
+            </span>
+            <h2 class="mt-5 text-[34px] font-bold tracking-[-0.03em] text-white md:text-[42px]">
+                {content.title}
+            </h2>
+            <p class="mx-auto mt-3 max-w-[680px] text-[15px] text-[#96a6c1]">
+                {content.description}
+            </p>
+        </div>
+
+        <div class="mx-auto mt-16 max-w-[1120px]">
+            <div class="relative grid gap-8 lg:grid-cols-4 lg:gap-6">
+                <div class="absolute left-[12.5%] right-[12.5%] top-9 hidden h-px bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 lg:block"></div>
+                {
+                    steps.map((step) => (
+                        <article class="relative">
+                            <div class="relative z-10 flex items-center gap-4 lg:justify-center">
+                                <span class="grid size-[72px] place-items-center rounded-full border border-primary/35 bg-[#151e31] text-center text-white shadow-[0_16px_36px_rgba(67,56,202,0.2)]">
+                                    <span>
+                                        <span class="block text-[9px] font-bold uppercase tracking-[0.18em] text-primary-200">
+                                            {step.badgeLabel}
+                                        </span>
+                                        <span class="mt-1 block text-[18px] font-bold leading-none">
+                                            {step.badgeNumber}
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="h-px flex-1 bg-white/10 lg:hidden"></span>
+                            </div>
+
+                            <div class="mt-6 rounded-[18px] border border-white/10 bg-[#101827]/75 p-6">
+                                <h3 class="text-[24px] font-bold tracking-[-0.03em] text-white">
+                                    {step.title}
+                                </h3>
+                                <p class="mt-2 text-[15px] leading-7 text-[#91a7c9]">
+                                    {step.subtitle}
+                                </p>
+                                <p class="mt-5 text-[15px] leading-8 text-[#c0cce0]">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

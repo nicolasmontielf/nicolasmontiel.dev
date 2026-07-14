@@ -1,0 +1,166 @@
+---
+import avatar from '@assets/nicolas-montiel-avatar.png';
+import HomeHeader from '@components/home/HomeHeader.astro';
+import { getHomeContent } from '@/data/home';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getSiteCopy } from '@/i18n/site-copy';
+import { Icon } from 'astro-icon/components';
+import { Mail } from '@lucide/astro';
+
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const homeContent = getHomeContent(locale);
+const siteCopy = getSiteCopy(locale);
+
+const socialMediaItems = [
+    {
+        url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
+        icon: 'simple-icons:linkedin',
+        label: siteCopy.common.linkedin,
+    },
+    {
+        url: 'mailto:nicolasmontielf@gmail.com',
+        icon: 'mail',
+        label: siteCopy.common.email,
+    },
+    {
+        url: 'https://dev.to/nicolasmontielf',
+        icon: 'simple-icons:devdotto',
+        label: 'DEV Community',
+    },
+    {
+        url: 'https://github.com/nicolasmontielf',
+        icon: 'simple-icons:github',
+        label: 'GitHub',
+    },
+];
+---
+
+<section class="relative min-h-screen overflow-hidden bg-[#171717] text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.12),transparent_30%)]"></div>
+    <div class="absolute inset-0 opacity-[0.035] [background-image:radial-gradient(circle,white_0.7px,transparent_0.7px)] [background-size:14px_14px]"></div>
+
+    <div class="relative z-10 flex min-h-screen flex-col px-4 py-4 sm:px-6 lg:px-10">
+        <HomeHeader />
+
+        <div class="mx-auto flex w-full max-w-[1380px] flex-1 items-center">
+            <div class="grid w-full items-start gap-12 py-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-20 lg:py-8">
+                <div class="flex justify-center lg:justify-start">
+                    <div class="w-full max-w-[340px]">
+                        <div class="rounded-[28px] border border-white/10 bg-transparent px-9 py-8">
+                            <div class="bg-primary p-5">
+                                <img
+                                    src={avatar.src}
+                                    alt="Nicolás Montiel"
+                                    class="aspect-square w-full object-cover"
+                                    width={avatar.width}
+                                    height={avatar.height}
+                                />
+                            </div>
+
+                            <div class="mt-7 text-center">
+                                <p class="text-[2rem] font-medium tracking-[-0.03em] text-white">
+                                    {homeContent.hero.profile.name}
+                                </p>
+                                <p class="mt-2 text-[1.05rem] text-white/70">
+                                    {homeContent.hero.profile.handle}
+                                </p>
+                                <p class="mt-5 text-[0.8rem] uppercase tracking-[0.24em] text-white/78">
+                                    {homeContent.hero.profile.location}
+                                </p>
+                            </div>
+
+                            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                                {
+                                    socialMediaItems.map((item) => (
+                                        <a
+                                            href={item.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            aria-label={item.label}
+                                            class="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-transparent transition hover:border-primary"
+                                        >
+                                            {item.icon === 'mail' ? (
+                                                <Mail
+                                                    class="h-5 w-5 text-white/85 transition group-hover:text-primary"
+                                                    stroke-width={2}
+                                                    aria-hidden="true"
+                                                />
+                                            ) : (
+                                                <Icon
+                                                    name={item.icon}
+                                                    class="h-5 w-5 text-white/85 transition group-hover:text-primary"
+                                                    aria-hidden="true"
+                                                />
+                                            )}
+                                        </a>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <div class="max-w-[920px]">
+                        <p class="text-[2.9rem] font-semibold leading-none tracking-[-0.04em] text-white md:text-[4.2rem]">
+                            {homeContent.hero.greeting.prefix && (
+                                <span class="font-medium text-white/92">
+                                    {homeContent.hero.greeting.prefix}{' '}
+                                </span>
+                            )}
+                            {homeContent.hero.greeting.accent && (
+                                <span class="text-primary">
+                                    {homeContent.hero.greeting.accent}
+                                </span>
+                            )}
+                            {homeContent.hero.greeting.suffix && (
+                                <span> {homeContent.hero.greeting.suffix}</span>
+                            )}
+                        </p>
+                        <p class="mt-5 text-lg font-medium uppercase tracking-[0.18em] text-white/72 md:text-xl">
+                            {homeContent.hero.roles.join(' / ')}
+                        </p>
+                    </div>
+
+                    <div class="mt-10 flex max-w-[920px] flex-col gap-8 border-t border-white/10 pt-6 md:flex-row md:items-start md:gap-12">
+                        {
+                            homeContent.hero.metrics.map((metric) => (
+                                <div class="text-center md:max-w-[260px] md:flex-1 md:text-left">
+                                    <p class="text-4xl font-bold tracking-[-0.05em] text-white md:text-[3.85rem]">
+                                        {metric.value}
+                                    </p>
+                                    <p class="mt-3 max-w-[16rem] text-[1rem] leading-snug text-white/72">
+                                        {metric.label}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <div class="mt-12 max-w-[920px]">
+                        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white">
+                            {locale === 'es' ? 'Saber más.' : 'Learn more.'}
+                        </p>
+                        <div class="mt-7 grid gap-4 md:grid-cols-2">
+                            {
+                                homeContent.hero.ctas.map((cta) => (
+                                    <a
+                                        href={cta.href}
+                                        class="group rounded-md border border-white/18 bg-transparent px-7 py-5 text-left text-white transition hover:border-primary"
+                                    >
+                                        <p class="text-[1.15rem] font-medium tracking-[-0.02em] text-white">
+                                            {cta.label}
+                                        </p>
+                                        <p class="mt-3 max-w-[24rem] text-base leading-relaxed text-white/70 transition group-hover:text-white/88">
+                                            {cta.description}
+                                        </p>
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

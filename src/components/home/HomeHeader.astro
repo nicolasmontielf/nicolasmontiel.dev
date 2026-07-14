@@ -1,0 +1,30 @@
+---
+import logo from '@assets/logo.png';
+import LanguageSelect from '@/components/layout/LanguageSelect.astro';
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+---
+
+<header class="mx-auto flex w-full max-w-[1380px] items-center justify-between gap-4 px-1 py-2">
+    <a
+        class="inline-flex items-center"
+        href={`/${locale}`}
+    >
+        <img
+            src={logo.src}
+            alt="Nicolás Montiel"
+            class="h-10 w-auto sm:h-11"
+            width={logo.width}
+            height={logo.height}
+        />
+    </a>
+
+    <div class="flex items-center gap-3">
+        <LanguageSelect
+            id="home-language-select"
+            selectClass="bg-transparent text-white border border-white/15 rounded-md px-2 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/30"
+            optionClass="text-slate-900"
+        />
+    </div>
+</header>

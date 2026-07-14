@@ -1,0 +1,63 @@
+---
+import { DEFAULT_LOCALE } from '@/i18n/locales';
+import { getSiteCopy } from '@/i18n/site-copy';
+import { getLocalizedPath } from '@/seo/site';
+
+interface Props {
+    id: string;
+    selectClass: string;
+    labelClass?: string;
+    optionClass?: string;
+}
+
+const {
+    id,
+    selectClass,
+    labelClass = 'sr-only',
+    optionClass,
+} = Astro.props;
+const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
+const siteCopy = getSiteCopy(locale);
+const currentPath = Astro.url.pathname;
+const switchToEsPath = getLocalizedPath(currentPath, 'es');
+const switchToEnPath = getLocalizedPath(currentPath, 'en');
+---
+
+<label
+    class={labelClass}
+    for={id}
+    >{siteCopy.common.languageLabel}</label
+>
+<select
+    id={id}
+    data-language-select
+    class={selectClass}
+>
+    <option
+        value={`/api/set-language?lang=es&redirect=${encodeURIComponent(switchToEsPath)}`}
+        selected={locale === 'es'}
+        class={optionClass}
+    >
+        ES
+    </option>
+    <option
+        value={`/api/set-language?lang=en&redirect=${encodeURIComponent(switchToEnPath)}`}
+        selected={locale === 'en'}
+        class={optionClass}
+    >
+        EN
+    </option>
+</select>
+
+<script is:inline>
+    if (!window.__languageSelectInitialized) {
+        window.__languageSelectInitialized = true;
+
+        document.addEventListener('change', (event) => {
+            const target = event.target;
+            if (!(target instanceof HTMLSelectElement)) return;
+            if (!target.matches('[data-language-select]')) return;
+            if (target.value) window.location.href = target.value;
+        });
+    }
+</script>

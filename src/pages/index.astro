@@ -1,9 +1,5 @@
 ---
-import { resolveRequestLocale } from '@/i18n/detect-locale';
 return Astro.redirect(
-    `/${resolveRequestLocale({
-        request: Astro.request,
-        cookies: Astro.cookies,
-    })}`,
+    `/${Astro.locals.locale ?? 'en'}`,
 );
 ---

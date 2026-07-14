@@ -1,10 +1,9 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
-import { COMMERCIAL_SERVICE_SLUGS, getLocalizedPath } from '@/i18n/routing';
+import { getLocalizedPath } from '@/i18n/routing';
 
 export {
-    COMMERCIAL_SERVICE_SLUGS,
-    getCommercialProfilePath,
-    getCommercialServicePath,
+    getFreelancerPath,
+    getRecruiterProfilePath,
     getLocalizedPath,
 } from '@/i18n/routing';
 
@@ -37,14 +36,14 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
 export const PUBLIC_LOCALIZED_PATHS = [
     '/en',
     '/es',
+    '/en/work-with-me',
+    '/es/trabaja-conmigo',
     '/en/qr-code',
     '/es/qr-code',
-    '/en/why-work-with-me',
-    '/es/por-que-trabajar-conmigo',
-    `/en/${COMMERCIAL_SERVICE_SLUGS.ecommerce.en}`,
-    `/es/${COMMERCIAL_SERVICE_SLUGS.ecommerce.es}`,
-    `/en/${COMMERCIAL_SERVICE_SLUGS.web.en}`,
-    `/es/${COMMERCIAL_SERVICE_SLUGS.web.es}`,
+    '/en/why-hire-me',
+    '/es/porque-contratarme',
+    '/en/posts',
+    '/es/posts',
 ];
 
 export function toAbsoluteUrl(pathname: string) {

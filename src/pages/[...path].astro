@@ -1,5 +1,4 @@
 ---
-import { resolveRequestLocale } from '@/i18n/detect-locale';
 import { isLocale } from '@/i18n/locales';
 
 const pathname = Astro.url.pathname;
@@ -10,12 +9,7 @@ if (firstSegment && isLocale(firstSegment)) {
     throw new Response('Not found', { status: 404 });
 }
 
-const locale = resolveRequestLocale({
-    request: Astro.request,
-    cookies: Astro.cookies,
-});
-
 return Astro.redirect(
-    `/${locale}${pathname === '/' ? '' : pathname}${Astro.url.search}`,
+    `/${Astro.locals.locale ?? 'en'}${pathname === '/' ? '' : pathname}${Astro.url.search}`,
 );
 ---

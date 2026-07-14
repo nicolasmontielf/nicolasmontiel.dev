@@ -1,37 +1,39 @@
 ---
-import devIcon from '@assets/icons/devto.svg';
-import linkedinIcon from '@assets/icons/linkedin.svg';
-import githubIcon from '@assets/icons/github.svg';
-import mailIcon from '@assets/icons/mail.svg';
-import { getHomeContent } from '@/data/home-content';
+import { getWhyHireMeContent } from '@/data/why-hire-me';
 import { DEFAULT_LOCALE } from '@/i18n/locales';
-import type { PresentationProps } from '@/types/home';
+import { getSiteCopy } from '@/i18n/site-copy';
+import { renderMarkdown } from '@/utils/markdown';
+import { Icon } from 'astro-icon/components';
+import { Mail } from '@lucide/astro';
 
-const { variant, greeting } = Astro.props as PresentationProps;
 const locale = Astro.locals.locale ?? DEFAULT_LOCALE;
-const homeContent = getHomeContent(locale);
-const bodyParagraphs = homeContent.presentation.bodyByVariant[variant];
+const whyHireMeContent = getWhyHireMeContent(locale);
+const siteCopy = getSiteCopy(locale);
+const bodyParagraphs = await Promise.all(
+    whyHireMeContent.presentation.body.map((paragraph) => renderMarkdown(paragraph)),
+);
+const greeting = whyHireMeContent.presentation.greeting;
 
 const socialMediaItems = [
     {
         url: 'https://www.linkedin.com/in/nicolasmontielf/?locale=en_US',
-        icon: linkedinIcon,
-        label: 'LinkedIn',
+        icon: 'simple-icons:linkedin',
+        label: siteCopy.common.linkedin,
     },
     {
         url: 'https://github.com/nicolasmontielf',
-        icon: githubIcon,
+        icon: 'simple-icons:github',
         label: 'GitHub',
     },
     {
         url: 'https://dev.to/nicolasmontielf',
-        icon: devIcon,
+        icon: 'simple-icons:devdotto',
         label: 'DEV Community',
     },
     {
         url: 'mailto:nicolasmontielf@gmail.com',
-        icon: mailIcon,
-        label: locale === 'es' ? 'Enviar email' : 'Send email',
+        icon: 'mail',
+        label: siteCopy.common.email,
     },
 ];
 ---
@@ -39,13 +41,20 @@ const socialMediaItems = [
 <section class="flex items-center gap-12 w-full md:w-10/12 text-justify">
     <div class="w-full flex flex-col gap-6">
         <h1
-            class="text-5xl md:text-6xl text-slate-900 font-bold tracking-tight"
+            class="text-5xl md:text-6xl text-white font-bold tracking-tight"
         >
             {greeting}
         </h1>
 
-        <div class="space-y-3 text-lg leading-relaxed text-slate-700">
-            {bodyParagraphs.map((paragraph) => <p set:html={paragraph} />)}
+        <div class="space-y-3 text-lg leading-relaxed text-white/72">
+            {
+                bodyParagraphs.map((paragraph) => (
+                    <div
+                        class="[&>p]:m-0 [&_strong]:font-semibold [&_strong]:text-white"
+                        set:html={paragraph}
+                    />
+                ))
+            }
         </div>
 
         <div class="flex gap-4 items-center">
@@ -59,19 +68,19 @@ const socialMediaItems = [
                             rel="noreferrer"
                             aria-label={item.label}
                         >
-                            <div
-                                class="w-5 h-5 bg-indigo-600 group-hover:bg-indigo-700 transition-colors cursor-pointer"
-                                style={`
-                                    mask-image: url(${item.icon.src}); 
-                                    -webkit-mask-image: url(${item.icon.src});
-                                    mask-size: contain; 
-                                    -webkit-mask-size: contain;
-                                    mask-repeat: no-repeat;
-                                    -webkit-mask-repeat: no-repeat;
-                                    mask-position: center;
-                                    -webkit-mask-position: center;
-                                `}
-                            />
+                            {item.icon === 'mail' ? (
+                                <Mail
+                                    class="h-5 w-5 cursor-pointer text-white/85 transition-colors group-hover:text-primary"
+                                    stroke-width={2}
+                                    aria-hidden="true"
+                                />
+                            ) : (
+                                <Icon
+                                    name={item.icon}
+                                    class="h-5 w-5 cursor-pointer text-white/85 transition-colors group-hover:text-primary"
+                                    aria-hidden="true"
+                                />
+                            )}
                         </a>
                     );
                 })
