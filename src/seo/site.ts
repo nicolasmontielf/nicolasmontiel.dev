@@ -2,6 +2,7 @@ import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
 import { getLocalizedPath } from '@/i18n/routing';
 
 export {
+    getFreelancerPath,
     getRecruiterProfilePath,
     getLocalizedPath,
 } from '@/i18n/routing';
@@ -35,8 +36,8 @@ const LANGUAGE_TAGS: Record<Locale, string> = {
 export const PUBLIC_LOCALIZED_PATHS = [
     '/en',
     '/es',
-    '/en/freelancer',
-    '/es/freelancer',
+    '/en/work-with-me',
+    '/es/trabaja-conmigo',
     '/en/qr-code',
     '/es/qr-code',
     '/en/why-hire-me',

@@ -1,4 +1,5 @@
 import type { Locale } from '@/i18n/locales';
+import { getFreelancerPath } from '@/i18n/routing';
 import type { HomePageContent } from '@/types/home';
 
 const homeContentEn: HomePageContent = {
@@ -38,7 +39,7 @@ const homeContentEn: HomePageContent = {
                 label: 'Freelancer services',
                 description:
                     'Product builds, technical execution, and direct collaboration for client work.',
-                href: '/en/freelancer',
+                href: getFreelancerPath('en'),
             },
         ],
     },
@@ -81,7 +82,7 @@ const homeContentEs: HomePageContent = {
                 label: 'Servicios freelance',
                 description:
                     'Desarrollo de producto, ejecución técnica y colaboración directa para clientes.',
-                href: '/es/freelancer',
+                href: getFreelancerPath('es'),
             },
         ],
     },

@@ -1,0 +1,32 @@
+---
+import { getFreelancerContent, getFreelancerSeo } from '@/data/freelancer';
+import FreelancerPage from '@/components/freelancer/FreelancerPage.astro';
+import { isLocale } from '@/i18n/locales';
+import { getFreelancerPath } from '@/i18n/routing';
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/seo/site';
+
+const { lang } = Astro.params;
+
+if (!lang || !isLocale(lang)) {
+    return Astro.redirect('/en');
+}
+
+if (lang === 'es') {
+    return Astro.redirect(getFreelancerPath('es'));
+}
+
+const seo = getFreelancerSeo(lang);
+const content = getFreelancerContent(lang);
+const canonical = `${SITE_URL}${getFreelancerPath(lang)}`;
+---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonical}
+    showDefaultNavbar={false}
+    containerMode="fluid"
+>
+    <FreelancerPage locale={lang} content={content} />
+</Layout>

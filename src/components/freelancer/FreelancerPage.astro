@@ -1,0 +1,53 @@
+---
+import { ChevronUp } from '@lucide/astro';
+import FreelancerAbout from '@/components/freelancer/FreelancerAbout.astro';
+import FreelancerCaseStudies from '@/components/freelancer/FreelancerCaseStudies.astro';
+import FreelancerContact from '@/components/freelancer/FreelancerContact.astro';
+import FreelancerNavbar from '@/components/freelancer/FreelancerNavbar.astro';
+import FreelancerProcess from '@/components/freelancer/FreelancerProcess.astro';
+import FreelancerServices from '@/components/freelancer/FreelancerServices.astro';
+import FreelancerTestimonials from '@/components/freelancer/FreelancerTestimonials.astro';
+import type { Locale } from '@/i18n/locales';
+import type { FreelancerPageContent } from '@/types/freelancer';
+
+interface Props {
+    locale: Locale;
+    content: FreelancerPageContent;
+}
+
+const { locale, content } = Astro.props;
+const backToTopLabel = locale === 'es' ? 'Volver arriba' : 'Back to top';
+const currentYear = new Date().getFullYear();
+---
+
+<div
+    id="top"
+    class="min-h-screen bg-background-primary font-sans text-white"
+>
+    <FreelancerNavbar locale={locale} content={content.navbar} />
+
+    <main>
+        <FreelancerAbout content={content.about} />
+        <FreelancerServices content={content.services} />
+        <FreelancerProcess content={content.process} />
+        <FreelancerCaseStudies locale={locale} content={content.caseStudies} />
+        <FreelancerTestimonials content={content.testimonials} />
+        <!-- <FreelancerFaq /> -->
+        <FreelancerContact content={content.contact} />
+    </main>
+
+    <footer class="border-t border-white/10 bg-background-secondary px-6 py-8 md:px-10">
+        <div class="mx-auto flex max-w-[1040px] flex-col gap-2 text-[13px] text-[#96a6c1] sm:flex-row sm:items-center sm:justify-between">
+            <p>Nicolas Montiel</p>
+            <p>&copy; {currentYear}</p>
+        </div>
+    </footer>
+
+    <a
+        href="#top"
+        aria-label={backToTopLabel}
+        class="fixed bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#4e5463] text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+    >
+        <ChevronUp class="h-4 w-4" />
+    </a>
+</div>
