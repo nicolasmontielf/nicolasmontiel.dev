@@ -11,11 +11,11 @@ El estado actual del repo está enfocado en:
 ## Scripts
 
 ```bash
-npm run dev
-npm run build
-npm run preview
-npm run format
-npm run format:check
+pnpm dev
+pnpm build
+pnpm preview
+pnpm format
+pnpm format:check
 ```
 
 ## Contexto del proyecto

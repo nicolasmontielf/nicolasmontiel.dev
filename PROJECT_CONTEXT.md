@@ -158,11 +158,11 @@ Hoy no hay variables de entorno necesarias para la superficie activa del sitio. 
 
 ## Scripts
 
-- `npm run dev`
-- `npm run build`
-- `npm run preview`
-- `npm run format`
-- `npm run format:check`
+- `pnpm dev`
+- `pnpm build`
+- `pnpm preview`
+- `pnpm format`
+- `pnpm format:check`
 
 ## Estado actual
 
