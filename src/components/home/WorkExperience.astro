@@ -94,7 +94,7 @@ const renderedItems = await Promise.all(
                             set:html={item.renderedSummary}
                         />
                         <ul class="mt-6 space-y-3 text-base leading-relaxed text-white/72">
-                            {item.renderedResponsibilities.map((bullet) => (
+                            {item.renderedResponsibilities.map((bullet: string) => (
                                 <li class="flex items-start gap-3">
                                     <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/30" />
                                     <div

@@ -25,7 +25,7 @@ if (!caseStudy) {
 
 const canonical = `${SITE_URL}/${locale}/case-studies/${slug}`;
 const description = caseStudy.hero.subtitle ?? caseStudy.preview.previewText;
-const heroParagraphs = await Promise.all(
+const heroParagraphs: string[] = await Promise.all(
     caseStudy.hero.paragraphs.map((paragraph) => renderMarkdown(paragraph)),
 );
 const renderedSections = await Promise.all(
@@ -100,7 +100,7 @@ const renderedSections = await Promise.all(
                 {
                     heroParagraphs.length > 0 && (
                         <div class="prose prose-invert mt-12 max-w-none prose-headings:font-bold prose-headings:tracking-[-0.03em] prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
-                            {heroParagraphs.map((paragraph) => (
+                            {heroParagraphs.map((paragraph: string) => (
                                 <div set:html={paragraph} />
                             ))}
                         </div>
@@ -122,7 +122,7 @@ const renderedSections = await Promise.all(
                             }
 
                             <div class="prose prose-invert mt-6 max-w-none prose-headings:font-bold prose-headings:tracking-[-0.03em] prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
-                                {section.renderedParagraphs.map((paragraph) => (
+                                {section.renderedParagraphs.map((paragraph: string) => (
                                     <div set:html={paragraph} />
                                 ))}
                             </div>
@@ -186,7 +186,7 @@ const renderedSections = await Promise.all(
 
                                                     <div class="prose prose-invert mt-4 max-w-none prose-p:text-[#c6d2e3] prose-p:leading-8 prose-strong:text-white">
                                                         {subsection.renderedParagraphs.map(
-                                                            (paragraph) => (
+                                                            (paragraph: string) => (
                                                                 <div
                                                                     set:html={paragraph}
                                                                 />
