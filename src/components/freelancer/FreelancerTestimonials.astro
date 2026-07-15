@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
+const hasMultipleTestimonials = content.items.length > 1;
 ---
 
 <section id="testimonials" class="scroll-mt-28 px-6 py-20 md:px-10 md:py-24">
@@ -23,22 +24,35 @@ const { content } = Astro.props;
         </div>
 
         <div class="relative mt-14">
-            <button
-                type="button"
-                aria-label="Previous testimonials"
-                class="absolute left-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
-            >
-                &lt;
-            </button>
-            <button
-                type="button"
-                aria-label="Next testimonials"
-                class="absolute right-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
-            >
-                &gt;
-            </button>
+            {
+                hasMultipleTestimonials && (
+                    <>
+                        <button
+                            type="button"
+                            aria-label="Previous testimonials"
+                            class="absolute left-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Next testimonials"
+                            class="absolute right-[-12px] top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#2b3548] text-[#a6b5cd] lg:flex"
+                        >
+                            &gt;
+                        </button>
+                    </>
+                )
+            }
 
-            <div class="grid gap-4 lg:grid-cols-3">
+            <div
+                class:list={[
+                    'grid gap-4',
+                    hasMultipleTestimonials
+                        ? 'lg:grid-cols-3'
+                        : 'mx-auto max-w-[680px]',
+                ]}
+            >
                 {
                     content.items.map((item) => (
                         <article class="rounded-[12px] bg-[#151e31] p-5">
@@ -63,12 +77,16 @@ const { content } = Astro.props;
                 }
             </div>
 
-            <div class="mt-6 flex items-center justify-center gap-2">
-                <span class="h-1.5 w-4 rounded-full bg-[#d8dbe4]"></span>
-                <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
-                <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
-                <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
-            </div>
+            {
+                hasMultipleTestimonials && (
+                    <div class="mt-6 flex items-center justify-center gap-2">
+                        <span class="h-1.5 w-4 rounded-full bg-[#d8dbe4]"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#5a6478]"></span>
+                    </div>
+                )
+            }
         </div>
     </div>
 </section>

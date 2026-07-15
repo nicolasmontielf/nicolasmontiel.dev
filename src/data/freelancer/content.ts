@@ -120,24 +120,10 @@ const freelancerContentEn: FreelancerPageContent = {
         items: [
             {
                 quote:
-                    '"Alex redesigned our entire web platform and the results speak for themselves. His attention to detail and ability to turn complex requirements into elegant solutions is remarkable."',
-                author: 'Sarah Chen',
-                role: 'CEO, TechFlow',
-                initial: 'S',
-            },
-            {
-                quote:
-                    '"Working with Alex was effortless. He understood our vision immediately and delivered a brand identity that perfectly balanced modern aesthetics with practical usability."',
-                author: 'Marcus Johnson',
-                role: 'CTO, DataSync',
-                initial: 'M',
-            },
-            {
-                quote:
-                    '"The mobile app Alex designed for us won a design award. His attention to micro-interactions and performance makes the product feel polished from the very first tap."',
-                author: 'Emily Rodriguez',
-                role: 'Product Manager, CloudBase',
-                initial: 'E',
+                    '"Nico automated the registration of our work orders and saved us a lot of manual work. The process is now faster, more consistent, and easier to control, reducing errors and improving the tracking of each order."',
+                author: 'Walter Medina',
+                role: 'CEO, WM Servicios Informaticos',
+                initial: 'W',
             },
         ],
     },
@@ -282,24 +268,10 @@ const freelancerContentEs: FreelancerPageContent = {
         items: [
             {
                 quote:
-                    '"Alex rediseñó toda nuestra plataforma web y los resultados hablan por sí solos. Su atención al detalle y su capacidad para convertir requerimientos complejos en soluciones elegantes es notable."',
-                author: 'Sarah Chen',
-                role: 'CEO, TechFlow',
-                initial: 'S',
-            },
-            {
-                quote:
-                    '"Trabajar con Alex fue muy simple. Entendió nuestra visión rápidamente y entregó una identidad de marca que equilibró perfecto una estética moderna con usabilidad real."',
-                author: 'Marcus Johnson',
-                role: 'CTO, DataSync',
-                initial: 'M',
-            },
-            {
-                quote:
-                    '"La app mobile que Alex diseñó para nosotros ganó un premio de diseño. Su atención a las microinteracciones y al performance hace que el producto se sienta pulido desde el primer tap."',
-                author: 'Emily Rodriguez',
-                role: 'Product Manager, CloudBase',
-                initial: 'E',
+                    '"Nico automatizó el registro de nuestras ordenes de trabajo y nos ahorró mucho trabajo manual. El proceso ahora es más rápido, consistente y fácil de controlar, reduciendo errores y mejorando el seguimiento de cada orden."',
+                author: 'Walter Medina',
+                role: 'CEO de WM Servicios Informaticos',
+                initial: 'W',
             },
         ],
     },
