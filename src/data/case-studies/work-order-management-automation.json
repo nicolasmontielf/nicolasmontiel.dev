@@ -1,0 +1,109 @@
+{
+    "slug": "work-order-management-automation",
+    "metadata": {
+        "order": 2,
+        "technologies": ["Node.js", "React", "Turso", "SQLite", "Vercel"],
+        "preview": {
+            "en": {
+                "title": "Work Order Automation",
+                "previewText": "An internal system that digitized work orders and automated monthly reporting for a software services company.",
+                "category": "Process Automation",
+                "imageSrc": "/og-default.png",
+                "imageAlt": "Work order automation case study preview"
+            },
+            "es": {
+                "title": "Automatización de órdenes de trabajo",
+                "previewText": "Un sistema interno que digitalizó las órdenes de trabajo y automatizó los reportes mensuales de una empresa de servicios informáticos.",
+                "category": "Automatización de procesos",
+                "imageSrc": "/og-default.png",
+                "imageAlt": "Vista previa del caso de automatización de órdenes de trabajo"
+            }
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": {
+                "title": "Digitizing Work Orders and Client Reporting",
+                "subtitle": "A simple internal platform replaced a mostly paper-based workflow with centralized time tracking, reporting, and automated email delivery.",
+                "paragraphs": [
+                    "I developed a work order management system for WM Servicios Informaticos, a company that provides accounting software and ongoing technical services to its clients. The platform allows employees to record their work and gives administrators the information needed to prepare and send client reports."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/og-default.png",
+                        "alt": "Work order automation case study cover image"
+                    }
+                ]
+            },
+            "es": {
+                "title": "Digitalización de órdenes de trabajo y reportes a clientes",
+                "subtitle": "Una plataforma interna simple reemplazó un flujo mayormente basado en papel por un sistema centralizado de registro, reportes y envío automático de correos.",
+                "paragraphs": [
+                    "Desarrollé un sistema de gestión de órdenes de trabajo para WM Servicios Informaticos, una empresa que ofrece software contable y servicios técnicos continuos a sus clientes. La plataforma permite que los empleados registren sus trabajos y brinda a los administradores la información necesaria para preparar y enviar reportes."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/og-default.png",
+                        "alt": "Imagen principal del caso de automatización de órdenes de trabajo"
+                    }
+                ]
+            }
+        },
+        "context": {
+            "en": {
+                "title": "Context",
+                "paragraphs": [
+                    "Work performed for clients was previously recorded on paper. At the end of each month, employees had to read every work order, calculate the accumulated hours manually, and prepare reports for each company.",
+                    "This process took several days and made it difficult to quickly understand how much time was being spent on each client, employee, or type of service. The company needed a straightforward system that employees could adopt without adding unnecessary complexity."
+                ]
+            },
+            "es": {
+                "title": "Contexto",
+                "paragraphs": [
+                    "Los trabajos realizados para los clientes se registraban anteriormente en hojas de papel. Al final de cada mes, una persona debía leer cada orden, sumar manualmente las horas acumuladas y preparar los reportes correspondientes a cada empresa.",
+                    "Este proceso tomaba varios días y dificultaba conocer rápidamente cuánto tiempo se dedicaba a cada cliente, empleado o servicio. La empresa necesitaba un sistema sencillo que pudiera ser adoptado por los usuarios sin agregar complejidad innecesaria."
+                ]
+            }
+        },
+        "approach": {
+            "en": {
+                "title": "Approach",
+                "paragraphs": [
+                    "I built a web application with React and Node.js, using Turso SQLite for data storage and Vercel for deployment. Employees can log in and record the client, service date, start and end times, transportation time for on-site work, and a description of the task performed.",
+                    "The system includes user and administrator roles. Regular users can register their work, while administrators can access reports and filter records by client, month, or employee responsible for the service.",
+                    "Reports are displayed directly in the platform and can be exported as PDF files. Administrators can also send those reports to clients by email without leaving the system.",
+                    "The implementation prioritized simplicity over technical complexity. Since the main challenge was replacing an established paper workflow, the interface and data-entry process were kept direct and familiar."
+                ]
+            },
+            "es": {
+                "title": "Enfoque",
+                "paragraphs": [
+                    "Construí una aplicación web con React y Node.js, utilizando Turso SQLite para almacenar los datos y Vercel para el deployment. Los empleados pueden iniciar sesión y registrar el cliente, la fecha del servicio, la hora de inicio y fin, el tiempo de transporte para trabajos presenciales y una descripción de la tarea realizada.",
+                    "El sistema incluye roles de usuario y administrador. Los usuarios regulares pueden registrar sus trabajos, mientras que los administradores pueden acceder a los reportes y filtrar los registros por cliente, mes o persona encargada del servicio.",
+                    "Los reportes se muestran directamente en la plataforma y pueden exportarse como archivos PDF. Los administradores también pueden enviarlos a los clientes por correo electrónico sin salir del sistema.",
+                    "La implementación priorizó la simplicidad por encima de la complejidad técnica. Como el principal desafío era reemplazar un flujo de trabajo ya establecido en papel, la interfaz y el proceso de carga se mantuvieron directos y familiares."
+                ]
+            }
+        },
+        "outcome": {
+            "en": {
+                "title": "Outcome",
+                "paragraphs": [
+                    "The platform is used by six employees and manages approximately 100 work orders per month. Around 70% of services are now recorded directly in the system, while the remaining paper records are later entered into the same centralized database.",
+                    "Preparing monthly reports was reduced from several days of manual work to a few hours. The company can now generate consistent client reports, export or email PDFs, and access statistics for hours worked by employee, month, and client.",
+                    "The system also created a reliable operational record for future analysis. Instead of relying on scattered paper documents, administrators can quickly understand where the team's time is being spent and which clients require the most attention."
+                ]
+            },
+            "es": {
+                "title": "Resultado",
+                "paragraphs": [
+                    "La plataforma es utilizada por seis personas y gestiona aproximadamente 100 órdenes de trabajo por mes. Cerca del 70% de los servicios ya se registran directamente en el sistema, mientras que los documentos en papel restantes se cargan posteriormente en la misma base de datos centralizada.",
+                    "La preparación de los reportes mensuales pasó de requerir varios días de trabajo manual a tomar solo unas horas. La empresa ahora puede generar reportes consistentes para sus clientes, exportar o enviar PDFs por correo y consultar estadísticas de horas trabajadas por empleado, mes y cliente.",
+                    "El sistema también creó un registro operativo confiable para futuros análisis. En lugar de depender de documentos dispersos en papel, los administradores pueden conocer rápidamente cómo se distribuye el tiempo del equipo y qué clientes requieren mayor atención."
+                ]
+            }
+        }
+    }
+}

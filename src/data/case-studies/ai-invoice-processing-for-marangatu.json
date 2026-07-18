@@ -1,0 +1,113 @@
+{
+    "slug": "ai-invoice-processing-for-marangatu",
+    "metadata": {
+        "order": 1,
+        "technologies": ["Laravel", "Redis", "Turso", "OpenAI API", "AWS"],
+        "preview": {
+            "en": {
+                "title": "AI Invoice Processing",
+                "previewText": "An AI-powered workflow for extracting, reviewing, and exporting physical invoice data to Paraguay's Marangatu system.",
+                "category": "AI Automation",
+                "imageSrc": "/og-default.png",
+                "imageAlt": "AI invoice processing case study preview"
+            },
+            "es": {
+                "title": "Procesamiento de facturas con IA",
+                "previewText": "Un flujo automatizado con IA para extraer, revisar y exportar facturas físicas al sistema Marangatu.",
+                "category": "Automatización con IA",
+                "imageSrc": "/og-default.png",
+                "imageAlt": "Vista previa del caso de procesamiento de facturas con IA"
+            }
+        }
+    },
+    "sections": {
+        "hero": {
+            "en": {
+                "title": "Automating Physical Invoice Processing with AI",
+                "subtitle": "A document-processing platform that converts physical invoices into structured data ready for bulk import into Marangatu.",
+                "paragraphs": [
+                    "I built a web application that allows users to upload images of physical invoices, extract their accounting data with AI, review the results, and export them in the format required by Paraguay's Marangatu tax system."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/og-default.png",
+                        "alt": "AI invoice processing case study cover image"
+                    }
+                ]
+            },
+            "es": {
+                "title": "Automatización del procesamiento de facturas físicas con IA",
+                "subtitle": "Una plataforma de procesamiento documental que convierte facturas físicas en datos estructurados listos para importar masivamente en Marangatu.",
+                "paragraphs": [
+                    "Desarrollé una aplicación web que permite subir imágenes de facturas físicas, extraer sus datos contables con IA, revisar los resultados y exportarlos en el formato requerido por el sistema tributario Marangatu de Paraguay."
+                ],
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/og-default.png",
+                        "alt": "Imagen principal del caso de procesamiento de facturas con IA"
+                    }
+                ]
+            }
+        },
+        "context": {
+            "en": {
+                "title": "Context",
+                "paragraphs": [
+                    "Although electronic invoicing is increasingly common in Paraguay, many businesses still issue physical invoices. Some are printed, while others are handwritten, which means their information must be entered manually into Marangatu.",
+                    "Entering each invoice individually took approximately one minute and became repetitive when processing large volumes. This was particularly time-consuming for accounting work involving invoices from multiple clients.",
+                    "The goal was to reduce manual data entry without removing human validation, especially because image quality and handwritten documents could affect extraction accuracy."
+                ]
+            },
+            "es": {
+                "title": "Contexto",
+                "paragraphs": [
+                    "Aunque la facturación electrónica es cada vez más común en Paraguay, muchos comercios todavía emiten facturas físicas. Algunas son impresas y otras están escritas a mano, por lo que su información debe cargarse manualmente en Marangatu.",
+                    "Cargar cada factura de forma individual tomaba aproximadamente un minuto y se volvía una tarea repetitiva al procesar grandes volúmenes. Esto afectaba especialmente al trabajo contable con facturas de varios clientes.",
+                    "El objetivo era reducir la carga manual sin eliminar la validación humana, ya que la calidad de las imágenes y las facturas manuscritas podían afectar la precisión de la extracción."
+                ]
+            }
+        },
+        "approach": {
+            "en": {
+                "title": "Approach",
+                "paragraphs": [
+                    "I developed the backend with Laravel and used Redis queues to process invoices asynchronously. Users can upload up to 20 images at once, while the system groups them into batches of four before sending them to the OpenAI API.",
+                    "GPT-5 mini analyzes each image and extracts the merchant RUC, issue date, receipt number, invoice number, total amount, 10% VAT, and 5% VAT. It also generates a confidence score based on image clarity and how reliably each required field could be identified.",
+                    "Turso stores the invoice records and review state, while AWS provides the deployment environment for the application. This kept the workflow responsive while invoice extraction jobs continued running in the background.",
+                    "The interface displays the original invoice beside the extracted data, allowing users to compare and correct individual fields before exporting. Once reviewed, the invoices are converted into a `.txt` file using the filename and data structure required by Marangatu.",
+                    "The main technical challenge was making the AI integration reliable across different invoice formats. I refined the extraction instructions and confidence-score criteria so that clear invoices received high scores while ambiguous or handwritten documents were correctly flagged for closer review."
+                ]
+            },
+            "es": {
+                "title": "Enfoque",
+                "paragraphs": [
+                    "Desarrollé el backend con Laravel y utilicé colas de Redis para procesar las facturas de forma asíncrona. Los usuarios pueden subir hasta 20 imágenes a la vez, mientras que el sistema las agrupa en lotes de cuatro antes de enviarlas a la API de OpenAI.",
+                    "GPT-5 mini analiza cada imagen y extrae el RUC del comercio, la fecha de emisión, el número de boleta, el número de factura, el importe total, el IVA 10% y el IVA 5%. También genera un puntaje de confianza según la claridad de la imagen y la seguridad con la que pudo identificar cada campo requerido.",
+                    "Turso almacena los registros de facturas y el estado de revisión, mientras que AWS provee el entorno de despliegue de la aplicación. Esto mantiene el flujo ágil mientras los trabajos de extracción siguen ejecutándose en segundo plano.",
+                    "La interfaz muestra la factura original junto a los datos extraídos, permitiendo comparar y corregir cada campo antes de exportar. Una vez revisadas, las facturas se convierten en un archivo `.txt` con el nombre y la estructura exigidos por Marangatu.",
+                    "El principal desafío técnico fue lograr una integración confiable con la IA para distintos formatos de factura. Ajusté las instrucciones de extracción y los criterios del puntaje de confianza para que las facturas claras recibieran puntuaciones altas y los documentos ambiguos o manuscritos fueran marcados para una revisión más detallada."
+                ]
+            }
+        },
+        "outcome": {
+            "en": {
+                "title": "Outcome",
+                "paragraphs": [
+                    "The system has processed more than 1,000 invoices for personal use and for people close to me, including accounting workflows involving multiple clients.",
+                    "Reviewing a correctly extracted invoice takes approximately five seconds instead of the minute previously required for manual entry. When a correction is needed, the complete review usually takes between 30 and 40 seconds.",
+                    "The confidence score makes it possible to focus attention on uncertain invoices rather than manually checking every document with the same level of detail. After validation, hundreds of invoices can be imported into Marangatu in a single operation instead of being entered individually."
+                ]
+            },
+            "es": {
+                "title": "Resultado",
+                "paragraphs": [
+                    "El sistema ya procesó más de 1.000 facturas para uso personal y de personas cercanas, incluyendo flujos contables relacionados con varios clientes.",
+                    "Revisar una factura correctamente extraída toma aproximadamente cinco segundos, frente al minuto que requería anteriormente la carga manual. Cuando es necesario corregir algún dato, la revisión completa suele tomar entre 30 y 40 segundos.",
+                    "El puntaje de confianza permite concentrar la atención en las facturas con resultados inciertos, en lugar de revisar todos los documentos con el mismo nivel de detalle. Después de la validación, cientos de facturas pueden importarse en Marangatu en una sola operación, en lugar de cargarlas individualmente."
+                ]
+            }
+        }
+    }
+}
